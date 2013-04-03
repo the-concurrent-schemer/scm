@@ -1,6 +1,15 @@
 .eqc-info
 .eunit/
 .qc/
+c_src/*.o
 deps/
 ebin/
 erl_crash.dump
+priv/lib/
+src/scmd_parse.erl
+src/scmd_parse_numR.erl
+src/scmd_scan.erl
+src/scmd_scan_num10.erl
+src/scmd_scan_num16.erl
+src/scmd_scan_num2.erl
+src/scmd_scan_num8.erl

@@ -1,0 +1,36 @@
+%% -*- Doc -*-
+%% vim: set syntax=asciidoc:
+@author Joseph Wayne Norton <norton@alum.mit.edu>
+@copyright 2013 by Joseph Wayne Norton
+@title The Concurrent Schemer
+@doc
+
+"The Concurrent Schemer" (CSCM) is an implementation of the Scheme
+programming language built on top of the Erlang Virtual Machine.  CSCM
+combines the sequential programming model of Scheme with the
+concurrent, distributed, and fault-tolerant programming model of
+Erlang.  Simply put, the goals of CSCM are concurrent Scheme,
+distributed Scheme, and fault-tolerant Scheme.
+
+Scheme is a statically scoped and properly tail recursive dialect of
+the Lisp programming language invented by Guy Lewis Steele Jr. and
+Gerald Jay Sussman at MIT.  Scheme was designed to have exceptionally
+clear and simple semantics and few different ways to form expressions.
+A wide variety of programming paradigms, including imperative,
+functional, and object-oriented styles, find convenient expression in
+Scheme.
+
+Erlang is a programming language used to build massively scalable,
+soft, real-time systems with requirements on high availability.
+Erlang\'s runtime system has built-in support for concurrency,
+distribution and fault tolerance.  Erlang is designed at the Ericsson
+Computer Science Laborary and is maintained as an open-source project
+and community.
+
+The default language is Scheme R7RS.  The default virtual machine is
+Erlang/OTP R16B or higher.
+
+For further information, see
+https://github.com/the-concurrent-schemer.
+
+@end
