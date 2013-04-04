@@ -115,7 +115,7 @@
 -type s_rectangular()            :: {rectangular, {Real :: s_real(), Imag :: s_real()}}.
 -type s_polar()                  :: {polar, {Mag :: s_real(), Ang :: s_rational()}}.
 -type s_real()                   :: s_infnan() | s_finite().
--type s_infnan()                 :: ?PINF | ?NINF | ?PNAN.
+-type s_infnan()                 :: ?PINF | ?NINF | ?PNAN | ?NNAN.
 -type s_finite()                 :: s_finite_inexact() | s_finite_exact().
 -type s_finite_inexact()         :: s_negzero() | float() | s_integer_inexact().
 -type s_negzero()                :: ?NZER.

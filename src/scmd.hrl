@@ -32,6 +32,7 @@
 -define(PINF,             {+1, 'inf.0'}).
 -define(NINF,             {-1, 'inf.0'}).
 -define(PNAN,             {+1, 'nan.0'}).
+-define(NNAN,             {-1, 'nan.0'}).
 -define(NZER,             {-1, '0.0'}).
 
 -define(FALSE,            #boolean{val=false}).

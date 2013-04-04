@@ -79,6 +79,8 @@ inexact(X, _Env) ->
     ?NINF;
 'make-real'(?PNAN, _Env) ->
     ?PNAN;
+'make-real'(?NNAN, _Env) ->
+    ?NNAN;
 'make-real'(?NZER, _Env) ->
     ?NZER;
 'make-real'({0, 0}, _Env) ->
