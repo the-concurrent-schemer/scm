@@ -30,6 +30,7 @@
 #include "scmi_env.h"
 #include "scmi_env_lib.h"
 
+#include <stdio.h>
 #include <utility>
 #include <vector>
 
