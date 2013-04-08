@@ -34,16 +34,24 @@ Erlang/OTP R16B or higher.</p>
 
 
 <table width="100%" border="0" summary="list of modules">
-<tr><td><a href="https://github.com/norton/scm/blob/master/doc/scmd.md" class="module">scmd</a></td></tr>
-<tr><td><a href="https://github.com/norton/scm/blob/master/doc/scmd_parse.md" class="module">scmd_parse</a></td></tr>
-<tr><td><a href="https://github.com/norton/scm/blob/master/doc/scmd_parse_numR.md" class="module">scmd_parse_numR</a></td></tr>
-<tr><td><a href="https://github.com/norton/scm/blob/master/doc/scmd_scan.md" class="module">scmd_scan</a></td></tr>
-<tr><td><a href="https://github.com/norton/scm/blob/master/doc/scmd_scan_num10.md" class="module">scmd_scan_num10</a></td></tr>
-<tr><td><a href="https://github.com/norton/scm/blob/master/doc/scmd_scan_num16.md" class="module">scmd_scan_num16</a></td></tr>
-<tr><td><a href="https://github.com/norton/scm/blob/master/doc/scmd_scan_num2.md" class="module">scmd_scan_num2</a></td></tr>
-<tr><td><a href="https://github.com/norton/scm/blob/master/doc/scmd_scan_num8.md" class="module">scmd_scan_num8</a></td></tr>
-<tr><td><a href="https://github.com/norton/scm/blob/master/doc/scmd_type.md" class="module">scmd_type</a></td></tr>
-<tr><td><a href="https://github.com/norton/scm/blob/master/doc/scmi.md" class="module">scmi</a></td></tr>
-<tr><td><a href="https://github.com/norton/scm/blob/master/doc/scmi_env.md" class="module">scmi_env</a></td></tr>
-<tr><td><a href="https://github.com/norton/scm/blob/master/doc/scmtmp.md" class="module">scmtmp</a></td></tr></table>
+<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scm_app.md" class="module">scm_app</a></td></tr>
+<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scm_sup.md" class="module">scm_sup</a></td></tr>
+<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmd.md" class="module">scmd</a></td></tr>
+<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmd_parse.md" class="module">scmd_parse</a></td></tr>
+<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmd_parse_numR.md" class="module">scmd_parse_numR</a></td></tr>
+<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmd_scan.md" class="module">scmd_scan</a></td></tr>
+<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmd_scan_num10.md" class="module">scmd_scan_num10</a></td></tr>
+<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmd_scan_num16.md" class="module">scmd_scan_num16</a></td></tr>
+<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmd_scan_num2.md" class="module">scmd_scan_num2</a></td></tr>
+<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmd_scan_num8.md" class="module">scmd_scan_num8</a></td></tr>
+<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmd_type.md" class="module">scmd_type</a></td></tr>
+<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi.md" class="module">scmi</a></td></tr>
+<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi_analyze.md" class="module">scmi_analyze</a></td></tr>
+<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi_analyze_derived.md" class="module">scmi_analyze_derived</a></td></tr>
+<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi_analyze_primitive.md" class="module">scmi_analyze_primitive</a></td></tr>
+<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi_analyze_program.md" class="module">scmi_analyze_program</a></td></tr>
+<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi_analyze_syntax.md" class="module">scmi_analyze_syntax</a></td></tr>
+<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi_env.md" class="module">scmi_env</a></td></tr>
+<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi_eval.md" class="module">scmi_eval</a></td></tr>
+<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmtmp.md" class="module">scmtmp</a></td></tr></table>
 

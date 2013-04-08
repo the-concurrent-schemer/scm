@@ -34,6 +34,8 @@ Erlang/OTP R16B or higher.</p>
 
 
 <table width="100%" border="0" summary="list of modules">
+<tr><td><a href="scm_app.md" class="module">scm_app</a></td></tr>
+<tr><td><a href="scm_sup.md" class="module">scm_sup</a></td></tr>
 <tr><td><a href="scmd.md" class="module">scmd</a></td></tr>
 <tr><td><a href="scmd_parse.md" class="module">scmd_parse</a></td></tr>
 <tr><td><a href="scmd_parse_numR.md" class="module">scmd_parse_numR</a></td></tr>
@@ -44,6 +46,12 @@ Erlang/OTP R16B or higher.</p>
 <tr><td><a href="scmd_scan_num8.md" class="module">scmd_scan_num8</a></td></tr>
 <tr><td><a href="scmd_type.md" class="module">scmd_type</a></td></tr>
 <tr><td><a href="scmi.md" class="module">scmi</a></td></tr>
+<tr><td><a href="scmi_analyze.md" class="module">scmi_analyze</a></td></tr>
+<tr><td><a href="scmi_analyze_derived.md" class="module">scmi_analyze_derived</a></td></tr>
+<tr><td><a href="scmi_analyze_primitive.md" class="module">scmi_analyze_primitive</a></td></tr>
+<tr><td><a href="scmi_analyze_program.md" class="module">scmi_analyze_program</a></td></tr>
+<tr><td><a href="scmi_analyze_syntax.md" class="module">scmi_analyze_syntax</a></td></tr>
 <tr><td><a href="scmi_env.md" class="module">scmi_env</a></td></tr>
+<tr><td><a href="scmi_eval.md" class="module">scmi_eval</a></td></tr>
 <tr><td><a href="scmtmp.md" class="module">scmtmp</a></td></tr></table>
 

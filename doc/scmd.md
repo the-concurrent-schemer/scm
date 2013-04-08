@@ -206,7 +206,7 @@ s_identifier() = <a href="#type-t_identifier">t_identifier()</a>
 
 
 <pre><code>
-s_infnan() = '?PINF' | '?NINF' | '?PNAN'
+s_infnan() = '?PINF' | '?NINF' | '?PNAN' | '?NNAN'
 </code></pre>
 
 

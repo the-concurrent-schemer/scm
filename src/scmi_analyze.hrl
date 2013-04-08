@@ -1,5 +1,3 @@
-%%% -*- mode: erlang -*-
-
 %%% The MIT License
 %%%
 %%% Copyright (C) 2013 by Joseph Wayne Norton <norton@alum.mit.edu>
@@ -22,26 +20,12 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 
-{application, scm,
- [{description, "The Concurrent Schemer"},
-  {id, scm},
-  {vsn, git},
-  {modules, [scm_app, scm_sup,
-             scmd,
-             scmd_parse, scmd_parse_numR,
-             scmd_scan, scmd_scan_num16, scmd_scan_num10, scmd_scan_num8, scmd_scan_num2,
-             scmd_type,
-             scmi,
-             scmi_analyze,
-             scmi_analyze_derived,
-             scmi_analyze_primitive,
-             scmi_analyze_program,
-             scmi_analyze_syntax,
-             scmi_env,
-             scmi_eval,
-             scmtmp]},
-  {included_applications, [parsetools]},
-  {applications, [kernel, stdlib, sasl]},
-  {env, []},
-  {mod, {scm_app, []}}
- ]}.
+-ifndef(scmi_analyze).
+-define(scmi_analyze, true).
+
+-record(ana, {
+          file    :: scmd_parse:filename(),  % Current file
+          path=[] :: [scmd_parse:filename()] % Include-path
+         }).
+
+-endif. % -ifndef(scmi_analyze).

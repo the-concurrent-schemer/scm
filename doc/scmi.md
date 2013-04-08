@@ -2,6 +2,8 @@
 
 # Module scmi #
 * [Data Types](#types)
+* [Function Index](#index)
+* [Function Details](#functions)
 
 
 
@@ -379,5 +381,59 @@ val() = <a href="#type-scm_any">scm_any()</a>
 <pre><code>
 vargs() = [<a href="#type-arg">arg()</a>]
 </code></pre>
+
+
+<a name="index"></a>
+
+## Function Index ##
+
+
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#make_call-2">make_call/2</a></td><td></td></tr><tr><td valign="top"><a href="#make_define-2">make_define/2</a></td><td></td></tr><tr><td valign="top"><a href="#make_if-3">make_if/3</a></td><td></td></tr><tr><td valign="top"><a href="#make_lambda-2">make_lambda/2</a></td><td></td></tr><tr><td valign="top"><a href="#make_set-2">make_set/2</a></td><td></td></tr><tr><td valign="top"><a href="#make_variable-0">make_variable/0</a></td><td></td></tr></table>
+
+
+<a name="functions"></a>
+
+## Function Details ##
+
+<a name="make_call-2"></a>
+
+### make_call/2 ###
+
+`make_call(Proc, Args) -> any()`
+
+
+<a name="make_define-2"></a>
+
+### make_define/2 ###
+
+`make_define(Variable, Value) -> any()`
+
+
+<a name="make_if-3"></a>
+
+### make_if/3 ###
+
+`make_if(Test, Consequent, Alternate) -> any()`
+
+
+<a name="make_lambda-2"></a>
+
+### make_lambda/2 ###
+
+`make_lambda(Formals, Body) -> any()`
+
+
+<a name="make_set-2"></a>
+
+### make_set/2 ###
+
+`make_set(Variable, Value) -> any()`
+
+
+<a name="make_variable-0"></a>
+
+### make_variable/0 ###
+
+`make_variable() -> any()`
 
 

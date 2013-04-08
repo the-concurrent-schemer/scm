@@ -1,6 +1,8 @@
 %% encoding: UTF-8
 {application,scm}.
 {packages,[]}.
-{modules,[scmd,scmd_parse,scmd_parse_numR,scmd_scan,scmd_scan_num10,
-          scmd_scan_num16,scmd_scan_num2,scmd_scan_num8,scmd_type,scmi,
-          scmi_env,scmtmp]}.
+{modules,[scm_app,scm_sup,scmd,scmd_parse,scmd_parse_numR,scmd_scan,
+          scmd_scan_num10,scmd_scan_num16,scmd_scan_num2,scmd_scan_num8,
+          scmd_type,scmi,scmi_analyze,scmi_analyze_derived,
+          scmi_analyze_primitive,scmi_analyze_program,scmi_analyze_syntax,
+          scmi_env,scmi_eval,scmtmp]}.

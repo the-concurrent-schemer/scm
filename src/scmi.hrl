@@ -45,6 +45,7 @@
 -type scmi_procnv() :: scmi:procnv().
 -type scmi_proc()   :: scmi:proc().
 
+-type scmi_ana()    :: scmi:ana().
 -type scmi_exec()   :: scmi:exec().
 -type scmi_env()    :: scmi:env().
 -type scmi_ccok()   :: scmi:ccok().

@@ -26,7 +26,13 @@
 -include("scmi.hrl").
 
 %% External exports
--export([]).
+-export([make_call/2
+         , make_define/2
+         , make_if/3
+         , make_lambda/2
+         , make_set/2
+         , make_variable/0
+        ]).
 
 %% External types
 -export_type([exec/0
@@ -57,6 +63,7 @@
 %%% Types/Specs/Records
 %%%----------------------------------------------------------------------
 
+-type ana()    :: scmi_analyze:ana().
 -type exec()   :: fun((env(), ccok(), ccng()) -> val()).
 -type env()    :: scmi_env:env().
 -type ccok()   :: fun((val(), ccng()) -> val()).
@@ -98,6 +105,24 @@
 %%% API
 %%%----------------------------------------------------------------------
 
+make_call(Proc, Args) ->
+    [Proc|Args].
+
+make_define(Variable, Value) ->
+    ['define', Variable, Value].
+
+make_if(Test, Consequent, Alternate) ->
+    ['if', Test, Consequent, Alternate].
+
+make_lambda(Formals, Body) ->
+    ['lambda', Formals, Body].
+
+make_set(Variable, Value) ->
+    ['set!', Variable, Value].
+
+make_variable() ->
+    erlang:make_ref().
+
 %%%----------------------------------------------------------------------
-%%% Internal functions - helpers
+%%% Internal functions
 %%%----------------------------------------------------------------------
