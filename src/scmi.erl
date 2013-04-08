@@ -105,7 +105,7 @@
 %%% API
 %%%----------------------------------------------------------------------
 
-make_call(Proc, Args) ->
+make_call(Proc, Args) when is_list(Args) ->
     [Proc|Args].
 
 make_define(Variable, Value) ->
@@ -114,8 +114,8 @@ make_define(Variable, Value) ->
 make_if(Test, Consequent, Alternate) ->
     ['if', Test, Consequent, Alternate].
 
-make_lambda(Formals, Body) ->
-    ['lambda', Formals, Body].
+make_lambda(Formals, Body) when is_list(Body) ->
+    ['lambda'|[Formals|Body]].
 
 make_set(Variable, Value) ->
     ['set!', Variable, Value].
