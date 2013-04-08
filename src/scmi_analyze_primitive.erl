@@ -271,7 +271,7 @@ includer_lib(Name, Ana) ->
             erlang:error(badarg, [Name, Ana]);
         _ ->
             [AppName|Rest] = filename:split(Name),
-            case code:lib_dir(AppName) of
+            case code:lib_dir(list_to_atom(AppName)) of
                 {error, bad_name} ->
                     erlang:error(badarg, [Name, Ana]);
                 DirName ->
