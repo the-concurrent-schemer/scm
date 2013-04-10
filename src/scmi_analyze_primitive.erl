@@ -76,7 +76,7 @@ analyze_application([Operator|Operands], Ana) when is_list(Operands) ->
             FExec(Env,
                   fun(Proc, Ng1) ->
                           get_args(AExecs, Env,
-                                   fun(Args, Ng2) -> execute_application(Proc, Args, Ok, Ng2) end,
+                                   fun(Args, Ng2) -> execute_application(Proc, Args, Env, Ok, Ng2) end,
                                    Ng1)
                   end,
                   Ng)
@@ -164,24 +164,32 @@ get_args([AExec|AExecs], Env, Ok, Ng) ->
           end,
           Ng).
 
-execute_application(#nip0{val=Fun}, [], Ok, Ng) ->
+execute_application(#nip0{val=Fun}, [], _Env, Ok, Ng) ->
     Ok(apply_nip0(Fun), Ng);
-execute_application(#nipn{val=FunOrFuns}, Args, Ok, Ng) ->
+execute_application(#nipn{val=FunOrFuns}, Args, _Env, Ok, Ng) ->
     Ok(apply_nipn(FunOrFuns, Args), Ng);
-execute_application(#nipv{val=Fun}, Args, Ok, Ng) ->
+execute_application(#nipv{val=Fun}, Args, _Env, Ok, Ng) ->
     Ok(apply_nipv(Fun, Args), Ng);
-execute_application(#nipnv{val=Fun}, Args, Ok, Ng) ->
+execute_application(#nipnv{val=Fun}, Args, _Env, Ok, Ng) ->
     Ok(apply_nipnv(Fun, Args), Ng);
-execute_application(#proc0{val=Proc}, [], Ok, Ng) ->
+execute_application(#xnip0{val=Fun}, [], Env, Ok, Ng) ->
+    apply_xnip0(Fun, Env, Ok, Ng);
+execute_application(#xnipn{val=FunOrFuns}, Args, Env, Ok, Ng) ->
+    apply_xnipn(FunOrFuns, Args, Env, Ok, Ng);
+execute_application(#xnipv{val=Fun}, Args, Env, Ok, Ng) ->
+    apply_xnipv(Fun, Args, Env, Ok, Ng);
+execute_application(#xnipnv{val=Fun}, Args, Env, Ok, Ng) ->
+    apply_xnipnv(Fun, Args, Env, Ok, Ng);
+execute_application(#proc0{val=Proc}, [], _Env, Ok, Ng) ->
     apply_proc0(Proc, Ok, Ng);
-execute_application(#procn{val=Proc}, Args, Ok, Ng) ->
+execute_application(#procn{val=Proc}, Args, _Env, Ok, Ng) ->
     apply_procn(Proc, Args, Ok, Ng);
-execute_application(#procv{val=Proc}, Args, Ok, Ng) ->
+execute_application(#procv{val=Proc}, Args, _Env, Ok, Ng) ->
     apply_procv(Proc, Args, Ok, Ng);
-execute_application(#procnv{val=Proc}, Args, Ok, Ng) ->
+execute_application(#procnv{val=Proc}, Args, _Env, Ok, Ng) ->
     apply_procnv(Proc, Args, Ok, Ng);
-execute_application(Proc, Args, Ok, Ng) ->
-    erlang:error(badarg, [Proc, Args, Ok, Ng]).
+execute_application(Proc, Args, Env, Ok, Ng) ->
+    erlang:error(badarg, [Proc, Args, Env, Ok, Ng]).
 
 apply_nip0(Fun) ->
     Fun().
@@ -205,6 +213,20 @@ apply_nipnv(Fun, Args) ->
     {arity, N} = erlang:fun_info(Fun, arity),
     ArgsN = splitnv_arguments(N-1, Args),
     erlang:apply(Fun, ArgsN).
+
+apply_xnip0(Fun, Env, Ok, Ng) ->
+    Fun(Env, Ok, Ng).
+
+apply_xnipn(Funs, Args, Env, Ok, Ng) ->
+    apply_nipn(Funs, Args++[Env, Ok, Ng]).
+
+apply_xnipv(Fun, Args, Env, Ok, Ng) ->
+    Fun(Args, Env, Ok, Ng).
+
+apply_xnipnv(Fun, Args, Env, Ok, Ng) ->
+    {arity, N} = erlang:fun_info(Fun, arity),
+    ArgsN = splitnv_arguments(N-4, Args),
+    erlang:apply(Fun, ArgsN++[Env, Ok, Ng]).
 
 apply_proc0({Exec, BaseEnv}, Ok, Ng) ->
     Exec(scmi_env:extend([], [], BaseEnv), Ok, Ng).

@@ -35,7 +35,8 @@
         ]).
 
 %% External types
--export_type([exec/0
+-export_type([ana/0
+              , exec/0
               , env/0
               , ccok/0
               , ccng/0]).
@@ -50,6 +51,13 @@
               , nipv/0
               , nipnv/0
               , nip/0
+              , xf0/0
+              , xf/0
+              , xnip0/0
+              , xnipn/0
+              , xnipv/0
+              , xnipnv/0
+              , xnip/0
               , p0/0
               , p/0
               , proc0/0
@@ -63,12 +71,14 @@
 %%% Types/Specs/Records
 %%%----------------------------------------------------------------------
 
+%% context
 -type ana()    :: scmi_analyze:ana().
 -type exec()   :: fun((env(), ccok(), ccng()) -> val()).
 -type env()    :: scmi_env:env().
 -type ccok()   :: fun((val(), ccng()) -> val()).
 -type ccng()   :: fun((val()) -> no_return()).
 
+%% args, varargs, and body
 -type arg()    :: scm_any().
 -type vargs()  :: [arg()].
 -type val()    :: scm_any().
@@ -77,6 +87,7 @@
 -type params() :: [param()].
 -type body()   :: exec().
 
+%% native implemented procedures
 -type f0()     :: fun(() -> val()).
 -type fn()     :: fun((...) -> val()).      % fun((arg(),...) -> val()).
 -type fv()     :: fun((vargs()) -> val()).
@@ -89,6 +100,20 @@
 -type nipnv()  :: #nipnv{val :: fnv()}.
 -type nip()    :: nip0() | nipn() | nipv() | nipnv().
 
+%% extended-API native implemented procedures
+-type xf0()    :: fun((scmi_env(), scmi_ccok(), scmi_ccng()) -> val()).
+-type xfn()    :: fun((...) -> val()).      % fun((arg(),... ,scmi_env(), scmi_ccok(), scmi_ccng()) -> val()).
+-type xfv()    :: fun((vargs(), scmi_env(), scmi_ccok(), scmi_ccng()) -> val()).
+-type xfnv()   :: fun((...) -> val()).      % fun((arg(),... ,vargs(), scmi_env(), scmi_ccok(), scmi_ccng()) -> val()).
+-type xf()     :: xf0() | xfn() | xfv() | xfnv().
+
+-type xnip0()  :: #xnip0{val :: f0()}.
+-type xnipn()  :: #xnipn{val :: fn() | [fn()]}.
+-type xnipv()  :: #xnipv{val :: fv()}.
+-type xnipnv() :: #xnipnv{val :: fnv()}.
+-type xnip()   :: xnip0() | xnipn() | xnipv() | xnipnv().
+
+%% lambda implemented procedures
 -type p0()     :: {body(), env()}.
 -type pn()     :: {params(), body(), env()}.
 -type pv()     :: {param(), body(), env()}.

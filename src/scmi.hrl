@@ -25,8 +25,17 @@
 
 -include("scmd_type.hrl").
 
+%% context
+-type scmi_ana()    :: scmi:ana().
+-type scmi_exec()   :: scmi:exec().
+-type scmi_env()    :: scmi:env().
+-type scmi_ccok()   :: scmi:ccok().
+-type scmi_ccng()   :: scmi:ccng().
+
+%% varargs
 -type scmi_vargs()  :: scmi:vargs().
 
+%% native implemented procedures
 -type scmi_f0()     :: scmi:f0().
 -type scmi_f()      :: scmi:f().
 
@@ -36,6 +45,17 @@
 -type scmi_nipnv()  :: scmi:nipnv().
 -type scmi_nip()    :: scmi:nip().
 
+%% extended-API native implemented procedures
+-type scmi_xf0()    :: scmi:xf0().
+-type scmi_xf()     :: scmi:xf().
+
+-type scmi_xnip0()  :: scmi:xnip0().
+-type scmi_xnipn()  :: scmi:xnipn().
+-type scmi_xnipv()  :: scmi:xnipv().
+-type scmi_xnipnv() :: scmi:xnipnv().
+-type scmi_xnip()   :: scmi:xnip().
+
+%% lambda implemented procedures
 -type scmi_p0()     :: scmi:p0().
 -type scmi_p()      :: scmi:p().
 
@@ -44,11 +64,5 @@
 -type scmi_procv()  :: scmi:procv().
 -type scmi_procnv() :: scmi:procnv().
 -type scmi_proc()   :: scmi:proc().
-
--type scmi_ana()    :: scmi:ana().
--type scmi_exec()   :: scmi:exec().
--type scmi_env()    :: scmi:env().
--type scmi_ccok()   :: scmi:ccok().
--type scmi_ccng()   :: scmi:ccng().
 
 -endif. % -ifndef(scmi).

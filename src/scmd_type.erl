@@ -71,12 +71,12 @@
 -type scm_eof()             :: 'eof'.                                % end-of-file
 -type scm_readerr()         :: 'readerr'.                            % read error
 -type scm_fileerr()         :: 'fileerr'.                            % file error
--type scm_proc()            :: scmi:f().                             % proc
+-type scm_proc()            :: scmi:f() | scmi:xf() | scmi:p().      % proc
 -type scm_q()               :: scmd:s_rational().                    % rational
 -type scm_start()           :: scmd:s_integer_exact_non_neg().       % exact non-negative integer
 -type scm_string()          :: scmd:s_string().                      % string
 -type scm_symbol()          :: scmd:s_symbol().                      % symbol
--type scm_thunk()           :: scmi:f0().                            % thunk
+-type scm_thunk()           :: scmi:f0() | scmi:xf0() | scmi:p0().   % thunk
 -type scm_vector()          :: scmd:s_vector(scm_any()).             % vector
 -type scm_x()               :: scmd:s_real().                        % real number
 -type scm_y()               :: scmd:s_real().                        % real number

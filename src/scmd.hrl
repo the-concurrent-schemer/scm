@@ -72,6 +72,11 @@
 -record(nipv,             {lineno :: scmd:lineno(), val}).
 -record(nipnv,            {lineno :: scmd:lineno(), val}).
 
+-record(xnip0,            {lineno :: scmd:lineno(), val}).
+-record(xnipn,            {lineno :: scmd:lineno(), val}).
+-record(xnipv,            {lineno :: scmd:lineno(), val}).
+-record(xnipnv,           {lineno :: scmd:lineno(), val}).
+
 -record(proc0,            {lineno :: scmd:lineno(), val}).
 -record(procn,            {lineno :: scmd:lineno(), val}).
 -record(procv,            {lineno :: scmd:lineno(), val}).
