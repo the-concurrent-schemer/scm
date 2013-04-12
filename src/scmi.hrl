@@ -32,8 +32,11 @@
 -type scmi_ccok()   :: scmi:ccok().
 -type scmi_ccng()   :: scmi:ccng().
 
-%% varargs
+%% vargs
 -type scmi_vargs()  :: scmi:vargs().
+
+%% var
+-type scmi_var()    :: scmi:var().
 
 %% native implemented procedures
 -type scmi_f0()     :: scmi:f0().

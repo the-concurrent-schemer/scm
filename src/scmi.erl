@@ -26,12 +26,28 @@
 -include("scmi.hrl").
 
 %% External exports
--export([make_call/2
+-export([make_and/1
+         , make_begin/1
+         , make_call/2
+         , make_case/2, make_case/4
+         , make_cond/1, make_cond/2
+         , make_cond_expand/1, make_cond_expand/2
          , make_define/2
-         , make_if/3
+         , make_do/2, make_do/3, make_do/4
+         , make_if/2, make_if/3
          , make_lambda/2
+         , make_let/2
+         , make_let_named/3
+         , make_lets/2
+         , make_letrec/2
+         , make_letrecs/2
+         , make_not/1
+         , make_or/1
+         , make_quote/1
          , make_set/2
+         , make_unless/2
          , make_variable/0
+         , make_when/2
         ]).
 
 %% External types
@@ -43,6 +59,7 @@
 
 -export_type([arg/0
               , vargs/0
+              , var/0
               , val/0
               , f0/0
               , f/0
@@ -78,12 +95,16 @@
 -type ccok()   :: fun((val(), ccng()) -> val()).
 -type ccng()   :: fun((val()) -> no_return()).
 
-%% args, varargs, and body
+%% arg and vargs
 -type arg()    :: scm_any().
 -type vargs()  :: [arg()].
+
+%% var and val
+-type var()    :: scm_symbol() | reference().
 -type val()    :: scm_any().
 
--type param()  :: scm_symbol().
+%% param, params, and body
+-type param()  :: var().
 -type params() :: [param()].
 -type body()   :: exec().
 
@@ -130,11 +151,49 @@
 %%% API
 %%%----------------------------------------------------------------------
 
+make_and(Exps) when is_list(Exps) ->
+    ['and'|Exps].
+
+make_begin(Exps) when is_list(Exps) ->
+    ['begin'|Exps].
+
 make_call(Proc, Args) when is_list(Args) ->
     [Proc|Args].
 
+make_case(Exp, Exps) when is_list(Exps) ->
+    ['case'|[Exp|Exps]].
+
+make_case(Exp, Exps, Else, false) when is_list(Exps), is_list(Else) ->
+    ['case'|[Exp|lists:append(Exps, [['else'|Else]])]];
+make_case(Exp, Exps, Else, true) when is_list(Exps) ->
+    ['case'|[Exp|lists:append(Exps, [['else', '=>', Else]])]].
+
+make_cond(Exps) when is_list(Exps) ->
+    ['cond'|Exps].
+
+make_cond(Exps, Else) when is_list(Exps), is_list(Else) ->
+    ['cond'|lists:append(Exps, [['else'|Else]])].
+
+make_cond_expand(Exps) when is_list(Exps) ->
+    ['cond-expand'|Exps].
+
+make_cond_expand(Exps, Else) when is_list(Exps), is_list(Else) ->
+    ['cond-expand'|lists:append(Exps, [['else'|Else]])].
+
 make_define(Variable, Value) ->
     ['define', Variable, Value].
+
+make_do(Test, Results) when is_list(Results) ->
+    make_do(Test, Results, []).
+
+make_do(Test, Results, Specs) when is_list(Results), is_list(Specs) ->
+    make_do(Test, Results, Specs, []).
+
+make_do(Test, Results, Specs, Commands) when is_list(Results), is_list(Specs), is_list(Commands) ->
+    lists:append(['do', Specs, [Test|Results]], Commands).
+
+make_if(Test, Consequent) ->
+    ['if', Test, Consequent].
 
 make_if(Test, Consequent, Alternate) ->
     ['if', Test, Consequent, Alternate].
@@ -142,11 +201,43 @@ make_if(Test, Consequent, Alternate) ->
 make_lambda(Formals, Body) when is_list(Body) ->
     ['lambda'|[Formals|Body]].
 
+make_let(Bindings, Body) when is_list(Bindings), is_list(Body) ->
+    ['let'|[Bindings|Body]].
+
+make_let_named(Tag, Bindings, Body) when not is_list(Tag), is_list(Bindings), is_list(Body) ->
+    ['let'|[Tag|[Bindings|Body]]].
+
+make_lets(Bindings, Body) when is_list(Bindings), is_list(Body) ->
+    ['let*'|[Bindings|Body]].
+
+make_letrec(Bindings, Body) when is_list(Bindings), is_list(Body) ->
+    ['letrec'|[Bindings|Body]].
+
+make_letrecs(Bindings, Body) when is_list(Bindings), is_list(Body) ->
+    ['letrec*'|[Bindings|Body]].
+
+make_not(Exp) ->
+    ['not', Exp].
+
+make_or(Exps) when is_list(Exps) ->
+    ['or'|Exps].
+
+make_quote(Exps) when is_list(Exps) ->
+    ['quote'|Exps];
+make_quote(Exp) ->
+    ['quote', Exp].
+
 make_set(Variable, Value) ->
     ['set!', Variable, Value].
 
+make_unless(Test, Exps) when is_list(Exps) ->
+    ['unless'|[Test|Exps]].
+
 make_variable() ->
     erlang:make_ref().
+
+make_when(Test, Exps) when is_list(Exps) ->
+    ['when'|[Test|Exps]].
 
 %%%----------------------------------------------------------------------
 %%% Internal functions

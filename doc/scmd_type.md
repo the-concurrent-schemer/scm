@@ -389,7 +389,7 @@ scm_port() = <a href="io.md#type-dev">io:dev()</a>
 
 
 <pre><code>
-scm_proc() = <a href="scmi.md#type-f">scmi:f()</a>
+scm_proc() = <a href="scmi.md#type-f">scmi:f()</a> | <a href="scmi.md#type-xf">scmi:xf()</a> | <a href="scmi.md#type-p">scmi:p()</a>
 </code></pre>
 
 
@@ -497,7 +497,7 @@ scm_symbol() = <a href="scmd.md#type-s_symbol">scmd:s_symbol()</a>
 
 
 <pre><code>
-scm_thunk() = <a href="scmi.md#type-f0">scmi:f0()</a>
+scm_thunk() = <a href="scmi.md#type-f0">scmi:f0()</a> | <a href="scmi.md#type-xf0">scmi:xf0()</a> | <a href="scmi.md#type-p0">scmi:p0()</a>
 </code></pre>
 
 

@@ -34,6 +34,8 @@
          , is_valid_variable/1
          , validate_variables/1
          , validate_variable/1
+         , flatten_variables/1
+         , make_tmp_variables/1
          , splitnv_arguments/2
         ]).
 
@@ -42,6 +44,9 @@
              ]).
 
 %% Internal imports
+-import(scmi, [make_variable/0
+              ]).
+
 -import(scmi_analyze_primitive, [analyze_lambda/2
                                  , analyze_application/2
                                  , analyze_if/2
@@ -131,6 +136,8 @@ analyze(Exp, Ana) when is_record(Exp, character) ->
 analyze(Exp, Ana) when is_record(Exp, string) ->
     analyze_self_evaluating(Exp, Ana);
 analyze(Exp, Ana) when is_record(Exp, vector) ->
+    analyze_self_evaluating(Exp, Ana);
+analyze(?UNASSIGNED=Exp, Ana) ->
     analyze_self_evaluating(Exp, Ana);
 analyze(Exp, Ana) when is_atom(Exp) ->
     analyze_variable(Exp, Ana);
@@ -256,14 +263,15 @@ classify(Exp) when is_record(Exp, string) ->
     string;
 classify(Exp) when is_record(Exp, vector) ->
     vector;
+classify(?UNASSIGNED) ->
+    unassigned;
 classify(Exp) when is_atom(Exp) ->
     identifier;
 classify({Sha1, Var}) when is_atom(Sha1), is_binary(Var) ->
     identifier;
 classify(Exp) when is_reference(Exp) ->
     variable;
-classify({Sha1, Var}) when is_atom(Sha1), is_binary(Var) ->
-    variable;
+
 classify(Exp) when is_record(Exp, label) ->
     label;
 classify(Exp) when is_record(Exp, labelref) ->
@@ -355,7 +363,8 @@ classify([]) ->
 classify(Exp) ->
     erlang:error(badarg, [Exp]).
 
--spec is_reserved_symbol(scm_symbol()) -> boolean().
+-spec is_reserved_symbol(scmi_var()) -> boolean().
+is_reserved_symbol(?UNASSIGNED) -> true;
 is_reserved_symbol('quote') -> true;
 is_reserved_symbol('lambda') -> true;
 is_reserved_symbol('if') -> true;
@@ -399,7 +408,7 @@ is_reserved_symbol('define-library') -> true;
 is_reserved_symbol(_) ->
     false.
 
--spec are_valid_variables([scm_symbol(),...]) -> boolean().
+-spec are_valid_variables([scmi_var()]) -> boolean().
 are_valid_variables([Variables|Variable]) when not is_list(Variable) ->
     are_valid_variables([Variable|Variables]);
 are_valid_variables(Variables) when is_list(Variables) ->
@@ -408,7 +417,7 @@ are_valid_variables(Variables) when is_list(Variables) ->
 are_valid_variables(_) ->
     false.
 
--spec is_valid_variable(scm_symbol()) -> boolean().
+-spec is_valid_variable(scmi_var()) -> boolean().
 is_valid_variable(Variable) when not is_list(Variable) ->
     case classify(Variable) of
         identifier ->
@@ -421,7 +430,7 @@ is_valid_variable(Variable) when not is_list(Variable) ->
 is_valid_variable(_) ->
     false.
 
--spec validate_variables([scm_symbol(),...]) -> true.
+-spec validate_variables([scmi_var()]) -> true.
 validate_variables(Variables) ->
     case are_valid_variables(Variables) of
         true ->
@@ -430,7 +439,7 @@ validate_variables(Variables) ->
             erlang:error(badarg, [Variables])
     end.
 
--spec validate_variable(scm_symbol()) -> true.
+-spec validate_variable(scmi_var()) -> true.
 validate_variable(Variable) ->
     case is_valid_variable(Variable) of
         true ->
@@ -438,6 +447,25 @@ validate_variable(Variable) ->
         false ->
             erlang:error(badarg, [Variable])
     end.
+
+-spec flatten_variables(scmi_var() | [scmi_var()]) -> [scmi_var()].
+flatten_variables(L) ->
+    lists:flatten(flatten_variables1(L)).
+
+flatten_variables1(V) when not is_list(V) ->
+    [V];
+flatten_variables1([H|T]) when not is_list(T) ->
+    flatten_variables1(H ++ [T]);
+flatten_variables1(L) ->
+    [ flatten_variables1(V) || V <- L ].
+
+-spec make_tmp_variables(scmi_var() | [scmi_var()]) -> scmi_var() | [scmi_var()].
+make_tmp_variables(Formal) when not is_list(Formal) ->
+    make_variable();
+make_tmp_variables([Formals|Formal]) when not is_list(Formal) ->
+    [ make_variable() || _ <- Formals ] ++ [make_variable()];
+make_tmp_variables(Formals) ->
+    [ make_variable() || _ <- Formals ].
 
 -spec splitnv_arguments(pos_integer(), [scm_any(),...]) -> [scm_any(),...].
 splitnv_arguments(N, L) ->
