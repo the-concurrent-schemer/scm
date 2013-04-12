@@ -20,10 +20,34 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 
--ifndef(scm).
--define(scm, true).
+-module(scml_repl).
 
--define(SCM,    'scm').
--define(SCMVSN, 'scm-0.2.8'). % @TODO make this depend on git describe
+%% Imports
+-export([imports/0]).
 
--endif. % -ifndef(scm).
+%% API
+-export(['interaction-environment'/0
+        ]).
+
+-include("scmi.hrl").
+
+%%%===================================================================
+%%% Imports
+%%%===================================================================
+
+-spec imports() -> [{scm_symbol(), scmi_nip()}].
+imports() ->
+    [{'interaction-environment', #nip0{val=fun 'interaction-environment'/0}}
+    ].
+
+%%%===================================================================
+%%% API
+%%%===================================================================
+
+-spec 'interaction-environment'() -> scmi_env().
+'interaction-environment'() ->
+    erlang:error({roadmap,'v0.6.0'}, []).
+
+%%%===================================================================
+%%% internal helpers
+%%%===================================================================

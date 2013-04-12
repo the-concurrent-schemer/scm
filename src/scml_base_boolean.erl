@@ -20,10 +20,46 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 
--ifndef(scm).
--define(scm, true).
+-module(scml_base_boolean).
 
--define(SCM,    'scm').
--define(SCMVSN, 'scm-0.2.8'). % @TODO make this depend on git describe
+%% Imports
+-export([imports/0]).
 
--endif. % -ifndef(scm).
+%% API
+-export(['not'/1
+         , 'boolean?'/1
+        ]).
+
+-include("scmi.hrl").
+
+%%%===================================================================
+%%% Imports
+%%%===================================================================
+
+-spec imports() -> [{scm_symbol(), scmi_nip()}].
+imports() ->
+    [{'not', #nipn{val=fun 'not'/1}}
+     , {'boolean?', #nipn{val=fun 'boolean?'/1}}
+    ].
+
+%%%===================================================================
+%%% API
+%%%===================================================================
+
+-spec 'not'(scm_obj()) -> scm_boolean().
+'not'(?FALSE) ->
+    ?TRUE;
+'not'(_) ->
+    ?FALSE.
+
+-spec 'boolean?'(scm_obj()) -> scm_boolean().
+'boolean?'(?FALSE) ->
+    ?TRUE;
+'boolean?'(?TRUE) ->
+    ?TRUE;
+'boolean?'(_) ->
+    ?FALSE.
+
+%%%===================================================================
+%%% internal helpers
+%%%===================================================================

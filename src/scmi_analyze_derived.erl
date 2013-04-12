@@ -276,7 +276,7 @@ feature_test(Identifier) ->
     feature_test_identifer(Identifier).
 
 feature_test_library(Id) ->
-    case lists:member(Id, scmtmp:libraries()) of
+    case lists:member(Id, scml:libraries()) of
         true ->
             ?TRUE;
         false ->
@@ -284,7 +284,7 @@ feature_test_library(Id) ->
     end.
 
 feature_test_identifer(Id) ->
-    case lists:member(Id, scmtmp:features()) of
+    case lists:member(Id, scml_base_system:features()) of
         true ->
             ?TRUE;
         false ->

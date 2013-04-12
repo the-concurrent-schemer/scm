@@ -20,10 +20,35 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 
--ifndef(scm).
--define(scm, true).
+-module(scml_syntax).
 
--define(SCM,    'scm').
--define(SCMVSN, 'scm-0.2.8'). % @TODO make this depend on git describe
+%% Imports
+-export([imports/0]).
 
--endif. % -ifndef(scm).
+%% API
+-export(['case-lambda'/1
+        ]).
+
+-include("scmi.hrl").
+
+%%%===================================================================
+%%% Imports
+%%%===================================================================
+
+-spec imports() -> [{scm_symbol(), scmi_nip()}].
+imports() ->
+    [{'case-lambda', #nipv{val=fun 'case-lambda'/1}}
+    ].
+
+%%%===================================================================
+%%% API
+%%%===================================================================
+
+-spec 'case-lambda'(scmi_vargs()) -> scm_any().
+'case-lambda'(Args) ->
+    %% @TODO scan_out_internal_definitions(Body)
+    erlang:error({roadmap,'v0.6.0'}, [Args]).
+
+%%%===================================================================
+%%% internal helpers
+%%%===================================================================

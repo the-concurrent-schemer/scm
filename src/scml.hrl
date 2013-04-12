@@ -20,10 +20,7 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 
--ifndef(scm).
--define(scm, true).
+-ifndef(scml).
+-define(scml, true).
 
--define(SCM,    'scm').
--define(SCMVSN, 'scm-0.2.8'). % @TODO make this depend on git describe
-
--endif. % -ifndef(scm).
+-endif. % -ifndef(scml).
