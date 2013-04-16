@@ -22,8 +22,10 @@
 
 -module(scml_base_io).
 
-%% Imports
--export([imports/0]).
+-include("scmi.hrl").
+
+%% SCML Exports
+-export(['$scml_exports'/0]).
 
 %% API
 -export(['call-with-port'/2
@@ -88,14 +90,16 @@
          , 'flush-output-port'/1
         ]).
 
--include("scmi.hrl").
-
 %%%===================================================================
-%%% Imports
+%%% Types/Specs/Records
 %%%===================================================================
 
--spec imports() -> [{scm_symbol(), scmi_nip()}].
-imports() ->
+%%%===================================================================
+%%% SCML Exports
+%%%===================================================================
+
+-spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
+'$scml_exports'() ->
     [{'call-with-port', #nipn{val=fun 'call-with-port'/2}}
      , {'input-port?', #nipn{val=fun 'input-port?'/1}}
      , {'output-port?', #nipn{val=fun 'output-port?'/1}}

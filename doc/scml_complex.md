@@ -10,12 +10,25 @@
 ## Function Index ##
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#imag-part-1">'imag-part'/1</a></td><td></td></tr><tr><td valign="top"><a href="#make-polar-2">'make-polar'/2</a></td><td></td></tr><tr><td valign="top"><a href="#make-rectangular-2">'make-rectangular'/2</a></td><td></td></tr><tr><td valign="top"><a href="#real-part-1">'real-part'/1</a></td><td></td></tr><tr><td valign="top"><a href="#angle-1">angle/1</a></td><td></td></tr><tr><td valign="top"><a href="#imports-0">imports/0</a></td><td></td></tr><tr><td valign="top"><a href="#magnitude-1">magnitude/1</a></td><td></td></tr></table>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#%24scml_exports-0">'$scml_exports'/0</a></td><td></td></tr><tr><td valign="top"><a href="#imag-part-1">'imag-part'/1</a></td><td></td></tr><tr><td valign="top"><a href="#make-polar-2">'make-polar'/2</a></td><td></td></tr><tr><td valign="top"><a href="#make-rectangular-2">'make-rectangular'/2</a></td><td></td></tr><tr><td valign="top"><a href="#real-part-1">'real-part'/1</a></td><td></td></tr><tr><td valign="top"><a href="#angle-1">angle/1</a></td><td></td></tr><tr><td valign="top"><a href="#magnitude-1">magnitude/1</a></td><td></td></tr></table>
 
 
 <a name="functions"></a>
 
 ## Function Details ##
+
+<a name="%24scml_exports-0"></a>
+
+### '$scml_exports'/0 ###
+
+
+<pre><code>
+'$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
+</code></pre>
+
+<br></br>
+
+
 
 <a name="imag-part-1"></a>
 
@@ -76,19 +89,6 @@
 
 <pre><code>
 angle(Z::<a href="#type-scm_z">scm_z()</a>) -&gt; <a href="#type-scm_x">scm_x()</a>
-</code></pre>
-
-<br></br>
-
-
-
-<a name="imports-0"></a>
-
-### imports/0 ###
-
-
-<pre><code>
-imports() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
 
 <br></br>

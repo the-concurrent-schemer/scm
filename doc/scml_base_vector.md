@@ -10,12 +10,25 @@
 ## Function Index ##
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#list-%3evector-1">'list->vector'/1</a></td><td></td></tr><tr><td valign="top"><a href="#make-vector-1">'make-vector'/1</a></td><td></td></tr><tr><td valign="top"><a href="#make-vector-2">'make-vector'/2</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3evector-1">'string->vector'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3evector-2">'string->vector'/2</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3evector-3">'string->vector'/3</a></td><td></td></tr><tr><td valign="top"><a href="#vector-%3elist-1">'vector->list'/1</a></td><td></td></tr><tr><td valign="top"><a href="#vector-%3elist-2">'vector->list'/2</a></td><td></td></tr><tr><td valign="top"><a href="#vector-%3elist-3">'vector->list'/3</a></td><td></td></tr><tr><td valign="top"><a href="#vector-%3estring-1">'vector->string'/1</a></td><td></td></tr><tr><td valign="top"><a href="#vector-%3estring-2">'vector->string'/2</a></td><td></td></tr><tr><td valign="top"><a href="#vector-%3estring-3">'vector->string'/3</a></td><td></td></tr><tr><td valign="top"><a href="#vector-append-1">'vector-append'/1</a></td><td></td></tr><tr><td valign="top"><a href="#vector-copy%21-3">'vector-copy!'/3</a></td><td></td></tr><tr><td valign="top"><a href="#vector-copy%21-4">'vector-copy!'/4</a></td><td></td></tr><tr><td valign="top"><a href="#vector-copy%21-5">'vector-copy!'/5</a></td><td></td></tr><tr><td valign="top"><a href="#vector-copy-1">'vector-copy'/1</a></td><td></td></tr><tr><td valign="top"><a href="#vector-copy-2">'vector-copy'/2</a></td><td></td></tr><tr><td valign="top"><a href="#vector-copy-3">'vector-copy'/3</a></td><td></td></tr><tr><td valign="top"><a href="#vector-fill%21-2">'vector-fill!'/2</a></td><td></td></tr><tr><td valign="top"><a href="#vector-fill%21-3">'vector-fill!'/3</a></td><td></td></tr><tr><td valign="top"><a href="#vector-fill%21-4">'vector-fill!'/4</a></td><td></td></tr><tr><td valign="top"><a href="#vector-length-1">'vector-length'/1</a></td><td></td></tr><tr><td valign="top"><a href="#vector-ref-2">'vector-ref'/2</a></td><td></td></tr><tr><td valign="top"><a href="#vector-set%21-3">'vector-set!'/3</a></td><td></td></tr><tr><td valign="top"><a href="#vector%3f-1">'vector?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#imports-0">imports/0</a></td><td></td></tr><tr><td valign="top"><a href="#vector-1">vector/1</a></td><td></td></tr></table>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#%24scml_exports-0">'$scml_exports'/0</a></td><td></td></tr><tr><td valign="top"><a href="#list-%3evector-1">'list->vector'/1</a></td><td></td></tr><tr><td valign="top"><a href="#make-vector-1">'make-vector'/1</a></td><td></td></tr><tr><td valign="top"><a href="#make-vector-2">'make-vector'/2</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3evector-1">'string->vector'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3evector-2">'string->vector'/2</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3evector-3">'string->vector'/3</a></td><td></td></tr><tr><td valign="top"><a href="#vector-%3elist-1">'vector->list'/1</a></td><td></td></tr><tr><td valign="top"><a href="#vector-%3elist-2">'vector->list'/2</a></td><td></td></tr><tr><td valign="top"><a href="#vector-%3elist-3">'vector->list'/3</a></td><td></td></tr><tr><td valign="top"><a href="#vector-%3estring-1">'vector->string'/1</a></td><td></td></tr><tr><td valign="top"><a href="#vector-%3estring-2">'vector->string'/2</a></td><td></td></tr><tr><td valign="top"><a href="#vector-%3estring-3">'vector->string'/3</a></td><td></td></tr><tr><td valign="top"><a href="#vector-append-1">'vector-append'/1</a></td><td></td></tr><tr><td valign="top"><a href="#vector-copy%21-3">'vector-copy!'/3</a></td><td></td></tr><tr><td valign="top"><a href="#vector-copy%21-4">'vector-copy!'/4</a></td><td></td></tr><tr><td valign="top"><a href="#vector-copy%21-5">'vector-copy!'/5</a></td><td></td></tr><tr><td valign="top"><a href="#vector-copy-1">'vector-copy'/1</a></td><td></td></tr><tr><td valign="top"><a href="#vector-copy-2">'vector-copy'/2</a></td><td></td></tr><tr><td valign="top"><a href="#vector-copy-3">'vector-copy'/3</a></td><td></td></tr><tr><td valign="top"><a href="#vector-fill%21-2">'vector-fill!'/2</a></td><td></td></tr><tr><td valign="top"><a href="#vector-fill%21-3">'vector-fill!'/3</a></td><td></td></tr><tr><td valign="top"><a href="#vector-fill%21-4">'vector-fill!'/4</a></td><td></td></tr><tr><td valign="top"><a href="#vector-length-1">'vector-length'/1</a></td><td></td></tr><tr><td valign="top"><a href="#vector-ref-2">'vector-ref'/2</a></td><td></td></tr><tr><td valign="top"><a href="#vector-set%21-3">'vector-set!'/3</a></td><td></td></tr><tr><td valign="top"><a href="#vector%3f-1">'vector?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#vector-1">vector/1</a></td><td></td></tr></table>
 
 
 <a name="functions"></a>
 
 ## Function Details ##
+
+<a name="%24scml_exports-0"></a>
+
+### '$scml_exports'/0 ###
+
+
+<pre><code>
+'$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
+</code></pre>
+
+<br></br>
+
+
 
 <a name="list-%3evector-1"></a>
 
@@ -349,19 +362,6 @@
 
 <pre><code>
 'vector?'(Obj::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
-</code></pre>
-
-<br></br>
-
-
-
-<a name="imports-0"></a>
-
-### imports/0 ###
-
-
-<pre><code>
-imports() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
 
 <br></br>

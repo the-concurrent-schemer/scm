@@ -22,8 +22,10 @@
 
 -module(scml_inexact).
 
-%% Imports
--export([imports/0]).
+-include("scmi.hrl").
+
+%% SCML Exports
+-export(['$scml_exports'/0]).
 
 %% API
 -export(['finite?'/1
@@ -39,14 +41,16 @@
          , 'atan'/1, 'atan'/2
         ]).
 
--include("scmi.hrl").
-
 %%%===================================================================
-%%% Imports
+%%% Types/Specs/Records
 %%%===================================================================
 
--spec imports() -> [{scm_symbol(), scmi_nip()}].
-imports() ->
+%%%===================================================================
+%%% SCML Exports
+%%%===================================================================
+
+-spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
+'$scml_exports'() ->
     [{'finite?', #nipn{val=fun 'finite?'/1}}
      , {'infinite?', #nipn{val=fun 'infinite?'/1}}
      , {'nan?', #nipn{val=fun 'nan?'/1}}

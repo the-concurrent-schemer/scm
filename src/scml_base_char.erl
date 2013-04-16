@@ -22,8 +22,10 @@
 
 -module(scml_base_char).
 
-%% Imports
--export([imports/0]).
+-include("scmi.hrl").
+
+%% SCML Exports
+-export(['$scml_exports'/0]).
 
 %% API
 -export(['char?'/1
@@ -36,14 +38,16 @@
          , 'integer->char'/1
         ]).
 
--include("scmi.hrl").
-
 %%%===================================================================
-%%% Imports
+%%% Types/Specs/Records
 %%%===================================================================
 
--spec imports() -> [{scm_symbol(), scmi_nip()}].
-imports() ->
+%%%===================================================================
+%%% SCML Exports
+%%%===================================================================
+
+-spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
+'$scml_exports'() ->
     [{'char?', #nipn{val=fun 'char?'/1}}
      , {'char=?', #nipv{val=fun 'char=?'/1}}
      , {'char<?', #nipv{val=fun 'char<?'/1}}

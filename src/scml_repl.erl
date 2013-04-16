@@ -22,21 +22,25 @@
 
 -module(scml_repl).
 
-%% Imports
--export([imports/0]).
+-include("scmi.hrl").
+
+%% SCML Exports
+-export(['$scml_exports'/0]).
 
 %% API
 -export(['interaction-environment'/0
         ]).
 
--include("scmi.hrl").
-
 %%%===================================================================
-%%% Imports
+%%% Types/Specs/Records
 %%%===================================================================
 
--spec imports() -> [{scm_symbol(), scmi_nip()}].
-imports() ->
+%%%===================================================================
+%%% SCML Exports
+%%%===================================================================
+
+-spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
+'$scml_exports'() ->
     [{'interaction-environment', #nip0{val=fun 'interaction-environment'/0}}
     ].
 

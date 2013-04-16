@@ -10,12 +10,25 @@
 ## Function Index ##
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#char-alphabetic%3f-1">'char-alphabetic?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-ci%3c%3d%3f-1">'char-ci<=?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-ci%3c%3f-1">'char-ci<?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-ci%3d%3f-1">'char-ci=?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-ci%3e%3d%3f-1">'char-ci>=?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-ci%3e%3f-1">'char-ci>?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-downcase-1">'char-downcase'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-foldcase-1">'char-foldcase'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-lower-case%3f-1">'char-lower-case?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-numeric%3f-1">'char-numeric?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-upcase-1">'char-upcase'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-upper-case%3f-1">'char-upper-case?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-whitespace%3f-1">'char-whitespace?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#digit-value-1">'digit-value'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-ci%3c%3d%3f-1">'string-ci<=?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-ci%3c%3f-1">'string-ci<?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-ci%3d%3f-1">'string-ci=?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-ci%3e%3d%3f-1">'string-ci>=?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-ci%3e%3f-1">'string-ci>?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-downcase-1">'string-downcase'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-foldcase-1">'string-foldcase'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-upcase-1">'string-upcase'/1</a></td><td></td></tr><tr><td valign="top"><a href="#imports-0">imports/0</a></td><td></td></tr></table>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#%24scml_exports-0">'$scml_exports'/0</a></td><td></td></tr><tr><td valign="top"><a href="#char-alphabetic%3f-1">'char-alphabetic?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-ci%3c%3d%3f-1">'char-ci<=?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-ci%3c%3f-1">'char-ci<?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-ci%3d%3f-1">'char-ci=?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-ci%3e%3d%3f-1">'char-ci>=?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-ci%3e%3f-1">'char-ci>?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-downcase-1">'char-downcase'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-foldcase-1">'char-foldcase'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-lower-case%3f-1">'char-lower-case?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-numeric%3f-1">'char-numeric?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-upcase-1">'char-upcase'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-upper-case%3f-1">'char-upper-case?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#char-whitespace%3f-1">'char-whitespace?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#digit-value-1">'digit-value'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-ci%3c%3d%3f-1">'string-ci<=?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-ci%3c%3f-1">'string-ci<?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-ci%3d%3f-1">'string-ci=?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-ci%3e%3d%3f-1">'string-ci>=?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-ci%3e%3f-1">'string-ci>?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-downcase-1">'string-downcase'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-foldcase-1">'string-foldcase'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-upcase-1">'string-upcase'/1</a></td><td></td></tr></table>
 
 
 <a name="functions"></a>
 
 ## Function Details ##
+
+<a name="%24scml_exports-0"></a>
+
+### '$scml_exports'/0 ###
+
+
+<pre><code>
+'$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
+</code></pre>
+
+<br></br>
+
+
 
 <a name="char-alphabetic%3f-1"></a>
 
@@ -297,19 +310,6 @@
 
 <pre><code>
 'string-upcase'(S::<a href="#type-scm_string">scm_string()</a>) -&gt; <a href="#type-scm_string">scm_string()</a>
-</code></pre>
-
-<br></br>
-
-
-
-<a name="imports-0"></a>
-
-### imports/0 ###
-
-
-<pre><code>
-imports() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
 
 <br></br>

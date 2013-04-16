@@ -22,8 +22,10 @@
 
 -module(scml_char).
 
-%% Imports
--export([imports/0]).
+-include("scmi.hrl").
+
+%% SCML Exports
+-export(['$scml_exports'/0]).
 
 %% API
 -export(['char-ci=?'/1
@@ -50,14 +52,16 @@
          , 'string-foldcase'/1
         ]).
 
--include("scmi.hrl").
-
 %%%===================================================================
-%%% Imports
+%%% Types/Specs/Records
 %%%===================================================================
 
--spec imports() -> [{scm_symbol(), scmi_nip()}].
-imports() ->
+%%%===================================================================
+%%% SCML Exports
+%%%===================================================================
+
+-spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
+'$scml_exports'() ->
     [{'char-ci=?', #nipv{val=fun 'char-ci=?'/1}}
      , {'char-ci<?', #nipv{val=fun 'char-ci<?'/1}}
      , {'char-ci>?', #nipv{val=fun 'char-ci>?'/1}}

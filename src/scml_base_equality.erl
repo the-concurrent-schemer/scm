@@ -22,8 +22,10 @@
 
 -module(scml_base_equality).
 
-%% Imports
--export([imports/0]).
+-include("scmi.hrl").
+
+%% SCML Exports
+-export(['$scml_exports'/0]).
 
 %% API
 -export(['eqv?'/2
@@ -31,14 +33,16 @@
          , 'equal?'/2
         ]).
 
--include("scmi.hrl").
-
 %%%===================================================================
-%%% Imports
+%%% Types/Specs/Records
 %%%===================================================================
 
--spec imports() -> [{scm_symbol(), scmi_nip()}].
-imports() ->
+%%%===================================================================
+%%% SCML Exports
+%%%===================================================================
+
+-spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
+'$scml_exports'() ->
     [{'eqv?', #nipn{val=fun 'eqv?'/2}}
      , {'eq?', #nipn{val=fun 'eq?'/2}}
      , {'equal?', #nipn{val=fun 'equal?'/2}}

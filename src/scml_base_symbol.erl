@@ -22,8 +22,10 @@
 
 -module(scml_base_symbol).
 
-%% Imports
--export([imports/0]).
+-include("scmi.hrl").
+
+%% SCML Exports
+-export(['$scml_exports'/0]).
 
 %% API
 -export(['symbol?'/1
@@ -32,14 +34,16 @@
          , 'string->symbol'/1
         ]).
 
--include("scmi.hrl").
-
 %%%===================================================================
-%%% Imports
+%%% Types/Specs/Records
 %%%===================================================================
 
--spec imports() -> [{scm_symbol(), scmi_nip()}].
-imports() ->
+%%%===================================================================
+%%% SCML Exports
+%%%===================================================================
+
+-spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
+'$scml_exports'() ->
     [{'symbol?', #nipn{val=fun 'symbol?'/1}}
      , {'symbol=?', #nipv{val=fun 'symbol=?'/1}}
      , {'symbol->string', #nipn{val=fun 'symbol->string'/1}}

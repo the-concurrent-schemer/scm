@@ -22,8 +22,10 @@
 
 -module(scml_base_list).
 
-%% Imports
--export([imports/0]).
+-include("scmi.hrl").
+
+%% SCML Exports
+-export(['$scml_exports'/0]).
 
 %% API
 -export(['pair?'/1
@@ -58,14 +60,16 @@
          , 'list-copy'/1
         ]).
 
--include("scmi.hrl").
-
 %%%===================================================================
-%%% Imports
+%%% Types/Specs/Records
 %%%===================================================================
 
--spec imports() -> [{scm_symbol(), scmi_nip()}].
-imports() ->
+%%%===================================================================
+%%% SCML Exports
+%%%===================================================================
+
+-spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
+'$scml_exports'() ->
     [{'pair?', #nipn{val=fun 'pair?'/1}}
      , {'cons', #nipn{val=fun 'cons'/2}}
      , {'car', #nipn{val=fun 'car'/1}}

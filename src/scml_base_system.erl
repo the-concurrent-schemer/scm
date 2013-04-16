@@ -22,22 +22,26 @@
 
 -module(scml_base_system).
 
-%% Imports
--export([imports/0]).
+-include("scm.hrl").
+-include("scmi.hrl").
+
+%% SCML Exports
+-export(['$scml_exports'/0]).
 
 %% API
 -export([features/0
         ]).
 
--include("scm.hrl").
--include("scmi.hrl").
-
 %%%===================================================================
-%%% Imports
+%%% Types/Specs/Records
 %%%===================================================================
 
--spec imports() -> [{scm_symbol(), scmi_nip()}].
-imports() ->
+%%%===================================================================
+%%% SCML Exports
+%%%===================================================================
+
+-spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
+'$scml_exports'() ->
     [{features, #nip0{val=fun features/0}}
     ].
 

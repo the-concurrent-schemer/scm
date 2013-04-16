@@ -10,12 +10,25 @@
 ## Function Index ##
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#bytevector-append-1">'bytevector-append'/1</a></td><td></td></tr><tr><td valign="top"><a href="#bytevector-copy%21-3">'bytevector-copy!'/3</a></td><td></td></tr><tr><td valign="top"><a href="#bytevector-copy%21-4">'bytevector-copy!'/4</a></td><td></td></tr><tr><td valign="top"><a href="#bytevector-copy%21-5">'bytevector-copy!'/5</a></td><td></td></tr><tr><td valign="top"><a href="#bytevector-copy-1">'bytevector-copy'/1</a></td><td></td></tr><tr><td valign="top"><a href="#bytevector-copy-2">'bytevector-copy'/2</a></td><td></td></tr><tr><td valign="top"><a href="#bytevector-copy-3">'bytevector-copy'/3</a></td><td></td></tr><tr><td valign="top"><a href="#bytevector-length-1">'bytevector-length'/1</a></td><td></td></tr><tr><td valign="top"><a href="#bytevector-u8-ref-2">'bytevector-u8-ref'/2</a></td><td></td></tr><tr><td valign="top"><a href="#bytevector-u8-set%21-3">'bytevector-u8-set!'/3</a></td><td></td></tr><tr><td valign="top"><a href="#bytevector%3f-1">'bytevector?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#make-bytevector-1">'make-bytevector'/1</a></td><td></td></tr><tr><td valign="top"><a href="#make-bytevector-2">'make-bytevector'/2</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3eutf8-1">'string->utf8'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3eutf8-2">'string->utf8'/2</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3eutf8-3">'string->utf8'/3</a></td><td></td></tr><tr><td valign="top"><a href="#utf8-%3estring-1">'utf8->string'/1</a></td><td></td></tr><tr><td valign="top"><a href="#utf8-%3estring-2">'utf8->string'/2</a></td><td></td></tr><tr><td valign="top"><a href="#utf8-%3estring-3">'utf8->string'/3</a></td><td></td></tr><tr><td valign="top"><a href="#bytevector-1">bytevector/1</a></td><td></td></tr><tr><td valign="top"><a href="#imports-0">imports/0</a></td><td></td></tr></table>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#%24scml_exports-0">'$scml_exports'/0</a></td><td></td></tr><tr><td valign="top"><a href="#bytevector-append-1">'bytevector-append'/1</a></td><td></td></tr><tr><td valign="top"><a href="#bytevector-copy%21-3">'bytevector-copy!'/3</a></td><td></td></tr><tr><td valign="top"><a href="#bytevector-copy%21-4">'bytevector-copy!'/4</a></td><td></td></tr><tr><td valign="top"><a href="#bytevector-copy%21-5">'bytevector-copy!'/5</a></td><td></td></tr><tr><td valign="top"><a href="#bytevector-copy-1">'bytevector-copy'/1</a></td><td></td></tr><tr><td valign="top"><a href="#bytevector-copy-2">'bytevector-copy'/2</a></td><td></td></tr><tr><td valign="top"><a href="#bytevector-copy-3">'bytevector-copy'/3</a></td><td></td></tr><tr><td valign="top"><a href="#bytevector-length-1">'bytevector-length'/1</a></td><td></td></tr><tr><td valign="top"><a href="#bytevector-u8-ref-2">'bytevector-u8-ref'/2</a></td><td></td></tr><tr><td valign="top"><a href="#bytevector-u8-set%21-3">'bytevector-u8-set!'/3</a></td><td></td></tr><tr><td valign="top"><a href="#bytevector%3f-1">'bytevector?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#make-bytevector-1">'make-bytevector'/1</a></td><td></td></tr><tr><td valign="top"><a href="#make-bytevector-2">'make-bytevector'/2</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3eutf8-1">'string->utf8'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3eutf8-2">'string->utf8'/2</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3eutf8-3">'string->utf8'/3</a></td><td></td></tr><tr><td valign="top"><a href="#utf8-%3estring-1">'utf8->string'/1</a></td><td></td></tr><tr><td valign="top"><a href="#utf8-%3estring-2">'utf8->string'/2</a></td><td></td></tr><tr><td valign="top"><a href="#utf8-%3estring-3">'utf8->string'/3</a></td><td></td></tr><tr><td valign="top"><a href="#bytevector-1">bytevector/1</a></td><td></td></tr></table>
 
 
 <a name="functions"></a>
 
 ## Function Details ##
+
+<a name="%24scml_exports-0"></a>
+
+### '$scml_exports'/0 ###
+
+
+<pre><code>
+'$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
+</code></pre>
+
+<br></br>
+
+
 
 <a name="bytevector-append-1"></a>
 
@@ -271,19 +284,6 @@
 
 <pre><code>
 bytevector(Bytes::[<a href="#type-scm_byte">scm_byte()</a>, ...]) -&gt; <a href="#type-scm_bytevector">scm_bytevector()</a>
-</code></pre>
-
-<br></br>
-
-
-
-<a name="imports-0"></a>
-
-### imports/0 ###
-
-
-<pre><code>
-imports() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
 
 <br></br>

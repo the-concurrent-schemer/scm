@@ -10,12 +10,25 @@
 ## Function Index ##
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#command-line-0">'command-line'/0</a></td><td></td></tr><tr><td valign="top"><a href="#emergency-exit-0">'emergency-exit'/0</a></td><td></td></tr><tr><td valign="top"><a href="#emergency-exit-1">'emergency-exit'/1</a></td><td></td></tr><tr><td valign="top"><a href="#get-environment-variable-1">'get-environment-variable'/1</a></td><td></td></tr><tr><td valign="top"><a href="#get-environment-variables-0">'get-environment-variables'/0</a></td><td></td></tr><tr><td valign="top"><a href="#exit-0">exit/0</a></td><td></td></tr><tr><td valign="top"><a href="#exit-1">exit/1</a></td><td></td></tr><tr><td valign="top"><a href="#imports-0">imports/0</a></td><td></td></tr></table>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#%24scml_exports-0">'$scml_exports'/0</a></td><td></td></tr><tr><td valign="top"><a href="#command-line-0">'command-line'/0</a></td><td></td></tr><tr><td valign="top"><a href="#emergency-exit-0">'emergency-exit'/0</a></td><td></td></tr><tr><td valign="top"><a href="#emergency-exit-1">'emergency-exit'/1</a></td><td></td></tr><tr><td valign="top"><a href="#get-environment-variable-1">'get-environment-variable'/1</a></td><td></td></tr><tr><td valign="top"><a href="#get-environment-variables-0">'get-environment-variables'/0</a></td><td></td></tr><tr><td valign="top"><a href="#exit-0">exit/0</a></td><td></td></tr><tr><td valign="top"><a href="#exit-1">exit/1</a></td><td></td></tr></table>
 
 
 <a name="functions"></a>
 
 ## Function Details ##
+
+<a name="%24scml_exports-0"></a>
+
+### '$scml_exports'/0 ###
+
+
+<pre><code>
+'$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
+</code></pre>
+
+<br></br>
+
+
 
 <a name="command-line-0"></a>
 
@@ -102,19 +115,6 @@ exit() -&gt; no_return()
 
 <pre><code>
 exit(Obj::<a href="#type-scm_obj">scm_obj()</a>) -&gt; no_return()
-</code></pre>
-
-<br></br>
-
-
-
-<a name="imports-0"></a>
-
-### imports/0 ###
-
-
-<pre><code>
-imports() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
 
 <br></br>

@@ -10,12 +10,25 @@
 ## Function Index ##
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#caaaar-1">caaaar/1</a></td><td></td></tr><tr><td valign="top"><a href="#caaadr-1">caaadr/1</a></td><td></td></tr><tr><td valign="top"><a href="#caaar-1">caaar/1</a></td><td></td></tr><tr><td valign="top"><a href="#caadar-1">caadar/1</a></td><td></td></tr><tr><td valign="top"><a href="#caaddr-1">caaddr/1</a></td><td></td></tr><tr><td valign="top"><a href="#caadr-1">caadr/1</a></td><td></td></tr><tr><td valign="top"><a href="#cadaar-1">cadaar/1</a></td><td></td></tr><tr><td valign="top"><a href="#cadadr-1">cadadr/1</a></td><td></td></tr><tr><td valign="top"><a href="#cadar-1">cadar/1</a></td><td></td></tr><tr><td valign="top"><a href="#caddar-1">caddar/1</a></td><td></td></tr><tr><td valign="top"><a href="#cadddr-1">cadddr/1</a></td><td></td></tr><tr><td valign="top"><a href="#caddr-1">caddr/1</a></td><td></td></tr><tr><td valign="top"><a href="#cdaaar-1">cdaaar/1</a></td><td></td></tr><tr><td valign="top"><a href="#cdaadr-1">cdaadr/1</a></td><td></td></tr><tr><td valign="top"><a href="#cdaar-1">cdaar/1</a></td><td></td></tr><tr><td valign="top"><a href="#cdadar-1">cdadar/1</a></td><td></td></tr><tr><td valign="top"><a href="#cdaddr-1">cdaddr/1</a></td><td></td></tr><tr><td valign="top"><a href="#cdadr-1">cdadr/1</a></td><td></td></tr><tr><td valign="top"><a href="#cddaar-1">cddaar/1</a></td><td></td></tr><tr><td valign="top"><a href="#cddadr-1">cddadr/1</a></td><td></td></tr><tr><td valign="top"><a href="#cddar-1">cddar/1</a></td><td></td></tr><tr><td valign="top"><a href="#cdddar-1">cdddar/1</a></td><td></td></tr><tr><td valign="top"><a href="#cddddr-1">cddddr/1</a></td><td></td></tr><tr><td valign="top"><a href="#cdddr-1">cdddr/1</a></td><td></td></tr><tr><td valign="top"><a href="#imports-0">imports/0</a></td><td></td></tr></table>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#%24scml_exports-0">'$scml_exports'/0</a></td><td></td></tr><tr><td valign="top"><a href="#caaaar-1">caaaar/1</a></td><td></td></tr><tr><td valign="top"><a href="#caaadr-1">caaadr/1</a></td><td></td></tr><tr><td valign="top"><a href="#caaar-1">caaar/1</a></td><td></td></tr><tr><td valign="top"><a href="#caadar-1">caadar/1</a></td><td></td></tr><tr><td valign="top"><a href="#caaddr-1">caaddr/1</a></td><td></td></tr><tr><td valign="top"><a href="#caadr-1">caadr/1</a></td><td></td></tr><tr><td valign="top"><a href="#cadaar-1">cadaar/1</a></td><td></td></tr><tr><td valign="top"><a href="#cadadr-1">cadadr/1</a></td><td></td></tr><tr><td valign="top"><a href="#cadar-1">cadar/1</a></td><td></td></tr><tr><td valign="top"><a href="#caddar-1">caddar/1</a></td><td></td></tr><tr><td valign="top"><a href="#cadddr-1">cadddr/1</a></td><td></td></tr><tr><td valign="top"><a href="#caddr-1">caddr/1</a></td><td></td></tr><tr><td valign="top"><a href="#cdaaar-1">cdaaar/1</a></td><td></td></tr><tr><td valign="top"><a href="#cdaadr-1">cdaadr/1</a></td><td></td></tr><tr><td valign="top"><a href="#cdaar-1">cdaar/1</a></td><td></td></tr><tr><td valign="top"><a href="#cdadar-1">cdadar/1</a></td><td></td></tr><tr><td valign="top"><a href="#cdaddr-1">cdaddr/1</a></td><td></td></tr><tr><td valign="top"><a href="#cdadr-1">cdadr/1</a></td><td></td></tr><tr><td valign="top"><a href="#cddaar-1">cddaar/1</a></td><td></td></tr><tr><td valign="top"><a href="#cddadr-1">cddadr/1</a></td><td></td></tr><tr><td valign="top"><a href="#cddar-1">cddar/1</a></td><td></td></tr><tr><td valign="top"><a href="#cdddar-1">cdddar/1</a></td><td></td></tr><tr><td valign="top"><a href="#cddddr-1">cddddr/1</a></td><td></td></tr><tr><td valign="top"><a href="#cdddr-1">cdddr/1</a></td><td></td></tr></table>
 
 
 <a name="functions"></a>
 
 ## Function Details ##
+
+<a name="%24scml_exports-0"></a>
+
+### '$scml_exports'/0 ###
+
+
+<pre><code>
+'$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
+</code></pre>
+
+<br></br>
+
+
 
 <a name="caaaar-1"></a>
 
@@ -323,19 +336,6 @@ cddddr(Pair::<a href="#type-scm_pair">scm_pair()</a>) -&gt; <a href="#type-scm_o
 
 <pre><code>
 cdddr(Pair::<a href="#type-scm_pair">scm_pair()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
-</code></pre>
-
-<br></br>
-
-
-
-<a name="imports-0"></a>
-
-### imports/0 ###
-
-
-<pre><code>
-imports() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
 
 <br></br>

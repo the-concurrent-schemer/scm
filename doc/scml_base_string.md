@@ -10,12 +10,25 @@
 ## Function Index ##
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#list-%3estring-1">'list->string'/1</a></td><td></td></tr><tr><td valign="top"><a href="#make-string-1">'make-string'/1</a></td><td></td></tr><tr><td valign="top"><a href="#make-string-2">'make-string'/2</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3elist-1">'string->list'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3elist-2">'string->list'/2</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3elist-3">'string->list'/3</a></td><td></td></tr><tr><td valign="top"><a href="#string-append-1">'string-append'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-copy%21-3">'string-copy!'/3</a></td><td></td></tr><tr><td valign="top"><a href="#string-copy%21-4">'string-copy!'/4</a></td><td></td></tr><tr><td valign="top"><a href="#string-copy%21-5">'string-copy!'/5</a></td><td></td></tr><tr><td valign="top"><a href="#string-copy-1">'string-copy'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-copy-2">'string-copy'/2</a></td><td></td></tr><tr><td valign="top"><a href="#string-copy-3">'string-copy'/3</a></td><td></td></tr><tr><td valign="top"><a href="#string-fill%21-2">'string-fill!'/2</a></td><td></td></tr><tr><td valign="top"><a href="#string-fill%21-3">'string-fill!'/3</a></td><td></td></tr><tr><td valign="top"><a href="#string-fill%21-4">'string-fill!'/4</a></td><td></td></tr><tr><td valign="top"><a href="#string-length-1">'string-length'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-ref-2">'string-ref'/2</a></td><td></td></tr><tr><td valign="top"><a href="#string-set%21-3">'string-set!'/3</a></td><td></td></tr><tr><td valign="top"><a href="#string%3c%3d%3f-1">'string<=?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string%3c%3f-1">'string<?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string%3d%3f-1">'string=?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string%3e%3d%3f-1">'string>=?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string%3e%3f-1">'string>?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string%3f-1">'string?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#imports-0">imports/0</a></td><td></td></tr><tr><td valign="top"><a href="#string-1">string/1</a></td><td></td></tr><tr><td valign="top"><a href="#substring-3">substring/3</a></td><td></td></tr></table>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#%24scml_exports-0">'$scml_exports'/0</a></td><td></td></tr><tr><td valign="top"><a href="#list-%3estring-1">'list->string'/1</a></td><td></td></tr><tr><td valign="top"><a href="#make-string-1">'make-string'/1</a></td><td></td></tr><tr><td valign="top"><a href="#make-string-2">'make-string'/2</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3elist-1">'string->list'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3elist-2">'string->list'/2</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3elist-3">'string->list'/3</a></td><td></td></tr><tr><td valign="top"><a href="#string-append-1">'string-append'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-copy%21-3">'string-copy!'/3</a></td><td></td></tr><tr><td valign="top"><a href="#string-copy%21-4">'string-copy!'/4</a></td><td></td></tr><tr><td valign="top"><a href="#string-copy%21-5">'string-copy!'/5</a></td><td></td></tr><tr><td valign="top"><a href="#string-copy-1">'string-copy'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-copy-2">'string-copy'/2</a></td><td></td></tr><tr><td valign="top"><a href="#string-copy-3">'string-copy'/3</a></td><td></td></tr><tr><td valign="top"><a href="#string-fill%21-2">'string-fill!'/2</a></td><td></td></tr><tr><td valign="top"><a href="#string-fill%21-3">'string-fill!'/3</a></td><td></td></tr><tr><td valign="top"><a href="#string-fill%21-4">'string-fill!'/4</a></td><td></td></tr><tr><td valign="top"><a href="#string-length-1">'string-length'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-ref-2">'string-ref'/2</a></td><td></td></tr><tr><td valign="top"><a href="#string-set%21-3">'string-set!'/3</a></td><td></td></tr><tr><td valign="top"><a href="#string%3c%3d%3f-1">'string<=?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string%3c%3f-1">'string<?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string%3d%3f-1">'string=?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string%3e%3d%3f-1">'string>=?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string%3e%3f-1">'string>?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string%3f-1">'string?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-1">string/1</a></td><td></td></tr><tr><td valign="top"><a href="#substring-3">substring/3</a></td><td></td></tr></table>
 
 
 <a name="functions"></a>
 
 ## Function Details ##
+
+<a name="%24scml_exports-0"></a>
+
+### '$scml_exports'/0 ###
+
+
+<pre><code>
+'$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
+</code></pre>
+
+<br></br>
+
+
 
 <a name="list-%3estring-1"></a>
 
@@ -336,19 +349,6 @@
 
 <pre><code>
 'string?'(Obj::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
-</code></pre>
-
-<br></br>
-
-
-
-<a name="imports-0"></a>
-
-### imports/0 ###
-
-
-<pre><code>
-imports() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
 
 <br></br>

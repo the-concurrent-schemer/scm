@@ -22,8 +22,10 @@
 
 -module(scml_base_control).
 
-%% Imports
--export([imports/0]).
+-include("scmi.hrl").
+
+%% SCML Exports
+-export(['$scml_exports'/0]).
 
 %% API
 -export(['procedure?'/1
@@ -43,11 +45,11 @@
 -include("scmi.hrl").
 
 %%%===================================================================
-%%% Imports
+%%% SCML Exports
 %%%===================================================================
 
--spec imports() -> [{scm_symbol(), scmi_nip()}].
-imports() ->
+-spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
+'$scml_exports'() ->
     [{'procedure?', #nipn{val=fun 'procedure?'/1}}
      , {'apply', #nipv{val=fun 'apply'/1}}
      , {'map', #nipv{val=fun 'map'/1}}

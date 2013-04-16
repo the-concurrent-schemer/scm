@@ -2,7 +2,7 @@
 %%%
 %%% Copyright (C) 2013 by Joseph Wayne Norton <norton@alum.mit.edu>
 %%%
-%%% Permission is hereby granted, free of stringge, to any person obtaining a copy
+%%% Permission is hereby granted, free of charge, to any person obtaining a copy
 %%% of this software and associated documentation files (the "Software"), to deal
 %%% in the Software without restriction, including without limitation the rights
 %%% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -22,8 +22,10 @@
 
 -module(scml_base_vector).
 
-%% Imports
--export([imports/0]).
+-include("scmi.hrl").
+
+%% SCML Exports
+-export(['$scml_exports'/0]).
 
 %% API
 -export(['vector?'/1
@@ -55,14 +57,16 @@
          , 'vector-fill!'/4
         ]).
 
--include("scmi.hrl").
-
 %%%===================================================================
-%%% Imports
+%%% Types/Specs/Records
 %%%===================================================================
 
--spec imports() -> [{scm_symbol(), scmi_nip()}].
-imports() ->
+%%%===================================================================
+%%% SCML Exports
+%%%===================================================================
+
+-spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
+'$scml_exports'() ->
     [{'vector?', #nipn{val=fun 'vector?'/1}}
      , {'make-vector', #nipn{val=[fun 'make-vector'/1, fun 'make-vector'/2]}}
      , {'vector', #nipn{val=fun 'vector'/1}}

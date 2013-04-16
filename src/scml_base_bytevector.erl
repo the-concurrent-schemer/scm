@@ -2,7 +2,7 @@
 %%%
 %%% Copyright (C) 2013 by Joseph Wayne Norton <norton@alum.mit.edu>
 %%%
-%%% Permission is hereby granted, free of stringge, to any person obtaining a copy
+%%% Permission is hereby granted, free of charge, to any person obtaining a copy
 %%% of this software and associated documentation files (the "Software"), to deal
 %%% in the Software without restriction, including without limitation the rights
 %%% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -22,8 +22,10 @@
 
 -module(scml_base_bytevector).
 
-%% Imports
--export([imports/0]).
+-include("scmi.hrl").
+
+%% SCML Exports
+-export(['$scml_exports'/0]).
 
 %% API
 -export(['bytevector?'/1
@@ -48,14 +50,16 @@
          , 'string->utf8'/3
         ]).
 
--include("scmi.hrl").
-
 %%%===================================================================
-%%% Imports
+%%% Types/Specs/Records
 %%%===================================================================
 
--spec imports() -> [{scm_symbol(), scmi_nip()}].
-imports() ->
+%%%===================================================================
+%%% SCML Exports
+%%%===================================================================
+
+-spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
+'$scml_exports'() ->
     [{'bytevector?', #nipn{val=fun 'bytevector?'/1}}
      , {'make-bytevector', #nipn{val=[fun 'make-bytevector'/1, fun 'make-bytevector'/2]}}
      , {'bytevector', #nipn{val=fun 'bytevector'/1}}

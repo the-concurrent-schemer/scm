@@ -10,12 +10,25 @@
 ## Function Index ##
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#%2a-1">'*'/1</a></td><td></td></tr><tr><td valign="top"><a href="#%2b-1">'+'/1</a></td><td></td></tr><tr><td valign="top"><a href="#--1">'-'/1</a></td><td></td></tr><tr><td valign="top"><a href="#%2f-1">'/'/1</a></td><td></td></tr><tr><td valign="top"><a href="#complex%3f-1">'complex?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#even%3f-1">'even?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#exact-integer-sqrt-1">'exact-integer-sqrt'/1</a></td><td></td></tr><tr><td valign="top"><a href="#exact-integer%3f-1">'exact-integer?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#exact%3f-1">'exact?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#floor-quotient-2">'floor-quotient'/2</a></td><td></td></tr><tr><td valign="top"><a href="#floor-remainder-2">'floor-remainder'/2</a></td><td></td></tr><tr><td valign="top"><a href="#floor%2f-2">'floor/'/2</a></td><td></td></tr><tr><td valign="top"><a href="#inexact%3f-1">'inexact?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#integer%3f-1">'integer?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#negative%3f-1">'negative?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#number-%3estring-1">'number->string'/1</a></td><td></td></tr><tr><td valign="top"><a href="#number-%3estring-2">'number->string'/2</a></td><td></td></tr><tr><td valign="top"><a href="#number%3f-1">'number?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#odd%3f-1">'odd?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#positive%3f-1">'positive?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#rational%3f-1">'rational?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#real%3f-1">'real?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3enumber-1">'string->number'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3enumber-2">'string->number'/2</a></td><td></td></tr><tr><td valign="top"><a href="#truncate-quotient-2">'truncate-quotient'/2</a></td><td></td></tr><tr><td valign="top"><a href="#truncate-remainder-2">'truncate-remainder'/2</a></td><td></td></tr><tr><td valign="top"><a href="#truncate%2f-2">'truncate/'/2</a></td><td></td></tr><tr><td valign="top"><a href="#zero%3f-1">'zero?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#abs-1">abs/1</a></td><td></td></tr><tr><td valign="top"><a href="#ceiling-1">ceiling/1</a></td><td></td></tr><tr><td valign="top"><a href="#denominator-1">denominator/1</a></td><td></td></tr><tr><td valign="top"><a href="#exact-1">exact/1</a></td><td></td></tr><tr><td valign="top"><a href="#expt-2">expt/2</a></td><td></td></tr><tr><td valign="top"><a href="#floor-1">floor/1</a></td><td></td></tr><tr><td valign="top"><a href="#gcd-1">gcd/1</a></td><td></td></tr><tr><td valign="top"><a href="#imports-0">imports/0</a></td><td></td></tr><tr><td valign="top"><a href="#inexact-1">inexact/1</a></td><td></td></tr><tr><td valign="top"><a href="#lcm-1">lcm/1</a></td><td></td></tr><tr><td valign="top"><a href="#modulo-2">modulo/2</a></td><td></td></tr><tr><td valign="top"><a href="#numerator-1">numerator/1</a></td><td></td></tr><tr><td valign="top"><a href="#quotient-2">quotient/2</a></td><td></td></tr><tr><td valign="top"><a href="#rationalize-2">rationalize/2</a></td><td></td></tr><tr><td valign="top"><a href="#remainder-2">remainder/2</a></td><td></td></tr><tr><td valign="top"><a href="#round-1">round/1</a></td><td></td></tr><tr><td valign="top"><a href="#square-1">square/1</a></td><td></td></tr><tr><td valign="top"><a href="#truncate-1">truncate/1</a></td><td></td></tr></table>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#%24scml_exports-0">'$scml_exports'/0</a></td><td></td></tr><tr><td valign="top"><a href="#%2a-1">'*'/1</a></td><td></td></tr><tr><td valign="top"><a href="#%2b-1">'+'/1</a></td><td></td></tr><tr><td valign="top"><a href="#--1">'-'/1</a></td><td></td></tr><tr><td valign="top"><a href="#%2f-1">'/'/1</a></td><td></td></tr><tr><td valign="top"><a href="#complex%3f-1">'complex?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#even%3f-1">'even?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#exact-integer-sqrt-1">'exact-integer-sqrt'/1</a></td><td></td></tr><tr><td valign="top"><a href="#exact-integer%3f-1">'exact-integer?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#exact%3f-1">'exact?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#floor-quotient-2">'floor-quotient'/2</a></td><td></td></tr><tr><td valign="top"><a href="#floor-remainder-2">'floor-remainder'/2</a></td><td></td></tr><tr><td valign="top"><a href="#floor%2f-2">'floor/'/2</a></td><td></td></tr><tr><td valign="top"><a href="#inexact%3f-1">'inexact?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#integer%3f-1">'integer?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#negative%3f-1">'negative?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#number-%3estring-1">'number->string'/1</a></td><td></td></tr><tr><td valign="top"><a href="#number-%3estring-2">'number->string'/2</a></td><td></td></tr><tr><td valign="top"><a href="#number%3f-1">'number?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#odd%3f-1">'odd?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#positive%3f-1">'positive?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#rational%3f-1">'rational?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#real%3f-1">'real?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3enumber-1">'string->number'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3enumber-2">'string->number'/2</a></td><td></td></tr><tr><td valign="top"><a href="#truncate-quotient-2">'truncate-quotient'/2</a></td><td></td></tr><tr><td valign="top"><a href="#truncate-remainder-2">'truncate-remainder'/2</a></td><td></td></tr><tr><td valign="top"><a href="#truncate%2f-2">'truncate/'/2</a></td><td></td></tr><tr><td valign="top"><a href="#zero%3f-1">'zero?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#abs-1">abs/1</a></td><td></td></tr><tr><td valign="top"><a href="#ceiling-1">ceiling/1</a></td><td></td></tr><tr><td valign="top"><a href="#denominator-1">denominator/1</a></td><td></td></tr><tr><td valign="top"><a href="#exact-1">exact/1</a></td><td></td></tr><tr><td valign="top"><a href="#expt-2">expt/2</a></td><td></td></tr><tr><td valign="top"><a href="#floor-1">floor/1</a></td><td></td></tr><tr><td valign="top"><a href="#gcd-1">gcd/1</a></td><td></td></tr><tr><td valign="top"><a href="#inexact-1">inexact/1</a></td><td></td></tr><tr><td valign="top"><a href="#lcm-1">lcm/1</a></td><td></td></tr><tr><td valign="top"><a href="#modulo-2">modulo/2</a></td><td></td></tr><tr><td valign="top"><a href="#numerator-1">numerator/1</a></td><td></td></tr><tr><td valign="top"><a href="#quotient-2">quotient/2</a></td><td></td></tr><tr><td valign="top"><a href="#rationalize-2">rationalize/2</a></td><td></td></tr><tr><td valign="top"><a href="#remainder-2">remainder/2</a></td><td></td></tr><tr><td valign="top"><a href="#round-1">round/1</a></td><td></td></tr><tr><td valign="top"><a href="#square-1">square/1</a></td><td></td></tr><tr><td valign="top"><a href="#truncate-1">truncate/1</a></td><td></td></tr></table>
 
 
 <a name="functions"></a>
 
 ## Function Details ##
+
+<a name="%24scml_exports-0"></a>
+
+### '$scml_exports'/0 ###
+
+
+<pre><code>
+'$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
+</code></pre>
+
+<br></br>
+
+
 
 <a name="%2a-1"></a>
 
@@ -466,19 +479,6 @@ floor(X::<a href="#type-scm_x">scm_x()</a>) -&gt; <a href="#type-scm_n">scm_n()<
 
 <pre><code>
 gcd(Ns::[<a href="#type-scm_n">scm_n()</a>]) -&gt; <a href="#type-scm_n">scm_n()</a>
-</code></pre>
-
-<br></br>
-
-
-
-<a name="imports-0"></a>
-
-### imports/0 ###
-
-
-<pre><code>
-imports() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
 
 <br></br>

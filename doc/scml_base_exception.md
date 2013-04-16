@@ -10,12 +10,25 @@
 ## Function Index ##
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#error-object-irritants-1">'error-object-irritants'/1</a></td><td></td></tr><tr><td valign="top"><a href="#error-object-message-1">'error-object-message'/1</a></td><td></td></tr><tr><td valign="top"><a href="#error-object%3f-1">'error-object?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#file-error%3f-1">'file-error?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#raise-continuable-1">'raise-continuable'/1</a></td><td></td></tr><tr><td valign="top"><a href="#read-error%3f-1">'read-error?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#with-exception-handler-2">'with-exception-handler'/2</a></td><td></td></tr><tr><td valign="top"><a href="#error-1">error/1</a></td><td></td></tr><tr><td valign="top"><a href="#imports-0">imports/0</a></td><td></td></tr><tr><td valign="top"><a href="#raise-1">raise/1</a></td><td></td></tr></table>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#%24scml_exports-0">'$scml_exports'/0</a></td><td></td></tr><tr><td valign="top"><a href="#error-object-irritants-1">'error-object-irritants'/1</a></td><td></td></tr><tr><td valign="top"><a href="#error-object-message-1">'error-object-message'/1</a></td><td></td></tr><tr><td valign="top"><a href="#error-object%3f-1">'error-object?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#file-error%3f-1">'file-error?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#raise-continuable-1">'raise-continuable'/1</a></td><td></td></tr><tr><td valign="top"><a href="#read-error%3f-1">'read-error?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#with-exception-handler-2">'with-exception-handler'/2</a></td><td></td></tr><tr><td valign="top"><a href="#error-1">error/1</a></td><td></td></tr><tr><td valign="top"><a href="#raise-1">raise/1</a></td><td></td></tr></table>
 
 
 <a name="functions"></a>
 
 ## Function Details ##
+
+<a name="%24scml_exports-0"></a>
+
+### '$scml_exports'/0 ###
+
+
+<pre><code>
+'$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
+</code></pre>
+
+<br></br>
+
+
 
 <a name="error-object-irritants-1"></a>
 
@@ -115,19 +128,6 @@
 
 <pre><code>
 error(Objs::[<a href="#type-scm_obj">scm_obj()</a>, ...]) -&gt; <a href="#type-scm_obj">scm_obj()</a>
-</code></pre>
-
-<br></br>
-
-
-
-<a name="imports-0"></a>
-
-### imports/0 ###
-
-
-<pre><code>
-imports() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
 
 <br></br>

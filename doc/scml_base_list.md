@@ -10,12 +10,25 @@
 ## Function Index ##
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#list-copy-1">'list-copy'/1</a></td><td></td></tr><tr><td valign="top"><a href="#list-ref-2">'list-ref'/2</a></td><td></td></tr><tr><td valign="top"><a href="#list-set%21-3">'list-set!'/3</a></td><td></td></tr><tr><td valign="top"><a href="#list-tail-2">'list-tail'/2</a></td><td></td></tr><tr><td valign="top"><a href="#list%3f-1">'list?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#make-list-1">'make-list'/1</a></td><td></td></tr><tr><td valign="top"><a href="#make-list-2">'make-list'/2</a></td><td></td></tr><tr><td valign="top"><a href="#null%3f-1">'null?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#pair%3f-1">'pair?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#set-car%21-2">'set-car!'/2</a></td><td></td></tr><tr><td valign="top"><a href="#set-cdr%21-2">'set-cdr!'/2</a></td><td></td></tr><tr><td valign="top"><a href="#append-1">append/1</a></td><td></td></tr><tr><td valign="top"><a href="#assoc-2">assoc/2</a></td><td></td></tr><tr><td valign="top"><a href="#assoc-3">assoc/3</a></td><td></td></tr><tr><td valign="top"><a href="#assq-2">assq/2</a></td><td></td></tr><tr><td valign="top"><a href="#assv-2">assv/2</a></td><td></td></tr><tr><td valign="top"><a href="#caar-1">caar/1</a></td><td></td></tr><tr><td valign="top"><a href="#cadr-1">cadr/1</a></td><td></td></tr><tr><td valign="top"><a href="#car-1">car/1</a></td><td></td></tr><tr><td valign="top"><a href="#cdar-1">cdar/1</a></td><td></td></tr><tr><td valign="top"><a href="#cddr-1">cddr/1</a></td><td></td></tr><tr><td valign="top"><a href="#cdr-1">cdr/1</a></td><td></td></tr><tr><td valign="top"><a href="#cons-2">cons/2</a></td><td></td></tr><tr><td valign="top"><a href="#imports-0">imports/0</a></td><td></td></tr><tr><td valign="top"><a href="#length-1">length/1</a></td><td></td></tr><tr><td valign="top"><a href="#list-1">list/1</a></td><td></td></tr><tr><td valign="top"><a href="#member-2">member/2</a></td><td></td></tr><tr><td valign="top"><a href="#member-3">member/3</a></td><td></td></tr><tr><td valign="top"><a href="#memq-2">memq/2</a></td><td></td></tr><tr><td valign="top"><a href="#memv-2">memv/2</a></td><td></td></tr><tr><td valign="top"><a href="#reverse-1">reverse/1</a></td><td></td></tr></table>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#%24scml_exports-0">'$scml_exports'/0</a></td><td></td></tr><tr><td valign="top"><a href="#list-copy-1">'list-copy'/1</a></td><td></td></tr><tr><td valign="top"><a href="#list-ref-2">'list-ref'/2</a></td><td></td></tr><tr><td valign="top"><a href="#list-set%21-3">'list-set!'/3</a></td><td></td></tr><tr><td valign="top"><a href="#list-tail-2">'list-tail'/2</a></td><td></td></tr><tr><td valign="top"><a href="#list%3f-1">'list?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#make-list-1">'make-list'/1</a></td><td></td></tr><tr><td valign="top"><a href="#make-list-2">'make-list'/2</a></td><td></td></tr><tr><td valign="top"><a href="#null%3f-1">'null?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#pair%3f-1">'pair?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#set-car%21-2">'set-car!'/2</a></td><td></td></tr><tr><td valign="top"><a href="#set-cdr%21-2">'set-cdr!'/2</a></td><td></td></tr><tr><td valign="top"><a href="#append-1">append/1</a></td><td></td></tr><tr><td valign="top"><a href="#assoc-2">assoc/2</a></td><td></td></tr><tr><td valign="top"><a href="#assoc-3">assoc/3</a></td><td></td></tr><tr><td valign="top"><a href="#assq-2">assq/2</a></td><td></td></tr><tr><td valign="top"><a href="#assv-2">assv/2</a></td><td></td></tr><tr><td valign="top"><a href="#caar-1">caar/1</a></td><td></td></tr><tr><td valign="top"><a href="#cadr-1">cadr/1</a></td><td></td></tr><tr><td valign="top"><a href="#car-1">car/1</a></td><td></td></tr><tr><td valign="top"><a href="#cdar-1">cdar/1</a></td><td></td></tr><tr><td valign="top"><a href="#cddr-1">cddr/1</a></td><td></td></tr><tr><td valign="top"><a href="#cdr-1">cdr/1</a></td><td></td></tr><tr><td valign="top"><a href="#cons-2">cons/2</a></td><td></td></tr><tr><td valign="top"><a href="#length-1">length/1</a></td><td></td></tr><tr><td valign="top"><a href="#list-1">list/1</a></td><td></td></tr><tr><td valign="top"><a href="#member-2">member/2</a></td><td></td></tr><tr><td valign="top"><a href="#member-3">member/3</a></td><td></td></tr><tr><td valign="top"><a href="#memq-2">memq/2</a></td><td></td></tr><tr><td valign="top"><a href="#memv-2">memv/2</a></td><td></td></tr><tr><td valign="top"><a href="#reverse-1">reverse/1</a></td><td></td></tr></table>
 
 
 <a name="functions"></a>
 
 ## Function Details ##
+
+<a name="%24scml_exports-0"></a>
+
+### '$scml_exports'/0 ###
+
+
+<pre><code>
+'$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
+</code></pre>
+
+<br></br>
+
+
 
 <a name="list-copy-1"></a>
 
@@ -310,19 +323,6 @@ cdr(T::<a href="#type-scm_pair">scm_pair()</a>) -&gt; <a href="#type-scm_obj">sc
 
 <pre><code>
 cons(Obj1::<a href="#type-scm_obj">scm_obj()</a>, Obj2::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_pair">scm_pair()</a>
-</code></pre>
-
-<br></br>
-
-
-
-<a name="imports-0"></a>
-
-### imports/0 ###
-
-
-<pre><code>
-imports() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
 
 <br></br>

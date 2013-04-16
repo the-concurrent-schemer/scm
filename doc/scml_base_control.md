@@ -10,12 +10,25 @@
 ## Function Index ##
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#call-with-current-continuation-1">'call-with-current-continuation'/1</a></td><td></td></tr><tr><td valign="top"><a href="#call-with-values-2">'call-with-values'/2</a></td><td></td></tr><tr><td valign="top"><a href="#dynamic-wind-3">'dynamic-wind'/3</a></td><td></td></tr><tr><td valign="top"><a href="#for-each-1">'for-each'/1</a></td><td></td></tr><tr><td valign="top"><a href="#procedure%3f-1">'procedure?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-for-each-1">'string-for-each'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-map-1">'string-map'/1</a></td><td></td></tr><tr><td valign="top"><a href="#vector-for-each-1">'vector-for-each'/1</a></td><td></td></tr><tr><td valign="top"><a href="#vector-map-1">'vector-map'/1</a></td><td></td></tr><tr><td valign="top"><a href="#apply-1">apply/1</a></td><td></td></tr><tr><td valign="top"><a href="#imports-0">imports/0</a></td><td></td></tr><tr><td valign="top"><a href="#map-1">map/1</a></td><td></td></tr><tr><td valign="top"><a href="#values-1">values/1</a></td><td></td></tr></table>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#%24scml_exports-0">'$scml_exports'/0</a></td><td></td></tr><tr><td valign="top"><a href="#call-with-current-continuation-1">'call-with-current-continuation'/1</a></td><td></td></tr><tr><td valign="top"><a href="#call-with-values-2">'call-with-values'/2</a></td><td></td></tr><tr><td valign="top"><a href="#dynamic-wind-3">'dynamic-wind'/3</a></td><td></td></tr><tr><td valign="top"><a href="#for-each-1">'for-each'/1</a></td><td></td></tr><tr><td valign="top"><a href="#procedure%3f-1">'procedure?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-for-each-1">'string-for-each'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-map-1">'string-map'/1</a></td><td></td></tr><tr><td valign="top"><a href="#vector-for-each-1">'vector-for-each'/1</a></td><td></td></tr><tr><td valign="top"><a href="#vector-map-1">'vector-map'/1</a></td><td></td></tr><tr><td valign="top"><a href="#apply-1">apply/1</a></td><td></td></tr><tr><td valign="top"><a href="#map-1">map/1</a></td><td></td></tr><tr><td valign="top"><a href="#values-1">values/1</a></td><td></td></tr></table>
 
 
 <a name="functions"></a>
 
 ## Function Details ##
+
+<a name="%24scml_exports-0"></a>
+
+### '$scml_exports'/0 ###
+
+
+<pre><code>
+'$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
+</code></pre>
+
+<br></br>
+
+
 
 <a name="call-with-current-continuation-1"></a>
 
@@ -141,19 +154,6 @@
 
 <pre><code>
 apply(Args::[<a href="#type-scm_any">scm_any()</a>, ...]) -&gt; <a href="#type-scm_any">scm_any()</a>
-</code></pre>
-
-<br></br>
-
-
-
-<a name="imports-0"></a>
-
-### imports/0 ###
-
-
-<pre><code>
-imports() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
 
 <br></br>

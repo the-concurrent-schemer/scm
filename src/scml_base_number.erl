@@ -22,8 +22,10 @@
 
 -module(scml_base_number).
 
-%% Imports
--export([imports/0]).
+-include("scmi.hrl").
+
+%% SCML Exports
+-export(['$scml_exports'/0]).
 
 %% API
 -export(['number?'/1
@@ -73,14 +75,16 @@
          , 'string->number'/2
         ]).
 
--include("scmi.hrl").
-
 %%%===================================================================
-%%% Imports
+%%% Types/Specs/Records
 %%%===================================================================
 
--spec imports() -> [{scm_symbol(), scmi_nip()}].
-imports() ->
+%%%===================================================================
+%%% SCML Exports
+%%%===================================================================
+
+-spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
+'$scml_exports'() ->
     [{'number?', #nipn{val=fun 'number?'/1}}
      , {'complex?', #nipn{val=fun 'complex?'/1}}
      , {'real?', #nipn{val=fun 'real?'/1}}
