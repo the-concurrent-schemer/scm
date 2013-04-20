@@ -22,8 +22,6 @@
 
 -module(scml_char).
 
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
@@ -51,6 +49,8 @@
          , 'string-downcase'/1
          , 'string-foldcase'/1
         ]).
+
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records

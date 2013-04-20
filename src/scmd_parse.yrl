@@ -113,8 +113,6 @@ abbreviation -> ',@' datum1 :
 
 Erlang code.
 
--include("scmd.hrl").
-
 %% External exports
 -export([binary/1
          , binary/2
@@ -133,6 +131,8 @@ Erlang code.
         ]).
 
 -export_type([filename/0, posix/0]).
+
+-include("scmd.hrl").
 
 %%%----------------------------------------------------------------------
 %%% Types/Specs/Records

@@ -22,8 +22,6 @@
 
 -module(scml_base_list).
 
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
@@ -49,16 +47,19 @@
          , 'list-tail'/2
          , 'list-ref'/2
          , 'list-set!'/3
-         , 'memq'/2
-         , 'memv'/2
-         , 'member'/2
-         , 'member'/3
-         , 'assq'/2
-         , 'assv'/2
-         , 'assoc'/2
-         , 'assoc'/3
+         , 'memq'/5
+         , 'memv'/5
+         , 'member'/5
+         , 'member'/6
+         , 'assq'/5
+         , 'assv'/5
+         , 'assoc'/5
+         , 'assoc'/6
          , 'list-copy'/1
         ]).
+
+-import(scmi_analyze_primitive, [apply/5]).
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records
@@ -90,12 +91,12 @@
      , {'list-tail', #nipn{val=fun 'list-tail'/2}}
      , {'list-ref', #nipn{val=fun 'list-ref'/2}}
      , {'list-set!', #nipn{val=fun 'list-set!'/3}}
-     , {'memq', #nipn{val=fun 'memq'/2}}
-     , {'memv', #nipn{val=fun 'memv'/2}}
-     , {'member', #nipn{val=[fun 'member'/2, fun 'member'/3]}}
-     , {'assq', #nipn{val=fun 'assq'/2}}
-     , {'assv', #nipn{val=fun 'assv'/2}}
-     , {'assoc', #nipn{val=[fun 'assoc'/2, fun 'assoc'/3]}}
+     , {'memq', #xnipn{val=fun 'memq'/5}}
+     , {'memv', #xnipn{val=fun 'memv'/5}}
+     , {'member', #xnipn{val=[fun 'member'/5, fun 'member'/6]}}
+     , {'assq', #xnipn{val=fun 'assq'/5}}
+     , {'assv', #xnipn{val=fun 'assv'/5}}
+     , {'assoc', #xnipn{val=[fun 'assoc'/5, fun 'assoc'/6]}}
      , {'list-copy', #nipn{val=fun 'list-copy'/1}}
     ].
 
@@ -198,51 +199,51 @@
     %% (nearly?) impossible with the Erlang VM
     erlang:error(unsupported, [List, K, Obj]).
 
--spec 'memq'(scm_obj(), scm_list()) -> scm_list() | scm_false().
-'memq'(Obj, List) ->
-    'member'(Obj, List, fun scml_base_equality:'eq?'/2).
+-spec 'memq'(scm_obj(), scm_list(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_list() | scm_false().
+'memq'(Obj, List, Env, Ok, Ng) ->
+    'member'(Obj, List, #xnipn{val=fun scml_base_equality:'eq?'/2}, Env, Ok, Ng).
 
--spec 'memv'(scm_obj(), scm_list()) -> scm_list() | scm_false().
-'memv'(Obj, List) ->
-    'member'(Obj, List, fun scml_base_equality:'eqv?'/2).
+-spec 'memv'(scm_obj(), scm_list(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_list() | scm_false().
+'memv'(Obj, List, Env, Ok, Ng) ->
+    'member'(Obj, List, #xnipn{val=fun scml_base_equality:'eqv?'/2}, Env, Ok, Ng).
 
--spec 'member'(scm_obj(), scm_list()) -> scm_list() | scm_false().
-'member'(Obj, List) ->
-    'member'(Obj, List, fun scml_base_equality:'equal?'/2).
+-spec 'member'(scm_obj(), scm_list(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_list() | scm_false().
+'member'(Obj, List, Env, Ok, Ng) ->
+    'member'(Obj, List, #xnipn{val=fun scml_base_equality:'equal?'/2}, Env, Ok, Ng).
 
--spec 'member'(scm_obj(), scm_list(), scm_proc()) -> scm_list() | scm_false().
-'member'(_Obj, [], _Compare) ->
-    ?FALSE;
-'member'(Obj, [H|T]=List, Compare) ->
-    case Compare(Obj, H) of
-        ?FALSE ->
-            'member'(Obj, T, Compare);
-        _ ->
-            List
-    end.
+-spec 'member'(scm_obj(), scm_list(), scm_proc(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_list() | scm_false().
+'member'(_Obj, [], _Compare, _Env, Ok, Ng) ->
+    Ok(?FALSE, Ng);
+'member'(Obj, [H|T]=List, Compare, Env, Ok, Ng) ->
+    Ok1 = fun(?FALSE, Ng1) ->
+                  'member'(Obj, T, Compare, Env, Ok, Ng1);
+             (_, Ng1) ->
+                  Ok(List, Ng1)
+          end,
+    apply(Compare, [Obj, H], Env, Ok1, Ng).
 
--spec 'assq'(scm_obj(), scm_alist()) -> scm_pair() | scm_false().
-'assq'(Obj, Alist) ->
-    'assoc'(Obj, Alist, fun scml_base_equality:'eq?'/2).
+-spec 'assq'(scm_obj(), scm_alist(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_pair() | scm_false().
+'assq'(Obj, Alist, Env, Ok, Ng) ->
+    'assoc'(Obj, Alist, #xnipn{val=fun scml_base_equality:'eq?'/2}, Env, Ok, Ng).
 
--spec 'assv'(scm_obj(), scm_alist()) -> scm_pair() | scm_false().
-'assv'(Obj, Alist) ->
-    'assoc'(Obj, Alist, fun scml_base_equality:'eqv?'/2).
+-spec 'assv'(scm_obj(), scm_alist(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_pair() | scm_false().
+'assv'(Obj, Alist, Env, Ok, Ng) ->
+    'assoc'(Obj, Alist, #xnipn{val=fun scml_base_equality:'eqv?'/2}, Env, Ok, Ng).
 
--spec 'assoc'(scm_obj(), scm_alist()) -> scm_pair() | scm_false().
-'assoc'(Obj, Alist) ->
-    'assoc'(Obj, Alist, fun scml_base_equality:'equal?'/2).
+-spec 'assoc'(scm_obj(), scm_alist(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_pair() | scm_false().
+'assoc'(Obj, Alist, Env, Ok, Ng) ->
+    'assoc'(Obj, Alist, #xnipn{val=fun scml_base_equality:'equal?'/2}, Env, Ok, Ng).
 
--spec 'assoc'(scm_obj(), scm_alist(), scm_proc()) -> scm_pair() | scm_false().
-'assoc'(_Obj, [], _Compare) ->
-    ?FALSE;
-'assoc'(Obj, [[H|_]|T]=Alist, Compare) ->
-    case Compare(Obj, H) of
-        ?FALSE ->
-            'assoc'(Obj, T, Compare);
-        _ ->
-            Alist
-    end.
+-spec 'assoc'(scm_obj(), scm_alist(), scm_proc(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_pair() | scm_false().
+'assoc'(_Obj, [], _Compare, _Env, Ok, Ng) ->
+    Ok(?FALSE, Ng);
+'assoc'(Obj, [[H|_]|T]=Alist, Compare, Env, Ok, Ng) ->
+    Ok1 = fun(?FALSE, Ng1) ->
+                  'assoc'(Obj, T, Compare, Env, Ok, Ng1);
+             (_, Ng1) ->
+                  Ok(Alist, Ng1)
+          end,
+    apply(Compare, [Obj, H], Env, Ok1, Ng).
 
 -spec 'list-copy'(scm_obj()) -> scm_obj().
 'list-copy'(Obj) ->

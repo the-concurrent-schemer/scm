@@ -22,8 +22,6 @@
 
 -module(scml_base_bytevector).
 
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
@@ -49,6 +47,8 @@
          , 'string->utf8'/2
          , 'string->utf8'/3
         ]).
+
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records

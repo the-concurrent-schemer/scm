@@ -1,6 +1,6 @@
 
 
-# Module scmd_type #
+# Module scmd_types #
 * [Data Types](#types)
 
 
@@ -35,7 +35,7 @@ scm_alist() = [<a href="#type-scm_pair">scm_pair()</a>]
 
 
 <pre><code>
-scm_any() = <a href="scmd.md#type-s_any">scmd:s_any</a>(<a href="#type-scm_any">scm_any()</a>) | <a href="#type-scm_alist">scm_alist()</a> | <a href="#type-scm_boolean">scm_boolean()</a> | <a href="#type-scm_byte">scm_byte()</a> | <a href="#type-scm_bytevector">scm_bytevector()</a> | <a href="#type-scm_char">scm_char()</a> | <a href="#type-scm_end">scm_end()</a> | <a href="#type-scm_k">scm_k()</a> | <a href="#type-scm_letter">scm_letter()</a> | <a href="#type-scm_list">scm_list()</a> | <a href="#type-scm_list_nonempty">scm_list_nonempty()</a> | <a href="#type-scm_n">scm_n()</a> | <a href="#type-scm_n_nonzero">scm_n_nonzero()</a> | <a href="#type-scm_n_pos">scm_n_pos()</a> | <a href="#type-scm_pair">scm_pair()</a> | <a href="#type-scm_port">scm_port()</a> | <a href="#type-scm_eof">scm_eof()</a> | <a href="#type-scm_readerr">scm_readerr()</a> | <a href="#type-scm_fileerr">scm_fileerr()</a> | <a href="#type-scm_proc">scm_proc()</a> | <a href="#type-scm_q">scm_q()</a> | <a href="#type-scm_start">scm_start()</a> | <a href="#type-scm_string">scm_string()</a> | <a href="#type-scm_symbol">scm_symbol()</a> | <a href="#type-scm_thunk">scm_thunk()</a> | <a href="#type-scm_vector">scm_vector()</a> | <a href="#type-scm_x">scm_x()</a> | <a href="#type-scm_y">scm_y()</a> | <a href="#type-scm_z">scm_z()</a>
+scm_any() = <a href="scmd.md#type-s_any">scmd:s_any</a>(<a href="#type-scm_any">scm_any()</a>) | <a href="#type-scm_alist">scm_alist()</a> | <a href="#type-scm_boolean">scm_boolean()</a> | <a href="#type-scm_byte">scm_byte()</a> | <a href="#type-scm_bytevector">scm_bytevector()</a> | <a href="#type-scm_char">scm_char()</a> | <a href="#type-scm_end">scm_end()</a> | <a href="#type-scm_k">scm_k()</a> | <a href="#type-scm_letter">scm_letter()</a> | <a href="#type-scm_list">scm_list()</a> | <a href="#type-scm_list_nonempty">scm_list_nonempty()</a> | <a href="#type-scm_n">scm_n()</a> | <a href="#type-scm_n_nonzero">scm_n_nonzero()</a> | <a href="#type-scm_n_pos">scm_n_pos()</a> | <a href="#type-scm_pair">scm_pair()</a> | <a href="#type-scm_port">scm_port()</a> | <a href="#type-scm_eof">scm_eof()</a> | <a href="#type-scm_proc">scm_proc()</a> | <a href="#type-scm_q">scm_q()</a> | <a href="#type-scm_start">scm_start()</a> | <a href="#type-scm_string">scm_string()</a> | <a href="#type-scm_symbol">scm_symbol()</a> | <a href="#type-scm_thunk">scm_thunk()</a> | <a href="#type-scm_vector">scm_vector()</a> | <a href="#type-scm_x">scm_x()</a> | <a href="#type-scm_y">scm_y()</a> | <a href="#type-scm_z">scm_z()</a> | <a href="#type-scm_exception">scm_exception()</a> | <a href="#type-scm_error">scm_error()</a>
 </code></pre>
 
 
@@ -150,6 +150,30 @@ scm_eof() = eof
 
 
 
+### <a name="type-scm_error">scm_error()</a> ###
+
+
+
+<pre><code>
+scm_error() = <a href="scmi_types.md#type-error">scmi_types:error()</a>
+</code></pre>
+
+
+
+
+
+### <a name="type-scm_exception">scm_exception()</a> ###
+
+
+
+<pre><code>
+scm_exception() = <a href="scmi_types.md#type-exception">scmi_types:exception()</a>
+</code></pre>
+
+
+
+
+
 ### <a name="type-scm_false">scm_false()</a> ###
 
 
@@ -163,24 +187,6 @@ scm_false() = <a href="scmd.md#type-s_false">scmd:s_false()</a>
 
 
 <pre><code>false</code></pre>
-
-
-
-
-
-### <a name="type-scm_fileerr">scm_fileerr()</a> ###
-
-
-
-<pre><code>
-scm_fileerr() = fileerr
-</code></pre>
-
-
-
-
-
-<pre><code>file error</code></pre>
 
 
 
@@ -389,7 +395,7 @@ scm_port() = <a href="io.md#type-dev">io:dev()</a>
 
 
 <pre><code>
-scm_proc() = <a href="scmi.md#type-f">scmi:f()</a> | <a href="scmi.md#type-xf">scmi:xf()</a> | <a href="scmi.md#type-p">scmi:p()</a>
+scm_proc() = <a href="scmi_types.md#type-proc">scmi_types:proc()</a>
 </code></pre>
 
 
@@ -415,24 +421,6 @@ scm_q() = <a href="scmd.md#type-s_rational">scmd:s_rational()</a>
 
 
 <pre><code>rational</code></pre>
-
-
-
-
-
-### <a name="type-scm_readerr">scm_readerr()</a> ###
-
-
-
-<pre><code>
-scm_readerr() = readerr
-</code></pre>
-
-
-
-
-
-<pre><code>read error</code></pre>
 
 
 
@@ -497,7 +485,7 @@ scm_symbol() = <a href="scmd.md#type-s_symbol">scmd:s_symbol()</a>
 
 
 <pre><code>
-scm_thunk() = <a href="scmi.md#type-f0">scmi:f0()</a> | <a href="scmi.md#type-xf0">scmi:xf0()</a> | <a href="scmi.md#type-p0">scmi:p0()</a>
+scm_thunk() = <a href="scmi_types.md#type-thunk">scmi_types:thunk()</a>
 </code></pre>
 
 

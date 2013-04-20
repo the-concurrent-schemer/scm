@@ -22,14 +22,14 @@
 
 -module(scml_repl).
 
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
 %% API
 -export(['interaction-environment'/0
         ]).
+
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records

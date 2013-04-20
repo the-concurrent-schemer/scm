@@ -22,15 +22,14 @@
 
 -module(scmi_analyze_syntax).
 
--include("scmi.hrl").
--include("scmi_analyze.hrl").
-
 %% External exports
 -export([analyze_let_syntax/2
          , analyze_letrec_syntax/2
          , analyze_syntax_rules/2
          , analyze_syntax_error/2
         ]).
+
+-include("scmi_analyze.hrl").
 
 %%%----------------------------------------------------------------------
 %%% Types/Specs/Records

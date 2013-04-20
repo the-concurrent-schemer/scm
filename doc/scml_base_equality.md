@@ -10,7 +10,9 @@
 ## Function Index ##
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#%24scml_exports-0">'$scml_exports'/0</a></td><td></td></tr><tr><td valign="top"><a href="#eq%3f-2">'eq?'/2</a></td><td></td></tr><tr><td valign="top"><a href="#equal%3f-2">'equal?'/2</a></td><td></td></tr><tr><td valign="top"><a href="#eqv%3f-2">'eqv?'/2</a></td><td><p>This function is a temporary place holder and is not (yet)
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#%24scml_exports-0">'$scml_exports'/0</a></td><td></td></tr><tr><td valign="top"><a href="#eq%3f-2">'eq?'/2</a></td><td><p>This function is a temporary place holder and is not (yet)
+compliant with the R7RS specification.</p>.</td></tr><tr><td valign="top"><a href="#equal%3f-2">'equal?'/2</a></td><td><p>This function is a temporary place holder and is not (yet)
+compliant with the R7RS specification.</p>.</td></tr><tr><td valign="top"><a href="#eqv%3f-2">'eqv?'/2</a></td><td><p>This function is a temporary place holder and is not (yet)
 compliant with the R7RS specification.</p>.</td></tr></table>
 
 
@@ -43,6 +45,8 @@ compliant with the R7RS specification.</p>.</td></tr></table>
 <br></br>
 
 
+<p>This function is a temporary place holder and is not (yet)
+compliant with the R7RS specification.</p>
 
 <a name="equal%3f-2"></a>
 
@@ -56,6 +60,8 @@ compliant with the R7RS specification.</p>.</td></tr></table>
 <br></br>
 
 
+<p>This function is a temporary place holder and is not (yet)
+compliant with the R7RS specification.</p>
 
 <a name="eqv%3f-2"></a>
 

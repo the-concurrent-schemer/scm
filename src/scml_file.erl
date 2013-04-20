@@ -22,8 +22,6 @@
 
 -module(scml_file).
 
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
@@ -31,6 +29,8 @@
 -export(['file-exists?'/1
          , 'delete-file'/1
         ]).
+
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records

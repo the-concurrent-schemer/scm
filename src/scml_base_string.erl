@@ -22,8 +22,6 @@
 
 -module(scml_base_string).
 
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
@@ -56,6 +54,8 @@
          , 'string-fill!'/3
          , 'string-fill!'/4
         ]).
+
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records

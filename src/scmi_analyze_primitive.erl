@@ -22,13 +22,10 @@
 
 -module(scmi_analyze_primitive).
 
--include("scmi.hrl").
--include("scmi_analyze.hrl").
-
 %% External exports
 -export([analyze_lambda/2
          , analyze_sequence/2
-         , analyze_application/2
+         , analyze_application/2, apply/5
          , analyze_if/2
          , analyze_assignment/2
          , analyze_include/2
@@ -41,6 +38,8 @@
 -import(scmi_analyze, [analyze/2, validate_variables/1, validate_variable/1, splitnv_arguments/2]).
 -import(scmi_analyze_derived, [scan_out_internal_definitions/1]).
 
+-include("scmi_analyze.hrl").
+
 %%%----------------------------------------------------------------------
 %%% Types/Specs/Records
 %%%----------------------------------------------------------------------
@@ -51,20 +50,20 @@
 
 analyze_lambda([[]|Body], Ana) ->
     Exec = analyze_sequence(scan_out_internal_definitions(Body), Ana),
-    fun(Env, Ok, Ng) -> Ok(#proc0{val={Exec, Env}}, Ng) end;
+    fun(Env, Ok, Ng) -> Ok(#lip0{val={Exec, Env}}, Ng) end;
 analyze_lambda([Variable|Body], Ana) when not is_list(Variable) ->
     validate_variable(Variable),
     Exec = analyze_sequence(scan_out_internal_definitions(Body), Ana),
-    fun(Env, Ok, Ng) -> Ok(#procv{val={Variable, Exec, Env}}, Ng) end;
+    fun(Env, Ok, Ng) -> Ok(#lipv{val={Variable, Exec, Env}}, Ng) end;
 analyze_lambda([[Variables|Variable]=Vs|Body], Ana) when not is_list(Variable) ->
     validate_variables(Vs),
-    AllVariables = Variables++[Variable],
+    AllVariables = Variables ++ [Variable],
     Exec = analyze_sequence(scan_out_internal_definitions(Body), Ana),
-    fun(Env, Ok, Ng) -> Ok(#procnv{val={length(Variables), AllVariables, Exec, Env}}, Ng) end;
+    fun(Env, Ok, Ng) -> Ok(#lipnv{val={length(Variables), AllVariables, Exec, Env}}, Ng) end;
 analyze_lambda([Variables|Body], Ana) when is_list(Variables) ->
     validate_variables(Variables),
     Exec = analyze_sequence(scan_out_internal_definitions(Body), Ana),
-    fun(Env, Ok, Ng) -> Ok(#procn{val={Variables, Exec, Env}}, Ng) end.
+    fun(Env, Ok, Ng) -> Ok(#lipn{val={Variables, Exec, Env}}, Ng) end.
 
 analyze_sequence(Exps, Ana) ->
     sequentially([ analyze(Exp, Ana) || Exp <- Exps ]).
@@ -76,13 +75,40 @@ analyze_application([Operator|Operands], Ana) when is_list(Operands) ->
             FExec(Env,
                   fun(Proc, Ng1) ->
                           get_args(AExecs, Env,
-                                   fun(Args, Ng2) -> execute_application(Proc, Args, Env, Ok, Ng2) end,
+                                   fun(Args, Ng2) -> apply(Proc, Args, Env, Ok, Ng2) end,
                                    Ng1)
                   end,
                   Ng)
     end;
 analyze_application(Exp, Ana) ->
     erlang:error(badarg, [Exp, Ana]).
+
+apply(#nip0{val=Fun}, [], _Env, Ok, Ng) ->
+    Ok(apply_nip0(Fun), Ng);
+apply(#nipn{val=FunOrFuns}, Args, _Env, Ok, Ng) ->
+    Ok(apply_nipn(FunOrFuns, Args), Ng);
+apply(#nipv{val=Fun}, Args, _Env, Ok, Ng) ->
+    Ok(apply_nipv(Fun, Args), Ng);
+apply(#nipnv{val=Fun}, Args, _Env, Ok, Ng) ->
+    Ok(apply_nipnv(Fun, Args), Ng);
+apply(#xnip0{val=Fun}, [], Env, Ok, Ng) ->
+    apply_xnip0(Fun, Env, Ok, Ng);
+apply(#xnipn{val=FunOrFuns}, Args, Env, Ok, Ng) ->
+    apply_xnipn(FunOrFuns, Args, Env, Ok, Ng);
+apply(#xnipv{val=Fun}, Args, Env, Ok, Ng) ->
+    apply_xnipv(Fun, Args, Env, Ok, Ng);
+apply(#xnipnv{val=Fun}, Args, Env, Ok, Ng) ->
+    apply_xnipnv(Fun, Args, Env, Ok, Ng);
+apply(#lip0{val=Proc}, [], _Env, Ok, Ng) ->
+    apply_proc0(Proc, Ok, Ng);
+apply(#lipn{val=Proc}, Args, _Env, Ok, Ng) ->
+    apply_procn(Proc, Args, Ok, Ng);
+apply(#lipv{val=Proc}, Args, _Env, Ok, Ng) ->
+    apply_procv(Proc, Args, Ok, Ng);
+apply(#lipnv{val=Proc}, Args, _Env, Ok, Ng) ->
+    apply_procnv(Proc, Args, Ok, Ng);
+apply(Proc, Args, Env, Ok, Ng) ->
+    erlang:error(badarg, [Proc, Args, Env, Ok, Ng]).
 
 analyze_if([Test, Consequent, Alternate], Ana) ->
     TExec = analyze(Test, Ana),
@@ -164,33 +190,6 @@ get_args([AExec|AExecs], Env, Ok, Ng) ->
           end,
           Ng).
 
-execute_application(#nip0{val=Fun}, [], _Env, Ok, Ng) ->
-    Ok(apply_nip0(Fun), Ng);
-execute_application(#nipn{val=FunOrFuns}, Args, _Env, Ok, Ng) ->
-    Ok(apply_nipn(FunOrFuns, Args), Ng);
-execute_application(#nipv{val=Fun}, Args, _Env, Ok, Ng) ->
-    Ok(apply_nipv(Fun, Args), Ng);
-execute_application(#nipnv{val=Fun}, Args, _Env, Ok, Ng) ->
-    Ok(apply_nipnv(Fun, Args), Ng);
-execute_application(#xnip0{val=Fun}, [], Env, Ok, Ng) ->
-    apply_xnip0(Fun, Env, Ok, Ng);
-execute_application(#xnipn{val=FunOrFuns}, Args, Env, Ok, Ng) ->
-    apply_xnipn(FunOrFuns, Args, Env, Ok, Ng);
-execute_application(#xnipv{val=Fun}, Args, Env, Ok, Ng) ->
-    apply_xnipv(Fun, Args, Env, Ok, Ng);
-execute_application(#xnipnv{val=Fun}, Args, Env, Ok, Ng) ->
-    apply_xnipnv(Fun, Args, Env, Ok, Ng);
-execute_application(#proc0{val=Proc}, [], _Env, Ok, Ng) ->
-    apply_proc0(Proc, Ok, Ng);
-execute_application(#procn{val=Proc}, Args, _Env, Ok, Ng) ->
-    apply_procn(Proc, Args, Ok, Ng);
-execute_application(#procv{val=Proc}, Args, _Env, Ok, Ng) ->
-    apply_procv(Proc, Args, Ok, Ng);
-execute_application(#procnv{val=Proc}, Args, _Env, Ok, Ng) ->
-    apply_procnv(Proc, Args, Ok, Ng);
-execute_application(Proc, Args, Env, Ok, Ng) ->
-    erlang:error(badarg, [Proc, Args, Env, Ok, Ng]).
-
 apply_nip0(Fun) ->
     Fun().
 
@@ -218,7 +217,7 @@ apply_xnip0(Fun, Env, Ok, Ng) ->
     Fun(Env, Ok, Ng).
 
 apply_xnipn(Funs, Args, Env, Ok, Ng) ->
-    apply_nipn(Funs, Args++[Env, Ok, Ng]).
+    apply_nipn(Funs, Args ++ [Env, Ok, Ng]).
 
 apply_xnipv(Fun, Args, Env, Ok, Ng) ->
     Fun(Args, Env, Ok, Ng).
@@ -226,7 +225,7 @@ apply_xnipv(Fun, Args, Env, Ok, Ng) ->
 apply_xnipnv(Fun, Args, Env, Ok, Ng) ->
     {arity, N} = erlang:fun_info(Fun, arity),
     ArgsN = splitnv_arguments(N-4, Args),
-    erlang:apply(Fun, ArgsN++[Env, Ok, Ng]).
+    erlang:apply(Fun, ArgsN ++ [Env, Ok, Ng]).
 
 apply_proc0({Exec, BaseEnv}, Ok, Ng) ->
     Exec(scmi_env:extend([], [], BaseEnv), Ok, Ng).

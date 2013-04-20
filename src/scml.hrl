@@ -23,4 +23,7 @@
 -ifndef(scml).
 -define(scml, true).
 
+-include("scm.hrl").
+-include("scmi.hrl").
+
 -endif. % -ifndef(scml).

@@ -22,8 +22,6 @@
 
 -module(scml_complex).
 
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
@@ -35,6 +33,8 @@
          , 'magnitude'/1
          , 'angle'/1
         ]).
+
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records

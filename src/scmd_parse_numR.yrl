@@ -95,10 +95,10 @@ prefixR -> radixR :
 
 Erlang code.
 
--include("scmi.hrl").
--include("scmd_parse_numR.hrl").
-
 -export([to_number/3]).
+
+-include("scmi_types.hrl").
+-include("scmd_parse_numR.hrl").
 
 %%%----------------------------------------------------------------------
 %%% API

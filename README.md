@@ -20,10 +20,10 @@ functional, and object-oriented styles, find convenient expression in
 Scheme.</p>
 <p>Erlang is a programming language used to build massively scalable,
 soft, real-time systems with requirements on high availability.
-Erlang's runtime system has built-in support for concurrency,
+Erlang's run-time system has built-in support for concurrency,
 distribution and fault tolerance.  Erlang is designed at the Ericsson
-Computer Science Laborary and is maintained as an open-source project
-and community.</p>
+Computer Science Laboratory and is maintained as an open-source
+project and community.</p>
 <p>The default language is Scheme R7RS.  The default virtual machine is
 Erlang/OTP R16B or higher.</p>
 <p>For further information, see
@@ -44,8 +44,7 @@ Erlang/OTP R16B or higher.</p>
 <tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmd_scan_num16.md" class="module">scmd_scan_num16</a></td></tr>
 <tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmd_scan_num2.md" class="module">scmd_scan_num2</a></td></tr>
 <tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmd_scan_num8.md" class="module">scmd_scan_num8</a></td></tr>
-<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmd_type.md" class="module">scmd_type</a></td></tr>
-<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi.md" class="module">scmi</a></td></tr>
+<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmd_types.md" class="module">scmd_types</a></td></tr>
 <tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi_analyze.md" class="module">scmi_analyze</a></td></tr>
 <tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi_analyze_derived.md" class="module">scmi_analyze_derived</a></td></tr>
 <tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi_analyze_primitive.md" class="module">scmi_analyze_primitive</a></td></tr>
@@ -53,6 +52,7 @@ Erlang/OTP R16B or higher.</p>
 <tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi_analyze_syntax.md" class="module">scmi_analyze_syntax</a></td></tr>
 <tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi_env.md" class="module">scmi_env</a></td></tr>
 <tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi_eval.md" class="module">scmi_eval</a></td></tr>
+<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi_types.md" class="module">scmi_types</a></td></tr>
 <tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scml.md" class="module">scml</a></td></tr>
 <tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scml_base_boolean.md" class="module">scml_base_boolean</a></td></tr>
 <tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scml_base_bytevector.md" class="module">scml_base_bytevector</a></td></tr>

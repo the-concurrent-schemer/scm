@@ -22,8 +22,6 @@
 
 -module(scml_inexact).
 
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
@@ -40,6 +38,8 @@
          , 'acos'/1
          , 'atan'/1, 'atan'/2
         ]).
+
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records

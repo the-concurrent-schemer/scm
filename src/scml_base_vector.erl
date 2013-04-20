@@ -22,8 +22,6 @@
 
 -module(scml_base_vector).
 
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
@@ -56,6 +54,8 @@
          , 'vector-fill!'/3
          , 'vector-fill!'/4
         ]).
+
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records

@@ -22,8 +22,6 @@
 
 -module(scml_write).
 
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
@@ -37,6 +35,8 @@
          , 'display'/1
          , 'display'/2
         ]).
+
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records

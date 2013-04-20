@@ -22,8 +22,6 @@
 
 -module(scml_base_boolean).
 
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
@@ -31,6 +29,8 @@
 -export(['not'/1
          , 'boolean?'/1
         ]).
+
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records

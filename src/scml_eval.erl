@@ -22,8 +22,6 @@
 
 -module(scml_eval).
 
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
@@ -31,6 +29,8 @@
 -export(['environment'/1
          , 'eval'/2
         ]).
+
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records

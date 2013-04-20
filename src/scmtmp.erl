@@ -36,7 +36,7 @@
          , 'make-rectangular'/3
         ]).
 
--include("scmi.hrl").
+-include("scml.hrl").
 
 %%%----------------------------------------------------------------------
 %%% Types/Specs/Records

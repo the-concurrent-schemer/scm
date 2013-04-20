@@ -22,9 +22,6 @@
 
 -module(scmi_analyze_program).
 
--include("scmi.hrl").
--include("scmi_analyze.hrl").
-
 %% External exports
 -export([analyze_import/2
          , analyze_define/2
@@ -35,8 +32,9 @@
         ]).
 
 %% Internal imports
--import(scmi_analyze, [analyze/2, validate_variable/1]).
--import(scmi, [make_define/2, make_lambda/2]).
+-import(scmi_analyze, [analyze/2, validate_variable/1, validate_variables/1, flatten_variables/1, make_tmp_variables/1]).
+
+-include("scmi_analyze.hrl").
 
 %%%----------------------------------------------------------------------
 %%% Types/Specs/Records
@@ -51,7 +49,7 @@ analyze_import(Exp, Ana) ->
     erlang:error({roadmap,'v0.6.0'}, [Exp, Ana]).
 
 analyze_define([Variable, Exp], Ana) when not is_list(Variable) ->
-    validate_variable(Variable),
+    validate_variable(Variable), % validate variable
     Exec = analyze(Exp, Ana),
     fun(Env, Ok, Ng) ->
             %% execute operands
@@ -68,8 +66,7 @@ analyze_define(Exp, Ana) ->
     analyze(from_define(Exp), Ana).
 
 analyze_define_values(Exp, Ana) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.3.0'}, [Exp, Ana]).
+    analyze(from_define_values(Exp), Ana).
 
 analyze_define_syntax(Exp, Ana) ->
     %% @TODO
@@ -94,3 +91,17 @@ from_define([[[Variable|Formals]|Formal]|Body]) when not is_list(Variable), is_l
     make_define(Variable, make_lambda([Formals|Formal], Body));
 from_define([[Variable|Formals]|Body]) when not is_list(Variable), is_list(Formals) ->
     make_define(Variable, make_lambda(Formals, Body)).
+
+%% define-values
+from_define_values([[], Exp]) ->
+    make_begin([Exp|[?FALSE]]);
+from_define_values([Formals, Exp]) ->
+    Tmps = make_tmp_variables(Formals),
+    Fs = flatten_variables(Formals),
+    validate_variables(Fs), % validate formals
+    Ts = flatten_variables(Tmps),
+    Defines = [ make_define(F, ?UNASSIGNED) || F <- Fs ],
+    Sets = [ make_setb(F, T) || {F, T} <- lists:zip(Fs, Ts) ],
+    Producer = make_thunk([Exp]),
+    Consumer = make_lambda(Tmps, Sets),
+    make_begin(Defines ++ [make_call_with_values(Producer, Consumer), ?FALSE]).

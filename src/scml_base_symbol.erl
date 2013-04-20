@@ -22,8 +22,6 @@
 
 -module(scml_base_symbol).
 
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
@@ -33,6 +31,8 @@
          , 'symbol->string'/1
          , 'string->symbol'/1
         ]).
+
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records

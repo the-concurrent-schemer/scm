@@ -22,9 +22,6 @@
 
 -module(scmi_analyze).
 
--include("scmi.hrl").
--include("scmi_analyze.hrl").
-
 %% External exports
 -export([analyze/1
          , analyze/2
@@ -44,9 +41,6 @@
              ]).
 
 %% Internal imports
--import(scmi, [make_variable/0
-              ]).
-
 -import(scmi_analyze_primitive, [analyze_lambda/2
                                  , analyze_application/2
                                  , analyze_if/2
@@ -94,6 +88,8 @@
                                , analyze_define_record_type/2
                                , analyze_define_library/2
                               ]).
+
+-include("scmi_analyze.hrl").
 
 %%%----------------------------------------------------------------------
 %%% Types/Specs/Records
@@ -463,7 +459,7 @@ flatten_variables1(L) ->
 make_tmp_variables(Formal) when not is_list(Formal) ->
     make_variable();
 make_tmp_variables([Formals|Formal]) when not is_list(Formal) ->
-    [ make_variable() || _ <- Formals ] ++ [make_variable()];
+    [[ make_variable() || _ <- Formals ]|make_variable()];
 make_tmp_variables(Formals) ->
     [ make_variable() || _ <- Formals ].
 

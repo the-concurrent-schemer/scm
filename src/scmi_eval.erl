@@ -22,9 +22,6 @@
 
 -module(scmi_eval).
 
--include("scmd_type.hrl").
--include("scmi.hrl").
-
 %% External exports
 -export([eval/1
          , eval/2
@@ -34,7 +31,11 @@
          , exec/2
          , exec/3
          , exec/4
+         , default_ccok/2
+         , default_ccng/1
         ]).
+
+-include("scmi.hrl").
 
 %%%----------------------------------------------------------------------
 %%% Types/Specs/Records
@@ -66,22 +67,24 @@ exec(Exec) ->
 
 -spec exec(scmi_exec(), scmi_env()) -> scm_any().
 exec(Exec, Env) ->
-    exec(Exec, Env, fun ccok/2).
+    exec(Exec, Env, fun default_ccok/2).
 
 -spec exec(scmi_exec(), scmi_env(), scmi_ccok()) -> scm_any().
 exec(Exec, Env, Ok) ->
-    exec(Exec, Env, Ok, fun ccng/1).
+    exec(Exec, Env, Ok, fun default_ccng/1).
 
 -spec exec(scmi_exec(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_any().
 exec(Exec, Env, Ok, Ng) ->
     Exec(Env, Ok, Ng).
 
+-spec default_ccok(scm_any(), scmi_ccng()) -> scm_any().
+default_ccok(Value, _Ng) ->
+    Value.
+
+-spec default_ccng(scm_any()) -> scm_any().
+default_ccng(Error) ->
+    erlang:error(scm_exception, [Error]).
+
 %%%----------------------------------------------------------------------
 %%% Internal functions
 %%%----------------------------------------------------------------------
-
-ccok(Value, _Ng) ->
-    Value.
-
-ccng(Error) ->
-    erlang:error(scm_exception, [Error]).

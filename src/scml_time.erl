@@ -22,8 +22,6 @@
 
 -module(scml_time).
 
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
@@ -32,6 +30,8 @@
          , 'current-jiffy'/0
          , 'jiffies-per-second'/0
         ]).
+
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records

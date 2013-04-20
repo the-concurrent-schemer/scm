@@ -22,8 +22,6 @@
 
 -module(scml_base_io).
 
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
@@ -89,6 +87,8 @@
          , 'flush-output-port'/0
          , 'flush-output-port'/1
         ]).
+
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records

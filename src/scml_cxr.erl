@@ -22,8 +22,6 @@
 
 -module(scml_cxr).
 
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
@@ -53,6 +51,8 @@
          , cdddar/1
          , cddddr/1
         ]).
+
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records

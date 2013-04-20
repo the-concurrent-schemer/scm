@@ -22,8 +22,6 @@
 
 -module(scml_context).
 
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
@@ -36,6 +34,8 @@
          , 'get-environment-variable'/1
          , 'get-environment-variables'/0
         ]).
+
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records

@@ -22,8 +22,6 @@
 
 -module(scml_lazy).
 
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
@@ -34,6 +32,8 @@
          , 'promise?'/1
          , 'make-promise'/1
         ]).
+
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records

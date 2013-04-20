@@ -3,9 +3,9 @@
 {packages,[]}.
 {modules,[scm_app,scm_sup,scmd,scmd_parse,scmd_parse_numR,scmd_scan,
           scmd_scan_num10,scmd_scan_num16,scmd_scan_num2,scmd_scan_num8,
-          scmd_type,scmi,scmi_analyze,scmi_analyze_derived,
-          scmi_analyze_primitive,scmi_analyze_program,scmi_analyze_syntax,
-          scmi_env,scmi_eval,scml,scml_base_boolean,scml_base_bytevector,
+          scmd_types,scmi_analyze,scmi_analyze_derived,scmi_analyze_primitive,
+          scmi_analyze_program,scmi_analyze_syntax,scmi_env,scmi_eval,
+          scmi_types,scml,scml_base_boolean,scml_base_bytevector,
           scml_base_char,scml_base_control,scml_base_equality,
           scml_base_exception,scml_base_io,scml_base_list,scml_base_number,
           scml_base_string,scml_base_symbol,scml_base_system,scml_base_vector,

@@ -22,14 +22,14 @@
 
 -module(scml_syntax).
 
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
 %% API
 -export(['case-lambda'/1
         ]).
+
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records

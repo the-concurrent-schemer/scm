@@ -22,9 +22,6 @@
 
 -module(scmi_env).
 
--include("scmd_type.hrl").
--include("scmi.hrl").
-
 %% External exports
 -export([notify_when_destroyed/2
          , notify_when_destroyed/3
@@ -46,6 +43,8 @@
               , val/0
               , env/0
              ]).
+
+-include("scmi.hrl").
 
 %%%----------------------------------------------------------------------
 %%% Types/Specs/Records

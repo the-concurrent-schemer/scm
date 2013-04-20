@@ -22,8 +22,6 @@
 
 -module(scml_base_equality).
 
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
@@ -32,6 +30,8 @@
          , 'eq?'/2
          , 'equal?'/2
         ]).
+
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records
@@ -115,15 +115,19 @@
 'eqv?'(_, _) ->
     ?FALSE.
 
+%% @doc This function is a temporary place holder and is not (yet)
+%% compliant with the R7RS specification.
+%% @TODO 'v0.4.0'
 -spec 'eq?'(scm_obj(), scm_obj()) -> scm_boolean().
 'eq?'(Obj1, Obj2) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Obj1, Obj2]).
+    'eqv?'(Obj1, Obj2).
 
+%% @doc This function is a temporary place holder and is not (yet)
+%% compliant with the R7RS specification.
+%% @TODO 'v0.4.0'
 -spec 'equal?'(scm_obj(), scm_obj()) -> scm_boolean().
 'equal?'(Obj1, Obj2) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Obj1, Obj2]).
+    'eq?'(Obj1, Obj2).
 
 %%%===================================================================
 %%% internal helpers

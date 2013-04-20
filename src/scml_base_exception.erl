@@ -22,22 +22,23 @@
 
 -module(scml_base_exception).
 
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
 %% API
--export(['with-exception-handler'/2
-         , 'raise'/1
-         , 'raise-continuable'/1
-         , 'error'/1
+-export(['with-exception-handler'/5
+         , 'raise'/4
+         , 'raise-continuable'/4
+         , 'error'/4
          , 'error-object?'/1
          , 'error-object-message'/1
          , 'error-object-irritants'/1
          , 'read-error?'/1
          , 'file-error?'/1
         ]).
+
+-import(scmi_analyze_primitive, [apply/5]).
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records
@@ -49,10 +50,10 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'with-exception-handler', #nipn{val=fun 'with-exception-handler'/2}}
-     , {'raise', #nipn{val=fun 'raise'/1}}
-     , {'raise-continuable', #nipn{val=fun 'raise-continuable'/1}}
-     , {'error', #nipv{val=fun 'error'/1}}
+    [{'with-exception-handler', #xnipn{val=fun 'with-exception-handler'/5}}
+     , {'raise', #xnipn{val=fun 'raise'/4}}
+     , {'raise-continuable', #xnipn{val=fun 'raise-continuable'/4}}
+     , {'error', #xnipv{val=fun 'error'/4}}
      , {'error-object?', #nipn{val=fun 'error-object?'/1}}
      , {'error-object-message', #nipn{val=fun 'error-object-message'/1}}
      , {'error-object-irritants', #nipn{val=fun 'error-object-irritants'/1}}
@@ -64,50 +65,106 @@
 %%% API
 %%%===================================================================
 
--spec 'with-exception-handler'(scm_proc(), scm_thunk()) -> scm_obj().
-'with-exception-handler'(Handler, Thunk) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Handler, Thunk]).
+%% @doc Returns the results of invoking +Thunk+. +Handler+ is
+%% installed as the current exception handler in the dynamic
+%% environment used for the invocation of +Thunk+.  It is an error if
+%% +Handler+ does not accept one argument.  It is also an error if
+%% +Thunk+ does not accept zero arguments.
+-spec 'with-exception-handler'(scm_proc(), scm_thunk(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_obj().
+'with-exception-handler'(Handler, Thunk, Env, Ok, Ng) ->
+    Ng1 = fun(#cexception{val=[#signal{obj=Obj1, ccok=OkC, ccng=NgC}|_]}) ->
+                  Ok1 = fun(Obj2, _Ng2) ->
+                                OkC(Obj2, NgC)
+                        end,
+                  apply(Handler, [Obj1], Env, Ok1, Ng);
+             (#exception{val=[#signal{obj=Obj1}|_]=Signals}=Error) ->
+                  Ok1 = fun(Obj2, Ng2) ->
+                                Signal = #signal{obj=Obj2, env=Env, ccok=Ok, ccng=Ng},
+                                Ng2(Error#exception{val=[Signal|Signals]})
+                        end,
+                  apply(Handler, [Obj1], Env, Ok1, Ng)
+          end,
+    apply(Thunk, [], Env, Ok, Ng1).
 
--spec 'raise'(scm_obj()) -> scm_obj().
-'raise'(Obj) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Obj]).
+%% @doc Raises an exception by invoking the current exception handler
+%% on +Obj+.  The handler is called with the same dynamic environment
+%% as that of the call to +raise+, except that the current exception
+%% handler is the one that was in place when the handler being called
+%% was installed.  If the handler returns, a secondary exception is
+%% raised in the same dynamic environment as the handler.
+-spec 'raise'(scm_obj(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_obj().
+'raise'(Obj, Env, Ok, Ng) ->
+    Signal = #signal{obj=Obj, env=Env, ccok=Ok, ccng=Ng},
+    Ng(#exception{val=[Signal]}).
 
--spec 'raise-continuable'(scm_obj()) -> scm_obj().
-'raise-continuable'(Obj) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Obj]).
+%% @doc Raises an exception by invoking the current exception handler
+%% on +Obj+.  The handler is called with the same dynamic environment
+%% as the call to +raise-continuable+, except that: (1) the current
+%% exception handler is the one that was in place when the handler
+%% being called was installed, and (2) if the handler being called
+%% returns, then it will again become the current exception
+%% handler.  If the handler returns, the values it returns become the
+%% values returned by the call to +raise-continuable+.
+-spec 'raise-continuable'(scm_obj(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_obj().
+'raise-continuable'(Obj, Env, Ok, Ng) ->
+    Signal = #signal{obj=Obj, env=Env, ccok=Ok, ccng=Ng},
+    Ng(#cexception{val=[Signal]}).
 
--spec 'error'([scm_obj(),...]) -> scm_obj().
-'error'([Message|Objs]) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Message|Objs]).
+%% @doc Raises an exception as if by calling +raise+ on a newly
+%% allocated implementation-defined object which encapsulates the
+%% information provided by +Message+, as well as any objects, known as
+%% the +Irritants+. The procedure +error-object?+ must return +#t+ on
+%% such objects.
+-spec 'error'([scm_obj(),...], scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_obj().
+'error'([_Message|Irritants]=Obj, Env, Ok, Ng) when is_list(Irritants) ->
+    'raise'(#error_user{val=Obj}, Env, Ok, Ng).
 
+%% @doc Returns +#t+ if the given object is an object created by
+%% +error+, raised by the +read+ procedure, or raised by the inability
+%% to open an input or output port on a file.
 -spec 'error-object?'(scm_obj()) -> scm_boolean().
-'error-object?'(Obj) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Obj]).
+'error-object?'(Obj)
+  when is_record(Obj, error_file);
+       is_record(Obj, error_read);
+       is_record(Obj, error_user) ->
+    ?TRUE;
+'error-object?'(_) ->
+    ?FALSE.
 
--spec 'error-object-message'(scm_obj()) -> scm_obj().
-'error-object-message'(ErrObj) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [ErrObj]).
+%% @doc Returns the message encapsulated by the +error-object+.
+-spec 'error-object-message'(scm_error()) -> scm_obj().
+'error-object-message'(#error_file{val=[Message|_Irritants]}) ->
+    Message;
+'error-object-message'(#error_read{val=[Message|_Irritants]}) ->
+    Message;
+'error-object-message'(#error_user{val=[Message|_Irritants]}) ->
+    Message.
 
--spec 'error-object-irritants'(scm_obj()) -> scm_obj().
-'error-object-irritants'(ErrObj) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [ErrObj]).
+%% @doc Returns the list of the irritants encapsulated by the
+%% +error-object+.
+-spec 'error-object-irritants'(scm_error()) -> [scm_obj()].
+'error-object-irritants'(#error_file{val=[_Message|Irritants]}) ->
+    Irritants;
+'error-object-irritants'(#error_read{val=[_Message|Irritants]}) ->
+    Irritants;
+'error-object-irritants'(#error_user{val=[_Message|Irritants]}) ->
+    Irritants.
 
+%% @doc Returns +#t+ if the given object is an object raised by the
+%% +read+ procedure.
 -spec 'read-error?'(scm_obj()) -> scm_boolean().
-'read-error?'(Obj) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Obj]).
+'read-error?'(Obj) when is_record(Obj, error_read) ->
+    ?TRUE;
+'read-error?'(_) ->
+    ?FALSE.
 
+%% @doc Returns +#t+ if the given object is an object raised by the
+%% inability to open an input or output port on a file.
 -spec 'file-error?'(scm_obj()) -> scm_boolean().
-'file-error?'(Obj) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Obj]).
+'file-error?'(Obj) when is_record(Obj, error_file) ->
+    ?TRUE;
+'file-error?'(_) ->
+    ?FALSE.
 
 %%%===================================================================
 %%% internal helpers

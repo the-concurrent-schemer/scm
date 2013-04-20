@@ -1,0 +1,635 @@
+
+
+# Module scmi_types #
+* [Data Types](#types)
+
+
+
+<a name="types"></a>
+
+## Data Types ##
+
+
+
+
+### <a name="type-ana">ana()</a> ###
+
+
+
+<pre><code>
+ana() = <a href="scmi_analyze.md#type-ana">scmi_analyze:ana()</a>
+</code></pre>
+
+
+
+
+
+### <a name="type-arg">arg()</a> ###
+
+
+
+<pre><code>
+arg() = <a href="#type-scm_any">scm_any()</a>
+</code></pre>
+
+
+
+
+
+### <a name="type-body">body()</a> ###
+
+
+
+<pre><code>
+body() = <a href="#type-exec">exec()</a>
+</code></pre>
+
+
+
+
+
+### <a name="type-ccng">ccng()</a> ###
+
+
+
+<pre><code>
+ccng() = fun((<a href="#type-val">val()</a>) -&gt; no_return())
+</code></pre>
+
+
+
+
+
+### <a name="type-ccok">ccok()</a> ###
+
+
+
+<pre><code>
+ccok() = fun((<a href="#type-val">val()</a>, <a href="#type-ccng">ccng()</a>) -&gt; <a href="#type-val">val()</a>)
+</code></pre>
+
+
+
+
+
+### <a name="type-env">env()</a> ###
+
+
+
+<pre><code>
+env() = <a href="scmi_env.md#type-env">scmi_env:env()</a>
+</code></pre>
+
+
+
+
+
+### <a name="type-error">error()</a> ###
+
+
+
+<pre><code>
+error() = <a href="#type-error_user">error_user()</a> | <a href="#type-error_read">error_read()</a> | <a href="#type-error_file">error_file()</a>
+</code></pre>
+
+
+
+
+
+### <a name="type-error_file">error_file()</a> ###
+
+
+
+<pre><code>
+error_file() = #error_file{val = <a href="#type-scm_any">scm_any()</a>}
+</code></pre>
+
+
+
+
+
+### <a name="type-error_read">error_read()</a> ###
+
+
+
+<pre><code>
+error_read() = #error_read{val = <a href="#type-scm_any">scm_any()</a>}
+</code></pre>
+
+
+
+
+
+### <a name="type-error_user">error_user()</a> ###
+
+
+
+<pre><code>
+error_user() = #error_user{val = [<a href="#type-scm_any">scm_any()</a>, ...]}
+</code></pre>
+
+
+
+
+
+### <a name="type-exception">exception()</a> ###
+
+
+
+<pre><code>
+exception() = #exception{val = [<a href="#type-signal">signal()</a>]} | #cexception{val = [<a href="#type-signal">signal()</a>]}
+</code></pre>
+
+
+
+
+
+### <a name="type-exec">exec()</a> ###
+
+
+
+<pre><code>
+exec() = fun((<a href="#type-env">env()</a>, <a href="#type-ccok">ccok()</a>, <a href="#type-ccng">ccng()</a>) -&gt; <a href="#type-val">val()</a>)
+</code></pre>
+
+
+
+
+
+### <a name="type-f">f()</a> ###
+
+
+
+<pre><code>
+f() = <a href="#type-f0">f0()</a> | <a href="#type-fn">fn()</a> | <a href="#type-fv">fv()</a> | <a href="#type-fnv">fnv()</a>
+</code></pre>
+
+
+
+
+
+### <a name="type-f0">f0()</a> ###
+
+
+
+<pre><code>
+f0() = fun(() -&gt; <a href="#type-val">val()</a>)
+</code></pre>
+
+
+
+
+
+### <a name="type-fn">fn()</a> ###
+
+
+
+<pre><code>
+fn() = fun((...) -&gt; <a href="#type-val">val()</a>)
+</code></pre>
+
+
+
+
+
+<pre><code>fun((arg(),...) -> val()).</code></pre>
+
+
+
+
+
+### <a name="type-fnv">fnv()</a> ###
+
+
+
+<pre><code>
+fnv() = fun((...) -&gt; <a href="#type-val">val()</a>)
+</code></pre>
+
+
+
+
+
+<pre><code>fun((arg(),...,vargs()) -> val()).</code></pre>
+
+
+
+
+
+### <a name="type-fv">fv()</a> ###
+
+
+
+<pre><code>
+fv() = fun((<a href="#type-vargs">vargs()</a>) -&gt; <a href="#type-val">val()</a>)
+</code></pre>
+
+
+
+
+
+### <a name="type-l">l()</a> ###
+
+
+
+<pre><code>
+l() = <a href="#type-l0">l0()</a> | <a href="#type-ln">ln()</a> | <a href="#type-lv">lv()</a> | <a href="#type-lnv">lnv()</a>
+</code></pre>
+
+
+
+
+
+### <a name="type-l0">l0()</a> ###
+
+
+
+<pre><code>
+l0() = {<a href="#type-body">body()</a>, <a href="#type-env">env()</a>}
+</code></pre>
+
+
+
+
+
+### <a name="type-lip">lip()</a> ###
+
+
+
+<pre><code>
+lip() = <a href="#type-lip0">lip0()</a> | <a href="#type-lipn">lipn()</a> | <a href="#type-lipv">lipv()</a> | <a href="#type-lipnv">lipnv()</a>
+</code></pre>
+
+
+
+
+
+### <a name="type-lip0">lip0()</a> ###
+
+
+
+<pre><code>
+lip0() = #lip0{val = <a href="#type-l0">l0()</a>}
+</code></pre>
+
+
+
+
+
+### <a name="type-lipn">lipn()</a> ###
+
+
+
+<pre><code>
+lipn() = #lipn{val = <a href="#type-ln">ln()</a> | [<a href="#type-ln">ln()</a>]}
+</code></pre>
+
+
+
+
+
+### <a name="type-lipnv">lipnv()</a> ###
+
+
+
+<pre><code>
+lipnv() = #lipnv{val = <a href="#type-lnv">lnv()</a>}
+</code></pre>
+
+
+
+
+
+### <a name="type-lipv">lipv()</a> ###
+
+
+
+<pre><code>
+lipv() = #lipv{val = <a href="#type-lv">lv()</a>}
+</code></pre>
+
+
+
+
+
+### <a name="type-ln">ln()</a> ###
+
+
+
+<pre><code>
+ln() = {<a href="#type-params">params()</a>, <a href="#type-body">body()</a>, <a href="#type-env">env()</a>}
+</code></pre>
+
+
+
+
+
+### <a name="type-lnv">lnv()</a> ###
+
+
+
+<pre><code>
+lnv() = {pos_integer(), <a href="#type-params">params()</a>, <a href="#type-body">body()</a>, <a href="#type-env">env()</a>}
+</code></pre>
+
+
+
+
+
+### <a name="type-lv">lv()</a> ###
+
+
+
+<pre><code>
+lv() = {<a href="#type-param">param()</a>, <a href="#type-body">body()</a>, <a href="#type-env">env()</a>}
+</code></pre>
+
+
+
+
+
+### <a name="type-nip">nip()</a> ###
+
+
+
+<pre><code>
+nip() = <a href="#type-nip0">nip0()</a> | <a href="#type-nipn">nipn()</a> | <a href="#type-nipv">nipv()</a> | <a href="#type-nipnv">nipnv()</a>
+</code></pre>
+
+
+
+
+
+### <a name="type-nip0">nip0()</a> ###
+
+
+
+<pre><code>
+nip0() = #nip0{val = <a href="#type-f0">f0()</a>}
+</code></pre>
+
+
+
+
+
+### <a name="type-nipn">nipn()</a> ###
+
+
+
+<pre><code>
+nipn() = #nipn{val = <a href="#type-fn">fn()</a> | [<a href="#type-fn">fn()</a>]}
+</code></pre>
+
+
+
+
+
+### <a name="type-nipnv">nipnv()</a> ###
+
+
+
+<pre><code>
+nipnv() = #nipnv{val = <a href="#type-fnv">fnv()</a>}
+</code></pre>
+
+
+
+
+
+### <a name="type-nipv">nipv()</a> ###
+
+
+
+<pre><code>
+nipv() = #nipv{val = <a href="#type-fv">fv()</a>}
+</code></pre>
+
+
+
+
+
+### <a name="type-param">param()</a> ###
+
+
+
+<pre><code>
+param() = <a href="#type-var">var()</a>
+</code></pre>
+
+
+
+
+
+### <a name="type-params">params()</a> ###
+
+
+
+<pre><code>
+params() = [<a href="#type-param">param()</a>]
+</code></pre>
+
+
+
+
+
+### <a name="type-proc">proc()</a> ###
+
+
+
+<pre><code>
+proc() = <a href="#type-nip">nip()</a> | <a href="#type-xnip">xnip()</a> | <a href="#type-lip">lip()</a>
+</code></pre>
+
+
+
+
+
+### <a name="type-signal">signal()</a> ###
+
+
+
+<pre><code>
+signal() = #signal{obj = <a href="#type-scm_any">scm_any()</a>, env = <a href="#type-env">env()</a>, ccok = <a href="#type-ccok">ccok()</a>, ccng = <a href="#type-ccng">ccng()</a>}
+</code></pre>
+
+
+
+
+
+### <a name="type-thunk">thunk()</a> ###
+
+
+
+<pre><code>
+thunk() = <a href="#type-nip0">nip0()</a> | <a href="#type-xnip0">xnip0()</a> | <a href="#type-lip0">lip0()</a>
+</code></pre>
+
+
+
+
+
+### <a name="type-val">val()</a> ###
+
+
+
+<pre><code>
+val() = <a href="#type-scm_any">scm_any()</a>
+</code></pre>
+
+
+
+
+
+### <a name="type-var">var()</a> ###
+
+
+
+<pre><code>
+var() = <a href="#type-scm_symbol">scm_symbol()</a> | reference()
+</code></pre>
+
+
+
+
+
+### <a name="type-vargs">vargs()</a> ###
+
+
+
+<pre><code>
+vargs() = [<a href="#type-arg">arg()</a>]
+</code></pre>
+
+
+
+
+
+### <a name="type-xf">xf()</a> ###
+
+
+
+<pre><code>
+xf() = <a href="#type-xf0">xf0()</a> | <a href="#type-xfn">xfn()</a> | <a href="#type-xfv">xfv()</a> | <a href="#type-xfnv">xfnv()</a>
+</code></pre>
+
+
+
+
+
+### <a name="type-xf0">xf0()</a> ###
+
+
+
+<pre><code>
+xf0() = fun((<a href="#type-env">env()</a>, <a href="#type-ccok">ccok()</a>, <a href="#type-ccng">ccng()</a>) -&gt; <a href="#type-val">val()</a>)
+</code></pre>
+
+
+
+
+
+### <a name="type-xfn">xfn()</a> ###
+
+
+
+<pre><code>
+xfn() = fun((...) -&gt; <a href="#type-val">val()</a>)
+</code></pre>
+
+
+
+
+
+<pre><code>fun((arg(),... ,env(), ccok(), ccng()) -> val()).</code></pre>
+
+
+
+
+
+### <a name="type-xfnv">xfnv()</a> ###
+
+
+
+<pre><code>
+xfnv() = fun((...) -&gt; <a href="#type-val">val()</a>)
+</code></pre>
+
+
+
+
+
+<pre><code>fun((arg(),... ,vargs(), env(), ccok(), ccng()) -> val()).</code></pre>
+
+
+
+
+
+### <a name="type-xfv">xfv()</a> ###
+
+
+
+<pre><code>
+xfv() = fun((<a href="#type-vargs">vargs()</a>, <a href="#type-env">env()</a>, <a href="#type-ccok">ccok()</a>, <a href="#type-ccng">ccng()</a>) -&gt; <a href="#type-val">val()</a>)
+</code></pre>
+
+
+
+
+
+### <a name="type-xnip">xnip()</a> ###
+
+
+
+<pre><code>
+xnip() = <a href="#type-xnip0">xnip0()</a> | <a href="#type-xnipn">xnipn()</a> | <a href="#type-xnipv">xnipv()</a> | <a href="#type-xnipnv">xnipnv()</a>
+</code></pre>
+
+
+
+
+
+### <a name="type-xnip0">xnip0()</a> ###
+
+
+
+<pre><code>
+xnip0() = #xnip0{val = <a href="#type-xf0">xf0()</a>}
+</code></pre>
+
+
+
+
+
+### <a name="type-xnipn">xnipn()</a> ###
+
+
+
+<pre><code>
+xnipn() = #xnipn{val = <a href="#type-xfn">xfn()</a> | [<a href="#type-xfn">xfn()</a>]}
+</code></pre>
+
+
+
+
+
+### <a name="type-xnipnv">xnipnv()</a> ###
+
+
+
+<pre><code>
+xnipnv() = #xnipnv{val = <a href="#type-xfnv">xfnv()</a>}
+</code></pre>
+
+
+
+
+
+### <a name="type-xnipv">xnipv()</a> ###
+
+
+
+<pre><code>
+xnipv() = #xnipv{val = <a href="#type-xfv">xfv()</a>}
+</code></pre>
+
+

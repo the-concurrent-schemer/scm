@@ -22,8 +22,6 @@
 
 -module(scml_load).
 
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
@@ -31,6 +29,8 @@
 -export(['load'/1
          , 'load'/2
         ]).
+
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records

@@ -10,7 +10,7 @@
 ## Function Index ##
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#analyze_application-2">analyze_application/2</a></td><td></td></tr><tr><td valign="top"><a href="#analyze_assignment-2">analyze_assignment/2</a></td><td></td></tr><tr><td valign="top"><a href="#analyze_if-2">analyze_if/2</a></td><td></td></tr><tr><td valign="top"><a href="#analyze_include-2">analyze_include/2</a></td><td></td></tr><tr><td valign="top"><a href="#analyze_include_ci-2">analyze_include_ci/2</a></td><td></td></tr><tr><td valign="top"><a href="#analyze_include_lib-2">analyze_include_lib/2</a></td><td></td></tr><tr><td valign="top"><a href="#analyze_include_lib_ci-2">analyze_include_lib_ci/2</a></td><td></td></tr><tr><td valign="top"><a href="#analyze_lambda-2">analyze_lambda/2</a></td><td></td></tr><tr><td valign="top"><a href="#analyze_sequence-2">analyze_sequence/2</a></td><td></td></tr></table>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#analyze_application-2">analyze_application/2</a></td><td></td></tr><tr><td valign="top"><a href="#analyze_assignment-2">analyze_assignment/2</a></td><td></td></tr><tr><td valign="top"><a href="#analyze_if-2">analyze_if/2</a></td><td></td></tr><tr><td valign="top"><a href="#analyze_include-2">analyze_include/2</a></td><td></td></tr><tr><td valign="top"><a href="#analyze_include_ci-2">analyze_include_ci/2</a></td><td></td></tr><tr><td valign="top"><a href="#analyze_include_lib-2">analyze_include_lib/2</a></td><td></td></tr><tr><td valign="top"><a href="#analyze_include_lib_ci-2">analyze_include_lib_ci/2</a></td><td></td></tr><tr><td valign="top"><a href="#analyze_lambda-2">analyze_lambda/2</a></td><td></td></tr><tr><td valign="top"><a href="#analyze_sequence-2">analyze_sequence/2</a></td><td></td></tr><tr><td valign="top"><a href="#apply-5">apply/5</a></td><td></td></tr></table>
 
 
 <a name="functions"></a>
@@ -78,5 +78,12 @@
 ### analyze_sequence/2 ###
 
 `analyze_sequence(Exps, Ana) -> any()`
+
+
+<a name="apply-5"></a>
+
+### apply/5 ###
+
+`apply(Nip0, Args, Env, Ok, Ng) -> any()`
 
 

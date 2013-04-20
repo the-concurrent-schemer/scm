@@ -77,9 +77,18 @@
 -record(xnipv,            {lineno :: scmd:lineno(), val}).
 -record(xnipnv,           {lineno :: scmd:lineno(), val}).
 
--record(proc0,            {lineno :: scmd:lineno(), val}).
--record(procn,            {lineno :: scmd:lineno(), val}).
--record(procv,            {lineno :: scmd:lineno(), val}).
--record(procnv,           {lineno :: scmd:lineno(), val}).
+-record(lip0,             {lineno :: scmd:lineno(), val}).
+-record(lipn,             {lineno :: scmd:lineno(), val}).
+-record(lipv,             {lineno :: scmd:lineno(), val}).
+-record(lipnv,            {lineno :: scmd:lineno(), val}).
+
+-record(error_file,       {lineno :: scmd:lineno(), val}).
+-record(error_read,       {lineno :: scmd:lineno(), val}).
+-record(error_user,       {lineno :: scmd:lineno(), val}).
+
+-record(exception,        {lineno :: scmd:lineno(), val}).
+-record(cexception,       {lineno :: scmd:lineno(), val}).
+
+-record(signal,           {obj, env, ccok, ccng}).
 
 -endif. % -ifndef(scmd).

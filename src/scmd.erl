@@ -26,8 +26,6 @@
 
 -module(scmd).
 
--include("scmd.hrl").
-
 -export_type([lineno/0]).
 
 -export_type([s_complex/0
@@ -74,6 +72,8 @@
              ]).
 
 -export_type([s_datum/0, s_any/1]).
+
+-include("scmd.hrl").
 
 %%%----------------------------------------------------------------------
 %%% Types/Specs/Records

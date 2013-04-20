@@ -20,9 +20,7 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 
--module(scmd_type).
-
--include("scmd.hrl").
+-module(scmd_types).
 
 -export_type([scm_alist/0
               , scm_boolean/0, scm_true/0, scm_false/0
@@ -36,7 +34,7 @@
               , scm_n/0, scm_n_nonzero/0, scm_n_pos/0
               , scm_obj/0
               , scm_pair/0
-              , scm_port/0, scm_eof/0, scm_readerr/0, scm_fileerr/0
+              , scm_port/0, scm_eof/0
               , scm_proc/0
               , scm_q/0
               , scm_start/0
@@ -47,6 +45,8 @@
               , scm_x/0
               , scm_y/0
               , scm_z/0
+              , scm_exception/0
+              , scm_error/0
              ]).
 
 -type scm_alist()           :: [scm_pair()].                         % association list (list of pairs)
@@ -69,18 +69,19 @@
 -type scm_pair()            :: scmd:s_pair(scm_any()).               % pair
 -type scm_port()            :: io:dev().                             % port
 -type scm_eof()             :: 'eof'.                                % end-of-file
--type scm_readerr()         :: 'readerr'.                            % read error
--type scm_fileerr()         :: 'fileerr'.                            % file error
--type scm_proc()            :: scmi:f() | scmi:xf() | scmi:p().      % proc
+-type scm_proc()            :: scmi_types:proc().                    % proc
 -type scm_q()               :: scmd:s_rational().                    % rational
 -type scm_start()           :: scmd:s_integer_exact_non_neg().       % exact non-negative integer
 -type scm_string()          :: scmd:s_string().                      % string
 -type scm_symbol()          :: scmd:s_symbol().                      % symbol
--type scm_thunk()           :: scmi:f0() | scmi:xf0() | scmi:p0().   % thunk
+-type scm_thunk()           :: scmi_types:thunk().                   % thunk
 -type scm_vector()          :: scmd:s_vector(scm_any()).             % vector
 -type scm_x()               :: scmd:s_real().                        % real number
 -type scm_y()               :: scmd:s_real().                        % real number
 -type scm_z()               :: scmd:s_complex().                     % complex number
+
+-type scm_exception()       :: scmi_types:exception().
+-type scm_error()           :: scmi_types:error().
 
 -type scm_any()             :: scmd:s_any(scm_any())
                              | scm_alist()
@@ -97,7 +98,7 @@
                              | scm_n_nonzero()
                              | scm_n_pos()
                              | scm_pair()
-                             | scm_port() | scm_eof() | scm_readerr() | scm_fileerr()
+                             | scm_port() | scm_eof()
                              | scm_proc()
                              | scm_q()
                              | scm_start()
@@ -107,4 +108,7 @@
                              | scm_vector()
                              | scm_x()
                              | scm_y()
-                             | scm_z().
+                             | scm_z()
+                             | scm_exception() | scm_error().
+
+-include("scmd.hrl").

@@ -23,7 +23,9 @@
 -ifndef(scm).
 -define(scm, true).
 
--define(SCM,    'scm').
--define(SCMVSN, 'scm-0.2.8'). % @TODO make this depend on git describe
+-define(SCM,            'scm').
+-define(SCMVSN,         'scm-0.3.0'). % @TODO make this depend on git describe
+-define(SCMLEXPORTS,    '$scml_exports').
+-define(SCMLDYNWINDERS, '$scml_dynamic_winders').
 
 -endif. % -ifndef(scm).

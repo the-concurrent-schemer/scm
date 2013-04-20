@@ -22,8 +22,6 @@
 
 -module(scml_base_char).
 
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
@@ -37,6 +35,8 @@
          , 'char->integer'/1
          , 'integer->char'/1
         ]).
+
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records

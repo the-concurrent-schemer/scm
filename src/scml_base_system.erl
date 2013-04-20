@@ -22,15 +22,14 @@
 
 -module(scml_base_system).
 
--include("scm.hrl").
--include("scmi.hrl").
-
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
 %% API
 -export([features/0
         ]).
+
+-include("scml.hrl").
 
 %%%===================================================================
 %%% Types/Specs/Records
