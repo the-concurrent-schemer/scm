@@ -70,7 +70,15 @@ init() ->
     Path =
         case code:priv_dir(scm) of
             {error, bad_name} ->
-                "../../scm/priv/lib";
+                Fun = fun (Dir, Acc) ->
+                              case filelib:wildcard(Dir++"priv/lib/scmi_env.*") of
+                                  [] ->
+                                      Acc;
+                                  [H] ->
+                                      filename:dirname(H)
+                              end
+                      end,
+                lists:foldl(Fun, "priv/lib", ["../../scm", "../scm", "../", "./"]);
             Dir ->
                 filename:join([Dir, "lib"])
         end,
