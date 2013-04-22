@@ -80,7 +80,7 @@ parse_and_scan(X1::{function() | {atom(), atom()}, [term()]} | {atom(), atom(), 
 
 
 <pre><code>
-to_number(N::<a href="scmd.md#type-lineno">scmd:lineno()</a>, X::string(), Env::<a href="#type-scmi_env">scmi_env()</a>) -&gt; {ok, <a href="scmd.md#type-e_number">scmd:e_number()</a>} | {error, <a href="scmd.md#type-lineno">scmd:lineno()</a>, Msg::iolist()}
+to_number(N::<a href="scmd_types_impl.md#type-lineno">scmd_types_impl:lineno()</a>, X::string(), Env::<a href="#type-scmi_env">scmi_env()</a>) -&gt; {ok, <a href="scmd_types_impl.md#type-e_number">scmd_types_impl:e_number()</a>} | {error, <a href="scmd_types_impl.md#type-lineno">scmd_types_impl:lineno()</a>, Msg::iolist()}
 </code></pre>
 
 <br></br>

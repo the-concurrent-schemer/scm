@@ -7,9 +7,9 @@
 
 
 <p>This module contains functions that are not yet implemented
-or temporary in nature.  This functions will be deprecated or
+or temporary in nature.  These functions will be deprecated or
 moved to other modules in a future release.</p>.
-
+__Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
 <a name="index"></a>
 
 ## Function Index ##

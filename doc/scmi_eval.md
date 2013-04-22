@@ -1,10 +1,13 @@
 
 
 # Module scmi_eval #
+* [Description](#description)
 * [Function Index](#index)
 * [Function Details](#functions)
 
 
+<p>Scheme interpreter expression evaluator</p>.
+__Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
 <a name="index"></a>
 
 ## Function Index ##

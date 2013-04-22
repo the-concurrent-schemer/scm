@@ -22,7 +22,6 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 %%%
-%%% @doc scheme datum
 
 -ifndef(scmd).
 -define(scmd, true).
@@ -55,39 +54,39 @@
 -define(UNICHAR_HIGH_MIN, 16#E000).
 -define(UNICHAR_HIGH_MAX, 16#10FFFF).
 
--record(boolean,          {lineno :: scmd:lineno(), val}).
--record(bytevector,       {lineno :: scmd:lineno(), val}).
--record(character,        {lineno :: scmd:lineno(), val}).
--record(label,            {lineno :: scmd:lineno(), val}).
--record(labelref,         {lineno :: scmd:lineno(), val}).
--record(quasiquote,       {lineno :: scmd:lineno(), val}).
--record(quote,            {lineno :: scmd:lineno(), val}).
--record(string,           {lineno :: scmd:lineno(), val}).
--record(unquote,          {lineno :: scmd:lineno(), val}).
--record(unquote_splicing, {lineno :: scmd:lineno(), val}).
--record(vector,           {lineno :: scmd:lineno(), val}).
+-record(boolean,          {lineno :: scmd_types_impl:lineno(), val}).
+-record(bytevector,       {lineno :: scmd_types_impl:lineno(), val}).
+-record(character,        {lineno :: scmd_types_impl:lineno(), val}).
+-record(label,            {lineno :: scmd_types_impl:lineno(), val}).
+-record(labelref,         {lineno :: scmd_types_impl:lineno(), val}).
+-record(quasiquote,       {lineno :: scmd_types_impl:lineno(), val}).
+-record(quote,            {lineno :: scmd_types_impl:lineno(), val}).
+-record(string,           {lineno :: scmd_types_impl:lineno(), val}).
+-record(unquote,          {lineno :: scmd_types_impl:lineno(), val}).
+-record(unquote_splicing, {lineno :: scmd_types_impl:lineno(), val}).
+-record(vector,           {lineno :: scmd_types_impl:lineno(), val}).
 
--record(nip0,             {lineno :: scmd:lineno(), val}).
--record(nipn,             {lineno :: scmd:lineno(), val}).
--record(nipv,             {lineno :: scmd:lineno(), val}).
--record(nipnv,            {lineno :: scmd:lineno(), val}).
+-record(nip0,             {lineno :: scmd_types_impl:lineno(), val}).
+-record(nipn,             {lineno :: scmd_types_impl:lineno(), val}).
+-record(nipv,             {lineno :: scmd_types_impl:lineno(), val}).
+-record(nipnv,            {lineno :: scmd_types_impl:lineno(), val}).
 
--record(xnip0,            {lineno :: scmd:lineno(), val}).
--record(xnipn,            {lineno :: scmd:lineno(), val}).
--record(xnipv,            {lineno :: scmd:lineno(), val}).
--record(xnipnv,           {lineno :: scmd:lineno(), val}).
+-record(xnip0,            {lineno :: scmd_types_impl:lineno(), val}).
+-record(xnipn,            {lineno :: scmd_types_impl:lineno(), val}).
+-record(xnipv,            {lineno :: scmd_types_impl:lineno(), val}).
+-record(xnipnv,           {lineno :: scmd_types_impl:lineno(), val}).
 
--record(lip0,             {lineno :: scmd:lineno(), val}).
--record(lipn,             {lineno :: scmd:lineno(), val}).
--record(lipv,             {lineno :: scmd:lineno(), val}).
--record(lipnv,            {lineno :: scmd:lineno(), val}).
+-record(lip0,             {lineno :: scmd_types_impl:lineno(), val}).
+-record(lipn,             {lineno :: scmd_types_impl:lineno(), val}).
+-record(lipv,             {lineno :: scmd_types_impl:lineno(), val}).
+-record(lipnv,            {lineno :: scmd_types_impl:lineno(), val}).
 
--record(error_file,       {lineno :: scmd:lineno(), val}).
--record(error_read,       {lineno :: scmd:lineno(), val}).
--record(error_user,       {lineno :: scmd:lineno(), val}).
+-record(error_file,       {lineno :: scmd_types_impl:lineno(), val}).
+-record(error_read,       {lineno :: scmd_types_impl:lineno(), val}).
+-record(error_user,       {lineno :: scmd_types_impl:lineno(), val}).
 
--record(exception,        {lineno :: scmd:lineno(), val}).
--record(cexception,       {lineno :: scmd:lineno(), val}).
+-record(exception,        {lineno :: scmd_types_impl:lineno(), val}).
+-record(cexception,       {lineno :: scmd_types_impl:lineno(), val}).
 
 -record(signal,           {obj, env, ccok, ccng}).
 

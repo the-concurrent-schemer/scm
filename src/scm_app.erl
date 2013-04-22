@@ -20,6 +20,9 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 
+%%% @doc Scheme application
+%%% @author Joseph Wayne Norton <norton@alum.mit.edu>
+
 -module(scm_app).
 
 -behaviour(application).
@@ -37,7 +40,7 @@ start(_StartType, _StartArgs) ->
             {ok, Pid};
         Error ->
             Error
-                end.
+    end.
 
 stop(_State) ->
     ok.

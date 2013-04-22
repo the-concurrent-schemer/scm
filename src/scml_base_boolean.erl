@@ -20,6 +20,9 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 
+%%% @doc Scheme base library for booleans
+%%% @author Joseph Wayne Norton <norton@alum.mit.edu>
+
 -module(scml_base_boolean).
 
 %% SCML Exports

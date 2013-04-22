@@ -20,6 +20,9 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 
+%%% @doc Scheme interpreter syntactic analyzer for primitive expressions
+%%% @author Joseph Wayne Norton <norton@alum.mit.edu>
+
 -module(scmi_analyze_primitive).
 
 %% External exports

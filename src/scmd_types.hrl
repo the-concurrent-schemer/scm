@@ -23,7 +23,7 @@
 -ifndef(scmd_types).
 -define(scmd_types, true).
 
--include("scmd.hrl").
+-include("scmd_types_impl.hrl").
 
 -type scm_alist()           :: scmd_types:scm_alist().
 -type scm_boolean()         :: scmd_types:scm_boolean().

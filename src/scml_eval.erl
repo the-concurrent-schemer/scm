@@ -20,6 +20,9 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 
+%%% @doc Scheme eval library
+%%% @author Joseph Wayne Norton <norton@alum.mit.edu>
+
 -module(scml_eval).
 
 %% SCML Exports

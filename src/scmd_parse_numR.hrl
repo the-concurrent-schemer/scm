@@ -22,7 +22,6 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 %%%
-%%% @doc LALR-1 parser generator
 
 -ifndef(scmd_parse_numR).
 -define(scmd_parse_numR, true).

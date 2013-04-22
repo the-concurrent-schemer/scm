@@ -20,6 +20,9 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 
+%%% @doc Scheme process-context library
+%%% @author CSCM Contributor <the-concurrent-schemer@googlegroups.com>
+
 -module(scml_context).
 
 %% SCML Exports

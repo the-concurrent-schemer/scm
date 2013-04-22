@@ -20,6 +20,9 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 
+%%% @doc Scheme interpreter expression evaluator
+%%% @author Joseph Wayne Norton <norton@alum.mit.edu>
+
 -module(scmi_eval).
 
 %% External exports

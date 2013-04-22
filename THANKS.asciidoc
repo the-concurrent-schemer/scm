@@ -1,0 +1,5 @@
+The following people, in chronological order, have sent patches and
+pull requests that have been incorporated in CSCM's code base:
+
+1. Joseph Wayne Norton
+2. ...

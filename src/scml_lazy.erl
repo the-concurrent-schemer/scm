@@ -20,6 +20,9 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 
+%%% @doc Scheme lazy library
+%%% @author CSCM Contributor <the-concurrent-schemer@googlegroups.com>
+
 -module(scml_lazy).
 
 %% SCML Exports

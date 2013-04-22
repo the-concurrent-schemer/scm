@@ -36,7 +36,6 @@ Erlang/OTP R16B or higher.</p>
 <table width="100%" border="0" summary="list of modules">
 <tr><td><a href="scm_app.md" class="module">scm_app</a></td></tr>
 <tr><td><a href="scm_sup.md" class="module">scm_sup</a></td></tr>
-<tr><td><a href="scmd.md" class="module">scmd</a></td></tr>
 <tr><td><a href="scmd_parse.md" class="module">scmd_parse</a></td></tr>
 <tr><td><a href="scmd_parse_numR.md" class="module">scmd_parse_numR</a></td></tr>
 <tr><td><a href="scmd_scan.md" class="module">scmd_scan</a></td></tr>
@@ -45,6 +44,7 @@ Erlang/OTP R16B or higher.</p>
 <tr><td><a href="scmd_scan_num2.md" class="module">scmd_scan_num2</a></td></tr>
 <tr><td><a href="scmd_scan_num8.md" class="module">scmd_scan_num8</a></td></tr>
 <tr><td><a href="scmd_types.md" class="module">scmd_types</a></td></tr>
+<tr><td><a href="scmd_types_impl.md" class="module">scmd_types_impl</a></td></tr>
 <tr><td><a href="scmi_analyze.md" class="module">scmi_analyze</a></td></tr>
 <tr><td><a href="scmi_analyze_derived.md" class="module">scmi_analyze_derived</a></td></tr>
 <tr><td><a href="scmi_analyze_primitive.md" class="module">scmi_analyze_primitive</a></td></tr>
@@ -77,9 +77,9 @@ Erlang/OTP R16B or higher.</p>
 <tr><td><a href="scml_lambda.md" class="module">scml_lambda</a></td></tr>
 <tr><td><a href="scml_lazy.md" class="module">scml_lazy</a></td></tr>
 <tr><td><a href="scml_load.md" class="module">scml_load</a></td></tr>
+<tr><td><a href="scml_r5rs.md" class="module">scml_r5rs</a></td></tr>
 <tr><td><a href="scml_read.md" class="module">scml_read</a></td></tr>
 <tr><td><a href="scml_repl.md" class="module">scml_repl</a></td></tr>
-<tr><td><a href="scml_syntax.md" class="module">scml_syntax</a></td></tr>
 <tr><td><a href="scml_time.md" class="module">scml_time</a></td></tr>
 <tr><td><a href="scml_write.md" class="module">scml_write</a></td></tr>
 <tr><td><a href="scmtmp.md" class="module">scmtmp</a></td></tr></table>

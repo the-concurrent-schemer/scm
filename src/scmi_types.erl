@@ -20,6 +20,9 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 
+%%% @doc Scheme interpreter types (for Erlang types and specs)
+%%% @author Joseph Wayne Norton <norton@alum.mit.edu>
+
 -module(scmi_types).
 
 -export_type([ana/0

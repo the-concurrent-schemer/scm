@@ -1,10 +1,13 @@
 
 
 # Module scmi_analyze_program #
+* [Description](#description)
 * [Function Index](#index)
 * [Function Details](#functions)
 
 
+<p>Scheme interpreter syntactic analyzer for program expressions</p>.
+__Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
 <a name="index"></a>
 
 ## Function Index ##

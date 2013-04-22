@@ -20,6 +20,9 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 
+%%% @doc Scheme datum types (for Erlang types and specs)
+%%% @author Joseph Wayne Norton <norton@alum.mit.edu>
+
 -module(scmd_types).
 
 -export_type([scm_alist/0
@@ -49,41 +52,41 @@
               , scm_error/0
              ]).
 
--type scm_alist()           :: [scm_pair()].                         % association list (list of pairs)
--type scm_boolean()         :: scmd:s_boolean().                     % boolean value (#t or #f)
--type scm_true()            :: scmd:s_true().                        % true
--type scm_false()           :: scmd:s_false().                       % false
--type scm_byte()            :: scmd:s_byte().                        % exact integer 0 =< byte < 256
--type scm_bytevector()      :: scmd:s_bytevector().                  % bytevector
--type scm_char()            :: scmd:s_character().                   % character
--type scm_end()             :: scmd:s_integer_exact_non_neg().       % exact non-negative integer
--type scm_k()               :: scmd:s_integer_exact_non_neg().       % exact non-negative integer
--type scm_k_pos()           :: scmd:s_integer_exact_pos().           % exact positive integer
--type scm_letter()          :: scmd:s_letter().                      % alphabetic character
--type scm_list()            :: scmd:s_list(scm_any()).               % list
--type scm_list_nonempty()   :: scmd:s_list_nonempty(scm_any()).      % non-empty list
--type scm_n()               :: scmd:s_integer().                     % integer
--type scm_n_nonzero()       :: scmd:s_integer_nonzero().             % non-zero integer
--type scm_n_pos()           :: scmd:s_integer_pos().                 % positive integer
--type scm_obj()             :: scm_any().                            % any object
--type scm_pair()            :: scmd:s_pair(scm_any()).               % pair
--type scm_port()            :: io:dev().                             % port
--type scm_eof()             :: 'eof'.                                % end-of-file
--type scm_proc()            :: scmi_types:proc().                    % proc
--type scm_q()               :: scmd:s_rational().                    % rational
--type scm_start()           :: scmd:s_integer_exact_non_neg().       % exact non-negative integer
--type scm_string()          :: scmd:s_string().                      % string
--type scm_symbol()          :: scmd:s_symbol().                      % symbol
--type scm_thunk()           :: scmi_types:thunk().                   % thunk
--type scm_vector()          :: scmd:s_vector(scm_any()).             % vector
--type scm_x()               :: scmd:s_real().                        % real number
--type scm_y()               :: scmd:s_real().                        % real number
--type scm_z()               :: scmd:s_complex().                     % complex number
+-type scm_alist()           :: [scm_pair()].                               % association list (list of pairs)
+-type scm_boolean()         :: scmd_types_impl:s_boolean().                % boolean value (#t or #f)
+-type scm_true()            :: scmd_types_impl:s_true().                   % true
+-type scm_false()           :: scmd_types_impl:s_false().                  % false
+-type scm_byte()            :: scmd_types_impl:s_byte().                   % exact integer 0 =< byte < 256
+-type scm_bytevector()      :: scmd_types_impl:s_bytevector().             % bytevector
+-type scm_char()            :: scmd_types_impl:s_character().              % character
+-type scm_end()             :: scmd_types_impl:s_integer_exact_non_neg().  % exact non-negative integer
+-type scm_k()               :: scmd_types_impl:s_integer_exact_non_neg().  % exact non-negative integer
+-type scm_k_pos()           :: scmd_types_impl:s_integer_exact_pos().      % exact positive integer
+-type scm_letter()          :: scmd_types_impl:s_letter().                 % alphabetic character
+-type scm_list()            :: scmd_types_impl:s_list(scm_any()).          % list
+-type scm_list_nonempty()   :: scmd_types_impl:s_list_nonempty(scm_any()). % non-empty list
+-type scm_n()               :: scmd_types_impl:s_integer().                % integer
+-type scm_n_nonzero()       :: scmd_types_impl:s_integer_nonzero().        % non-zero integer
+-type scm_n_pos()           :: scmd_types_impl:s_integer_pos().            % positive integer
+-type scm_obj()             :: scm_any().                                  % any object
+-type scm_pair()            :: scmd_types_impl:s_pair(scm_any()).          % pair
+-type scm_port()            :: io:dev().                                   % port
+-type scm_eof()             :: 'eof'.                                      % end-of-file
+-type scm_proc()            :: scmi_types:proc().                          % proc
+-type scm_q()               :: scmd_types_impl:s_rational().               % rational
+-type scm_start()           :: scmd_types_impl:s_integer_exact_non_neg().  % exact non-negative integer
+-type scm_string()          :: scmd_types_impl:s_string().                 % string
+-type scm_symbol()          :: scmd_types_impl:s_symbol().                 % symbol
+-type scm_thunk()           :: scmi_types:thunk().                         % thunk
+-type scm_vector()          :: scmd_types_impl:s_vector(scm_any()).        % vector
+-type scm_x()               :: scmd_types_impl:s_real().                   % real number
+-type scm_y()               :: scmd_types_impl:s_real().                   % real number
+-type scm_z()               :: scmd_types_impl:s_complex().                % complex number
 
 -type scm_exception()       :: scmi_types:exception().
 -type scm_error()           :: scmi_types:error().
 
--type scm_any()             :: scmd:s_any(scm_any())
+-type scm_any()             :: scmd_types_impl:s_any(scm_any())
                              | scm_alist()
                              | scm_boolean()
                              | scm_byte()
@@ -111,4 +114,4 @@
                              | scm_z()
                              | scm_exception() | scm_error().
 
--include("scmd.hrl").
+-include("scmd_types_impl.hrl").

@@ -21,8 +21,9 @@
 %%% THE SOFTWARE.
 
 %%% @doc This module contains functions that are not yet implemented
-%%% or temporary in nature.  This functions will be deprecated or
+%%% or temporary in nature.  These functions will be deprecated or
 %%% moved to other modules in a future release.
+%%% @author Joseph Wayne Norton <norton@alum.mit.edu>
 
 -module(scmtmp).
 

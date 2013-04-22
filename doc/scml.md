@@ -1,10 +1,13 @@
 
 
 # Module scml #
+* [Description](#description)
 * [Function Index](#index)
 * [Function Details](#functions)
 
 
+<p>Scheme library</p>.
+__Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
 <a name="index"></a>
 
 ## Function Index ##

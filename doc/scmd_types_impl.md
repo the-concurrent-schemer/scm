@@ -1,12 +1,12 @@
 
 
-# Module scmd #
+# Module scmd_types_impl #
 * [Description](#description)
 * [Data Types](#types)
 
 
-<p>scheme datum</p>.
-
+<p>Scheme datum implementation types (for Erlang types and specs)</p>.
+__Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
 
 <a name="types"></a>
 

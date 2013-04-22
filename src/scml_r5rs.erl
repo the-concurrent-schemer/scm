@@ -20,13 +20,16 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 
--module(scml_syntax).
+%%% @doc Scheme r5rs library
+%%% @author CSCM Contributor <the-concurrent-schemer@googlegroups.com>
+
+-module(scml_r5rs).
 
 %% SCML Exports
 -export(['$scml_exports'/0]).
 
 %% API
--export(['case-lambda'/1
+-export([
         ]).
 
 -include("scml.hrl").
@@ -41,17 +44,12 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'case-lambda', #nipv{val=fun 'case-lambda'/1}}
+    [
     ].
 
 %%%===================================================================
 %%% API
 %%%===================================================================
-
--spec 'case-lambda'(scmi_vargs()) -> scm_any().
-'case-lambda'(Args) ->
-    %% @TODO scan_out_internal_definitions(Body)
-    erlang:error({roadmap,'v0.6.0'}, [Args]).
 
 %%%===================================================================
 %%% internal helpers

@@ -1,11 +1,14 @@
 
 
 # Module scmi_env #
+* [Description](#description)
 * [Data Types](#types)
 * [Function Index](#index)
 * [Function Details](#functions)
 
 
+<p>Scheme interpreter environment resource</p>.
+__Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
 
 <a name="types"></a>
 

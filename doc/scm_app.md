@@ -1,10 +1,15 @@
 
 
 # Module scm_app #
+* [Description](#description)
 * [Function Index](#index)
 * [Function Details](#functions)
 
+
+<p>Scheme application</p>.
 __Behaviours:__ [`application`](application.html).
+
+__Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
 <a name="index"></a>
 
 ## Function Index ##

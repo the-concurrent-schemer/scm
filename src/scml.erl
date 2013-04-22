@@ -20,6 +20,9 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 
+%%% @doc Scheme library
+%%% @author Joseph Wayne Norton <norton@alum.mit.edu>
+
 -module(scml).
 
 %% External exports
@@ -55,7 +58,7 @@ libraries() ->
      %% , 'time'            @TODO v0.6.0
      %% , 'write'           @TODO v0.6.0
      %% , 'r5rs'            @TODO v0.6.0
-     ].
+    ].
 
 %%%----------------------------------------------------------------------
 %%% Internal functions

@@ -22,7 +22,9 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 %%%
-%%% @doc lexical analyzer generator
+
+%%% @doc Scheme datum tokenizer
+%%% @author Joseph Wayne Norton <norton@alum.mit.edu>
 
 Definitions.
 
@@ -232,7 +234,7 @@ Rules.
 
 Erlang code.
 
--include("scmd.hrl").
+-include("scmd_types_impl.hrl").
 
 %%%----------------------------------------------------------------------
 %%% Leex functions

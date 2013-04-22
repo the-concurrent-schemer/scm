@@ -22,7 +22,9 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 %%%
-%%% @doc LALR-1 parser generator
+
+%%% @doc Scheme datum parser
+%%% @author Joseph Wayne Norton <norton@alum.mit.edu>
 
 Expect 1.
 
@@ -132,7 +134,7 @@ Erlang code.
 
 -export_type([filename/0, posix/0]).
 
--include("scmd.hrl").
+-include("scmd_types_impl.hrl").
 
 %%%----------------------------------------------------------------------
 %%% Types/Specs/Records

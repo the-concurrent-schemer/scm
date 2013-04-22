@@ -22,9 +22,11 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 %%%
-%%% @doc scheme datum
 
--module(scmd).
+%%% @doc Scheme datum implementation types (for Erlang types and specs)
+%%% @author Joseph Wayne Norton <norton@alum.mit.edu>
+
+-module(scmd_types_impl).
 
 -export_type([lineno/0]).
 
@@ -73,7 +75,7 @@
 
 -export_type([s_datum/0, s_any/1]).
 
--include("scmd.hrl").
+-include("scmd_types_impl.hrl").
 
 %%%----------------------------------------------------------------------
 %%% Types/Specs/Records

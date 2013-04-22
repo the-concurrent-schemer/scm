@@ -22,7 +22,9 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 %%%
-%%% @doc LALR-1 parser generator
+
+%%% @doc Scheme number parser
+%%% @author Joseph Wayne Norton <norton@alum.mit.edu>
 
 Nonterminals numberR complexR polarR rectangularR realR srealR urealR
 decimalR uintegerR prefixR.
@@ -104,7 +106,7 @@ Erlang code.
 %%% API
 %%%----------------------------------------------------------------------
 
--spec to_number(scmd:lineno(), string(), scmi_env()) -> {ok, scmd:e_number()} | {error, scmd:lineno(), Msg::iolist()}.
+-spec to_number(scmd_types_impl:lineno(), string(), scmi_env()) -> {ok, scmd_types_impl:e_number()} | {error, scmd_types_impl:lineno(), Msg::iolist()}.
 to_number(N, X, Env) ->
     case parse_number(N, X) of
         {ok, #numR{lineno=N1, exactness=E, radix=R, val=Y}} ->

@@ -22,7 +22,9 @@
 %%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %%% THE SOFTWARE.
 %%%
-%%% @doc lexical analyzer generator
+
+%%% @doc Scheme number tokenizer (base 8)
+%%% @author Joseph Wayne Norton <norton@alum.mit.edu>
 
 Definitions.
 

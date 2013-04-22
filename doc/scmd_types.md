@@ -1,9 +1,12 @@
 
 
 # Module scmd_types #
+* [Description](#description)
 * [Data Types](#types)
 
 
+<p>Scheme datum types (for Erlang types and specs)</p>.
+__Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
 
 <a name="types"></a>
 
@@ -35,7 +38,7 @@ scm_alist() = [<a href="#type-scm_pair">scm_pair()</a>]
 
 
 <pre><code>
-scm_any() = <a href="scmd.md#type-s_any">scmd:s_any</a>(<a href="#type-scm_any">scm_any()</a>) | <a href="#type-scm_alist">scm_alist()</a> | <a href="#type-scm_boolean">scm_boolean()</a> | <a href="#type-scm_byte">scm_byte()</a> | <a href="#type-scm_bytevector">scm_bytevector()</a> | <a href="#type-scm_char">scm_char()</a> | <a href="#type-scm_end">scm_end()</a> | <a href="#type-scm_k">scm_k()</a> | <a href="#type-scm_letter">scm_letter()</a> | <a href="#type-scm_list">scm_list()</a> | <a href="#type-scm_list_nonempty">scm_list_nonempty()</a> | <a href="#type-scm_n">scm_n()</a> | <a href="#type-scm_n_nonzero">scm_n_nonzero()</a> | <a href="#type-scm_n_pos">scm_n_pos()</a> | <a href="#type-scm_pair">scm_pair()</a> | <a href="#type-scm_port">scm_port()</a> | <a href="#type-scm_eof">scm_eof()</a> | <a href="#type-scm_proc">scm_proc()</a> | <a href="#type-scm_q">scm_q()</a> | <a href="#type-scm_start">scm_start()</a> | <a href="#type-scm_string">scm_string()</a> | <a href="#type-scm_symbol">scm_symbol()</a> | <a href="#type-scm_thunk">scm_thunk()</a> | <a href="#type-scm_vector">scm_vector()</a> | <a href="#type-scm_x">scm_x()</a> | <a href="#type-scm_y">scm_y()</a> | <a href="#type-scm_z">scm_z()</a> | <a href="#type-scm_exception">scm_exception()</a> | <a href="#type-scm_error">scm_error()</a>
+scm_any() = <a href="scmd_types_impl.md#type-s_any">scmd_types_impl:s_any</a>(<a href="#type-scm_any">scm_any()</a>) | <a href="#type-scm_alist">scm_alist()</a> | <a href="#type-scm_boolean">scm_boolean()</a> | <a href="#type-scm_byte">scm_byte()</a> | <a href="#type-scm_bytevector">scm_bytevector()</a> | <a href="#type-scm_char">scm_char()</a> | <a href="#type-scm_end">scm_end()</a> | <a href="#type-scm_k">scm_k()</a> | <a href="#type-scm_letter">scm_letter()</a> | <a href="#type-scm_list">scm_list()</a> | <a href="#type-scm_list_nonempty">scm_list_nonempty()</a> | <a href="#type-scm_n">scm_n()</a> | <a href="#type-scm_n_nonzero">scm_n_nonzero()</a> | <a href="#type-scm_n_pos">scm_n_pos()</a> | <a href="#type-scm_pair">scm_pair()</a> | <a href="#type-scm_port">scm_port()</a> | <a href="#type-scm_eof">scm_eof()</a> | <a href="#type-scm_proc">scm_proc()</a> | <a href="#type-scm_q">scm_q()</a> | <a href="#type-scm_start">scm_start()</a> | <a href="#type-scm_string">scm_string()</a> | <a href="#type-scm_symbol">scm_symbol()</a> | <a href="#type-scm_thunk">scm_thunk()</a> | <a href="#type-scm_vector">scm_vector()</a> | <a href="#type-scm_x">scm_x()</a> | <a href="#type-scm_y">scm_y()</a> | <a href="#type-scm_z">scm_z()</a> | <a href="#type-scm_exception">scm_exception()</a> | <a href="#type-scm_error">scm_error()</a>
 </code></pre>
 
 
@@ -47,7 +50,7 @@ scm_any() = <a href="scmd.md#type-s_any">scmd:s_any</a>(<a href="#type-scm_any">
 
 
 <pre><code>
-scm_boolean() = <a href="scmd.md#type-s_boolean">scmd:s_boolean()</a>
+scm_boolean() = <a href="scmd_types_impl.md#type-s_boolean">scmd_types_impl:s_boolean()</a>
 </code></pre>
 
 
@@ -65,7 +68,7 @@ scm_boolean() = <a href="scmd.md#type-s_boolean">scmd:s_boolean()</a>
 
 
 <pre><code>
-scm_byte() = <a href="scmd.md#type-s_byte">scmd:s_byte()</a>
+scm_byte() = <a href="scmd_types_impl.md#type-s_byte">scmd_types_impl:s_byte()</a>
 </code></pre>
 
 
@@ -83,7 +86,7 @@ scm_byte() = <a href="scmd.md#type-s_byte">scmd:s_byte()</a>
 
 
 <pre><code>
-scm_bytevector() = <a href="scmd.md#type-s_bytevector">scmd:s_bytevector()</a>
+scm_bytevector() = <a href="scmd_types_impl.md#type-s_bytevector">scmd_types_impl:s_bytevector()</a>
 </code></pre>
 
 
@@ -101,7 +104,7 @@ scm_bytevector() = <a href="scmd.md#type-s_bytevector">scmd:s_bytevector()</a>
 
 
 <pre><code>
-scm_char() = <a href="scmd.md#type-s_character">scmd:s_character()</a>
+scm_char() = <a href="scmd_types_impl.md#type-s_character">scmd_types_impl:s_character()</a>
 </code></pre>
 
 
@@ -119,7 +122,7 @@ scm_char() = <a href="scmd.md#type-s_character">scmd:s_character()</a>
 
 
 <pre><code>
-scm_end() = <a href="scmd.md#type-s_integer_exact_non_neg">scmd:s_integer_exact_non_neg()</a>
+scm_end() = <a href="scmd_types_impl.md#type-s_integer_exact_non_neg">scmd_types_impl:s_integer_exact_non_neg()</a>
 </code></pre>
 
 
@@ -179,7 +182,7 @@ scm_exception() = <a href="scmi_types.md#type-exception">scmi_types:exception()<
 
 
 <pre><code>
-scm_false() = <a href="scmd.md#type-s_false">scmd:s_false()</a>
+scm_false() = <a href="scmd_types_impl.md#type-s_false">scmd_types_impl:s_false()</a>
 </code></pre>
 
 
@@ -197,7 +200,7 @@ scm_false() = <a href="scmd.md#type-s_false">scmd:s_false()</a>
 
 
 <pre><code>
-scm_k() = <a href="scmd.md#type-s_integer_exact_non_neg">scmd:s_integer_exact_non_neg()</a>
+scm_k() = <a href="scmd_types_impl.md#type-s_integer_exact_non_neg">scmd_types_impl:s_integer_exact_non_neg()</a>
 </code></pre>
 
 
@@ -215,7 +218,7 @@ scm_k() = <a href="scmd.md#type-s_integer_exact_non_neg">scmd:s_integer_exact_no
 
 
 <pre><code>
-scm_k_pos() = <a href="scmd.md#type-s_integer_exact_pos">scmd:s_integer_exact_pos()</a>
+scm_k_pos() = <a href="scmd_types_impl.md#type-s_integer_exact_pos">scmd_types_impl:s_integer_exact_pos()</a>
 </code></pre>
 
 
@@ -233,7 +236,7 @@ scm_k_pos() = <a href="scmd.md#type-s_integer_exact_pos">scmd:s_integer_exact_po
 
 
 <pre><code>
-scm_letter() = <a href="scmd.md#type-s_letter">scmd:s_letter()</a>
+scm_letter() = <a href="scmd_types_impl.md#type-s_letter">scmd_types_impl:s_letter()</a>
 </code></pre>
 
 
@@ -251,7 +254,7 @@ scm_letter() = <a href="scmd.md#type-s_letter">scmd:s_letter()</a>
 
 
 <pre><code>
-scm_list() = <a href="scmd.md#type-s_list">scmd:s_list</a>(<a href="#type-scm_any">scm_any()</a>)
+scm_list() = <a href="scmd_types_impl.md#type-s_list">scmd_types_impl:s_list</a>(<a href="#type-scm_any">scm_any()</a>)
 </code></pre>
 
 
@@ -269,7 +272,7 @@ scm_list() = <a href="scmd.md#type-s_list">scmd:s_list</a>(<a href="#type-scm_an
 
 
 <pre><code>
-scm_list_nonempty() = <a href="scmd.md#type-s_list_nonempty">scmd:s_list_nonempty</a>(<a href="#type-scm_any">scm_any()</a>)
+scm_list_nonempty() = <a href="scmd_types_impl.md#type-s_list_nonempty">scmd_types_impl:s_list_nonempty</a>(<a href="#type-scm_any">scm_any()</a>)
 </code></pre>
 
 
@@ -287,7 +290,7 @@ scm_list_nonempty() = <a href="scmd.md#type-s_list_nonempty">scmd:s_list_nonempt
 
 
 <pre><code>
-scm_n() = <a href="scmd.md#type-s_integer">scmd:s_integer()</a>
+scm_n() = <a href="scmd_types_impl.md#type-s_integer">scmd_types_impl:s_integer()</a>
 </code></pre>
 
 
@@ -305,7 +308,7 @@ scm_n() = <a href="scmd.md#type-s_integer">scmd:s_integer()</a>
 
 
 <pre><code>
-scm_n_nonzero() = <a href="scmd.md#type-s_integer_nonzero">scmd:s_integer_nonzero()</a>
+scm_n_nonzero() = <a href="scmd_types_impl.md#type-s_integer_nonzero">scmd_types_impl:s_integer_nonzero()</a>
 </code></pre>
 
 
@@ -323,7 +326,7 @@ scm_n_nonzero() = <a href="scmd.md#type-s_integer_nonzero">scmd:s_integer_nonzer
 
 
 <pre><code>
-scm_n_pos() = <a href="scmd.md#type-s_integer_pos">scmd:s_integer_pos()</a>
+scm_n_pos() = <a href="scmd_types_impl.md#type-s_integer_pos">scmd_types_impl:s_integer_pos()</a>
 </code></pre>
 
 
@@ -359,7 +362,7 @@ scm_obj() = <a href="#type-scm_any">scm_any()</a>
 
 
 <pre><code>
-scm_pair() = <a href="scmd.md#type-s_pair">scmd:s_pair</a>(<a href="#type-scm_any">scm_any()</a>)
+scm_pair() = <a href="scmd_types_impl.md#type-s_pair">scmd_types_impl:s_pair</a>(<a href="#type-scm_any">scm_any()</a>)
 </code></pre>
 
 
@@ -413,7 +416,7 @@ scm_proc() = <a href="scmi_types.md#type-proc">scmi_types:proc()</a>
 
 
 <pre><code>
-scm_q() = <a href="scmd.md#type-s_rational">scmd:s_rational()</a>
+scm_q() = <a href="scmd_types_impl.md#type-s_rational">scmd_types_impl:s_rational()</a>
 </code></pre>
 
 
@@ -431,7 +434,7 @@ scm_q() = <a href="scmd.md#type-s_rational">scmd:s_rational()</a>
 
 
 <pre><code>
-scm_start() = <a href="scmd.md#type-s_integer_exact_non_neg">scmd:s_integer_exact_non_neg()</a>
+scm_start() = <a href="scmd_types_impl.md#type-s_integer_exact_non_neg">scmd_types_impl:s_integer_exact_non_neg()</a>
 </code></pre>
 
 
@@ -449,7 +452,7 @@ scm_start() = <a href="scmd.md#type-s_integer_exact_non_neg">scmd:s_integer_exac
 
 
 <pre><code>
-scm_string() = <a href="scmd.md#type-s_string">scmd:s_string()</a>
+scm_string() = <a href="scmd_types_impl.md#type-s_string">scmd_types_impl:s_string()</a>
 </code></pre>
 
 
@@ -467,7 +470,7 @@ scm_string() = <a href="scmd.md#type-s_string">scmd:s_string()</a>
 
 
 <pre><code>
-scm_symbol() = <a href="scmd.md#type-s_symbol">scmd:s_symbol()</a>
+scm_symbol() = <a href="scmd_types_impl.md#type-s_symbol">scmd_types_impl:s_symbol()</a>
 </code></pre>
 
 
@@ -503,7 +506,7 @@ scm_thunk() = <a href="scmi_types.md#type-thunk">scmi_types:thunk()</a>
 
 
 <pre><code>
-scm_true() = <a href="scmd.md#type-s_true">scmd:s_true()</a>
+scm_true() = <a href="scmd_types_impl.md#type-s_true">scmd_types_impl:s_true()</a>
 </code></pre>
 
 
@@ -521,7 +524,7 @@ scm_true() = <a href="scmd.md#type-s_true">scmd:s_true()</a>
 
 
 <pre><code>
-scm_vector() = <a href="scmd.md#type-s_vector">scmd:s_vector</a>(<a href="#type-scm_any">scm_any()</a>)
+scm_vector() = <a href="scmd_types_impl.md#type-s_vector">scmd_types_impl:s_vector</a>(<a href="#type-scm_any">scm_any()</a>)
 </code></pre>
 
 
@@ -539,7 +542,7 @@ scm_vector() = <a href="scmd.md#type-s_vector">scmd:s_vector</a>(<a href="#type-
 
 
 <pre><code>
-scm_x() = <a href="scmd.md#type-s_real">scmd:s_real()</a>
+scm_x() = <a href="scmd_types_impl.md#type-s_real">scmd_types_impl:s_real()</a>
 </code></pre>
 
 
@@ -557,7 +560,7 @@ scm_x() = <a href="scmd.md#type-s_real">scmd:s_real()</a>
 
 
 <pre><code>
-scm_y() = <a href="scmd.md#type-s_real">scmd:s_real()</a>
+scm_y() = <a href="scmd_types_impl.md#type-s_real">scmd_types_impl:s_real()</a>
 </code></pre>
 
 
@@ -575,7 +578,7 @@ scm_y() = <a href="scmd.md#type-s_real">scmd:s_real()</a>
 
 
 <pre><code>
-scm_z() = <a href="scmd.md#type-s_complex">scmd:s_complex()</a>
+scm_z() = <a href="scmd_types_impl.md#type-s_complex">scmd_types_impl:s_complex()</a>
 </code></pre>
 
 

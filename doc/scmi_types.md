@@ -1,9 +1,12 @@
 
 
 # Module scmi_types #
+* [Description](#description)
 * [Data Types](#types)
 
 
+<p>Scheme interpreter types (for Erlang types and specs)</p>.
+__Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
 
 <a name="types"></a>
 

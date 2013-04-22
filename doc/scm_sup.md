@@ -1,10 +1,15 @@
 
 
 # Module scm_sup #
+* [Description](#description)
 * [Function Index](#index)
 * [Function Details](#functions)
 
+
+<p>Scheme supervisor</p>.
 __Behaviours:__ [`supervisor`](supervisor.html).
+
+__Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
 <a name="index"></a>
 
 ## Function Index ##

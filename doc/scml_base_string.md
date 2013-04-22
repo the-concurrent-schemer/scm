@@ -1,10 +1,13 @@
 
 
 # Module scml_base_string #
+* [Description](#description)
 * [Function Index](#index)
 * [Function Details](#functions)
 
 
+<p>Scheme base library for strings</p>.
+__Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailto:the-concurrent-schemer@googlegroups.com)).
 <a name="index"></a>
 
 ## Function Index ##
