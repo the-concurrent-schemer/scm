@@ -29,7 +29,16 @@
 -export(['$scml_exports'/0]).
 
 %% API
--export(['file-exists?'/1
+-export(['call-with-input-file'/2
+         , 'call-with-output-file'/2
+         , 'with-input-from-file'/2
+         , 'with-output-to-file'/2
+         , 'open-input-file'/1
+         , 'open-binary-input-file'/1
+         , 'open-output-file'/1
+         , 'open-binary-output-file'/1
+
+         , 'file-exists?'/1
          , 'delete-file'/1
         ]).
 
@@ -45,13 +54,61 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'file-exists?', #nipn{val=fun 'file-exists?'/1}}
+    [{'call-with-input-file', #nipn{val=fun 'call-with-input-file'/2}}
+     , {'call-with-output-file', #nipn{val=fun 'call-with-output-file'/2}}
+     , {'with-input-from-file', #nipn{val=fun 'with-input-from-file'/2}}
+     , {'with-output-to-file', #nipn{val=fun 'with-output-to-file'/2}}
+     , {'open-input-file', #nipn{val=fun 'open-input-file'/1}}
+     , {'open-binary-input-file', #nipn{val=fun 'open-binary-input-file'/1}}
+     , {'open-output-file', #nipn{val=fun 'open-output-file'/1}}
+     , {'open-binary-output-file', #nipn{val=fun 'open-binary-output-file'/1}}
+     , {'file-exists?', #nipn{val=fun 'file-exists?'/1}}
      , {'delete-file', #nipn{val=fun 'delete-file'/1}}
     ].
 
 %%%===================================================================
 %%% API
 %%%===================================================================
+
+-spec 'call-with-input-file'(scm_string(), scm_proc()) -> scm_obj().
+'call-with-input-file'(S, Proc) ->
+    %% @TODO
+    erlang:error({roadmap,'v0.4.0'}, [S, Proc]).
+
+-spec 'call-with-output-file'(scm_string(), scm_proc()) -> scm_obj().
+'call-with-output-file'(S, Proc) ->
+    %% @TODO
+    erlang:error({roadmap,'v0.4.0'}, [S, Proc]).
+
+-spec 'with-input-from-file'(scm_string(), scm_thunk()) -> scm_obj().
+'with-input-from-file'(S, Thunk) ->
+    %% @TODO
+    erlang:error({roadmap,'v0.4.0'}, [S, Thunk]).
+
+-spec 'with-output-to-file'(scm_string(), scm_thunk()) -> scm_obj().
+'with-output-to-file'(S, Thunk) ->
+    %% @TODO
+    erlang:error({roadmap,'v0.4.0'}, [S, Thunk]).
+
+-spec 'open-input-file'(scm_string()) -> scm_port().
+'open-input-file'(S) ->
+    %% @TODO
+    erlang:error({roadmap,'v0.4.0'}, [S]).
+
+-spec 'open-binary-input-file'(scm_string()) -> scm_port().
+'open-binary-input-file'(S) ->
+    %% @TODO
+    erlang:error({roadmap,'v0.4.0'}, [S]).
+
+-spec 'open-output-file'(scm_string()) -> scm_port().
+'open-output-file'(S) ->
+    %% @TODO
+    erlang:error({roadmap,'v0.4.0'}, [S]).
+
+-spec 'open-binary-output-file'(scm_string()) -> scm_port().
+'open-binary-output-file'(S) ->
+    %% @TODO
+    erlang:error({roadmap,'v0.4.0'}, [S]).
 
 -spec 'file-exists?'(scm_string()) -> scm_boolean().
 'file-exists?'(S) ->

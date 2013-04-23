@@ -40,6 +40,7 @@
          , 'asin'/1
          , 'acos'/1
          , 'atan'/1, 'atan'/2
+         , 'sqrt'/1
         ]).
 
 -include("scml.hrl").
@@ -65,6 +66,7 @@
      , {'asin', #nipn{val=fun 'asin'/1}}
      , {'acos', #nipn{val=fun 'acos'/1}}
      , {'atan', #nipn{val=[fun 'atan'/1, fun 'atan'/2]}}
+     , {'sqrt', #nipn{val=fun 'sqrt'/1}}
     ].
 
 %%%===================================================================
@@ -135,6 +137,11 @@
 'atan'(Y, X) ->
     %% @TODO
     erlang:error({roadmap,'v0.5.0'}, [Y, X]).
+
+-spec 'sqrt'(scm_z()) -> scm_z().
+'sqrt'(Z) ->
+    %% @TODO
+    erlang:error({roadmap,'v0.5.0'}, [Z]).
 
 %%%===================================================================
 %%% internal helpers

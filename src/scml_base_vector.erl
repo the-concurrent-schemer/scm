@@ -72,7 +72,7 @@
 '$scml_exports'() ->
     [{'vector?', #nipn{val=fun 'vector?'/1}}
      , {'make-vector', #nipn{val=[fun 'make-vector'/1, fun 'make-vector'/2]}}
-     , {'vector', #nipn{val=fun 'vector'/1}}
+     , {'vector', #nipv{val=fun 'vector'/1}}
      , {'vector-length', #nipn{val=fun 'vector-length'/1}}
      , {'vector-ref', #nipn{val=fun 'vector-ref'/2}}
      , {'vector-set!', #nipn{val=fun 'vector-set!'/3}}
