@@ -439,9 +439,9 @@ make_body_let_values1([F|Formals], [I|Inits], Body) ->
 %%%----------------------------------------------------------------------
 
 %% do
-from_do([Specs, [Test], Commands]) ->
+from_do([Specs, [Test]|Commands]) ->
     from_do(Specs, Test, [?FALSE], Commands);
-from_do([Specs, [Test|Exps], Commands]) ->
+from_do([Specs, [Test|Exps]|Commands]) ->
     from_do(Specs, Test, Exps, Commands).
 
 from_do(Specs, Test, Exps, Commands) ->
