@@ -53,20 +53,24 @@
 
 analyze_lambda([[]|Body], Ana) ->
     Exec = analyze_sequence(scan_out_internal_definitions(Body), Ana),
-    fun(Env, Ok, Ng) -> Ok(#lip0{val={Exec, Env}}, Ng) end;
+    Src = fun() -> Body end,
+    fun(Env, Ok, Ng) -> Ok(#lip0{val=#l0{body=Exec, env=Env, src=Src}}, Ng) end;
 analyze_lambda([Variable|Body], Ana) when not is_list(Variable) ->
     validate_variable(Variable),
     Exec = analyze_sequence(scan_out_internal_definitions(Body), Ana),
-    fun(Env, Ok, Ng) -> Ok(#lipv{val={Variable, Exec, Env}}, Ng) end;
+    Src = fun() -> Body end,
+    fun(Env, Ok, Ng) -> Ok(#lipv{val=#lv{param=Variable, body=Exec, env=Env, src=Src}}, Ng) end;
 analyze_lambda([[Variables|Variable]=Vs|Body], Ana) when not is_list(Variable) ->
     validate_variables(Vs),
     AllVariables = Variables ++ [Variable],
     Exec = analyze_sequence(scan_out_internal_definitions(Body), Ana),
-    fun(Env, Ok, Ng) -> Ok(#lipnv{val={length(Variables), AllVariables, Exec, Env}}, Ng) end;
+    Src = fun() -> Body end,
+    fun(Env, Ok, Ng) -> Ok(#lipnv{val=#lnv{n=length(Variables), params=AllVariables, body=Exec, env=Env, src=Src}}, Ng) end;
 analyze_lambda([Variables|Body], Ana) when is_list(Variables) ->
     validate_variables(Variables),
     Exec = analyze_sequence(scan_out_internal_definitions(Body), Ana),
-    fun(Env, Ok, Ng) -> Ok(#lipn{val={Variables, Exec, Env}}, Ng) end.
+    Src = fun() -> Body end,
+    fun(Env, Ok, Ng) -> Ok(#lipn{val=#ln{params=Variables, body=Exec, env=Env, src=Src}}, Ng) end.
 
 analyze_sequence(Exps, Ana) ->
     sequentially([ analyze(Exp, Ana) || Exp <- Exps ]).
@@ -170,6 +174,8 @@ analyze_include_lib_ci(Exp, Ana) ->
 %%% Internal functions
 %%%----------------------------------------------------------------------
 
+sequentially([]) ->
+    erlang:error(badarg, [[]]);
 sequentially([A]) ->
     A;
 sequentially([A, B|Cs]) ->
@@ -230,20 +236,20 @@ apply_xnipnv(Fun, Args, Env, Ok, Ng) ->
     ArgsN = splitnv_arguments(N-4, Args),
     erlang:apply(Fun, ArgsN ++ [Env, Ok, Ng]).
 
-apply_proc0({Exec, BaseEnv}, Ok, Ng) ->
+apply_proc0(#l0{body=Exec, env=BaseEnv}, Ok, Ng) ->
     Exec(scmi_env:extend([], [], BaseEnv), Ok, Ng).
 
-apply_procn({Parameters, Exec, BaseEnv}, Args, Ok, Ng) ->
+apply_procn(#ln{params=Parameters, body=Exec, env=BaseEnv}, Args, Ok, Ng) ->
     Exec(scmi_env:extend(Parameters, Args, BaseEnv), Ok, Ng).
 
-apply_procv({Parameter, Exec, BaseEnv}, Args, Ok, Ng) ->
+apply_procv(#lv{param=Parameter, body=Exec, env=BaseEnv}, Args, Ok, Ng) ->
     Exec(scmi_env:extend([Parameter], [Args], BaseEnv), Ok, Ng).
 
-apply_procnv({N, Parameters, Exec, BaseEnv}, Args, Ok, Ng) ->
+apply_procnv(#lnv{n=N, params=Parameters, body=Exec, env=BaseEnv}, Args, Ok, Ng) ->
     ArgsN = splitnv_arguments(N, Args),
     Exec(scmi_env:extend(Parameters, ArgsN, BaseEnv), Ok, Ng).
 
-include_pp(#string{val=Val}) ->
+include_pp(#string{val=Val}) when Val /= <<>> ->
     case filename:split(binary_to_list(Val)) of
         [[$$|Start]|Rest]=All ->
             case os:getenv(Start) of

@@ -62,7 +62,7 @@
               , error/0
              ]).
 
--include("scmd_types.hrl").
+-include("scmi_types.hrl").
 
 %% context
 -type ana()         :: scmi_analyze:ana().
@@ -79,10 +79,11 @@
 -type var()         :: scm_symbol() | reference().
 -type val()         :: scm_any().
 
-%% param, params, and body
+%% param, params, body, and src
 -type param()       :: var().
 -type params()      :: [param()].
 -type body()        :: exec().
+-type src()         :: fun(() -> [scm_any()]).
 
 %% thunk and proc
 -type thunk()       :: nip0() | xnip0() | lip0().
@@ -115,10 +116,10 @@
 -type xnip()        :: xnip0() | xnipn() | xnipv() | xnipnv().
 
 %% lambda implemented procedures
--type l0()          :: {body(), env()}.
--type ln()          :: {params(), body(), env()}.
--type lv()          :: {param(), body(), env()}.
--type lnv()         :: {pos_integer(), params(), body(), env()}.
+-type l0()          :: #l0{body :: body(), env :: env(), src :: src()}.
+-type ln()          :: #ln{params :: params(), body :: body(), env :: env(), src :: src()}.
+-type lv()          :: #lv{param :: param(), body :: body(), env :: env(), src :: src()}.
+-type lnv()         :: #lnv{n :: pos_integer(), params :: params(), body :: body(), env :: env(), src :: src()}.
 -type l()           :: l0() | ln() | lv() | lnv().
 
 -type lip0()        :: #lip0{val :: l0()}.

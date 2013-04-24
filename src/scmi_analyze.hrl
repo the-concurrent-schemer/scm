@@ -46,7 +46,7 @@
            , make_define_values/2
            , make_do/2, make_do/3, make_do/4
            , make_dynamic_wind/3
-           , make_eqp/2, make_eqvp/2
+           , make_eqvp/2, make_eqp/2, make_equalp/2
            , make_error/1, make_error/2
            , make_else/1
            , make_if/2, make_if/3
@@ -93,7 +93,7 @@
 %%            , make_define_values/2
 %%            , make_do/2, make_do/3, make_do/4
 %%            , make_dynamic_wind/3
-%%            , make_eqp/2, make_eqvp/2
+%%            , make_eqvp/2, make_eqp/2, make_equalp/2
 %%            , make_error/1, make_error/2
 %%            , make_else/1
 %%            , make_if/2, make_if/3
@@ -201,11 +201,14 @@ make_do(Test, Results, Specs, Commands) when is_list(Results), is_list(Specs), i
 make_dynamic_wind(Before, Thunk, After) ->
     ['dynamic-wind', Before, Thunk, After].
 
+make_eqvp(Obj1, Obj2) ->
+    ['eqv?', Obj1, Obj2].
+
 make_eqp(Obj1, Obj2) ->
     ['eq?', Obj1, Obj2].
 
-make_eqvp(Obj1, Obj2) ->
-    ['eqv?', Obj1, Obj2].
+make_equalp(Obj1, Obj2) ->
+    ['equal?', Obj1, Obj2].
 
 make_error(Message) ->
     make_error(Message, []).

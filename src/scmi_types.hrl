@@ -72,8 +72,15 @@
 -type scmi_lipnv()     :: scmi_types:lipnv().
 -type scmi_lip()       :: scmi_types:lip().
 
+-record(l0,            {body, env, src}).
+-record(ln,            {params, body, env, src}).
+-record(lv,            {param, body, env, src}).
+-record(lnv,           {n, params, body, env, src}).
+
 %% exception and error
 -type scmi_exception() :: scmi_types:exception().
 -type scmi_error()     :: scmi_types:error().
+
+-record(signal,        {obj, env, ccok, ccng}).
 
 -endif. % -ifndef(scmi_types).

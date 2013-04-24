@@ -55,49 +55,19 @@
 %%% API
 %%%===================================================================
 
-%% @doc This function is a temporary place holder and is not (yet)
-%% compliant with the R7RS specification.
-%% @TODO 'v0.4.0'
+%% @doc Returns #true if obj1 and obj2 are normally regarded as the
+%% same object.  Otherwise, #false.
 -spec 'eqv?'(scm_obj(), scm_obj()) -> scm_boolean().
-'eqv?'(?TRUE, ?TRUE) ->
-    ?TRUE;
-'eqv?'(?FALSE, ?FALSE) ->
+'eqv?'(#boolean{val=A}, #boolean{val=A}) ->
     ?TRUE;
 'eqv?'(A, A) when is_atom(A) ->
     ?TRUE;
-'eqv?'({Sha, A}, {Sha, A}) when is_atom(Sha), is_binary(A) ->
+'eqv?'({SHA, A}, {SHA, A}) when is_atom(SHA), is_binary(A) ->
     ?TRUE;
-'eqv?'(A, B) when is_number(A), is_number(B) ->
-    case A == B of
-        true ->
-            ?TRUE;
-        false ->
-            ?FALSE
-    end;
-'eqv?'({A, B}, {C, D}) when is_number(A), is_number(B), is_number(C), is_number(D) ->
-    case A == B andalso C == D of
-        true ->
-            ?TRUE;
-        false ->
-            ?FALSE
-    end;
-'eqv?'(?PINF, ?PINF) ->
-    ?TRUE;
-'eqv?'(?NINF, ?NINF) ->
-    ?TRUE;
-'eqv?'(?NZER, ?NZER) ->
-    ?TRUE;
-'eqv?'(A, ?NZER) when A == 0 ->
-    ?TRUE;
-'eqv?'(?NZER, B) when B == 0 ->
-    ?TRUE;
-'eqv?'({Complex, {A, B}}, {Complex, {C, D}}) when Complex==rectangular; Complex==polar ->
-    case 'eqv?'(A, C) of
-        ?FALSE ->
-            ?FALSE;
-        _ ->
-            'eqv?'(B, D)
-    end;
+'eqv?'(A, B) when is_number(A); is_number(B) ->
+    'eqv-number?'(A, B);
+'eqv?'(A, B) when tuple_size(A)==2; tuple_size(B)==2 ->
+    'eqv-number?'(A, B);
 'eqv?'(#character{val=A}, #character{val=A}) ->
     ?TRUE;
 'eqv?'([], []) ->
@@ -108,30 +78,102 @@
     ?TRUE;
 'eqv?'(#string{val=A}, #string{val=A}) ->
     ?TRUE;
-'eqv?'([H1|T1], [H2|T2]) ->
-    case 'eqv?'(H1, H2) of
+'eqv?'(#label{val={C,A}}, #label{val={C,B}}) ->
+    'eqv?'(A, B);
+'eqv?'(#labelref{val=A}, #labelref{val=A}) ->
+    ?TRUE;
+'eqv?'(#quote{val=A}, #quote{val=B}) ->
+    'eqv?'(A, B);
+'eqv?'(#quasiquote{val=A}, #quasiquote{val=B}) ->
+    'eqv?'(A, B);
+'eqv?'(#unquote{val=A}, #unquote{val=B}) ->
+    'eqv?'(A, B);
+'eqv?'(#unquote_splicing{val=A}, #unquote_splicing{val=B}) ->
+    'eqv?'(A, B);
+'eqv?'(A, A) when is_pid(A) ->
+    ?TRUE;
+'eqv?'(#nip0{val=A}, #nip0{val=A}) ->
+    ?TRUE;
+'eqv?'(#nipn{val=A}, #nipn{val=A}) ->
+    ?TRUE;
+'eqv?'(#nipv{val=A}, #nipv{val=A}) ->
+    ?TRUE;
+'eqv?'(#nipnv{val=A}, #nipnv{val=A}) ->
+    ?TRUE;
+'eqv?'(#xnip0{val=A}, #xnip0{val=A}) ->
+    ?TRUE;
+'eqv?'(#xnipn{val=A}, #xnipn{val=A}) ->
+    ?TRUE;
+'eqv?'(#xnipv{val=A}, #xnipv{val=A}) ->
+    ?TRUE;
+'eqv?'(#xnipnv{val=A}, #xnipnv{val=A}) ->
+    ?TRUE;
+'eqv?'(#lip0{val=A}, #lip0{val=A}) ->
+    ?TRUE;
+'eqv?'(#lipn{val=A}, #lipn{val=A}) ->
+    ?TRUE;
+'eqv?'(#lipv{val=A}, #lipv{val=A}) ->
+    ?TRUE;
+'eqv?'(#lipnv{val=A}, #lipnv{val=A}) ->
+    ?TRUE;
+'eqv?'([A1|A2], [B1|B2]) ->
+    case 'eqv?'(A1, B1) of
         ?FALSE ->
             ?FALSE;
         _ ->
-            'eqv?'(T1, T2)
+            'eqv?'(A2, B2)
     end;
 'eqv?'(_, _) ->
     ?FALSE.
 
-%% @doc This function is a temporary place holder and is not (yet)
-%% compliant with the R7RS specification.
-%% @TODO 'v0.4.0'
+%% @equiv 'eqv?'/2
 -spec 'eq?'(scm_obj(), scm_obj()) -> scm_boolean().
-'eq?'(Obj1, Obj2) ->
-    'eqv?'(Obj1, Obj2).
+'eq?'(A, B) ->
+    'eqv?'(A, B).
 
-%% @doc This function is a temporary place holder and is not (yet)
-%% compliant with the R7RS specification.
-%% @TODO 'v0.4.0'
+%% @doc Returns #true if obj1 and obj2 have the same display
+%% representation.  Otherwise, #false.
 -spec 'equal?'(scm_obj(), scm_obj()) -> scm_boolean().
-'equal?'(Obj1, Obj2) ->
-    'eq?'(Obj1, Obj2).
+'equal?'(A, B) ->
+    case 'eqv?'(A, B) of
+        ?FALSE ->
+            %% Recursively call equal? on the arguments and body
+            %% sources of lambda-based procedures
+            case {A, B} of
+                {#lip0{val=#l0{src=X}}, #lip0{val=#l0{src=Y}}} ->
+                    'equal-lambda?'(X, Y);
+                {#lipn{val=#ln{params=I, src=X}}, #lipn{val=#ln{params=J, src=Y}}} ->
+                    'equal-lambda?'(I, X, J, Y);
+                {#lipv{val=#lv{param=I, src=X}}, #lipv{val=#lv{param=J, src=Y}}} ->
+                    'equal-lambda?'(I, X, J, Y);
+                {#lipnv{val=#lnv{n=N, params=I, src=X}}, #lipnv{val=#lnv{n=N, params=J, src=Y}}} ->
+                    'equal-lambda?'(I, X, J, Y);
+                _ ->
+                    ?FALSE
+            end;
+        _ ->
+            ?TRUE
+    end.
 
 %%%===================================================================
 %%% internal helpers
 %%%===================================================================
+
+'eqv-number?'(A, B) ->
+    case {scml_base_number:'exact?'(A), scml_base_number:'exact?'(B)} of
+        {X, X} ->
+            scml_base_number:'='([A, B]);
+        _ ->
+            ?FALSE
+    end.
+
+'equal-lambda?'(SrcA, SrcB) ->
+    'equal?'(SrcA(), SrcB()).
+
+'equal-lambda?'(ParamsA, SrcA, ParamsB, SrcB) ->
+    case 'equal?'(ParamsA, ParamsB) of
+        ?FALSE ->
+            ?FALSE;
+        _ ->
+            'equal-lambda?'(SrcA, SrcB)
+    end.

@@ -88,6 +88,4 @@
 -record(exception,        {lineno :: scmd_types_impl:lineno(), val}).
 -record(cexception,       {lineno :: scmd_types_impl:lineno(), val}).
 
--record(signal,           {obj, env, ccok, ccng}).
-
 -endif. % -ifndef(scmd).

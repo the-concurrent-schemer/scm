@@ -176,10 +176,33 @@
     %% @TODO
     erlang:error({roadmap,'v0.5.0'}, [Obj]).
 
+%% @doc This function is a temporary place holder and is not (yet)
+%% compliant with the R7RS specification.
+%% @TODO 'v0.5.0'
 -spec 'exact?'(scm_z()) -> scm_boolean().
-'exact?'(Z) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Z]).
+'exact?'(N) when is_number(N) ->
+    case erlang:trunc(N) == N of
+        true ->
+            ?TRUE;
+        _ ->
+            ?FALSE
+    end;
+'exact?'({N, D}) when is_number(N), is_number(D) ->
+    case 'exact?'(N) of
+        ?TRUE ->
+            'exact?'(D);
+        _ ->
+            ?FALSE
+    end;
+'exact?'({Complex, {A, B}}) when Complex==rectangular; Complex==polar ->
+    case 'exact?'(A) of
+        ?TRUE ->
+            'exact?'(B);
+        _ ->
+            ?FALSE
+    end;
+'exact?'(_) ->
+    ?FALSE.
 
 -spec 'inexact?'(scm_z()) -> scm_boolean().
 'inexact?'(Z) ->
@@ -191,10 +214,58 @@
     %% @TODO
     erlang:error({roadmap,'v0.5.0'}, [Z]).
 
+%% @doc This function is a temporary place holder and is not (yet)
+%% compliant with the R7RS specification.
+%% @TODO 'v0.5.0'
 -spec '='([scm_z(),...]) -> scm_boolean().
-'='(Zs) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Zs]).
+'='([]) ->
+    ?TRUE;
+'='([Z|Zs]) ->
+    Fun = fun(Y) -> case '='(Z, Y) of ?TRUE -> true; ?FALSE -> false end end,
+    case lists:all(Fun, Zs) of
+        true ->
+            ?TRUE;
+        _ ->
+            ?FALSE
+    end.
+
+'='(A, B) when is_number(A), is_number(B), A==B ->
+    ?TRUE;
+'='({A1, A2}, {B1, B2}) when is_number(A1), is_number(A2), is_number(B1), is_number(B2) ->
+    case '='(A1, B1) of
+        ?TRUE ->
+            '='(A2, B2);
+        _ ->
+            ?FALSE
+    end;
+'='({Complex, {A1, A2}}, {Complex, {B1, B2}}) when Complex==rectangular; Complex==polar ->
+    %% @TODO keep it simple for now
+    case '='(A1, B1) of
+        ?TRUE ->
+            '='(A2, B2);
+        _ ->
+            ?FALSE
+    end;
+'='(?PINF, ?PINF) ->
+    ?TRUE;
+'='(?NINF, ?NINF) ->
+    ?TRUE;
+'='(?PNAN, ?PNAN) ->
+    ?TRUE;
+'='(?NNAN, ?NNAN) ->
+    ?TRUE;
+'='(?PNAN, ?NNAN) ->
+    ?TRUE;
+'='(?NNAN, ?PNAN) ->
+    ?TRUE;
+'='(?NZER, ?NZER) ->
+    ?TRUE;
+'='(A, ?NZER) when A==0 ->
+    ?TRUE;
+'='(?NZER, B) when B==0 ->
+    ?TRUE;
+'='(_, _) ->
+    ?FALSE.
 
 -spec '<'([scm_x(),...]) -> scm_boolean().
 '<'(Xs) ->
