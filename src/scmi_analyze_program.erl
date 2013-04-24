@@ -96,15 +96,15 @@ from_define([[Variable|Formals]|Body]) when not is_list(Variable), is_list(Forma
     make_define(Variable, make_lambda(Formals, Body)).
 
 %% define-values
-from_define_values([[], Exp]) ->
-    make_begin([Exp|[?FALSE]]);
-from_define_values([Formals, Exp]) ->
+from_define_values([[], Body]) ->
+    make_begin(Body ++ [?FALSE]);
+from_define_values([Formals|Body]) ->
     Tmps = make_tmp_variables(Formals),
     Fs = flatten_variables(Formals),
     validate_variables(Fs), % validate formals
     Ts = flatten_variables(Tmps),
     Defines = [ make_define(F, ?UNASSIGNED) || F <- Fs ],
     Sets = [ make_setb(F, T) || {F, T} <- lists:zip(Fs, Ts) ],
-    Producer = make_thunk([Exp]),
+    Producer = make_thunk(Body),
     Consumer = make_lambda(Tmps, Sets),
     make_begin(Defines ++ [make_call_with_values(Producer, Consumer), ?FALSE]).

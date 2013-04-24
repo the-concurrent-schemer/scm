@@ -567,14 +567,6 @@ scan_out_internal_define_values([['define'|H]|T], Defines, Body) ->
 scan_out_internal_define_values([H|T], Defines, Body) ->
     scan_out_internal_define_values(T, Defines, [H|Body]).
 
-define_values_to_values_binding([_Formal, _Init]=Binding) ->
-    Binding.
-
-define_to_values_binding([Variable, Exp]) when not is_list(Variable) ->
-    [[Variable], make_values([Exp])];
-define_to_values_binding([[Variable|Formals]|Body]) when not is_list(Variable) ->
-    [Variable, make_values([make_lambda(Formals, Body)])].
-
 scan_out_internal_defines(Body) ->
     scan_out_internal_defines(Body, [], []).
 
@@ -585,7 +577,26 @@ scan_out_internal_defines([['define'|H]|T], Defines, Body) ->
 scan_out_internal_defines([H|T], Defines, Body) ->
     scan_out_internal_defines(T, Defines, [H|Body]).
 
-define_to_binding([Variable, Exp]) when not is_list(Variable) ->
-    [Variable, Exp];
+define_values_to_values_binding([Formal, Init]) ->
+    [Formal, Init];
+define_values_to_values_binding([Formal|Init]) ->
+    [Formal, Init].
+
+define_to_values_binding(Exp) ->
+    case define_to_binding(Exp) of
+        [Variable, Exp1] ->
+            [[Variable], make_values([Exp1])]
+    end.
+
+%% (define (<variable> <identifier>*) <body>)
 define_to_binding([[Variable|Formals]|Body]) when not is_list(Variable) ->
-    [Variable, make_lambda(Formals, Body)].
+    [Variable, make_lambda(Formals, Body)];
+%% (define (<variable> . <identifier>) <body>)
+define_to_binding([[[Variable]|Formal]|Body]) when not is_list(Formal) ->
+    [Variable, make_lambda(Formal, Body)];
+%% (define (<variable> <identifier>+ . <identifier>) <body>)
+define_to_binding([[[Variable|Formals]|Formal]|Body]) when not is_list(Formal) ->
+    [Variable, make_lambda([Formals|Formal], Body)];
+%% (define <variable> <expression>)
+define_to_binding([Variable, Exp]) when not is_list(Variable) ->
+    [Variable, Exp].
