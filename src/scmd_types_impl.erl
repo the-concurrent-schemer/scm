@@ -106,7 +106,7 @@
 -type t_letter()                 :: 65..90 | 97..122.
 -type t_quasiquote(T)            :: t_list(T).
 -type t_quote(T)                 :: t_list(T).
--type t_string()                 :: utf8().
+-type t_string()                 :: tuple(unichar()).
 -type t_symbol()                 :: t_identifier().
 -type t_true()                   :: true.
 -type t_unquote(T)               :: t_list(T).

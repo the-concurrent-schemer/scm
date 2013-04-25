@@ -304,7 +304,7 @@ to_character(N, X) ->
 
 to_string(N, X) ->
     Y = unescape(N, string:substr(X, 2, length(X) - 2)),
-    unicode:characters_to_binary(Y, unicode, utf8).
+    list_to_tuple(unicode:characters_to_list(Y, unicode)).
 
 to_label(X) ->
     list_to_integer(string:substr(X, 2, length(X) - 2)).

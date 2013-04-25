@@ -249,8 +249,8 @@ apply_procnv(#lnv{n=N, params=Parameters, body=Exec, env=BaseEnv}, Args, Ok, Ng)
     ArgsN = splitnv_arguments(N, Args),
     Exec(scmi_env:extend(Parameters, ArgsN, BaseEnv), Ok, Ng).
 
-include_pp(#string{val=Val}) when Val /= <<>> ->
-    case filename:split(binary_to_list(Val)) of
+include_pp(#string{val=Val}) when Val /= {} ->
+    case filename:split(tuple_to_list(Val)) of
         [[$$|Start]|Rest]=All ->
             case os:getenv(Start) of
                 false ->
