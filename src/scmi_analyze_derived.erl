@@ -359,7 +359,7 @@ make_body_let_named(Tag, Variables, Args, Body) ->
     make_call(make_letrec([[Tag, make_lambda(Variables, Body)]], [Tag]), Args).
 
 make_body_letrec(Make, Variables, Args, Tmps, Body) ->
-    from_let([ [V, ?UNASSIGNED] || V <- Variables ],
+    make_let([ [V, ?UNASSIGNED] || V <- Variables ],
              [Make([ [T, A] || {T, A} <- lists:zip(Tmps, Args) ],
                    [ make_setb(V, T) || {V, T} <- lists:zip(Variables, Tmps) ] ++ Body)]).
 
@@ -427,7 +427,7 @@ make_body_letrec_values(Formals, Inits, Tmps, Body) ->
     validate_variables(Fs), % validate formals
     Ts = flatten_variables(Tmps),
     LetRecBody = [ make_setb(F, T) || {F, T} <- lists:zip(Fs, Ts) ] ++ Body,
-    from_let([ [F, ?UNASSIGNED] || F <- Fs ], [make_body_let_values1(Tmps, Inits, LetRecBody)]).
+    make_let([ [F, ?UNASSIGNED] || F <- Fs ], [make_body_let_values1(Tmps, Inits, LetRecBody)]).
 
 make_body_let_values1([F], [I], Body) ->
     make_call_with_values(make_thunk([I]), make_lambda(F, Body));
