@@ -32,8 +32,9 @@
 
 %% Default imports
 -compile({nowarn_unused_function,
-          [make_apply/2
-           , make_and/1
+          [make_and/1
+           , make_apply/2
+           , make_assoc/2, make_assoc/3
            , make_begin/1
            , make_booleanp/1
            , make_booleansp/1
@@ -44,6 +45,7 @@
            , make_case/2, make_case/4
            , make_cond/1, make_cond/2
            , make_cond_expand/1, make_cond_expand/2
+           , make_cons/2
            , make_define/2
            , make_define_values/2
            , make_do/2, make_do/3, make_do/4
@@ -54,6 +56,7 @@
            , make_if/2, make_if/3
            , make_guard/3, make_guard/4
            , make_lambda/2
+           , make_list/1
            , make_let/2
            , make_let_named/3
            , make_lets/2
@@ -62,6 +65,7 @@
            , make_let_values/2
            , make_lets_values/2
            , make_letrec_values/2
+           , make_member/2, make_member/3
            , make_not/1
            , make_nullp/1
            , make_or/1
@@ -84,11 +88,17 @@
 %%           [
 %%           ]}).
 
+make_and(Exps) when is_list(Exps) ->
+    ['and'|Exps].
+
 make_apply(Proc, Args) when is_list(Args) ->
     ['apply'|[Proc|Args]].
 
-make_and(Exps) when is_list(Exps) ->
-    ['and'|Exps].
+make_assoc(Obj, Alist) when is_list(Alist) ->
+    ['assoc', Obj, Alist].
+
+make_assoc(Obj, Alist, Compare) when is_list(Alist) ->
+    ['assoc', Obj, Alist, Compare].
 
 make_begin(Exps) when is_list(Exps) ->
     ['begin'|Exps].
@@ -148,6 +158,9 @@ make_cond_expand(Exps) when is_list(Exps) ->
 
 make_cond_expand(Exps, Else) when is_list(Exps), is_list(Else) ->
     ['cond-expand'|Exps ++ [['else'|Else]]].
+
+make_cons(Obj1, Obj2) ->
+    [Obj1|Obj2].
 
 make_define(Formals, Exp) ->
     ['define', Formals, Exp].
@@ -224,6 +237,15 @@ make_lets_values(Bindings, Body) when is_list(Bindings), is_list(Body) ->
 make_letrec_values(Bindings, Body) when is_list(Bindings), is_list(Body) ->
     ['letrec-values'|[Bindings|Body]].
 
+make_list(List) when is_list(List) ->
+    ['list'|List].
+
+make_member(Obj, List) when is_list(List) ->
+    ['member', Obj, List].
+
+make_member(Obj, List, Compare) when is_list(List) ->
+    ['member', Obj, List, Compare].
+
 make_not(Exp) ->
     ['not', Exp].
 
@@ -242,10 +264,8 @@ make_parameter(Init, Converter) ->
 make_parameterize(Params, Body) when is_list(Params), is_list(Body) ->
     ['parameterize'|[Params|Body]].
 
-make_quote(Exps) when is_list(Exps) ->
-    ['quote'|Exps];
 make_quote(Exp) ->
-    ['quote', Exp].
+    #quote{val=Exp}.
 
 make_raise(Obj) ->
     ['raise', Obj].
