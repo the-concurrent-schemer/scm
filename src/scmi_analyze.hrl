@@ -35,6 +35,8 @@
           [make_apply/2
            , make_and/1
            , make_begin/1
+           , make_booleanp/1
+           , make_booleansp/1
            , make_call/1, make_call/2
            , make_call_with_values/2
            , make_callcc/1
@@ -79,49 +81,7 @@
 
 %% @TBD
 %% -compile({inline,
-%%           [make_apply/2
-%%            , make_and/1
-%%            , make_begin/1
-%%            , make_call/1, make_call/2
-%%            , make_call_with_values/2
-%%            , make_callcc/1
-%%            , make_car/1, make_cdr/1, make_caar/1, make_cadr/1, make_cdar/1, make_cddr/1
-%%            , make_case/2, make_case/4
-%%            , make_cond/1, make_cond/2
-%%            , make_cond_expand/1, make_cond_expand/2
-%%            , make_define/2
-%%            , make_define_values/2
-%%            , make_do/2, make_do/3, make_do/4
-%%            , make_dynamic_wind/3
-%%            , make_eqvp/2, make_eqp/2, make_equalp/2
-%%            , make_error/1, make_error/2
-%%            , make_else/1
-%%            , make_if/2, make_if/3
-%%            , make_guard/3, make_guard/4
-%%            , make_lambda/2
-%%            , make_let/2
-%%            , make_let_named/3
-%%            , make_lets/2
-%%            , make_letrec/2
-%%            , make_letrecs/2
-%%            , make_let_values/2
-%%            , make_lets_values/2
-%%            , make_letrec_values/2
-%%            , make_not/1
-%%            , make_nullp/1
-%%            , make_or/1
-%%            , make_parameter/1, make_parameter/2
-%%            , make_parameterize/2
-%%            , make_quote/1
-%%            , make_raise/1
-%%            , make_raise_continuable/1
-%%            , make_setb/2
-%%            , make_thunk/1
-%%            , make_unless/2
-%%            , make_values/1
-%%            , make_variable/0
-%%            , make_when/2
-%%            , make_with_exception_handler/2
+%%           [
 %%           ]}).
 
 make_apply(Proc, Args) when is_list(Args) ->
@@ -132,6 +92,12 @@ make_and(Exps) when is_list(Exps) ->
 
 make_begin(Exps) when is_list(Exps) ->
     ['begin'|Exps].
+
+make_booleanp(Obj) ->
+    ['boolean?', Obj].
+
+make_booleansp(Objs) when is_list(Objs) ->
+    ['boolean=?'|Objs].
 
 make_call(Proc) ->
     make_call(Proc, []).

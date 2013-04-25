@@ -31,6 +31,7 @@
 %% API
 -export(['not'/1
          , 'boolean?'/1
+         , 'boolean=?'/1
         ]).
 
 -include("scml.hrl").
@@ -47,24 +48,50 @@
 '$scml_exports'() ->
     [{'not', #nipn{val=fun 'not'/1}}
      , {'boolean?', #nipn{val=fun 'boolean?'/1}}
+     , {'boolean=?', #nipv{val=fun 'boolean=?'/1}}
     ].
 
 %%%===================================================================
 %%% API
 %%%===================================================================
 
+%% @doc Returns #t if obj is false, and returns #f otherwise.
 -spec 'not'(scm_obj()) -> scm_boolean().
 'not'(?FALSE) ->
     ?TRUE;
 'not'(_) ->
     ?FALSE.
 
+%% @doc Returns #t if obj is either #t or #f, and returns #f
+%% otherwise.
 -spec 'boolean?'(scm_obj()) -> scm_boolean().
 'boolean?'(?FALSE) ->
     ?TRUE;
 'boolean?'(?TRUE) ->
     ?TRUE;
 'boolean?'(_) ->
+    ?FALSE.
+
+%% @doc Returns #t if all the arguments are booleans and all are #t or
+%% all are #f.
+-spec 'boolean=?'([scm_boolean(),...]) -> scm_boolean().
+'boolean=?'([]) ->
+    ?TRUE;
+'boolean=?'([?FALSE|Bs]) ->
+    case lists:all(fun(?FALSE) -> true; (_) -> false end, Bs) of
+        true ->
+            ?TRUE;
+        _ ->
+            ?FALSE
+    end;
+'boolean=?'([?TRUE|Bs]) ->
+    case lists:all(fun(?TRUE) -> true; (_) -> false end, Bs) of
+        true ->
+            ?TRUE;
+        _ ->
+            ?FALSE
+    end;
+'boolean=?'(_) ->
     ?FALSE.
 
 %%%===================================================================

@@ -55,8 +55,8 @@
 %%% API
 %%%===================================================================
 
-%% @doc Returns #true if obj1 and obj2 are normally regarded as the
-%% same object.  Otherwise, #false.
+%% @doc Returns #t if obj1 and obj2 are normally regarded as the same
+%% object.  Otherwise, #f.
 -spec 'eqv?'(scm_obj(), scm_obj()) -> scm_boolean().
 'eqv?'(#boolean{val=A}, #boolean{val=A}) ->
     ?TRUE;
@@ -131,8 +131,8 @@
 'eq?'(A, B) ->
     'eqv?'(A, B).
 
-%% @doc Returns #true if obj1 and obj2 have the same display
-%% representation.  Otherwise, #false.
+%% @doc Returns #t if obj1 and obj2 have the same display
+%% representation.  Otherwise, #f.
 -spec 'equal?'(scm_obj(), scm_obj()) -> scm_boolean().
 'equal?'(A, B) ->
     case 'eqv?'(A, B) of
