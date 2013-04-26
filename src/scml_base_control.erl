@@ -31,12 +31,12 @@
 %% API
 -export(['procedure?'/1
          , 'apply'/4
-         , 'map'/1
-         , 'string-map'/1
-         , 'vector-map'/1
-         , 'for-each'/1
-         , 'string-for-each'/1
-         , 'vector-for-each'/1
+         , 'map'/4
+         , 'string-map'/4
+         , 'vector-map'/4
+         , 'for-each'/4
+         , 'string-for-each'/4
+         , 'vector-for-each'/4
          , 'call/cc'/4
          , 'values'/4
          , 'call-with-values'/5
@@ -61,12 +61,12 @@
 '$scml_exports'() ->
     [{'procedure?', #nipn{val=fun 'procedure?'/1}}
      , {'apply', #xnipv{val=fun 'apply'/4}}
-     , {'map', #nipv{val=fun 'map'/1}}
-     , {'string-map', #nipv{val=fun 'string-map'/1}}
-     , {'vector-map', #nipv{val=fun 'vector-map'/1}}
-     , {'for-each', #nipv{val=fun 'for-each'/1}}
-     , {'string-for-each', #nipv{val=fun 'string-for-each'/1}}
-     , {'vector-for-each', #nipv{val=fun 'vector-for-each'/1}}
+     , {'map', #xnipv{val=fun 'map'/4}}
+     , {'string-map', #xnipv{val=fun 'string-map'/4}}
+     , {'vector-map', #xnipv{val=fun 'vector-map'/4}}
+     , {'for-each', #xnipv{val=fun 'for-each'/4}}
+     , {'string-for-each', #xnipv{val=fun 'string-for-each'/4}}
+     , {'vector-for-each', #xnipv{val=fun 'vector-for-each'/4}}
      , {'call/cc', #xnipn{val=fun 'call/cc'/4}}
      , {'call-with-current-continuation', #xnipn{val=fun 'call/cc'/4}}
      , {'values', #xnipv{val=fun 'values'/4}}
@@ -78,10 +78,34 @@
 %%% API
 %%%===================================================================
 
+%% @doc Returns #t if obj is a procedure, otherwise returns #f.
 -spec 'procedure?'(scm_obj()) -> scm_boolean().
-'procedure?'(Obj) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Obj]).
+'procedure?'(#nip0{}) ->
+    ?TRUE;
+'procedure?'(#nipn{}) ->
+    ?TRUE;
+'procedure?'(#nipv{}) ->
+    ?TRUE;
+'procedure?'(#nipnv{}) ->
+    ?TRUE;
+'procedure?'(#xnip0{}) ->
+    ?TRUE;
+'procedure?'(#xnipn{}) ->
+    ?TRUE;
+'procedure?'(#xnipv{}) ->
+    ?TRUE;
+'procedure?'(#xnipnv{}) ->
+    ?TRUE;
+'procedure?'(#lip0{}) ->
+    ?TRUE;
+'procedure?'(#lipn{}) ->
+    ?TRUE;
+'procedure?'(#lipv{}) ->
+    ?TRUE;
+'procedure?'(#lipnv{}) ->
+    ?TRUE;
+'procedure?'(_) ->
+    ?FALSE.
 
 %% @doc Calls +Proc+ with the elements of the list +(append (list arg1
 %% ...) args)+ as the actual arguments.
@@ -91,35 +115,44 @@
 'apply'([Proc|Args], Env, Ok, Ng) when is_list(Args) ->
     apply(Proc, Args, Env, Ok, Ng).
 
--spec 'map'([scm_any(),...]) -> [scm_any()].
-'map'([Proc|Args]) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Proc, Args]).
+%% @doc Applies proc element-wise to the elements of the lists and
+%% returns a list of the results, in order.  If more than one list is
+%% given and not all lists have the same length, map terminates when
+%% the shortest list runs out.  The dynamic order in which proc is
+%% applied to the elements of the lists is unspecified.
+-spec 'map'([scm_any(),...], scmi_env(), scmi_ccok(), scmi_ccng()) -> [scm_any()].
+'map'([Proc|Args], Env, Ok, Ng) ->
+    do_map(Proc, Args, Env, Ok, Ng).
 
--spec 'string-map'([scm_any(),...]) -> scm_string().
-'string-map'([Proc|Args]) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Proc, Args]).
+%% @equiv 'map'([Proc|Args])
+-spec 'string-map'([scm_any(),...], scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_string().
+'string-map'([Proc|Args], Env, Ok, Ng) ->
+    do_smap(Proc, Args, Env, Ok, Ng).
 
--spec 'vector-map'([scm_any(),...]) -> scm_vector().
-'vector-map'([Proc|Args]) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Proc, Args]).
+%% @equiv 'map'([Proc|Args])
+-spec 'vector-map'([scm_any(),...], scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_vector().
+'vector-map'([Proc|Args], Env, Ok, Ng) ->
+    do_vmap(Proc, Args, Env, Ok, Ng).
 
--spec 'for-each'([scm_any(),...]) -> scm_false().
-'for-each'([Proc|Args]) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Proc, Args]).
+%% @doc Applies proc element-wise to the elements of the lists and
+%% returns #f.  Calls proc for its side effects rather than for its
+%% values.  Unlike map, for-each is guaranteed to call proc on the
+%% elements of the lists in order from the first element(s) to the
+%% last. If more than one list is given and not all lists have the
+%% same length, for-each terminates when the shortest list runs out.
+-spec 'for-each'([scm_any(),...], scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_false().
+'for-each'([Proc|Args], Env, Ok, Ng) ->
+    do_foreach(Proc, Args, Env, Ok, Ng).
 
--spec 'string-for-each'([scm_any(),...]) -> scm_false().
-'string-for-each'([Proc|Args]) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Proc, Args]).
+%% @equiv 'for-each'([Proc|Args])
+-spec 'string-for-each'([scm_any(),...], scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_false().
+'string-for-each'([Proc|Args], Env, Ok, Ng) ->
+    do_sforeach(Proc, Args, Env, Ok, Ng).
 
--spec 'vector-for-each'([scm_any(),...]) -> scm_false().
-'vector-for-each'([Proc|Args]) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Proc, Args]).
+%% @equiv 'for-each'([Proc|Args])
+-spec 'vector-for-each'([scm_any(),...], scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_false().
+'vector-for-each'([Proc|Args], Env, Ok, Ng) ->
+    do_vforeach(Proc, Args, Env, Ok, Ng).
 
 %% @doc Packages the current continuation as an "escape procedure" and
 %% passes it as an argument to +Proc+. The escape procedure is a
@@ -127,8 +160,8 @@
 %% continuation is in effect at that later time and will instead use
 %% the continuation that was in effect when the escape procedure was
 %% created. Calling the escape procedure will cause the invocation of
-%% before and after thunks installed using +dynamic-wind+.  @equiv
-%% 'call-with-current-continuation'
+%% before and after thunks installed using +dynamic-wind+.
+%% @equiv 'call-with-current-continuation(Proc)'
 -spec 'call/cc'(scm_proc(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_any().
 'call/cc'(Proc, Env, Ok, Ng) ->
     Ws = get_winders(),
@@ -200,6 +233,156 @@
 %%%===================================================================
 %%% internal helpers
 %%%===================================================================
+
+%% iter helper
+do_iterN(ArgsL) ->
+    Fun = fun([Arg|Args], {Acc1, Acc2}) ->
+                  {[Arg|Acc1], [Args|Acc2]};
+             (_, _) ->
+                  done
+          end,
+    case lists:foldl(Fun, {[], []}, ArgsL) of
+        {Args, NewArgsL} ->
+            {lists:reverse(Args), lists:reverse(NewArgsL)};
+        Else ->
+            Else
+    end.
+
+%% map
+do_map(Proc, [Args], Env, Ok, Ng) ->
+    do_map1(Proc, Args, [], Env, Ok, Ng);
+do_map(Proc, ArgsL, Env, Ok, Ng) ->
+    do_mapN(Proc, ArgsL, [], Env, Ok, Ng).
+
+do_map1(_Proc, [], Acc, _Env, Ok, Ng) ->
+    Ok(lists:reverse(Acc), Ng);
+do_map1(Proc, [Arg|Args], Acc, Env, Ok, Ng) ->
+    Ok1 = fun(Val, Ng1) ->
+                  do_map1(Proc, Args, [Val|Acc], Env, Ok, Ng1)
+          end,
+    apply(Proc, [Arg], Env, Ok1, Ng).
+
+do_mapN(_Proc, [], Acc, _Env, Ok, Ng) ->
+    Ok(lists:reverse(Acc), Ng);
+do_mapN(Proc, ArgsL, Acc, Env, Ok, Ng) ->
+    case do_iterN(ArgsL) of
+        done ->
+            Ok(lists:reverse(Acc), Ng);
+        {Args, NewArgsL} ->
+            Ok1 = fun(Val, Ng1) ->
+                          do_mapN(Proc, NewArgsL, [Val|Acc], Env, Ok, Ng1)
+                  end,
+            apply(Proc, Args, Env, Ok1, Ng)
+    end.
+
+%% string-map
+%% NOTE: structure identical to vector-map
+do_smap(Proc, [Str], Env, Ok, Ng) ->
+    do_smap1(Proc, Str, scml_base_string:'string-length'(Str)-1, [], Env, Ok, Ng);
+do_smap(Proc, Strs, Env, Ok, Ng) ->
+    do_smapN(Proc, Strs, Env, Ok, Ng).
+
+do_smap1(_Proc, _Str, -1, Acc, _Env, Ok, Ng) ->
+    Ok(scml_base_string:'list->string'(Acc), Ng);
+do_smap1(Proc, Str, K, Acc, Env, Ok, Ng) ->
+    Arg = scml_base_string:'string-ref'(Str, K),
+    Ok1 = fun(Val, Ng1) ->
+                  do_smap1(Proc, Str, K-1, [Val|Acc], Env, Ok, Ng1)
+          end,
+    apply(Proc, [Arg], Env, Ok1, Ng).
+
+do_smapN(Proc, Strs, Env, Ok, Ng) ->
+    ArgsL = [ scml_base_string:'string->list'(Str) || Str <- Strs ],
+    L = do_mapN(Proc, ArgsL, [], Env, Ok, Ng),
+    scml_base_string:'list->string'(L).
+
+%% vector-map
+%% NOTE: structure identical to string-map
+do_vmap(Proc, [Vec], Env, Ok, Ng) ->
+    do_vmap1(Proc, Vec, scml_base_vector:'vector-length'(Vec)-1, [], Env, Ok, Ng);
+do_vmap(Proc, Vecs, Env, Ok, Ng) ->
+    do_vmapN(Proc, Vecs, Env, Ok, Ng).
+
+do_vmap1(_Proc, _Vec, -1, Acc, _Env, Ok, Ng) ->
+    Ok(scml_base_vector:'list->vector'(Acc), Ng);
+do_vmap1(Proc, Vec, K, Acc, Env, Ok, Ng) ->
+    Arg = scml_base_vector:'vector-ref'(Vec, K),
+    Ok1 = fun(Val, Ng1) ->
+                  do_vmap1(Proc, Vec, K-1, [Val|Acc], Env, Ok, Ng1)
+          end,
+    apply(Proc, [Arg], Env, Ok1, Ng).
+
+do_vmapN(Proc, Vecs, Env, Ok, Ng) ->
+    ArgsL = [ scml_base_vector:'vector->list'(Vec) || Vec <- Vecs ],
+    L = do_mapN(Proc, ArgsL, [], Env, Ok, Ng),
+    scml_base_vector:'list->vector'(L).
+
+%% for-each
+do_foreach(Proc, [Args], Env, Ok, Ng) ->
+    do_foreach1(Proc, Args, Env, Ok, Ng);
+do_foreach(Proc, ArgsL, Env, Ok, Ng) ->
+    do_foreachN(Proc, ArgsL, Env, Ok, Ng).
+
+do_foreach1(_Proc, [], _Env, Ok, Ng) ->
+    Ok(?FALSE, Ng);
+do_foreach1(Proc, [Arg|Args], Env, Ok, Ng) ->
+    Ok1 = fun(_Val, Ng1) ->
+                  do_foreach1(Proc, Args, Env, Ok, Ng1)
+          end,
+    apply(Proc, [Arg], Env, Ok1, Ng).
+
+do_foreachN(_Proc, [], _Env, Ok, Ng) ->
+    Ok(?FALSE, Ng);
+do_foreachN(Proc, ArgsL, Env, Ok, Ng) ->
+    case do_iterN(ArgsL) of
+        done ->
+            Ok(?FALSE, Ng);
+        {Args, NewArgsL} ->
+            Ok1 = fun(_Val, Ng1) ->
+                          do_foreachN(Proc, NewArgsL, Env, Ok, Ng1)
+                  end,
+            apply(Proc, Args, Env, Ok1, Ng)
+    end.
+
+%% string-for-each
+%% NOTE: structure identical to vector-for-each
+do_sforeach(Proc, [Str], Env, Ok, Ng) ->
+    do_sforeach1(Proc, Str, 0, scml_base_string:'string-length'(Str), Env, Ok, Ng);
+do_sforeach(Proc, Strs, Env, Ok, Ng) ->
+    do_sforeachN(Proc, Strs, Env, Ok, Ng).
+
+do_sforeach1(_Proc, _Str, _N, _N, _Env, Ok, Ng) ->
+    Ok(?FALSE, Ng);
+do_sforeach1(Proc, Str, K, N, Env, Ok, Ng) ->
+    Arg = scml_base_string:'string-ref'(Str, K),
+    Ok1 = fun(_Val, Ng1) ->
+                  do_sforeach1(Proc, Str, K+1, N, Env, Ok, Ng1)
+          end,
+    apply(Proc, [Arg], Env, Ok1, Ng).
+
+do_sforeachN(Proc, Strs, Env, Ok, Ng) ->
+    ArgsL = [ scml_base_string:'string->list'(Str) || Str <- Strs ],
+    do_foreachN(Proc, ArgsL, Env, Ok, Ng).
+
+%% vector-for-each
+%% NOTE: structure identical to string-for-each
+do_vforeach(Proc, [Str], Env, Ok, Ng) ->
+    do_vforeach1(Proc, Str, 0, scml_base_vector:'vector-length'(Str), Env, Ok, Ng);
+do_vforeach(Proc, Strs, Env, Ok, Ng) ->
+    do_vforeachN(Proc, Strs, Env, Ok, Ng).
+
+do_vforeach1(_Proc, _Str, _N, _N, _Env, Ok, Ng) ->
+    Ok(?FALSE, Ng);
+do_vforeach1(Proc, Str, K, N, Env, Ok, Ng) ->
+    Arg = scml_base_vector:'vector-ref'(Str, K),
+    Ok1 = fun(_Val, Ng1) ->
+                  do_vforeach1(Proc, Str, K+1, N, Env, Ok, Ng1)
+          end,
+    apply(Proc, [Arg], Env, Ok1, Ng).
+
+do_vforeachN(Proc, Strs, Env, Ok, Ng) ->
+    ArgsL = [ scml_base_vector:'vector->list'(Str) || Str <- Strs ],
+    do_foreachN(Proc, ArgsL, Env, Ok, Ng).
 
 -spec do_wind(winders(), scm_any(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_any().
 do_wind(New, Reply, Env, Ok, Ng) ->

@@ -181,7 +181,7 @@
 'list?'(_) ->
     ?FALSE.
 
-%% @equiv 'make-list'(K, ?FALSE)
+%% @equiv 'make-list'(K, '#f')
 -spec 'make-list'(scm_k()) -> scm_list().
 'make-list'(K) ->
     'make-list'(K, ?FALSE).

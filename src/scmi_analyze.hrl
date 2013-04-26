@@ -53,6 +53,7 @@
            , make_eqvp/2, make_eqp/2, make_equalp/2
            , make_error/1, make_error/2
            , make_else/1
+           , make_foreach/2
            , make_if/2, make_if/3
            , make_guard/3, make_guard/4
            , make_lambda/2
@@ -65,6 +66,7 @@
            , make_let_values/2
            , make_lets_values/2
            , make_letrec_values/2
+           , make_map/2
            , make_member/2, make_member/3
            , make_not/1
            , make_nullp/1
@@ -75,10 +77,14 @@
            , make_raise/1
            , make_raise_continuable/1
            , make_setb/2
+           , make_string_map/2
+           , make_string_foreach/2
            , make_thunk/1
            , make_unless/2
            , make_values/1
            , make_variable/0
+           , make_vector_map/2
+           , make_vector_foreach/2
            , make_when/2
            , make_with_exception_handler/2
           ]}).
@@ -198,6 +204,9 @@ make_error(Message, Objs) when is_list(Objs) ->
 make_else(Exps) when is_list(Exps) ->
     ['else'|Exps].
 
+make_foreach(Proc, Lists) when is_list(Lists) ->
+    ['for-each', Proc] ++ Lists.
+
 make_if(Test, Consequent) ->
     ['if', Test, Consequent].
 
@@ -240,6 +249,9 @@ make_letrec_values(Bindings, Body) when is_list(Bindings), is_list(Body) ->
 make_list(List) when is_list(List) ->
     ['list'|List].
 
+make_map(Proc, Lists) when is_list(Lists) ->
+    ['map', Proc] ++ Lists.
+
 make_member(Obj, List) when is_list(List) ->
     ['member', Obj, List].
 
@@ -276,6 +288,12 @@ make_raise_continuable(Obj) ->
 make_setb(Variable, Value) ->
     ['set!', Variable, Value].
 
+make_string_foreach(Proc, Lists) when is_list(Lists) ->
+    ['string-for-each', Proc] ++ Lists.
+
+make_string_map(Proc, Lists) when is_list(Lists) ->
+    ['string-map', Proc] ++ Lists.
+
 make_thunk(Body) when is_list(Body) ->
     make_lambda([], Body).
 
@@ -287,6 +305,12 @@ make_values(Args) when is_list(Args) ->
 
 make_variable() ->
     erlang:make_ref().
+
+make_vector_foreach(Proc, Lists) when is_list(Lists) ->
+    ['vector-for-each', Proc] ++ Lists.
+
+make_vector_map(Proc, Lists) when is_list(Lists) ->
+    ['vector-map', Proc] ++ Lists.
 
 make_when(Test, Exps) when is_list(Exps) ->
     ['when'|[Test|Exps]].

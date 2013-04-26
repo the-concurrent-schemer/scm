@@ -110,39 +110,41 @@
     %% @TODO
     erlang:error({roadmap,'v0.4.0'}, [Objs]).
 
+%% @doc Returns the number of elements in the given vector.
 -spec 'vector-length'(scm_vector()) -> scm_k().
-'vector-length'(V) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [V]).
+'vector-length'(#vector{val=V}) ->
+    tuple_size(V).
 
+%% @doc Returns element k of vector using zero-origin indexing.  It is
+%% an error if k is not a valid index of vector.
 -spec 'vector-ref'(scm_vector(), scm_k()) -> scm_obj().
-'vector-ref'(V, K) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [V, K]).
+'vector-ref'(#vector{val=V}, K) ->
+    element(K+1, V).
 
 -spec 'vector-set!'(scm_vector(), scm_k(), scm_obj()) -> scm_false().
 'vector-set!'(V, K, Obj) ->
     erlang:error(unsupported, [V, K, Obj]).
 
+%% @equiv 'vector->list'(V, 0, 'vector-length'(V))
 -spec 'vector->list'(scm_vector()) -> [scm_obj()].
 'vector->list'(V) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [V]).
+    'vector->list'(V, 0, 'vector-length'(V)).
 
+%% @equiv 'vector->list'(V, Start, 'vector-length'(V))
 -spec 'vector->list'(scm_vector(), scm_start()) -> [scm_obj()].
 'vector->list'(V, Start) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [V, Start]).
+    'vector->list'(V, Start, 'vector-length'(V)).
 
+%% @doc Returns a list of the elements of vector between start and
+%% end.
 -spec 'vector->list'(scm_vector(), scm_start(), scm_end()) -> [scm_obj()].
-'vector->list'(V, Start, End) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [V, Start, End]).
+'vector->list'(#vector{val=V}, Start, End) ->
+    lists:sublist(tuple_to_list(V), Start+1, End-Start).
 
+%% @doc Returns a vector constructed from the elements in the list.
 -spec 'list->vector'([scm_obj()]) -> scm_vector().
 'list->vector'(Objs) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Objs]).
+    #vector{val=list_to_tuple(Objs)}.
 
 -spec 'vector->string'(scm_vector()) -> scm_string().
 'vector->string'(V) ->

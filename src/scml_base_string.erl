@@ -114,15 +114,16 @@
     %% @TODO
     erlang:error({roadmap,'v0.4.0'}, [Cs]).
 
+%% @doc Returns the number of characters in the given string.
 -spec 'string-length'(scm_string()) -> scm_k().
-'string-length'(S) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [S]).
+'string-length'(#string{val=S}) ->
+    tuple_size(S).
 
+%% @doc Returns character k of string using zero-origin indexing.  It
+%% is an error if k is not a valid index of string.
 -spec 'string-ref'(scm_string(), scm_k()) -> scm_char().
-'string-ref'(S, K) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [S, K]).
+'string-ref'(#string{val=S}, K) ->
+    #character{val=element(K+1, S)}.
 
 -spec 'string-set!'(scm_string(), scm_k(), scm_char()) -> scm_false().
 'string-set!'(S, K, C) ->
@@ -163,25 +164,26 @@
     %% @TODO
     erlang:error({roadmap,'v0.4.0'}, [Ss]).
 
+%% @equiv 'string->list'(S, 0, 'string-length'(S))
 -spec 'string->list'(scm_string()) -> [scm_char()].
 'string->list'(S) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [S]).
+    'string->list'(S, 0, 'string-length'(S)).
 
+%% @equiv 'string->list'(S, Start, 'string-length'(S))
 -spec 'string->list'(scm_string(), scm_start()) -> [scm_char()].
 'string->list'(S, Start) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [S, Start]).
+    'string->list'(S, Start, 'string-length'(S)).
 
+%% @doc Returns a list of the characters of string between start and
+%% end.
 -spec 'string->list'(scm_string(), scm_start(), scm_end()) -> [scm_char()].
-'string->list'(S, Start, End) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [S, Start, End]).
+'string->list'(#string{val=S}, Start, End) ->
+    [ #character{val=C} || C <- lists:sublist(tuple_to_list(S), Start+1, End-Start) ].
 
+%% @doc Returns a string constructed from the characters in the list.
 -spec 'list->string'([scm_char()]) -> scm_string().
 'list->string'(Cs) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Cs]).
+    #string{val=list_to_tuple([ C || #character{val=C} <- Cs ])}.
 
 -spec 'string-copy'(scm_string()) -> scm_string().
 'string-copy'(S) ->

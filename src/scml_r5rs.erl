@@ -60,8 +60,8 @@
 -import_as_export({scml_base_control,
                    ['procedure?'/1
                     , 'apply'/4
-                    , 'map'/1
-                    , 'for-each'/1
+                    , 'map'/4
+                    , 'for-each'/4
                     , 'values'/4
                     , 'call-with-values'/5
                     , 'dynamic-wind'/6
@@ -429,7 +429,7 @@
      , {'exp', #nipn{val=fun 'exp'/1}}
      , {'expt', #nipn{val=fun 'expt'/2}}
      , {'floor', #nipn{val=fun 'floor'/1}}
-     , {'for-each', #nipv{val=fun 'for-each'/1}}
+     , {'for-each', #xnipv{val=fun 'for-each'/4}}
      , {'force', #nipv{val=fun 'force'/1}}
      , {'gcd', #nipv{val=fun 'gcd'/1}}
      %% primitive - if
@@ -461,7 +461,7 @@
      , {'make-rectangular', #nipn{val=fun 'make-rectangular'/2}}
      , {'make-string', #nipn{val=[fun 'make-string'/1, fun 'make-string'/2]}}
      , {'make-vector', #nipn{val=[fun 'make-vector'/1, fun 'make-vector'/2]}}
-     , {'map', #nipv{val=fun 'map'/1}}
+     , {'map', #xnipv{val=fun 'map'/4}}
      , {'max', #nipv{val=fun 'max'/1}}
      , {'member', #xnipn{val=[fun 'member'/5, fun 'member'/6]}}
      , {'memq', #xnipn{val=fun 'memq'/5}}
