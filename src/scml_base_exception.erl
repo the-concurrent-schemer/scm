@@ -105,9 +105,9 @@
 %% as the call to +raise-continuable+, except that: (1) the current
 %% exception handler is the one that was in place when the handler
 %% being called was installed, and (2) if the handler being called
-%% returns, then it will again become the current exception
-%% handler.  If the handler returns, the values it returns become the
-%% values returned by the call to +raise-continuable+.
+%% returns, then it will again become the current exception handler.
+%% If the handler returns, the values it returns become the values
+%% returned by the call to +raise-continuable+.
 -spec 'raise-continuable'(scm_obj(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_obj().
 'raise-continuable'(Obj, Env, Ok, Ng) ->
     Signal = #signal{obj=Obj, env=Env, ccok=Ok, ccng=Ng},
@@ -116,13 +116,13 @@
 %% @doc Raises an exception as if by calling +raise+ on a newly
 %% allocated implementation-defined object which encapsulates the
 %% information provided by +Message+, as well as any objects, known as
-%% the +Irritants+. The procedure +error-object?+ must return +#t+ on
+%% the +Irritants+. The procedure +error-object?+ must return #t on
 %% such objects.
 -spec 'error'([scm_obj(),...], scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_obj().
 'error'([_Message|Irritants]=Obj, Env, Ok, Ng) when is_list(Irritants) ->
     'raise'(#error_user{val=Obj}, Env, Ok, Ng).
 
-%% @doc Returns +#t+ if the given object is an object created by
+%% @doc Returns #t if the given object is an object created by
 %% +error+, raised by the +read+ procedure, or raised by the inability
 %% to open an input or output port on a file.
 -spec 'error-object?'(scm_obj()) -> scm_boolean().
@@ -153,7 +153,7 @@
 'error-object-irritants'(#error_user{val=[_Message|Irritants]}) ->
     Irritants.
 
-%% @doc Returns +#t+ if the given object is an object raised by the
+%% @doc Returns #t if the given object is an object raised by the
 %% +read+ procedure.
 -spec 'read-error?'(scm_obj()) -> scm_boolean().
 'read-error?'(Obj) when is_record(Obj, error_read) ->
@@ -161,7 +161,7 @@
 'read-error?'(_) ->
     ?FALSE.
 
-%% @doc Returns +#t+ if the given object is an object raised by the
+%% @doc Returns #t if the given object is an object raised by the
 %% inability to open an input or output port on a file.
 -spec 'file-error?'(scm_obj()) -> scm_boolean().
 'file-error?'(Obj) when is_record(Obj, error_file) ->
