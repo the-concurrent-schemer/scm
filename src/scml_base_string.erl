@@ -94,25 +94,27 @@
 %%% API
 %%%===================================================================
 
+%% @doc Returns #t if obj is a string, otherwise returns #f.
 -spec 'string?'(scm_obj()) -> scm_boolean().
-'string?'(Obj) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Obj]).
+'string?'(#string{}) ->
+    ?TRUE;
+'string?'(_) ->
+    ?FALSE.
 
+%% @equiv 'make-string'(K, '#\\null')
 -spec 'make-string'(scm_k()) -> scm_string().
 'make-string'(K) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [K]).
+    'make-string'(K, #character{val=$0}).
 
+%% @doc Returns a string of k characters.
 -spec 'make-string'(scm_k(), scm_char()) -> scm_string().
-'make-string'(K, C) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [K, C]).
+'make-string'(K, #character{val=C}) ->
+    #string{val=list_to_tuple(lists:duplicate(K, C))}.
 
+%% @doc Returns a string composed of the arguments.
 -spec 'string'([scm_char(),...]) -> scm_string().
 'string'(Cs) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Cs]).
+    #string{val=list_to_tuple([ C || #character{val=C} <- Cs ])}.
 
 %% @doc Returns the number of characters in the given string.
 -spec 'string-length'(scm_string()) -> scm_k().
@@ -125,101 +127,116 @@
 'string-ref'(#string{val=S}, K) ->
     #character{val=element(K+1, S)}.
 
+%% @doc _unsupported_
 -spec 'string-set!'(scm_string(), scm_k(), scm_char()) -> scm_false().
 'string-set!'(S, K, C) ->
     erlang:error(unsupported, [S, K, C]).
 
+%% @doc Returns #t if all the strings are the same length and contain
+%% exactly the same characters in the same positions, otherwise
+%% returns #f.
 -spec 'string=?'([scm_string(),...]) -> scm_boolean().
 'string=?'(Ss) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Ss]).
+    cmp(Ss, fun(A, B) -> A =:= B end).
 
+%% @doc Returns #t if all the strings are monotonically increasing,
+%% otherwise returns #f.
 -spec 'string<?'([scm_string(),...]) -> scm_boolean().
 'string<?'(Ss) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Ss]).
+    cmp(Ss, fun(A, B) -> A < B end).
 
+%% @doc Returns #t if all the strings are monotonically decreasing,
+%% otherwise returns #f.
 -spec 'string>?'([scm_string(),...]) -> scm_boolean().
 'string>?'(Ss) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Ss]).
+    cmp(Ss, fun(A, B) -> A > B end).
 
+%% @doc Returns #t if all the strings are monotonically
+%% non-decreasing, otherwise returns #f.
 -spec 'string<=?'([scm_string(),...]) -> scm_boolean().
 'string<=?'(Ss) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Ss]).
+    cmp(Ss, fun(A, B) -> A =< B end).
 
+%% @doc Returns #t if all the strings are monotonically
+%% non-increasing, otherwise returns #f.
 -spec 'string>=?'([scm_string(),...]) -> scm_boolean().
 'string>=?'(Ss) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Ss]).
+    cmp(Ss, fun(A, B) -> A >= B end).
 
--spec 'substring'(scm_string(), scm_start(), scm_end()) -> scm_char().
+%% @equiv 'string-copy'(S, Start, End)
+-spec 'substring'(scm_string(), scm_start(), scm_end()) -> scm_string().
 'substring'(S, Start, End) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [S, Start, End]).
+    'string-copy'(S, Start, End).
 
+%% @doc Returns a string whose characters are the concatenation of the
+%% characters in the given strings.
 -spec 'string-append'([scm_string(),...]) -> scm_string().
 'string-append'(Ss) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Ss]).
+    #string{val=list_to_tuple(lists:append([ tuple_to_list(S) || S <- Ss ]))}.
 
 %% @equiv 'string->list'(S, 0, 'string-length'(S))
 -spec 'string->list'(scm_string()) -> [scm_char()].
-'string->list'(S) ->
-    'string->list'(S, 0, 'string-length'(S)).
+'string->list'(#string{val=S}) ->
+    [ #character{val=C} || C <- tuple_to_list(S) ].
 
 %% @equiv 'string->list'(S, Start, 'string-length'(S))
 -spec 'string->list'(scm_string(), scm_start()) -> [scm_char()].
-'string->list'(S, Start) ->
-    'string->list'(S, Start, 'string-length'(S)).
+'string->list'(#string{val=S}, Start) ->
+    [ #character{val=C} || C <- scml:list_part(tuple_to_list(S), Start) ].
 
 %% @doc Returns a list of the characters of string between start and
 %% end.
 -spec 'string->list'(scm_string(), scm_start(), scm_end()) -> [scm_char()].
 'string->list'(#string{val=S}, Start, End) ->
-    [ #character{val=C} || C <- lists:sublist(tuple_to_list(S), Start+1, End-Start) ].
+    [ #character{val=C} || C <- scml:list_part(tuple_to_list(S), Start, End) ].
 
 %% @doc Returns a string constructed from the characters in the list.
 -spec 'list->string'([scm_char()]) -> scm_string().
 'list->string'(Cs) ->
     #string{val=list_to_tuple([ C || #character{val=C} <- Cs ])}.
 
+%% @equiv 'string-copy'(S, 0, 'string-length'(S))
 -spec 'string-copy'(scm_string()) -> scm_string().
 'string-copy'(S) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [S]).
+    S.
 
+%% @equiv 'string-copy'(S, Start, 'string-length'(S))
 -spec 'string-copy'(scm_string(), scm_start()) -> scm_string().
-'string-copy'(S, Start) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [S, Start]).
+'string-copy'(#string{val=S}, Start) ->
+    #string{val=scml:tuple_part(S, Start)}.
 
+%% @doc Returns a string constructed from the characters of string
+%% beginning with index start and ending with index end.
 -spec 'string-copy'(scm_string(), scm_start(), scm_end()) -> scm_string().
 'string-copy'(S, Start, End) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [S, Start, End]).
+    #string{val=scml:tuple_part(S, Start, End)}.
 
+%% @doc _unsupported_
 -spec 'string-copy!'(scm_bytevector(), scm_k(), scm_string()) -> scm_false().
 'string-copy!'(To, At, From) ->
     erlang:error(unsupported, [To, At, From]).
 
+%% @doc _unsupported_
 -spec 'string-copy!'(scm_bytevector(), scm_k(), scm_string(), scm_start()) -> scm_false().
 'string-copy!'(To, At, From, Start) ->
     erlang:error(unsupported, [To, At, From, Start]).
 
+%% @doc _unsupported_
 -spec 'string-copy!'(scm_bytevector(), scm_k(), scm_string(), scm_start(), scm_end()) -> scm_false().
 'string-copy!'(To, At, From, Start, End) ->
     erlang:error(unsupported, [To, At, From, Start, End]).
 
+%% @doc _unsupported_
 -spec 'string-fill!'(scm_string(), scm_char()) -> scm_false().
 'string-fill!'(S, Fill) ->
     erlang:error(unsupported, [S, Fill]).
 
+%% @doc _unsupported_
 -spec 'string-fill!'(scm_string(), scm_char(), scm_start()) -> scm_false().
 'string-fill!'(S, Fill, Start) ->
     erlang:error(unsupported, [S, Fill, Start]).
 
+%% @doc _unsupported_
 -spec 'string-fill!'(scm_string(), scm_char(), scm_start(), scm_end()) -> scm_false().
 'string-fill!'(S, Fill, Start, End) ->
     erlang:error(unsupported, [S, Fill, Start, End]).
@@ -227,3 +244,17 @@
 %%%===================================================================
 %%% internal helpers
 %%%===================================================================
+
+cmp([], _Fun) ->
+    ?TRUE;
+cmp([#string{}], _Fun) ->
+    ?TRUE;
+cmp([#string{val=A}, #string{val=B}=S|Ss], Fun) ->
+    case Fun(A, B) of
+        true ->
+            cmp([S|Ss], Fun);
+        false ->
+            ?FALSE
+    end;
+cmp(_, _Fun) ->
+    ?FALSE.
