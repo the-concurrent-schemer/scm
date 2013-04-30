@@ -35,6 +35,9 @@
          , 'string->symbol'/1
         ]).
 
+%% Internal API
+-export([symbol_to_unicode/1, unicode_to_symbol/1]).
+
 -include("scml.hrl").
 
 %%%===================================================================
@@ -57,26 +60,69 @@
 %%% API
 %%%===================================================================
 
+%% @doc Returns #t if obj is a symbol, otherwise returns #f.
 -spec 'symbol?'(scm_obj()) -> scm_boolean().
-'symbol?'(Obj) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Obj]).
+'symbol?'(Obj) when is_atom(Obj) ->
+    ?TRUE;
+'symbol?'({SHA, Obj}) when is_atom(SHA), is_binary(Obj) ->
+    ?TRUE;
+'symbol?'(_) ->
+    ?FALSE.
 
+%% @doc Returns #t if all the arguments are symbols and all have the
+%% same names in the sense of string=?.
 -spec 'symbol=?'([scm_symbol(),...]) -> scm_boolean().
-'symbol=?'(Ss) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Ss]).
+'symbol=?'([]) ->
+    ?TRUE;
+'symbol=?'([S|Ss]) ->
+    case 'symbol?'(S) of
+        ?FALSE ->
+            ?FALSE;
+        _ ->
+            Fun = fun(X) -> S =:= X end,
+            case lists:all(Fun, Ss) of
+                true ->
+                    ?TRUE;
+                _ ->
+                    ?FALSE
+            end
+    end.
 
+%% @doc Returns the name of symbol as a string, but without adding
+%% escapes.
 -spec 'symbol->string'(scm_symbol()) -> scm_string().
 'symbol->string'(S) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [S]).
+    #string{val=list_to_tuple(symbol_to_unicode(S))}.
 
+%% @doc Returns the symbol whose name is string.  This procedure can
+%% create symbols with names containing special characters that would
+%% require escaping with written, but does not interpret escapes in
+%% its input.
 -spec 'string->symbol'(scm_string()) -> scm_symbol().
-'string->symbol'(S) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [S]).
+'string->symbol'(#string{val=S}) ->
+    unicode_to_symbol(tuple_to_list(S)).
 
 %%%===================================================================
 %%% internal helpers
 %%%===================================================================
+
+-spec symbol_to_unicode(scm_symbol()) -> [scmd_types_impl:unichar()].
+symbol_to_unicode(S) when is_atom(S) ->
+    scml:to_unicode(atom_to_binary(S, utf8));
+symbol_to_unicode({SHA, S}) when is_atom(SHA), is_binary(S) ->
+    scml:to_unicode(S).
+
+-spec unicode_to_symbol([scmd_types_impl:unichar()]) -> scm_symbol().
+unicode_to_symbol(L) ->
+    X = scml:to_utf8(L),
+    try
+        Y = binary_to_atom(X, utf8),
+        case atom_to_list(Y) of
+            Z when length(Z) < 20 ->
+                Y;
+            _ ->
+                {binary_to_atom(crypto:sha(X), latin1), X}
+        end
+    catch error:badarg ->
+            {binary_to_atom(crypto:sha(X), latin1), X}
+    end.

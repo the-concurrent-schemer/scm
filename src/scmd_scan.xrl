@@ -325,14 +325,4 @@ to_identifier(N, X) ->
 to_identifier_atom(_N, "-nan.0") ->
     to_identifier_atom(_N, "+nan.0");
 to_identifier_atom(_N, X) ->
-    Y = unicode:characters_to_binary(X, unicode, utf8),
-    case binary_to_list(Y) of
-        Z when length(Z) < 20 ->
-            list_to_atom(Z);
-        _ ->
-            case crypto:sha(Y) of
-                %% just being paranoid
-                Z when byte_size(Z) == 20 ->
-                    {list_to_atom(binary_to_list(Z)), Y}
-            end
-    end.
+    scml_base_symbol:unicode_to_symbol(X).
