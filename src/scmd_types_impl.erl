@@ -28,7 +28,7 @@
 
 -module(scmd_types_impl).
 
--export_type([lineno/0]).
+-export_type([lineno/0, unichar/0, utf8/0]).
 
 -export_type([s_complex/0
               , s_rectangular/0

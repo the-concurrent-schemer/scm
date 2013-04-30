@@ -38,11 +38,15 @@
            , make_begin/1
            , make_booleanp/1
            , make_booleansp/1
+           , make_bytevector_length/1, make_bytevector_ref/1
+           , make_bytevectorsp/1
            , make_call/1, make_call/2
            , make_call_with_values/2
            , make_callcc/1
            , make_car/1, make_cdr/1, make_caar/1, make_cadr/1, make_cdar/1, make_cddr/1
            , make_case/2, make_case/4
+           , make_charsp/1
+           , make_char_to_integer/1, make_integer_to_char/1
            , make_cond/1, make_cond/2
            , make_cond_expand/1, make_cond_expand/2
            , make_cons/2
@@ -77,12 +81,22 @@
            , make_raise/1
            , make_raise_continuable/1
            , make_setb/2
+           , make_string_length/1, make_string_ref/1
+           , make_stringsp/1
+           , make_string_to_list/1, make_string_to_list/2, make_string_to_list/3, make_list_to_string/1
+           , make_string_to_utf8/1, make_string_to_utf8/2, make_string_to_utf8/3, make_utf8_to_string/1, make_utf8_to_string/2, make_utf8_to_string/3
            , make_string_map/2
            , make_string_foreach/2
+           , make_symbolsp/1
+           , make_symbol_to_string/1, make_string_to_symbol/1
            , make_thunk/1
            , make_unless/2
            , make_values/1
            , make_variable/0
+           , make_vector_length/1, make_vector_ref/1
+           , make_vectorsp/1
+           , make_vector_to_list/1, make_vector_to_list/2, make_vector_to_list/3, make_list_to_vector/1
+           , make_vector_to_string/1, make_vector_to_string/2, make_vector_to_string/3, make_string_to_vector/1
            , make_vector_map/2
            , make_vector_foreach/2
            , make_when/2
@@ -114,6 +128,15 @@ make_booleanp(Obj) ->
 
 make_booleansp(Objs) when is_list(Objs) ->
     ['boolean=?'|Objs].
+
+make_bytevector_length(V) ->
+    ['bytevector-length', V].
+
+make_bytevector_ref(V) ->
+    ['bytevector-ref', V].
+
+make_bytevectorsp(Objs) when is_list(Objs) ->
+    ['bytevector=?'|Objs].
 
 make_call(Proc) ->
     make_call(Proc, []).
@@ -152,6 +175,15 @@ make_case(Exp, Exps, Else, false) when is_list(Exps), is_list(Else) ->
     ['case'|[Exp|Exps ++ [['else'|Else]]]];
 make_case(Exp, Exps, Else, true) when is_list(Exps) ->
     ['case'|[Exp|Exps ++ [['else', '=>', Else]]]].
+
+make_charsp(Objs) when is_list(Objs) ->
+    ['char=?'|Objs].
+
+make_char_to_integer(S) ->
+    ['char->integer', S].
+
+make_integer_to_char(S) ->
+    ['integer->char', S].
 
 make_cond(Exps) when is_list(Exps) ->
     ['cond'|Exps].
@@ -288,11 +320,59 @@ make_raise_continuable(Obj) ->
 make_setb(Variable, Value) ->
     ['set!', Variable, Value].
 
+make_string_length(S) ->
+    ['string-length', S].
+
+make_string_ref(S) ->
+    ['string-ref', S].
+
+make_stringsp(Objs) when is_list(Objs) ->
+    ['string=?'|Objs].
+
+make_string_to_list(S) ->
+    ['string->list', S].
+
+make_string_to_list(S, Start) ->
+    ['string->list', S, Start].
+
+make_string_to_list(S, Start, End) ->
+    ['string->list', S, Start, End].
+
+make_list_to_string(L) ->
+    ['list->string', L].
+
+make_string_to_utf8(S) ->
+    ['string->utf8', S].
+
+make_string_to_utf8(S, Start) ->
+    ['string->utf8', S, Start].
+
+make_string_to_utf8(S, Start, End) ->
+    ['string->utf8', S, Start, End].
+
+make_utf8_to_string(V) ->
+    ['utf8->string', V].
+
+make_utf8_to_string(V, Start) ->
+    ['utf8->string', V, Start].
+
+make_utf8_to_string(V, Start, End) ->
+    ['utf8->string', V, Start, End].
+
 make_string_foreach(Proc, Lists) when is_list(Lists) ->
     ['string-for-each', Proc] ++ Lists.
 
 make_string_map(Proc, Lists) when is_list(Lists) ->
     ['string-map', Proc] ++ Lists.
+
+make_symbolsp(Objs) when is_list(Objs) ->
+    ['symbol=?'|Objs].
+
+make_symbol_to_string(S) ->
+    ['symbol->string', S].
+
+make_string_to_symbol(S) ->
+    ['string->symbol', S].
 
 make_thunk(Body) when is_list(Body) ->
     make_lambda([], Body).
@@ -305,6 +385,39 @@ make_values(Args) when is_list(Args) ->
 
 make_variable() ->
     erlang:make_ref().
+
+make_vector_length(V) ->
+    ['vector-length', V].
+
+make_vector_ref(V) ->
+    ['vector-ref', V].
+
+make_vectorsp(Objs) when is_list(Objs) ->
+    ['vector=?'|Objs].
+
+make_vector_to_list(V) ->
+    ['vector->list', V].
+
+make_vector_to_list(V, Start) ->
+    ['vector->list', V, Start].
+
+make_vector_to_list(V, Start, End) ->
+    ['vector->list', V, Start, End].
+
+make_list_to_vector(L) ->
+    ['list->vector', L].
+
+make_vector_to_string(V) ->
+    ['vector->string', V].
+
+make_vector_to_string(V, Start) ->
+    ['vector->string', V, Start].
+
+make_vector_to_string(V, Start, End) ->
+    ['vector->string', V, Start, End].
+
+make_string_to_vector(S) ->
+    ['string->vector', S].
 
 make_vector_foreach(Proc, Lists) when is_list(Lists) ->
     ['vector-for-each', Proc] ++ Lists.
