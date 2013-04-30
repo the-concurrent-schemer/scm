@@ -90,25 +90,27 @@
 %%% API
 %%%===================================================================
 
+%% @doc Returns #t if obj is a vector, otherwise returns #f.
 -spec 'vector?'(scm_obj()) -> scm_boolean().
-'vector?'(Obj) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Obj]).
+'vector?'(#vector{}) ->
+    ?TRUE;
+'vector?'(_) ->
+    ?FALSE.
 
+%% @equiv 'make-vector'(K, '#f')
 -spec 'make-vector'(scm_k()) -> scm_vector().
 'make-vector'(K) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [K]).
+    'make-vector'(K, ?FALSE).
 
+%% @doc Returns a vector of k elements.
 -spec 'make-vector'(scm_k(), scm_obj()) -> scm_vector().
 'make-vector'(K, Obj) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [K, Obj]).
+    #vector{val=list_to_tuple(lists:duplicate(K, Obj))}.
 
+%% @doc Returns a vector whose elements contain the given arguments.
 -spec 'vector'([scm_obj(),...]) -> scm_vector().
 'vector'(Objs) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Objs]).
+    #vector{val=list_to_tuple(Objs)}.
 
 %% @doc Returns the number of elements in the given vector.
 -spec 'vector-length'(scm_vector()) -> scm_k().
@@ -121,101 +123,110 @@
 'vector-ref'(#vector{val=V}, K) ->
     element(K+1, V).
 
+%% @doc _unsupported_
 -spec 'vector-set!'(scm_vector(), scm_k(), scm_obj()) -> scm_false().
 'vector-set!'(V, K, Obj) ->
     erlang:error(unsupported, [V, K, Obj]).
 
 %% @equiv 'vector->list'(V, 0, 'vector-length'(V))
 -spec 'vector->list'(scm_vector()) -> [scm_obj()].
-'vector->list'(V) ->
-    'vector->list'(V, 0, 'vector-length'(V)).
+'vector->list'(#vector{val=V}) ->
+    tuple_to_list(V).
 
 %% @equiv 'vector->list'(V, Start, 'vector-length'(V))
 -spec 'vector->list'(scm_vector(), scm_start()) -> [scm_obj()].
-'vector->list'(V, Start) ->
-    'vector->list'(V, Start, 'vector-length'(V)).
+'vector->list'(#vector{val=V}, Start) ->
+    scml:list_part(tuple_to_list(V), Start).
 
 %% @doc Returns a list of the elements of vector between start and
 %% end.
 -spec 'vector->list'(scm_vector(), scm_start(), scm_end()) -> [scm_obj()].
 'vector->list'(#vector{val=V}, Start, End) ->
-    lists:sublist(tuple_to_list(V), Start+1, End-Start).
+    scml:list_part(tuple_to_list(V), Start, End).
 
 %% @doc Returns a vector constructed from the elements in the list.
 -spec 'list->vector'([scm_obj()]) -> scm_vector().
 'list->vector'(Objs) ->
     #vector{val=list_to_tuple(Objs)}.
 
+%% @equiv 'vector->string'(V, 0, 'vector-length'(V))
 -spec 'vector->string'(scm_vector()) -> scm_string().
 'vector->string'(V) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [V]).
+    scml_base_string:'list->string'('vector->list'(V)).
 
+%% @equiv 'vector->string'(V, Start, 'vector-length'(V))
 -spec 'vector->string'(scm_vector(), scm_start()) -> scm_string().
 'vector->string'(V, Start) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [V, Start]).
+    scml_base_string:'list->string'('vector->list'(V, Start)).
 
+%% @equiv 'list->string'('vector->list'(V, Start, End))
 -spec 'vector->string'(scm_vector(), scm_start(), scm_end()) -> scm_string().
 'vector->string'(V, Start, End) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [V, Start, End]).
+    scml_base_string:'list->string'('vector->list'(V, Start, End)).
 
+%% @equiv 'list->vector('string->list'(S, 0, 'string-length'(S)))
 -spec 'string->vector'(scm_string()) -> scm_vector().
 'string->vector'(S) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [S]).
+    'list->vector'(scml_base_string:'string->list'(S)).
 
+%% @equiv 'list->vector('string->list'(S, Start, 'string-length'(S)))
 -spec 'string->vector'(scm_string(), scm_start()) -> scm_vector().
 'string->vector'(S, Start) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [S, Start]).
+    'list->vector'(scml_base_string:'string->list'(S, Start)).
 
+%% @equiv 'list->vector('string->list'(S, Start, End))
 -spec 'string->vector'(scm_string(), scm_start(), scm_end()) -> scm_vector().
 'string->vector'(S, Start, End) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [S, Start, End]).
+    'list->vector'(scml_base_string:'string->list'(S, Start, End)).
 
+%% @equiv 'vector-copy'(V, 0, 'vector-length'(V))
 -spec 'vector-copy'(scm_vector()) -> scm_vector().
 'vector-copy'(V) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [V]).
+    V.
 
+%% @equiv 'vector-copy'(V, Start, 'vector-length'(V))
 -spec 'vector-copy'(scm_vector(), scm_start()) -> scm_vector().
-'vector-copy'(V, Start) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [V, Start]).
+'vector-copy'(#vector{val=V}, Start) ->
+    #vector{val=scml:tuple_part(V, Start)}.
 
+%% @doc Returns a vector constructed from the elements of vector
+%% beginning with index start and ending with index end.
 -spec 'vector-copy'(scm_vector(), scm_start(), scm_end()) -> scm_vector().
 'vector-copy'(V, Start, End) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [V, Start, End]).
+    #vector{val=scml:tuple_part(V, Start, End)}.
 
+%% @doc _unsupported_
 -spec 'vector-copy!'(scm_vector(), scm_k(), scm_vector()) -> scm_false().
 'vector-copy!'(To, At, From) ->
     erlang:error(unsupported, [To, At, From]).
 
+%% @doc _unsupported_
 -spec 'vector-copy!'(scm_vector(), scm_k(), scm_vector(), scm_start()) -> scm_false().
 'vector-copy!'(To, At, From, Start) ->
     erlang:error(unsupported, [To, At, From, Start]).
 
+%% @doc _unsupported_
 -spec 'vector-copy!'(scm_vector(), scm_k(), scm_vector(), scm_start(), scm_end()) -> scm_false().
 'vector-copy!'(To, At, From, Start, End) ->
     erlang:error(unsupported, [To, At, From, Start, End]).
 
+%% @doc Returns a vector whose elements are the concatenation of the
+%% elements in the given vectors.
 -spec 'vector-append'([scm_vector(),...]) -> scm_vector().
 'vector-append'(Vs) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Vs]).
+    #vector{val=list_to_tuple(lists:append([ tuple_to_list(V) || V <- Vs ]))}.
 
+%% @doc _unsupported_
 -spec 'vector-fill!'(scm_vector(), scm_obj()) -> scm_false().
 'vector-fill!'(V, Fill) ->
     erlang:error(unsupported, [V, Fill]).
 
+%% @doc _unsupported_
 -spec 'vector-fill!'(scm_vector(), scm_obj(), scm_start()) -> scm_false().
 'vector-fill!'(V, Fill, Start) ->
     erlang:error(unsupported, [V, Fill, Start]).
 
+%% @doc _unsupported_
 -spec 'vector-fill!'(scm_vector(), scm_obj(), scm_start(), scm_end()) -> scm_false().
 'vector-fill!'(V, Fill, Start, End) ->
     erlang:error(unsupported, [V, Fill, Start, End]).
