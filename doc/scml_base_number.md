@@ -13,7 +13,9 @@ __Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailt
 ## Function Index ##
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#%24scml_exports-0">'$scml_exports'/0</a></td><td></td></tr><tr><td valign="top"><a href="#%2a-1">'*'/1</a></td><td></td></tr><tr><td valign="top"><a href="#%2b-1">'+'/1</a></td><td></td></tr><tr><td valign="top"><a href="#--1">'-'/1</a></td><td></td></tr><tr><td valign="top"><a href="#%2f-1">'/'/1</a></td><td></td></tr><tr><td valign="top"><a href="#complex%3f-1">'complex?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#even%3f-1">'even?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#exact-integer-sqrt-1">'exact-integer-sqrt'/1</a></td><td></td></tr><tr><td valign="top"><a href="#exact-integer%3f-1">'exact-integer?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#exact%3f-1">'exact?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#floor-quotient-2">'floor-quotient'/2</a></td><td></td></tr><tr><td valign="top"><a href="#floor-remainder-2">'floor-remainder'/2</a></td><td></td></tr><tr><td valign="top"><a href="#floor%2f-2">'floor/'/2</a></td><td></td></tr><tr><td valign="top"><a href="#inexact%3f-1">'inexact?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#integer%3f-1">'integer?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#negative%3f-1">'negative?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#number-%3estring-1">'number->string'/1</a></td><td></td></tr><tr><td valign="top"><a href="#number-%3estring-2">'number->string'/2</a></td><td></td></tr><tr><td valign="top"><a href="#number%3f-1">'number?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#odd%3f-1">'odd?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#positive%3f-1">'positive?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#rational%3f-1">'rational?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#real%3f-1">'real?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3enumber-1">'string->number'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3enumber-2">'string->number'/2</a></td><td></td></tr><tr><td valign="top"><a href="#truncate-quotient-2">'truncate-quotient'/2</a></td><td></td></tr><tr><td valign="top"><a href="#truncate-remainder-2">'truncate-remainder'/2</a></td><td></td></tr><tr><td valign="top"><a href="#truncate%2f-2">'truncate/'/2</a></td><td></td></tr><tr><td valign="top"><a href="#zero%3f-1">'zero?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#abs-1">abs/1</a></td><td></td></tr><tr><td valign="top"><a href="#ceiling-1">ceiling/1</a></td><td></td></tr><tr><td valign="top"><a href="#denominator-1">denominator/1</a></td><td></td></tr><tr><td valign="top"><a href="#exact-1">exact/1</a></td><td></td></tr><tr><td valign="top"><a href="#expt-2">expt/2</a></td><td></td></tr><tr><td valign="top"><a href="#floor-1">floor/1</a></td><td></td></tr><tr><td valign="top"><a href="#gcd-1">gcd/1</a></td><td></td></tr><tr><td valign="top"><a href="#inexact-1">inexact/1</a></td><td></td></tr><tr><td valign="top"><a href="#lcm-1">lcm/1</a></td><td></td></tr><tr><td valign="top"><a href="#modulo-2">modulo/2</a></td><td></td></tr><tr><td valign="top"><a href="#numerator-1">numerator/1</a></td><td></td></tr><tr><td valign="top"><a href="#quotient-2">quotient/2</a></td><td></td></tr><tr><td valign="top"><a href="#rationalize-2">rationalize/2</a></td><td></td></tr><tr><td valign="top"><a href="#remainder-2">remainder/2</a></td><td></td></tr><tr><td valign="top"><a href="#round-1">round/1</a></td><td></td></tr><tr><td valign="top"><a href="#square-1">square/1</a></td><td></td></tr><tr><td valign="top"><a href="#truncate-1">truncate/1</a></td><td></td></tr></table>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#%24scml_exports-0">'$scml_exports'/0</a></td><td></td></tr><tr><td valign="top"><a href="#%2a-1">'*'/1</a></td><td></td></tr><tr><td valign="top"><a href="#%2b-1">'+'/1</a></td><td></td></tr><tr><td valign="top"><a href="#--1">'-'/1</a></td><td></td></tr><tr><td valign="top"><a href="#%2f-1">'/'/1</a></td><td></td></tr><tr><td valign="top"><a href="#%3c-1">'<'/1</a></td><td></td></tr><tr><td valign="top"><a href="#%3c%3d-1">'<='/1</a></td><td></td></tr><tr><td valign="top"><a href="#%3d-1">'='/1</a></td><td><p>This function is a temporary place holder and is not (yet)
+compliant with the R7RS specification.</p>.</td></tr><tr><td valign="top"><a href="#%3e-1">'>'/1</a></td><td></td></tr><tr><td valign="top"><a href="#%3e%3d-1">'>='/1</a></td><td></td></tr><tr><td valign="top"><a href="#complex%3f-1">'complex?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#even%3f-1">'even?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#exact-integer-sqrt-1">'exact-integer-sqrt'/1</a></td><td></td></tr><tr><td valign="top"><a href="#exact-integer%3f-1">'exact-integer?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#exact%3f-1">'exact?'/1</a></td><td><p>This function is a temporary place holder and is not (yet)
+compliant with the R7RS specification.</p>.</td></tr><tr><td valign="top"><a href="#floor-quotient-2">'floor-quotient'/2</a></td><td></td></tr><tr><td valign="top"><a href="#floor-remainder-2">'floor-remainder'/2</a></td><td></td></tr><tr><td valign="top"><a href="#floor%2f-2">'floor/'/2</a></td><td></td></tr><tr><td valign="top"><a href="#inexact%3f-1">'inexact?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#integer%3f-1">'integer?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#negative%3f-1">'negative?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#number-%3estring-1">'number->string'/1</a></td><td></td></tr><tr><td valign="top"><a href="#number-%3estring-2">'number->string'/2</a></td><td></td></tr><tr><td valign="top"><a href="#number%3f-1">'number?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#odd%3f-1">'odd?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#positive%3f-1">'positive?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#rational%3f-1">'rational?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#real%3f-1">'real?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3enumber-1">'string->number'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-%3enumber-2">'string->number'/2</a></td><td></td></tr><tr><td valign="top"><a href="#truncate-quotient-2">'truncate-quotient'/2</a></td><td></td></tr><tr><td valign="top"><a href="#truncate-remainder-2">'truncate-remainder'/2</a></td><td></td></tr><tr><td valign="top"><a href="#truncate%2f-2">'truncate/'/2</a></td><td></td></tr><tr><td valign="top"><a href="#zero%3f-1">'zero?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#abs-1">abs/1</a></td><td></td></tr><tr><td valign="top"><a href="#ceiling-1">ceiling/1</a></td><td></td></tr><tr><td valign="top"><a href="#denominator-1">denominator/1</a></td><td></td></tr><tr><td valign="top"><a href="#exact-1">exact/1</a></td><td></td></tr><tr><td valign="top"><a href="#expt-2">expt/2</a></td><td></td></tr><tr><td valign="top"><a href="#floor-1">floor/1</a></td><td></td></tr><tr><td valign="top"><a href="#gcd-1">gcd/1</a></td><td></td></tr><tr><td valign="top"><a href="#inexact-1">inexact/1</a></td><td></td></tr><tr><td valign="top"><a href="#lcm-1">lcm/1</a></td><td></td></tr><tr><td valign="top"><a href="#max-1">max/1</a></td><td></td></tr><tr><td valign="top"><a href="#min-1">min/1</a></td><td></td></tr><tr><td valign="top"><a href="#modulo-2">modulo/2</a></td><td></td></tr><tr><td valign="top"><a href="#numerator-1">numerator/1</a></td><td></td></tr><tr><td valign="top"><a href="#quotient-2">quotient/2</a></td><td></td></tr><tr><td valign="top"><a href="#rationalize-2">rationalize/2</a></td><td></td></tr><tr><td valign="top"><a href="#remainder-2">remainder/2</a></td><td></td></tr><tr><td valign="top"><a href="#round-1">round/1</a></td><td></td></tr><tr><td valign="top"><a href="#square-1">square/1</a></td><td></td></tr><tr><td valign="top"><a href="#truncate-1">truncate/1</a></td><td></td></tr></table>
 
 
 <a name="functions"></a>
@@ -85,6 +87,73 @@ __Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailt
 
 
 
+<a name="%3c-1"></a>
+
+### '<'/1 ###
+
+
+<pre><code>
+'&lt;'(Xs::[<a href="#type-scm_x">scm_x()</a>, ...]) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
+</code></pre>
+
+<br></br>
+
+
+
+<a name="%3c%3d-1"></a>
+
+### '<='/1 ###
+
+
+<pre><code>
+'&lt;='(Xs::[<a href="#type-scm_x">scm_x()</a>, ...]) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
+</code></pre>
+
+<br></br>
+
+
+
+<a name="%3d-1"></a>
+
+### '='/1 ###
+
+
+<pre><code>
+'='(Zs::[<a href="#type-scm_z">scm_z()</a>, ...]) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
+</code></pre>
+
+<br></br>
+
+
+<p>This function is a temporary place holder and is not (yet)
+compliant with the R7RS specification.</p>
+
+<a name="%3e-1"></a>
+
+### '>'/1 ###
+
+
+<pre><code>
+'&gt;'(Xs::[<a href="#type-scm_x">scm_x()</a>, ...]) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
+</code></pre>
+
+<br></br>
+
+
+
+<a name="%3e%3d-1"></a>
+
+### '>='/1 ###
+
+
+<pre><code>
+'&gt;='(Xs::[<a href="#type-scm_x">scm_x()</a>, ...]) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
+</code></pre>
+
+<br></br>
+
+
+
 <a name="complex%3f-1"></a>
 
 ### 'complex?'/1 ###
@@ -143,12 +212,14 @@ __Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailt
 
 
 <pre><code>
-'exact?'(Z::<a href="#type-scm_z">scm_z()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
+'exact?'(N::<a href="#type-scm_z">scm_z()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
 
 <br></br>
 
 
+<p>This function is a temporary place holder and is not (yet)
+compliant with the R7RS specification.</p>
 
 <a name="floor-quotient-2"></a>
 
@@ -508,6 +579,32 @@ inexact(Z::<a href="#type-scm_z">scm_z()</a>) -&gt; <a href="#type-scm_z">scm_z(
 
 <pre><code>
 lcm(Ns::[<a href="#type-scm_n">scm_n()</a>]) -&gt; <a href="#type-scm_n">scm_n()</a>
+</code></pre>
+
+<br></br>
+
+
+
+<a name="max-1"></a>
+
+### max/1 ###
+
+
+<pre><code>
+max(Xs::[<a href="#type-scm_x">scm_x()</a>, ...]) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
+</code></pre>
+
+<br></br>
+
+
+
+<a name="min-1"></a>
+
+### min/1 ###
+
+
+<pre><code>
+min(Xs::[<a href="#type-scm_x">scm_x()</a>, ...]) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
 
 <br></br>

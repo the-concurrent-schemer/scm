@@ -13,10 +13,9 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 ## Function Index ##
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#%24scml_exports-0">'$scml_exports'/0</a></td><td></td></tr><tr><td valign="top"><a href="#eq%3f-2">'eq?'/2</a></td><td><p>This function is a temporary place holder and is not (yet)
-compliant with the R7RS specification.</p>.</td></tr><tr><td valign="top"><a href="#equal%3f-2">'equal?'/2</a></td><td><p>This function is a temporary place holder and is not (yet)
-compliant with the R7RS specification.</p>.</td></tr><tr><td valign="top"><a href="#eqv%3f-2">'eqv?'/2</a></td><td><p>This function is a temporary place holder and is not (yet)
-compliant with the R7RS specification.</p>.</td></tr></table>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#%24scml_exports-0">'$scml_exports'/0</a></td><td></td></tr><tr><td valign="top"><a href="#eq%3f-2">'eq?'/2</a></td><td>Equivalent to <tt>'eqv?' / 2</tt>.</td></tr><tr><td valign="top"><a href="#equal%3f-2">'equal?'/2</a></td><td><p>Returns #t if obj1 and obj2 have the same display
+representation.  Otherwise, #f.</p>.</td></tr><tr><td valign="top"><a href="#eqv%3f-2">'eqv?'/2</a></td><td><p>Returns #t if obj1 and obj2 are normally regarded as the same
+object.  Otherwise, #f.</p>.</td></tr></table>
 
 
 <a name="functions"></a>
@@ -42,29 +41,27 @@ compliant with the R7RS specification.</p>.</td></tr></table>
 
 
 <pre><code>
-'eq?'(Obj1::<a href="#type-scm_obj">scm_obj()</a>, Obj2::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
+'eq?'(A::<a href="#type-scm_obj">scm_obj()</a>, B::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
 
 <br></br>
 
 
-<p>This function is a temporary place holder and is not (yet)
-compliant with the R7RS specification.</p>
-
+Equivalent to `'eqv?' / 2`.
 <a name="equal%3f-2"></a>
 
 ### 'equal?'/2 ###
 
 
 <pre><code>
-'equal?'(Obj1::<a href="#type-scm_obj">scm_obj()</a>, Obj2::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
+'equal?'(A::<a href="#type-scm_obj">scm_obj()</a>, B::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
 
 <br></br>
 
 
-<p>This function is a temporary place holder and is not (yet)
-compliant with the R7RS specification.</p>
+<p>Returns #t if obj1 and obj2 have the same display
+representation.  Otherwise, #f.</p>
 
 <a name="eqv%3f-2"></a>
 
@@ -72,12 +69,12 @@ compliant with the R7RS specification.</p>
 
 
 <pre><code>
-'eqv?'(A::<a href="#type-scm_obj">scm_obj()</a>, B::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
+'eqv?'(Boolean::<a href="#type-scm_obj">scm_obj()</a>, A::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
 
 <br></br>
 
 
-<p>This function is a temporary place holder and is not (yet)
-compliant with the R7RS specification.</p>
+<p>Returns #t if obj1 and obj2 are normally regarded as the same
+object.  Otherwise, #f.</p>
 

@@ -14,17 +14,17 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 
 <table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#%24scml_exports-0">'$scml_exports'/0</a></td><td></td></tr><tr><td valign="top"><a href="#error-object-irritants-1">'error-object-irritants'/1</a></td><td><p>Returns the list of the irritants encapsulated by the
-<code>error-object</code>.</p>.</td></tr><tr><td valign="top"><a href="#error-object-message-1">'error-object-message'/1</a></td><td><p>Returns the message encapsulated by the <code>error-object</code>.</p>.</td></tr><tr><td valign="top"><a href="#error-object%3f-1">'error-object?'/1</a></td><td><p>Returns <code>#t</code> if the given object is an object created by
+<code>error-object</code>.</p>.</td></tr><tr><td valign="top"><a href="#error-object-message-1">'error-object-message'/1</a></td><td><p>Returns the message encapsulated by the <code>error-object</code>.</p>.</td></tr><tr><td valign="top"><a href="#error-object%3f-1">'error-object?'/1</a></td><td><p>Returns #t if the given object is an object created by
 <code>error</code>, raised by the <code>read</code> procedure, or raised by the inability
-to open an input or output port on a file.</p>.</td></tr><tr><td valign="top"><a href="#file-error%3f-1">'file-error?'/1</a></td><td><p>Returns <code>#t</code> if the given object is an object raised by the
+to open an input or output port on a file.</p>.</td></tr><tr><td valign="top"><a href="#file-error%3f-1">'file-error?'/1</a></td><td><p>Returns #t if the given object is an object raised by the
 inability to open an input or output port on a file.</p>.</td></tr><tr><td valign="top"><a href="#raise-continuable-4">'raise-continuable'/4</a></td><td><p>Raises an exception by invoking the current exception handler
 on <code>Obj</code>.  The handler is called with the same dynamic environment
 as the call to <code>raise-continuable</code>, except that: (1) the current
 exception handler is the one that was in place when the handler
 being called was installed, and (2) if the handler being called
-returns, then it will again become the current exception
-handler.  If the handler returns, the values it returns become the
-values returned by the call to <code>raise-continuable</code>.</p>.</td></tr><tr><td valign="top"><a href="#read-error%3f-1">'read-error?'/1</a></td><td><p>Returns <code>#t</code> if the given object is an object raised by the
+returns, then it will again become the current exception handler.
+If the handler returns, the values it returns become the values
+returned by the call to <code>raise-continuable</code>.</p>.</td></tr><tr><td valign="top"><a href="#read-error%3f-1">'read-error?'/1</a></td><td><p>Returns #t if the given object is an object raised by the
 <code>read</code> procedure.</p>.</td></tr><tr><td valign="top"><a href="#with-exception-handler-5">'with-exception-handler'/5</a></td><td><p>Returns the results of invoking <code>Thunk</code>. <code>Handler</code> is
 installed as the current exception handler in the dynamic
 environment used for the invocation of <code>Thunk</code>.  It is an error if
@@ -32,7 +32,7 @@ environment used for the invocation of <code>Thunk</code>.  It is an error if
 <code>Thunk</code> does not accept zero arguments.</p>.</td></tr><tr><td valign="top"><a href="#error-4">error/4</a></td><td><p>Raises an exception as if by calling <code>raise</code> on a newly
 allocated implementation-defined object which encapsulates the
 information provided by <code>Message</code>, as well as any objects, known as
-the <code>Irritants</code>. The procedure <code>error-object?</code> must return <code>#t</code> on
+the <code>Irritants</code>. The procedure <code>error-object?</code> must return #t on
 such objects.</p>.</td></tr><tr><td valign="top"><a href="#raise-4">raise/4</a></td><td><p>Raises an exception by invoking the current exception handler
 on <code>Obj</code>.  The handler is called with the same dynamic environment
 as that of the call to <code>raise</code>, except that the current exception
@@ -99,7 +99,7 @@ raised in the same dynamic environment as the handler.</p>.</td></tr></table>
 <br></br>
 
 
-<p>Returns <code>#t</code> if the given object is an object created by
+<p>Returns #t if the given object is an object created by
 <code>error</code>, raised by the <code>read</code> procedure, or raised by the inability
 to open an input or output port on a file.</p>
 
@@ -115,7 +115,7 @@ to open an input or output port on a file.</p>
 <br></br>
 
 
-<p>Returns <code>#t</code> if the given object is an object raised by the
+<p>Returns #t if the given object is an object raised by the
 inability to open an input or output port on a file.</p>
 
 <a name="raise-continuable-4"></a>
@@ -135,9 +135,9 @@ on <code>Obj</code>.  The handler is called with the same dynamic environment
 as the call to <code>raise-continuable</code>, except that: (1) the current
 exception handler is the one that was in place when the handler
 being called was installed, and (2) if the handler being called
-returns, then it will again become the current exception
-handler.  If the handler returns, the values it returns become the
-values returned by the call to <code>raise-continuable</code>.</p>
+returns, then it will again become the current exception handler.
+If the handler returns, the values it returns become the values
+returned by the call to <code>raise-continuable</code>.</p>
 
 <a name="read-error%3f-1"></a>
 
@@ -151,7 +151,7 @@ values returned by the call to <code>raise-continuable</code>.</p>
 <br></br>
 
 
-<p>Returns <code>#t</code> if the given object is an object raised by the
+<p>Returns #t if the given object is an object raised by the
 <code>read</code> procedure.</p>
 
 <a name="with-exception-handler-5"></a>
@@ -187,7 +187,7 @@ error(Irritants::[<a href="#type-scm_obj">scm_obj()</a>, ...], Env::<a href="#ty
 <p>Raises an exception as if by calling <code>raise</code> on a newly
 allocated implementation-defined object which encapsulates the
 information provided by <code>Message</code>, as well as any objects, known as
-the <code>Irritants</code>. The procedure <code>error-object?</code> must return <code>#t</code> on
+the <code>Irritants</code>. The procedure <code>error-object?</code> must return #t on
 such objects.</p>
 
 <a name="raise-4"></a>

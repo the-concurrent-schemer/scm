@@ -164,17 +164,17 @@
 'vector->string'(V, Start, End) ->
     scml_base_string:'list->string'('vector->list'(V, Start, End)).
 
-%% @equiv 'list->vector('string->list'(S, 0, 'string-length'(S)))
+%% @equiv 'list->vector'('string->list'(S, 0, 'string-length'(S)))
 -spec 'string->vector'(scm_string()) -> scm_vector().
 'string->vector'(S) ->
     'list->vector'(scml_base_string:'string->list'(S)).
 
-%% @equiv 'list->vector('string->list'(S, Start, 'string-length'(S)))
+%% @equiv 'list->vector'('string->list'(S, Start, 'string-length'(S)))
 -spec 'string->vector'(scm_string(), scm_start()) -> scm_vector().
 'string->vector'(S, Start) ->
     'list->vector'(scml_base_string:'string->list'(S, Start)).
 
-%% @equiv 'list->vector('string->list'(S, Start, End))
+%% @equiv 'list->vector'('string->list'(S, Start, End))
 -spec 'string->vector'(scm_string(), scm_start(), scm_end()) -> scm_vector().
 'string->vector'(S, Start, End) ->
     'list->vector'(scml_base_string:'string->list'(S, Start, End)).

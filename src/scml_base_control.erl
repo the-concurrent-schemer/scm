@@ -170,7 +170,7 @@
              end,
     apply(Proc, [#xnipn{val=Escape}], Env, Ok, Ng).
 
-%% @doc Delivers all of it's arguments to its continuation.
+%% @doc Delivers all of its arguments to its continuation.
 -spec 'values'([scm_any(),...], scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_any().
 'values'(Args, _Env, Ok, Ng) ->
     Ok(Args, Ng).

@@ -11,4 +11,5 @@
           scml_base_number,scml_base_string,scml_base_symbol,scml_base_system,
           scml_base_vector,scml_char,scml_complex,scml_context,scml_cxr,
           scml_eval,scml_file,scml_inexact,scml_lambda,scml_lazy,scml_load,
-          scml_r5rs,scml_read,scml_repl,scml_time,scml_write,scmtmp]}.
+          scml_r5rs,scml_read,scml_repl,scml_time,scml_write,scmtmp,
+          xfm_import_as_export]}.

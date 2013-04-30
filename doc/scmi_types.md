@@ -248,7 +248,7 @@ l() = <a href="#type-l0">l0()</a> | <a href="#type-ln">ln()</a> | <a href="#type
 
 
 <pre><code>
-l0() = {<a href="#type-body">body()</a>, <a href="#type-env">env()</a>}
+l0() = #l0{body = <a href="#type-body">body()</a>, env = <a href="#type-env">env()</a>, src = <a href="#type-src">src()</a>}
 </code></pre>
 
 
@@ -320,7 +320,7 @@ lipv() = #lipv{val = <a href="#type-lv">lv()</a>}
 
 
 <pre><code>
-ln() = {<a href="#type-params">params()</a>, <a href="#type-body">body()</a>, <a href="#type-env">env()</a>}
+ln() = #ln{params = <a href="#type-params">params()</a>, body = <a href="#type-body">body()</a>, env = <a href="#type-env">env()</a>, src = <a href="#type-src">src()</a>}
 </code></pre>
 
 
@@ -332,7 +332,7 @@ ln() = {<a href="#type-params">params()</a>, <a href="#type-body">body()</a>, <a
 
 
 <pre><code>
-lnv() = {pos_integer(), <a href="#type-params">params()</a>, <a href="#type-body">body()</a>, <a href="#type-env">env()</a>}
+lnv() = #lnv{n = pos_integer(), params = <a href="#type-params">params()</a>, body = <a href="#type-body">body()</a>, env = <a href="#type-env">env()</a>, src = <a href="#type-src">src()</a>}
 </code></pre>
 
 
@@ -344,7 +344,7 @@ lnv() = {pos_integer(), <a href="#type-params">params()</a>, <a href="#type-body
 
 
 <pre><code>
-lv() = {<a href="#type-param">param()</a>, <a href="#type-body">body()</a>, <a href="#type-env">env()</a>}
+lv() = #lv{param = <a href="#type-param">param()</a>, body = <a href="#type-body">body()</a>, env = <a href="#type-env">env()</a>, src = <a href="#type-src">src()</a>}
 </code></pre>
 
 
@@ -453,6 +453,18 @@ proc() = <a href="#type-nip">nip()</a> | <a href="#type-xnip">xnip()</a> | <a hr
 
 <pre><code>
 signal() = #signal{obj = <a href="#type-scm_any">scm_any()</a>, env = <a href="#type-env">env()</a>, ccok = <a href="#type-ccok">ccok()</a>, ccng = <a href="#type-ccng">ccng()</a>}
+</code></pre>
+
+
+
+
+
+### <a name="type-src">src()</a> ###
+
+
+
+<pre><code>
+src() = fun(() -&gt; [<a href="#type-scm_any">scm_any()</a>])
 </code></pre>
 
 

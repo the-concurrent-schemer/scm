@@ -191,7 +191,7 @@
 'make-list'(K, Fill) ->
     lists:duplicate(K, Fill).
 
-%% @doc Returns a list of its arguments.
+%% @doc Returns a list of the arguments.
 -spec 'list'(scm_list()) -> scm_list().
 'list'(List) ->
     List.

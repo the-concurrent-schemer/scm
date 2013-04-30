@@ -722,7 +722,7 @@ t_quote(T) = <a href="#type-t_list">t_list</a>(T)
 
 
 <pre><code>
-t_string() = <a href="#type-utf8">utf8()</a>
+t_string() = {<a href="#type-unichar">unichar()</a>}
 </code></pre>
 
 

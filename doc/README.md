@@ -82,5 +82,6 @@ Erlang/OTP R16B or higher.</p>
 <tr><td><a href="scml_repl.md" class="module">scml_repl</a></td></tr>
 <tr><td><a href="scml_time.md" class="module">scml_time</a></td></tr>
 <tr><td><a href="scml_write.md" class="module">scml_write</a></td></tr>
-<tr><td><a href="scmtmp.md" class="module">scmtmp</a></td></tr></table>
+<tr><td><a href="scmtmp.md" class="module">scmtmp</a></td></tr>
+<tr><td><a href="xfm_import_as_export.md" class="module">xfm_import_as_export</a></td></tr></table>
 

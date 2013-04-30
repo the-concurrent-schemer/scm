@@ -22,8 +22,7 @@ Scheme procedure that, if it is later called, will abandon whatever
 continuation is in effect at that later time and will instead use
 the continuation that was in effect when the escape procedure was
 created. Calling the escape procedure will cause the invocation of
-before and after thunks installed using <code>dynamic-wind</code>.  @equiv
-<em>call-with-current-continuation</em></p>.</td></tr><tr><td valign="top"><a href="#dynamic-wind-6">'dynamic-wind'/6</a></td><td><p>Calls <code>Thunk</code> without arguments, returning the result(s) of
+before and after thunks installed using <code>dynamic-wind</code>.</p>.</td></tr><tr><td valign="top"><a href="#dynamic-wind-6">'dynamic-wind'/6</a></td><td><p>Calls <code>Thunk</code> without arguments, returning the result(s) of
 this call. <code>Before</code> and <code>After</code> are called, also without arguments,
 as required.  Note that, in the absence of calls to continuations
 captured using <code>call/cc</code>, the three arguments are called once each,
@@ -62,9 +61,17 @@ of initial escape in the <code>Thunk</code>, and finally the <code>After</code> 
 called.
 </p>
 </li>
-</ol>.</td></tr><tr><td valign="top"><a href="#for-each-1">'for-each'/1</a></td><td></td></tr><tr><td valign="top"><a href="#procedure%3f-1">'procedure?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-for-each-1">'string-for-each'/1</a></td><td></td></tr><tr><td valign="top"><a href="#string-map-1">'string-map'/1</a></td><td></td></tr><tr><td valign="top"><a href="#vector-for-each-1">'vector-for-each'/1</a></td><td></td></tr><tr><td valign="top"><a href="#vector-map-1">'vector-map'/1</a></td><td></td></tr><tr><td valign="top"><a href="#apply-4">apply/4</a></td><td><p>Calls <code>Proc</code> with the elements of the list <code>(append (list arg1
-[8230,41,32,97,114,103,115,41]</code> as the actual arguments.</p>.</td></tr><tr><td valign="top"><a href="#map-1">map/1</a></td><td></td></tr><tr><td valign="top"><a href="#values-4">values/4</a></td><td><p>Delivers all of it[8217,115,32,97,114,103,117,109,101,110,116,115,32,116,111,32,105,116,115,32,
- 99,111,110,116,105,110,117,97,116,105,111,110,46]</p>.</td></tr></table>
+</ol>.</td></tr><tr><td valign="top"><a href="#for-each-4">'for-each'/4</a></td><td><p>Applies proc element-wise to the elements of the lists and
+returns #f.  Calls proc for its side effects rather than for its
+values.  Unlike map, for-each is guaranteed to call proc on the
+elements of the lists in order from the first element(s) to the
+last. If more than one list is given and not all lists have the
+same length, for-each terminates when the shortest list runs out.</p>.</td></tr><tr><td valign="top"><a href="#procedure%3f-1">'procedure?'/1</a></td><td><p>Returns #t if obj is a procedure, otherwise returns #f.</p>.</td></tr><tr><td valign="top"><a href="#string-for-each-4">'string-for-each'/4</a></td><td>Equivalent to <a href="#for-each-1"><tt>'for-each'([Proc | Args])</tt></a>.</td></tr><tr><td valign="top"><a href="#string-map-4">'string-map'/4</a></td><td>Equivalent to <a href="#map-1"><tt>map([Proc | Args])</tt></a>.</td></tr><tr><td valign="top"><a href="#vector-for-each-4">'vector-for-each'/4</a></td><td>Equivalent to <a href="#for-each-1"><tt>'for-each'([Proc | Args])</tt></a>.</td></tr><tr><td valign="top"><a href="#vector-map-4">'vector-map'/4</a></td><td>Equivalent to <a href="#map-1"><tt>map([Proc | Args])</tt></a>.</td></tr><tr><td valign="top"><a href="#apply-4">apply/4</a></td><td><p>Calls <code>Proc</code> with the elements of the list <code>(append (list arg1
+[8230,41,32,97,114,103,115,41]</code> as the actual arguments.</p>.</td></tr><tr><td valign="top"><a href="#map-4">map/4</a></td><td><p>Applies proc element-wise to the elements of the lists and
+returns a list of the results, in order.  If more than one list is
+given and not all lists have the same length, map terminates when
+the shortest list runs out.  The dynamic order in which proc is
+applied to the elements of the lists is unspecified.</p>.</td></tr><tr><td valign="top"><a href="#values-4">values/4</a></td><td><p>Delivers all of its arguments to its continuation.</p>.</td></tr></table>
 
 
 <a name="functions"></a>
@@ -113,14 +120,15 @@ consumer is the continuation of the call to <code>call-with-values</code>.</p>
 <br></br>
 
 
+Equivalent to `'call-with-current-continuation(Proc)'`.
+
 <p>Packages the current continuation as an "escape procedure" and
 passes it as an argument to <code>Proc</code>. The escape procedure is a
 Scheme procedure that, if it is later called, will abandon whatever
 continuation is in effect at that later time and will instead use
 the continuation that was in effect when the escape procedure was
 created. Calling the escape procedure will cause the invocation of
-before and after thunks installed using <code>dynamic-wind</code>.  @equiv
-<em>call-with-current-continuation</em></p>
+before and after thunks installed using <code>dynamic-wind</code>.</p>
 
 <a name="dynamic-wind-6"></a>
 
@@ -175,18 +183,24 @@ called.
 </li>
 </ol>
 
-<a name="for-each-1"></a>
+<a name="for-each-4"></a>
 
-### 'for-each'/1 ###
+### 'for-each'/4 ###
 
 
 <pre><code>
-'for-each'(Args::[<a href="#type-scm_any">scm_any()</a>, ...]) -&gt; <a href="#type-scm_false">scm_false()</a>
+'for-each'(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
 
 <br></br>
 
 
+<p>Applies proc element-wise to the elements of the lists and
+returns #f.  Calls proc for its side effects rather than for its
+values.  Unlike map, for-each is guaranteed to call proc on the
+elements of the lists in order from the first element(s) to the
+last. If more than one list is given and not all lists have the
+same length, for-each terminates when the shortest list runs out.</p>
 
 <a name="procedure%3f-1"></a>
 
@@ -194,65 +208,66 @@ called.
 
 
 <pre><code>
-'procedure?'(Obj::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
+'procedure?'(Nip0::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
 
 <br></br>
 
 
+<p>Returns #t if obj is a procedure, otherwise returns #f.</p>
 
-<a name="string-for-each-1"></a>
+<a name="string-for-each-4"></a>
 
-### 'string-for-each'/1 ###
+### 'string-for-each'/4 ###
 
 
 <pre><code>
-'string-for-each'(Args::[<a href="#type-scm_any">scm_any()</a>, ...]) -&gt; <a href="#type-scm_false">scm_false()</a>
+'string-for-each'(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
 
 <br></br>
 
 
+Equivalent to [`'for-each'([Proc | Args])`](#for-each-1).
+<a name="string-map-4"></a>
 
-<a name="string-map-1"></a>
-
-### 'string-map'/1 ###
+### 'string-map'/4 ###
 
 
 <pre><code>
-'string-map'(Args::[<a href="#type-scm_any">scm_any()</a>, ...]) -&gt; <a href="#type-scm_string">scm_string()</a>
+'string-map'(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_string">scm_string()</a>
 </code></pre>
 
 <br></br>
 
 
+Equivalent to [`map([Proc | Args])`](#map-1).
+<a name="vector-for-each-4"></a>
 
-<a name="vector-for-each-1"></a>
-
-### 'vector-for-each'/1 ###
+### 'vector-for-each'/4 ###
 
 
 <pre><code>
-'vector-for-each'(Args::[<a href="#type-scm_any">scm_any()</a>, ...]) -&gt; <a href="#type-scm_false">scm_false()</a>
+'vector-for-each'(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
 
 <br></br>
 
 
+Equivalent to [`'for-each'([Proc | Args])`](#for-each-1).
+<a name="vector-map-4"></a>
 
-<a name="vector-map-1"></a>
-
-### 'vector-map'/1 ###
+### 'vector-map'/4 ###
 
 
 <pre><code>
-'vector-map'(Args::[<a href="#type-scm_any">scm_any()</a>, ...]) -&gt; <a href="#type-scm_vector">scm_vector()</a>
+'vector-map'(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_vector">scm_vector()</a>
 </code></pre>
 
 <br></br>
 
 
-
+Equivalent to [`map([Proc | Args])`](#map-1).
 <a name="apply-4"></a>
 
 ### apply/4 ###
@@ -268,18 +283,23 @@ apply(Arg::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scm
 <p>Calls <code>Proc</code> with the elements of the list <code>(append (list arg1
 [8230,41,32,97,114,103,115,41]</code> as the actual arguments.</p>
 
-<a name="map-1"></a>
+<a name="map-4"></a>
 
-### map/1 ###
+### map/4 ###
 
 
 <pre><code>
-map(Args::[<a href="#type-scm_any">scm_any()</a>, ...]) -&gt; [<a href="#type-scm_any">scm_any()</a>]
+map(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; [<a href="#type-scm_any">scm_any()</a>]
 </code></pre>
 
 <br></br>
 
 
+<p>Applies proc element-wise to the elements of the lists and
+returns a list of the results, in order.  If more than one list is
+given and not all lists have the same length, map terminates when
+the shortest list runs out.  The dynamic order in which proc is
+applied to the elements of the lists is unspecified.</p>
 
 <a name="values-4"></a>
 
@@ -293,6 +313,5 @@ values(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-s
 <br></br>
 
 
-<p>Delivers all of it[8217,115,32,97,114,103,117,109,101,110,116,115,32,116,111,32,105,116,115,32,
- 99,111,110,116,105,110,117,97,116,105,111,110,46]</p>
+<p>Delivers all of its arguments to its continuation.</p>
 

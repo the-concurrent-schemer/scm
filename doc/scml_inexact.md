@@ -13,7 +13,7 @@ __Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailt
 ## Function Index ##
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#%24scml_exports-0">'$scml_exports'/0</a></td><td></td></tr><tr><td valign="top"><a href="#finite%3f-1">'finite?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#infinite%3f-1">'infinite?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#nan%3f-1">'nan?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#acos-1">acos/1</a></td><td></td></tr><tr><td valign="top"><a href="#asin-1">asin/1</a></td><td></td></tr><tr><td valign="top"><a href="#atan-1">atan/1</a></td><td></td></tr><tr><td valign="top"><a href="#atan-2">atan/2</a></td><td></td></tr><tr><td valign="top"><a href="#cos-1">cos/1</a></td><td></td></tr><tr><td valign="top"><a href="#exp-1">exp/1</a></td><td></td></tr><tr><td valign="top"><a href="#log-1">log/1</a></td><td></td></tr><tr><td valign="top"><a href="#log-2">log/2</a></td><td></td></tr><tr><td valign="top"><a href="#sin-1">sin/1</a></td><td></td></tr><tr><td valign="top"><a href="#tan-1">tan/1</a></td><td></td></tr></table>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#%24scml_exports-0">'$scml_exports'/0</a></td><td></td></tr><tr><td valign="top"><a href="#finite%3f-1">'finite?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#infinite%3f-1">'infinite?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#nan%3f-1">'nan?'/1</a></td><td></td></tr><tr><td valign="top"><a href="#acos-1">acos/1</a></td><td></td></tr><tr><td valign="top"><a href="#asin-1">asin/1</a></td><td></td></tr><tr><td valign="top"><a href="#atan-1">atan/1</a></td><td></td></tr><tr><td valign="top"><a href="#atan-2">atan/2</a></td><td></td></tr><tr><td valign="top"><a href="#cos-1">cos/1</a></td><td></td></tr><tr><td valign="top"><a href="#exp-1">exp/1</a></td><td></td></tr><tr><td valign="top"><a href="#log-1">log/1</a></td><td></td></tr><tr><td valign="top"><a href="#log-2">log/2</a></td><td></td></tr><tr><td valign="top"><a href="#sin-1">sin/1</a></td><td></td></tr><tr><td valign="top"><a href="#sqrt-1">sqrt/1</a></td><td></td></tr><tr><td valign="top"><a href="#tan-1">tan/1</a></td><td></td></tr></table>
 
 
 <a name="functions"></a>
@@ -183,6 +183,19 @@ log(Z1::<a href="#type-scm_z">scm_z()</a>, Z2::<a href="#type-scm_z">scm_z()</a>
 
 <pre><code>
 sin(Z::<a href="#type-scm_z">scm_z()</a>) -&gt; <a href="#type-scm_z">scm_z()</a>
+</code></pre>
+
+<br></br>
+
+
+
+<a name="sqrt-1"></a>
+
+### sqrt/1 ###
+
+
+<pre><code>
+sqrt(Z::<a href="#type-scm_z">scm_z()</a>) -&gt; <a href="#type-scm_z">scm_z()</a>
 </code></pre>
 
 <br></br>
