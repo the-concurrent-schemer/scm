@@ -80,101 +80,112 @@
 %%% API
 %%%===================================================================
 
+%% @doc Returns #t if obj is a bytevector, otherwise returns #f.
 -spec 'bytevector?'(scm_obj()) -> scm_boolean().
-'bytevector?'(Obj) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Obj]).
+'bytevector?'(#bytevector{}) ->
+    ?TRUE;
+'bytevector?'(_) ->
+    ?FALSE.
 
+%% @equiv 'make-bytevector'(K, 0)
 -spec 'make-bytevector'(scm_k()) -> scm_bytevector().
 'make-bytevector'(K) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [K]).
+    'make-bytevector'(K, 0).
 
+%% @doc Returns a bytevector of k bytes.
 -spec 'make-bytevector'(scm_k(), scm_byte()) -> scm_bytevector().
 'make-bytevector'(K, Byte) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [K, Byte]).
+    #bytevector{val=binary:copy(integer_to_binary(Byte), K)}.
 
+%% @doc Returns a bytevector whose bytes contain the given arguments.
 -spec 'bytevector'([scm_byte(),...]) -> scm_bytevector().
 'bytevector'(Bytes) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Bytes]).
+    #bytevector{val=binary:list_to_bin(Bytes)}.
 
+%% @doc Returns the number of bytes in the given bytevector.
 -spec 'bytevector-length'(scm_bytevector()) -> scm_k().
-'bytevector-length'(V) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [V]).
+'bytevector-length'(#bytevector{val=V}) ->
+    byte_size(V).
 
+%% @doc Returns byte k of bytevector using zero-origin indexing.  It
+%% is an error if k is not a valid index of bytevector.
 -spec 'bytevector-u8-ref'(scm_bytevector(), scm_k()) -> scm_byte().
-'bytevector-u8-ref'(V, K) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [V, K]).
+'bytevector-u8-ref'(#bytevector{val=V}, K) ->
+    binary:at(V, K).
 
+%% @doc _unsupported_
 -spec 'bytevector-u8-set!'(scm_bytevector(), scm_k(), scm_byte()) -> scm_false().
 'bytevector-u8-set!'(V, K, Byte) ->
     erlang:error(unsupported, [V, K, Byte]).
 
+%% @equiv 'bytevector-copy'(V, 0, 'bytevector-length'(V))
 -spec 'bytevector-copy'(scm_bytevector()) -> scm_bytevector().
 'bytevector-copy'(V) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [V]).
+    V.
 
+%% @equiv 'bytevector-copy'(V, Start, 'bytevector-length'(V))
 -spec 'bytevector-copy'(scm_bytevector(), scm_start()) -> scm_bytevector().
-'bytevector-copy'(V, Start) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [V, Start]).
+'bytevector-copy'(#bytevector{val=V}, Start) ->
+    #bytevector{val=scml:binary_part(V, Start)}.
 
+%% @doc Returns a bytevector constructed from the bytes of bytevector
+%% beginning with index start and ending with index end.
 -spec 'bytevector-copy'(scm_bytevector(), scm_start(), scm_end()) -> scm_bytevector().
-'bytevector-copy'(V, Start, End) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [V, Start, End]).
+'bytevector-copy'(#bytevector{val=V}, Start, End) ->
+    #bytevector{val=scml:binary_part(V, Start, End)}.
 
+%% @doc _unsupported_
 -spec 'bytevector-copy!'(scm_bytevector(), scm_k(), scm_bytevector()) -> scm_false().
 'bytevector-copy!'(To, At, From) ->
     erlang:error(unsupported, [To, At, From]).
 
+%% @doc _unsupported_
 -spec 'bytevector-copy!'(scm_bytevector(), scm_k(), scm_bytevector(), scm_start()) -> scm_false().
 'bytevector-copy!'(To, At, From, Start) ->
     erlang:error(unsupported, [To, At, From, Start]).
 
+%% @doc _unsupported_
 -spec 'bytevector-copy!'(scm_bytevector(), scm_k(), scm_bytevector(), scm_start(), scm_end()) -> scm_false().
 'bytevector-copy!'(To, At, From, Start, End) ->
     erlang:error(unsupported, [To, At, From, Start, End]).
 
+%% @doc Returns a bytevector whose bytes are the concatenation of the
+%% bytes in the given bytevectors.
 -spec 'bytevector-append'([scm_bytevector(),...]) -> scm_bytevector().
 'bytevector-append'(Vs) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Vs]).
+    #bytevector{val=binary:list_to_bin([ V || #bytevector{val=V} <- Vs ])}.
 
+%% @equiv 'utf8->string'(V, 0, 'bytevector-length'(V))
 -spec 'utf8->string'(scm_bytevector()) -> scm_string().
-'utf8->string'(V) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [V]).
+'utf8->string'(#bytevector{val=V}) ->
+    #string{val=list_to_tuple(scml:utf8_to_unicode(V))}.
 
+%% @equiv 'utf8->string'(V, Start, 'bytevector-length'(V))
 -spec 'utf8->string'(scm_bytevector(), scm_start()) -> scm_string().
-'utf8->string'(V, Start) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [V, Start]).
+'utf8->string'(#bytevector{val=V}, Start) ->
+    #string{val=list_to_tuple(scml:utf8_to_unicode(V, Start))}.
 
+%% @doc Decodes the bytes of a bytevector between start and end and
+%% returns the corresponding string.
 -spec 'utf8->string'(scm_bytevector(), scm_start(), scm_end()) -> scm_string().
-'utf8->string'(V, Start, End) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [V, Start, End]).
+'utf8->string'(#bytevector{val=V}, Start, End) ->
+    #string{val=list_to_tuple(scml:utf8_to_unicode(V, Start, End))}.
 
+%% @equiv 'string->utf8'(S, 0, 'string-length'(S))
 -spec 'string->utf8'(scm_string()) -> scm_bytevector().
-'string->utf8'(S) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [S]).
+'string->utf8'(#string{val=S}) ->
+    #bytevector{val=scml:unicode_to_utf8(tuple_to_list(S))}.
 
+%% @equiv 'string->utf8'(S, Start, 'string-length'(S))
 -spec 'string->utf8'(scm_string(), scm_start()) -> scm_bytevector().
-'string->utf8'(S, Start) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [S, Start]).
+'string->utf8'(#string{val=S}, Start) ->
+    #bytevector{val=scml:unicode_to_utf8(tuple_to_list(S), Start)}.
 
+%% @doc encodes the characters of a string between start and end and
+%% returns the corresponding bytevector.
 -spec 'string->utf8'(scm_string(), scm_start(), scm_end()) -> scm_bytevector().
-'string->utf8'(S, Start, End) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [S, Start, End]).
+'string->utf8'(#string{val=S}, Start, End) ->
+    #bytevector{val=scml:unicode_to_utf8(tuple_to_list(S), Start, End)}.
 
 %%%===================================================================
 %%% internal helpers
