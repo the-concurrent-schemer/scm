@@ -65,46 +65,70 @@
 %%% API
 %%%===================================================================
 
+%% @doc Returns #t if obj is a character, otherwise returns #f.
 -spec 'char?'(scm_obj()) -> scm_boolean().
-'char?'(Obj) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Obj]).
+'char?'(#character{}) ->
+    ?TRUE;
+'char?'(_) ->
+    ?FALSE.
 
+%% @doc Returns #t if all the characters are equal, otherwise returns
+%% #f.
 -spec 'char=?'([scm_char(),...]) -> scm_boolean().
 'char=?'(Cs) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Cs]).
+    cmp(Cs, fun(A, B) -> A =:= B end).
 
+%% @doc Returns #t if all the characters are monotonically increasing,
+%% otherwise returns #f.
 -spec 'char<?'([scm_char(),...]) -> scm_boolean().
 'char<?'(Cs) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Cs]).
+    cmp(Cs, fun(A, B) -> A < B end).
 
+%% @doc Returns #t if all the characters are monotonically decreasing,
+%% otherwise returns #f.
 -spec 'char>?'([scm_char(),...]) -> scm_boolean().
 'char>?'(Cs) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Cs]).
+    cmp(Cs, fun(A, B) -> A > B end).
 
+%% @doc Returns #t if all the characters are monotonically
+%% non-decreasing, otherwise returns #f.
 -spec 'char<=?'([scm_char(),...]) -> scm_boolean().
 'char<=?'(Cs) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Cs]).
+    cmp(Cs, fun(A, B) -> A =< B end).
 
+%% @doc Returns #t if all the characters are monotonically
+%% non-increasing, otherwise returns #f.
 -spec 'char>=?'([scm_char(),...]) -> scm_boolean().
 'char>=?'(Cs) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [Cs]).
+    cmp(Cs, fun(A, B) -> A >= B end).
 
+%% @doc Returns an exact integer equal to the Unicode scalar value of
+%% the given character.
 -spec 'char->integer'(scm_char()) -> scm_n().
-'char->integer'(C) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [C]).
+'char->integer'(#character{val=C}) ->
+    C.
 
+%% @doc Returns a character equal to the Unicode scalar value of the
+%% given exact integer.
 -spec 'integer->char'(scm_n()) -> scm_char().
 'integer->char'(N) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.4.0'}, [N]).
+    [C] = scml:to_unicode([N]),
+    #character{val=C}.
 
 %%%===================================================================
 %%% internal helpers
 %%%===================================================================
+
+cmp([], _Fun) ->
+    ?TRUE;
+cmp([#character{}], _Fun) ->
+    ?TRUE;
+cmp([#character{val=A}, #character{val=B}=S|Ss], Fun) ->
+    case Fun(A, B) of
+        true ->
+            cmp([S|Ss], Fun);
+        false ->
+            ?FALSE
+    end;
+cmp(_, _Fun) ->
+    ?FALSE.
