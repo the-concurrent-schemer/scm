@@ -62,6 +62,10 @@
               , error/0
              ]).
 
+-export_type([iodev/0
+              , eof/0
+             ]).
+
 -include("scmi_types.hrl").
 
 %% context
@@ -136,3 +140,7 @@
 -type error_read()  :: #error_read{val :: scm_any()}.
 -type error_file()  :: #error_file{val :: scm_any()}.
 -type error()       :: error_user() | error_read() | error_file().
+
+%% io devices
+-type iodev()       :: scmi_iodev:iodev().
+-type eof()         :: ''.  % ?EOF

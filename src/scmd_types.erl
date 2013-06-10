@@ -70,8 +70,8 @@
 -type scm_n_pos()           :: scmd_types_impl:s_integer_pos().            % positive integer
 -type scm_obj()             :: scm_any().                                  % any object
 -type scm_pair()            :: scmd_types_impl:s_pair(scm_any()).          % pair
--type scm_port()            :: io:dev().                                   % port
--type scm_eof()             :: 'eof'.                                      % end-of-file
+-type scm_port()            :: scmi_types:iodev().                         % port
+-type scm_eof()             :: scmi_types:eof().                           % end-of-file
 -type scm_proc()            :: scmi_types:proc().                          % proc
 -type scm_q()               :: scmd_types_impl:s_rational().               % rational
 -type scm_start()           :: scmd_types_impl:s_integer_exact_non_neg().  % exact non-negative integer

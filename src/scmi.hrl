@@ -23,6 +23,7 @@
 -ifndef(scmi).
 -define(scmi, true).
 
+-include("scm.hrl").
 -include("scmi_types.hrl").
 
 -endif. % -ifndef(scmi).

@@ -467,9 +467,6 @@ from_do1(Vars, Inits, Steps, Test, Exps, Commands) ->
 %%% Internal functions - dynamic bindings
 %%%----------------------------------------------------------------------
 
--define(PARAMSET, 1).
--define(PARAMCVT, 2).
-
 %% make-parameter
 from_make_parameter([Init]) ->
     X = make_variable(),
@@ -484,8 +481,8 @@ from_make_parameter(Init, Converter) ->
     make_lets([[Cvt, Converter], [Val, make_call(Converter, [Init])]],
               [make_lambda(Args,
                            [make_cond([[make_nullp(Args), Val],
-                                       [make_eqp(make_car(Args), ?PARAMSET), make_setb(Val, make_cadr(Args))],
-                                       [make_eqp(make_car(Args), ?PARAMCVT), Cvt],
+                                       [make_eqp(make_car(Args), ?SCMIPARAMSET), make_setb(Val, make_cadr(Args))],
+                                       [make_eqp(make_car(Args), ?SCMIPARAMCVT), Cvt],
                                        make_else([make_error(#string{val= <<"bad parameter syntax">>})])])])]).
 
 %% parameterize
@@ -500,11 +497,11 @@ from_parameterize(Parameters, Body) ->
 from_parameterize([], Body, Params, Vals, Ps, Olds, News) ->
     make_let([ [P, Param] || {P, Param} <- lists:zip(Ps, Params) ],
              [make_let([ [Old, make_call(P)] || {P, Old} <- lists:zip(Ps, Olds) ]
-                       ++ [ [New, make_call(make_call(P, [?PARAMCVT]), [Val]) ] || {P, New, Val} <- lists:zip3(Ps, News, Vals) ],
+                       ++ [ [New, make_call(make_call(P, [?SCMIPARAMCVT]), [Val]) ] || {P, New, Val} <- lists:zip3(Ps, News, Vals) ],
                        [make_dynamic_wind(
-                          make_thunk([ make_call(P, [?PARAMSET, New]) || {P, New} <- lists:zip(Ps, News) ]),
+                          make_thunk([ make_call(P, [?SCMIPARAMSET, New]) || {P, New} <- lists:zip(Ps, News) ]),
                           make_thunk(Body),
-                          make_thunk([ make_call(P, [?PARAMSET, Old]) || {P, Old} <- lists:zip(Ps, Olds) ]))])]);
+                          make_thunk([ make_call(P, [?SCMIPARAMSET, Old]) || {P, Old} <- lists:zip(Ps, Olds) ]))])]);
 from_parameterize([[Param, Val]|Parameters], Body, Params, Vals, Ps, Olds, News) ->
     P = make_variable(),
     Old = make_variable(),

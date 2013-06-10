@@ -27,6 +27,7 @@
 -define(scmd, true).
 
 -define(UNASSIGNED,       '').
+-define(EOF,              '').
 
 -define(PINF,             {+1, 'inf.0'}).
 -define(NINF,             {-1, 'inf.0'}).

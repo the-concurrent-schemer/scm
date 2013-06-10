@@ -83,4 +83,8 @@
 
 -record(signal,        {obj, env, ccok, ccng}).
 
+%% io devices
+-type scmi_iodev()     :: scmi_types:iodev().
+-type scmi_eof()       :: scmi_types:eof().
+
 -endif. % -ifndef(scmi_types).
