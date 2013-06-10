@@ -87,6 +87,24 @@ env() = <a href="scmi_env.md#type-env">scmi_env:env()</a>
 
 
 
+### <a name="type-eof">eof()</a> ###
+
+
+
+<pre><code>
+eof() = ''
+</code></pre>
+
+
+
+
+
+<pre><code>?EOF</code></pre>
+
+
+
+
+
 ### <a name="type-error">error()</a> ###
 
 
@@ -225,6 +243,18 @@ fnv() = fun((...) -&gt; <a href="#type-val">val()</a>)
 
 <pre><code>
 fv() = fun((<a href="#type-vargs">vargs()</a>) -&gt; <a href="#type-val">val()</a>)
+</code></pre>
+
+
+
+
+
+### <a name="type-iodev">iodev()</a> ###
+
+
+
+<pre><code>
+iodev() = <a href="scmi_iodev.md#type-iodev">scmi_iodev:iodev()</a>
 </code></pre>
 
 

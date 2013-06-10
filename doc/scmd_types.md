@@ -140,7 +140,7 @@ scm_end() = <a href="scmd_types_impl.md#type-s_integer_exact_non_neg">scmd_types
 
 
 <pre><code>
-scm_eof() = eof
+scm_eof() = <a href="scmi_types.md#type-eof">scmi_types:eof()</a>
 </code></pre>
 
 
@@ -380,7 +380,7 @@ scm_pair() = <a href="scmd_types_impl.md#type-s_pair">scmd_types_impl:s_pair</a>
 
 
 <pre><code>
-scm_port() = <a href="io.md#type-dev">io:dev()</a>
+scm_port() = <a href="scmi_types.md#type-iodev">scmi_types:iodev()</a>
 </code></pre>
 
 

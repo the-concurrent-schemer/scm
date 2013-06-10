@@ -52,6 +52,11 @@ Erlang/OTP R16B or higher.</p>
 <tr><td><a href="scmi_analyze_syntax.md" class="module">scmi_analyze_syntax</a></td></tr>
 <tr><td><a href="scmi_env.md" class="module">scmi_env</a></td></tr>
 <tr><td><a href="scmi_eval.md" class="module">scmi_eval</a></td></tr>
+<tr><td><a href="scmi_iodev.md" class="module">scmi_iodev</a></td></tr>
+<tr><td><a href="scmi_iodev_server_file.md" class="module">scmi_iodev_server_file</a></td></tr>
+<tr><td><a href="scmi_iodev_server_ram.md" class="module">scmi_iodev_server_ram</a></td></tr>
+<tr><td><a href="scmi_iodev_server_std.md" class="module">scmi_iodev_server_std</a></td></tr>
+<tr><td><a href="scmi_iodev_server_std_test.md" class="module">scmi_iodev_server_std_test</a></td></tr>
 <tr><td><a href="scmi_types.md" class="module">scmi_types</a></td></tr>
 <tr><td><a href="scml.md" class="module">scml</a></td></tr>
 <tr><td><a href="scml_base_boolean.md" class="module">scml_base_boolean</a></td></tr>
