@@ -121,8 +121,8 @@ unicode_to_symbol(L) ->
             Z when length(Z) < 20 ->
                 Y;
             _ ->
-                {binary_to_atom(crypto:sha(X), latin1), X}
+                {binary_to_atom(crypto:hash(sha, X), latin1), X}
         end
     catch error:badarg ->
-            {binary_to_atom(crypto:sha(X), latin1), X}
+            {binary_to_atom(crypto:hash(sha, X), latin1), X}
     end.
