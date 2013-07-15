@@ -23,7 +23,10 @@
 %%% @doc Scheme interpreter syntactic analyzer for syntax expressions
 %%% @author Joseph Wayne Norton <norton@alum.mit.edu>
 
--module(scmi_analyze_syntax).
+-module(scmi_analyze_macro).
+
+%% SCMI Exports
+-export(['$scmi_exports'/0]).
 
 %% External exports
 -export([analyze_let_syntax/2
@@ -39,24 +42,36 @@
 %%%----------------------------------------------------------------------
 
 %%%----------------------------------------------------------------------
+%%% SCMI Exports
+%%%----------------------------------------------------------------------
+
+-spec '$scmi_exports'() -> [{scm_symbol(), scmi_sugar()}].
+'$scmi_exports'() ->
+    [{'let-syntax', #sugar{val=fun 'analyze_let_syntax'/2}}
+     , {'letrec-syntax', #sugar{val=fun 'analyze_letrec_syntax'/2}}
+     , {'syntax-rules', #sugar{val=fun 'analyze_syntax_rules'/2}}
+     , {'syntax-error', #sugar{val=fun 'analyze_syntax_error'/2}}
+    ].
+
+%%%----------------------------------------------------------------------
 %%% API
 %%%----------------------------------------------------------------------
 
 analyze_let_syntax(Exp, Ana) ->
     %% @TODO scan_out_internal_definitions(Body)
-    erlang:error({roadmap,'v0.7.0'}, [Exp, Ana]).
+    erlang:error({roadmap,'v0.5.0'}, [Exp, Ana]).
 
 analyze_letrec_syntax(Exp, Ana) ->
     %% @TODO scan_out_internal_definitions(Body)
-    erlang:error({roadmap,'v0.7.0'}, [Exp, Ana]).
+    erlang:error({roadmap,'v0.5.0'}, [Exp, Ana]).
 
 analyze_syntax_rules(Exp, Ana) ->
     %% @TODO
-    erlang:error({roadmap,'v0.7.0'}, [Exp, Ana]).
+    erlang:error({roadmap,'v0.5.0'}, [Exp, Ana]).
 
 analyze_syntax_error(Exp, Ana) ->
     %% @TODO
-    erlang:error({roadmap,'v0.7.0'}, [Exp, Ana]).
+    erlang:error({roadmap,'v0.5.0'}, [Exp, Ana]).
 
 %%%----------------------------------------------------------------------
 %%% Internal functions

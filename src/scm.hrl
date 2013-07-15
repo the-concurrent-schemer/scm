@@ -24,14 +24,16 @@
 -define(scm, true).
 
 -define(SCM,            'scm').
--define(SCMVSN,         'scm-0.3.0'). % @TODO make this depend on git describe
+-define(SCMVSN,         'scm-0.4.2'). % @TODO make this depend on git describe
+
+-define(SCMIEXPORTS,    '$scmi_exports').
+-define(SCMIPARAMSET,   1).
+-define(SCMIPARAMCVT,   2).
+
 -define(SCMLEXPORTS,    '$scml_exports').
 -define(SCMLDYNWINDERS, '$scml_dynamic_winders').
 -define(SCMLCURINPORT,  '$scml_current_input_port').
 -define(SCMLCUROUTPORT, '$scml_current_output_port').
 -define(SCMLCURERRPORT, '$scml_current_error_port').
-
--define(SCMIPARAMSET,   1).
--define(SCMIPARAMCVT,   2).
 
 -endif. % -ifndef(scm).

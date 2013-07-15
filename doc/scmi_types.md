@@ -501,6 +501,18 @@ src() = fun(() -&gt; [<a href="#type-scm_any">scm_any()</a>])
 
 
 
+### <a name="type-sugar">sugar()</a> ###
+
+
+
+<pre><code>
+sugar() = #sugar{val = fun((<a href="#type-scm_any">scm_any()</a>, <a href="#type-scmi_ana">scmi_ana()</a>) -&gt; <a href="#type-scmi_exec">scmi_exec()</a>)}
+</code></pre>
+
+
+
+
+
 ### <a name="type-thunk">thunk()</a> ###
 
 

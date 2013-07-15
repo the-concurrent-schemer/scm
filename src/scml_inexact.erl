@@ -76,72 +76,72 @@
 -spec 'finite?'(scm_z()) -> scm_boolean().
 'finite?'(Z) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Z]).
+    erlang:error({roadmap,'v0.7.0'}, [Z]).
 
 -spec 'infinite?'(scm_z()) -> scm_boolean().
 'infinite?'(Z) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Z]).
+    erlang:error({roadmap,'v0.7.0'}, [Z]).
 
 -spec 'nan?'(scm_z()) -> scm_boolean().
 'nan?'(Z) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Z]).
+    erlang:error({roadmap,'v0.7.0'}, [Z]).
 
 -spec 'exp'(scm_z()) -> scm_z().
 'exp'(Z) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Z]).
+    erlang:error({roadmap,'v0.7.0'}, [Z]).
 
 -spec 'log'(scm_z()) -> scm_z().
 'log'(Z) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Z]).
+    erlang:error({roadmap,'v0.7.0'}, [Z]).
 
 -spec 'log'(scm_z(), scm_z()) -> scm_z().
 'log'(Z1, Z2) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Z1, Z2]).
+    erlang:error({roadmap,'v0.7.0'}, [Z1, Z2]).
 
 -spec 'sin'(scm_z()) -> scm_z().
 'sin'(Z) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Z]).
+    erlang:error({roadmap,'v0.7.0'}, [Z]).
 
 -spec 'cos'(scm_z()) -> scm_z().
 'cos'(Z) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Z]).
+    erlang:error({roadmap,'v0.7.0'}, [Z]).
 
 -spec 'tan'(scm_z()) -> scm_z().
 'tan'(Z) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Z]).
+    erlang:error({roadmap,'v0.7.0'}, [Z]).
 
 -spec 'asin'(scm_z()) -> scm_z().
 'asin'(Z) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Z]).
+    erlang:error({roadmap,'v0.7.0'}, [Z]).
 
 -spec 'acos'(scm_z()) -> scm_z().
 'acos'(Z) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Z]).
+    erlang:error({roadmap,'v0.7.0'}, [Z]).
 
 -spec 'atan'(scm_z()) -> scm_z().
 'atan'(Z) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Z]).
+    erlang:error({roadmap,'v0.7.0'}, [Z]).
 
 -spec 'atan'(scm_y(), scm_x()) -> scm_z().
 'atan'(Y, X) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Y, X]).
+    erlang:error({roadmap,'v0.7.0'}, [Y, X]).
 
 -spec 'sqrt'(scm_z()) -> scm_z().
 'sqrt'(Z) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Z]).
+    erlang:error({roadmap,'v0.7.0'}, [Z]).
 
 %%%===================================================================
 %%% internal helpers

@@ -105,13 +105,13 @@ vector -> '#(' datums0 ')' :
      to_vector(line_of('$1'), '$2').
 
 abbreviation -> '\'' datum1 :
-     to_quote(line_of('$1'), ['$2']).
+     to_quote(line_of('$1'), '$2').
 abbreviation -> '`' datum1 :
-     to_quasiquote(line_of('$1'), ['$2']).
+     to_quasiquote(line_of('$1'), '$2').
 abbreviation -> ',' datum1 :
-     to_unquote(line_of('$1'), ['$2']).
+     to_unquote(line_of('$1'), '$2').
 abbreviation -> ',@' datum1 :
-     to_unquote_splicing(line_of('$1'), ['$2']).
+     to_unquote_splicing(line_of('$1'), '$2').
 
 Erlang code.
 
@@ -242,13 +242,13 @@ prefilter_string([$\\,H|T], L, S) when H==$x; H==$X ->
 prefilter_string([$#,$\\,$"|T], L, S) ->
     prefilter_string(T, [$\",$\\,$#|L], S);
 prefilter_string([$#,$;|T], L, S) ->
-                                prefilter_string(T, [$;,$#|L], S);
-                             prefilter_string([$#,$\\,H|T], L, S) ->
-                                prefilter_string(T, [H,$\\,$#|L], S);
-                             prefilter_string([H|T], L, S) ->
-                                prefilter_string(T, [H|L], S);
-                             prefilter_string([], L, _S) ->
-                                lists:reverse(L).
+    prefilter_string(T, [$;,$#|L], S);
+prefilter_string([$#,$\\,H|T], L, S) ->
+    prefilter_string(T, [H,$\\,$#|L], S);
+prefilter_string([H|T], L, S) ->
+    prefilter_string(T, [H|L], S);
+prefilter_string([], L, _S) ->
+    lists:reverse(L).
 
 skip_nested_comments([$|,$#|T], L, #state{nested_comments_depth=0}=S) ->
     prefilter_string(T, L, S);
@@ -353,36 +353,20 @@ to_byte(_N, X) when is_integer(X) ->
 to_byte(N, X) ->
     return_error(N, ["byte is invalid: ", io_lib:write(X)]).
 
-to_list(N, ['quote']) ->
-    return_error(N, ["quote is empty"]);
-to_list(N, ['quasiquote']) ->
-    return_error(N, ["quasiquote is empty"]);
-to_list(N, ['unquote']) ->
-    return_error(N, ["unquote is empty"]);
-to_list(N, ['unquote-splicing']) ->
-    return_error(N, ["unquote-splicing is empty"]);
-to_list(N, ['quote'|T]) ->
-    to_quote(N, T);
-to_list(N, ['quasiquote'|T]) ->
-    to_quasiquote(N, T);
-to_list(N, ['unquote'|T]) ->
-    to_unquote(N, T);
-to_list(N, ['unquote-splicing'|T]) ->
-    to_unquote_splicing(N, T);
 to_list(_N, X) ->
     X.
 
 to_vector(N, X) ->
     #vector{lineno=N, val=list_to_tuple(X)}.
 
-to_quote(N, X) ->
-    #quote{lineno=N, val=X}.
+to_quote(_N, X) ->
+    ['quote', X].
 
-to_quasiquote(N, X) ->
-    #quasiquote{lineno=N, val=X}.
+to_quasiquote(_N, X) ->
+    ['quasiquote', X].
 
-to_unquote(N, X) ->
-    #unquote{lineno=N, val=X}.
+to_unquote(_N, X) ->
+    ['unquote', X].
 
-to_unquote_splicing(N, X) ->
-    #unquote_splicing{lineno=N, val=X}.
+to_unquote_splicing(_N, X) ->
+    ['unquote-splicing', X].

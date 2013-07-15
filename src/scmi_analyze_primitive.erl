@@ -25,8 +25,12 @@
 
 -module(scmi_analyze_primitive).
 
+%% SCMI Exports
+-export(['$scmi_exports'/0]).
+
 %% External exports
--export([analyze_lambda/2
+-export([analyze_quote/2
+         , analyze_lambda/2
          , analyze_sequence/2
          , analyze_application/2, apply/5
          , analyze_if/2
@@ -48,8 +52,27 @@
 %%%----------------------------------------------------------------------
 
 %%%----------------------------------------------------------------------
+%%% SCMI Exports
+%%%----------------------------------------------------------------------
+
+-spec '$scmi_exports'() -> [{scm_symbol(), scmi_sugar()}].
+'$scmi_exports'() ->
+    [{'quote', #sugar{val=fun 'analyze_quote'/2}}
+     , {'lambda', #sugar{val=fun 'analyze_lambda'/2}}
+     , {'if', #sugar{val=fun 'analyze_if'/2}}
+     , {'set!', #sugar{val=fun 'analyze_assignment'/2}}
+     , {'include', #sugar{val=fun 'analyze_include'/2}}
+     , {'include-ci', #sugar{val=fun 'analyze_include_ci'/2}}
+     , {'include-lib', #sugar{val=fun 'analyze_include_lib'/2}}
+     , {'include-lib-ci', #sugar{val=fun 'analyze_include_lib_ci'/2}}
+    ].
+
+%%%----------------------------------------------------------------------
 %%% API
 %%%----------------------------------------------------------------------
+
+analyze_quote([Exp], _Ana) ->
+    fun(_Env, Ok, Ng) -> Ok(Exp, Ng) end.
 
 analyze_lambda([[]|Body], Ana) ->
     Exec = analyze_sequence(scan_out_internal_definitions(Body), Ana),

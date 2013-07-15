@@ -64,32 +64,32 @@
 -spec 'make-rectangular'(scm_x(), scm_x()) -> scm_z().
 'make-rectangular'(X1, X2) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [X1, X2]).
+    erlang:error({roadmap,'v0.7.0'}, [X1, X2]).
 
 -spec 'make-polar'(scm_x(), scm_x()) -> scm_z().
 'make-polar'(X1, X2) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [X1, X2]).
+    erlang:error({roadmap,'v0.7.0'}, [X1, X2]).
 
 -spec 'real-part'(scm_z()) -> scm_x().
 'real-part'(Z) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Z]).
+    erlang:error({roadmap,'v0.7.0'}, [Z]).
 
 -spec 'imag-part'(scm_z()) -> scm_x().
 'imag-part'(Z) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Z]).
+    erlang:error({roadmap,'v0.7.0'}, [Z]).
 
 -spec 'magnitude'(scm_z()) -> scm_x().
 'magnitude'(Z) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Z]).
+    erlang:error({roadmap,'v0.7.0'}, [Z]).
 
 -spec 'angle'(scm_z()) -> scm_x().
 'angle'(Z) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Z]).
+    erlang:error({roadmap,'v0.7.0'}, [Z]).
 
 %%%===================================================================
 %%% internal helpers

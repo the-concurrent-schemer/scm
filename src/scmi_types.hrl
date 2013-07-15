@@ -32,6 +32,9 @@
 -type scmi_ccok()      :: scmi_types:ccok().
 -type scmi_ccng()      :: scmi_types:ccng().
 
+%% sugar
+-type scmi_sugar()     :: scmi_types:sugar().
+
 %% vargs
 -type scmi_vargs()     :: scmi_types:vargs().
 

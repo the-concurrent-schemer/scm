@@ -31,7 +31,7 @@ ana() = #ana{}
 ## Function Index ##
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#analyze-1">analyze/1</a></td><td></td></tr><tr><td valign="top"><a href="#analyze-2">analyze/2</a></td><td></td></tr><tr><td valign="top"><a href="#are_valid_variables-1">are_valid_variables/1</a></td><td></td></tr><tr><td valign="top"><a href="#classify-1">classify/1</a></td><td></td></tr><tr><td valign="top"><a href="#flatten_variables-1">flatten_variables/1</a></td><td></td></tr><tr><td valign="top"><a href="#is_reserved_symbol-1">is_reserved_symbol/1</a></td><td></td></tr><tr><td valign="top"><a href="#is_valid_variable-1">is_valid_variable/1</a></td><td></td></tr><tr><td valign="top"><a href="#make_tmp_variables-1">make_tmp_variables/1</a></td><td></td></tr><tr><td valign="top"><a href="#splitnv_arguments-2">splitnv_arguments/2</a></td><td></td></tr><tr><td valign="top"><a href="#validate_variable-1">validate_variable/1</a></td><td></td></tr><tr><td valign="top"><a href="#validate_variables-1">validate_variables/1</a></td><td></td></tr></table>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#analyze-1">analyze/1</a></td><td></td></tr><tr><td valign="top"><a href="#analyze-2">analyze/2</a></td><td></td></tr><tr><td valign="top"><a href="#are_valid_variables-1">are_valid_variables/1</a></td><td></td></tr><tr><td valign="top"><a href="#classify-1">classify/1</a></td><td></td></tr><tr><td valign="top"><a href="#flatten_variables-1">flatten_variables/1</a></td><td></td></tr><tr><td valign="top"><a href="#is_reserved_symbol-1">is_reserved_symbol/1</a></td><td></td></tr><tr><td valign="top"><a href="#is_valid_variable-1">is_valid_variable/1</a></td><td></td></tr><tr><td valign="top"><a href="#make_tmp_variables-1">make_tmp_variables/1</a></td><td></td></tr><tr><td valign="top"><a href="#splitnv_arguments-2">splitnv_arguments/2</a></td><td></td></tr><tr><td valign="top"><a href="#the_default-0">the_default/0</a></td><td></td></tr><tr><td valign="top"><a href="#validate_variable-1">validate_variable/1</a></td><td></td></tr><tr><td valign="top"><a href="#validate_variables-1">validate_variables/1</a></td><td></td></tr></table>
 
 
 <a name="functions"></a>
@@ -149,6 +149,19 @@ make_tmp_variables(Formal::<a href="#type-scmi_var">scmi_var()</a> | [<a href="#
 
 <pre><code>
 splitnv_arguments(N::pos_integer(), L::[<a href="#type-scm_any">scm_any()</a>, ...]) -&gt; [<a href="#type-scm_any">scm_any()</a>, ...]
+</code></pre>
+
+<br></br>
+
+
+
+<a name="the_default-0"></a>
+
+### the_default/0 ###
+
+
+<pre><code>
+the_default() -&gt; <a href="#type-scmi_ana">scmi_ana()</a>
 </code></pre>
 
 <br></br>

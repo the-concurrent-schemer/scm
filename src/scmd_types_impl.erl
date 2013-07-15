@@ -63,13 +63,9 @@
               , s_list_nonempty/1
               , s_number/0
               , s_pair/1
-              , s_quasiquote/1
-              , s_quote/1
               , s_string/0
               , s_symbol/0
               , s_true/0
-              , s_unquote/1
-              , s_unquote_splicing/1
               , s_vector/1
              ]).
 
@@ -104,13 +100,9 @@
 -type t_identifier()             :: atom() | {atom(), utf8()}.        % atom(utf-8()) | {atom(sha(utf-8())), utf-8()}
 -type t_labelref()               :: non_neg_integer().
 -type t_letter()                 :: 65..90 | 97..122.
--type t_quasiquote(T)            :: t_list(T).
--type t_quote(T)                 :: t_list(T).
 -type t_string()                 :: tuple(unichar()).
 -type t_symbol()                 :: t_identifier().
 -type t_true()                   :: true.
--type t_unquote(T)               :: t_list(T).
--type t_unquote_splicing(T)      :: t_list(T).
 
 %% number
 -type s_complex()                :: s_rectangular() | s_polar() | s_real().
@@ -146,13 +138,9 @@
 -type s_list_nonempty(T)         :: t_list_nonempty(T).
 -type s_number()                 :: s_complex().
 -type s_pair(T)                  :: t_pair(T).
--type s_quasiquote(T)            :: #quasiquote{val :: t_quasiquote(T)}.
--type s_quote(T)                 :: #quote{val :: t_quote(T)}.
 -type s_string()                 :: #string{val :: t_string()}.
 -type s_symbol()                 :: t_symbol().
 -type s_true()                   :: #boolean{val :: t_true()}.
--type s_unquote(T)               :: #unquote{val :: t_unquote(T)}.
--type s_unquote_splicing(T)      :: #unquote_splicing{val :: t_unquote_splicing(T)}.
 -type s_vector(T)                :: #vector{val :: t_vector(T)}.
 
 -type s_datum()                  :: s_any(s_datum()).
@@ -168,8 +156,4 @@
                                     s_pair(T) |
                                     s_vector(T) |
                                     s_label(T) |
-                                    s_labelref() |
-                                    s_quote(T) |
-                                    s_quasiquote(T) |
-                                    s_unquote(T) |
-                                    s_unquote_splicing(T).
+                                    s_labelref().

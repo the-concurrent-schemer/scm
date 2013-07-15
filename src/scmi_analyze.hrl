@@ -26,6 +26,7 @@
 -include("scmi.hrl").
 
 -record(ana, {
+          env     :: scmi_env(),             % Syntactic environment
           file    :: scmd_parse:filename(),  % Current file
           path=[] :: [scmd_parse:filename()] % Include-path
          }).
@@ -309,7 +310,7 @@ make_parameterize(Params, Body) when is_list(Params), is_list(Body) ->
     ['parameterize'|[Params|Body]].
 
 make_quote(Exp) ->
-    #quote{val=Exp}.
+    ['quote', Exp].
 
 make_raise(Obj) ->
     ['raise', Obj].

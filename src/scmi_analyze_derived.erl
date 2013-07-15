@@ -25,6 +25,9 @@
 
 -module(scmi_analyze_derived).
 
+%% SCMI Exports
+-export(['$scmi_exports'/0]).
+
 %% External exports
 -export([analyze_cond/2
          , analyze_case/2
@@ -59,6 +62,36 @@
 %%%----------------------------------------------------------------------
 %%% Types/Specs/Records
 %%%----------------------------------------------------------------------
+
+%%%----------------------------------------------------------------------
+%%% SCMI Exports
+%%%----------------------------------------------------------------------
+
+-spec '$scmi_exports'() -> [{scm_symbol(), scmi_sugar()}].
+'$scmi_exports'() ->
+    [{'cond', #sugar{val=fun 'analyze_cond'/2}}
+     , {'case', #sugar{val=fun 'analyze_case'/2}}
+     , {'and', #sugar{val=fun 'analyze_and'/2}}
+     , {'or', #sugar{val=fun 'analyze_or'/2}}
+     , {'when', #sugar{val=fun 'analyze_when'/2}}
+     , {'unless', #sugar{val=fun 'analyze_unless'/2}}
+     , {'cond-expand', #sugar{val=fun 'analyze_cond_expand'/2}}
+     , {'let', #sugar{val=fun 'analyze_let'/2}}
+     , {'let*', #sugar{val=fun 'analyze_lets'/2}}
+     , {'letrec', #sugar{val=fun 'analyze_letrec'/2}}
+     , {'letrec*', #sugar{val=fun 'analyze_letrecs'/2}}
+     , {'let-values', #sugar{val=fun 'analyze_let_values'/2}}
+     , {'let*-values', #sugar{val=fun 'analyze_lets_values'/2}}
+     , {'letrec-values', #sugar{val=fun 'analyze_letrec_values'/2}}
+     , {'begin', #sugar{val=fun 'analyze_begin'/2}}
+     , {'do', #sugar{val=fun 'analyze_do'/2}}
+     , {'make-parameter', #sugar{val=fun 'analyze_make_parameter'/2}}
+     , {'parameterize', #sugar{val=fun 'analyze_parameterize'/2}}
+     , {'guard', #sugar{val=fun 'analyze_guard'/2}}
+     , {'quasiquote', #sugar{val=fun 'analyze_quasiquote'/2}}
+     , {'unquote', #sugar{val=fun 'analyze_unquote'/2}}
+     , {'unquote-splicing', #sugar{val=fun 'analyze_unquote_splicing'/2}}
+    ].
 
 %%%----------------------------------------------------------------------
 %%% API
@@ -143,17 +176,17 @@ analyze_guard(Exp, Ana) ->
 -spec analyze_quasiquote(scm_any(), scmi_ana()) -> scmi_exec().
 analyze_quasiquote(Exp, Ana) ->
     %% @TODO
-    erlang:error({roadmap,'v0.7.0'}, [Exp, Ana]).
+    erlang:error({roadmap,'v0.5.0'}, [Exp, Ana]).
 
 -spec analyze_unquote(scm_any(), scmi_ana()) -> scmi_exec().
 analyze_unquote(Exp, Ana) ->
     %% @TODO
-    erlang:error({roadmap,'v0.7.0'}, [Exp, Ana]).
+    erlang:error({roadmap,'v0.5.0'}, [Exp, Ana]).
 
 -spec analyze_unquote_splicing(scm_any(), scmi_ana()) -> scmi_exec().
 analyze_unquote_splicing(Exp, Ana) ->
     %% @TODO
-    erlang:error({roadmap,'v0.7.0'}, [Exp, Ana]).
+    erlang:error({roadmap,'v0.5.0'}, [Exp, Ana]).
 
 -spec scan_out_internal_definitions([scm_any(),...]) -> [scm_any()].
 scan_out_internal_definitions(Body) ->

@@ -31,6 +31,8 @@
               , ccok/0
               , ccng/0]).
 
+-export_type([sugar/0]).
+
 -export_type([arg/0
               , vargs/0
               , var/0
@@ -74,6 +76,9 @@
 -type env()         :: scmi_env:env().
 -type ccok()        :: fun((val(), ccng()) -> val()).
 -type ccng()        :: fun((val()) -> no_return()).
+
+%% sugar
+-type sugar()       :: #sugar{val :: fun((scm_any(), scmi_ana()) -> scmi_exec())}.
 
 %% arg and vargs
 -type arg()         :: scm_any().

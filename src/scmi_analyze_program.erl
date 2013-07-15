@@ -25,6 +25,9 @@
 
 -module(scmi_analyze_program).
 
+%% SCMI Exports
+-export(['$scmi_exports'/0]).
+
 %% External exports
 -export([analyze_import/2
          , analyze_define/2
@@ -42,6 +45,20 @@
 %%%----------------------------------------------------------------------
 %%% Types/Specs/Records
 %%%----------------------------------------------------------------------
+
+%%%----------------------------------------------------------------------
+%%% SCMI Exports
+%%%----------------------------------------------------------------------
+
+-spec '$scmi_exports'() -> [{scm_symbol(), scmi_sugar()}].
+'$scmi_exports'() ->
+    [{'import', #sugar{val=fun 'analyze_import'/2}}
+     , {'define', #sugar{val=fun 'analyze_define'/2}}
+     , {'define-values', #sugar{val=fun 'analyze_define_values'/2}}
+     , {'define-syntax', #sugar{val=fun 'analyze_define_syntax'/2}}
+     , {'define-record-type', #sugar{val=fun 'analyze_define_record_type'/2}}
+     , {'define-library', #sugar{val=fun 'analyze_define_library'/2}}
+    ].
 
 %%%----------------------------------------------------------------------
 %%% API
@@ -73,11 +90,11 @@ analyze_define_values(Exp, Ana) ->
 
 analyze_define_syntax(Exp, Ana) ->
     %% @TODO
-    erlang:error({roadmap,'v0.7.0'}, [Exp, Ana]).
+    erlang:error({roadmap,'v0.5.0'}, [Exp, Ana]).
 
 analyze_define_record_type(Exp, Ana) ->
     %% @TODO
-    erlang:error({roadmap,'v0.7.0'}, [Exp, Ana]).
+    erlang:error({roadmap,'v0.5.0'}, [Exp, Ana]).
 
 analyze_define_library(Exp, Ana) ->
     %% @TODO

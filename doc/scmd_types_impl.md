@@ -62,7 +62,7 @@ lineno() = non_neg_integer()
 
 
 <pre><code>
-s_any(T) = <a href="#type-s_boolean">s_boolean()</a> | <a href="#type-s_number">s_number()</a> | <a href="#type-s_character">s_character()</a> | <a href="#type-s_string">s_string()</a> | <a href="#type-s_symbol">s_symbol()</a> | <a href="#type-s_bytevector">s_bytevector()</a> | <a href="#type-s_list">s_list</a>(T) | <a href="#type-s_list_nonempty">s_list_nonempty</a>(T) | <a href="#type-s_pair">s_pair</a>(T) | <a href="#type-s_vector">s_vector</a>(T) | <a href="#type-s_label">s_label</a>(T) | <a href="#type-s_labelref">s_labelref()</a> | <a href="#type-s_quote">s_quote</a>(T) | <a href="#type-s_quasiquote">s_quasiquote</a>(T) | <a href="#type-s_unquote">s_unquote</a>(T) | <a href="#type-s_unquote_splicing">s_unquote_splicing</a>(T)
+s_any(T) = <a href="#type-s_boolean">s_boolean()</a> | <a href="#type-s_number">s_number()</a> | <a href="#type-s_character">s_character()</a> | <a href="#type-s_string">s_string()</a> | <a href="#type-s_symbol">s_symbol()</a> | <a href="#type-s_bytevector">s_bytevector()</a> | <a href="#type-s_list">s_list</a>(T) | <a href="#type-s_list_nonempty">s_list_nonempty</a>(T) | <a href="#type-s_pair">s_pair</a>(T) | <a href="#type-s_vector">s_vector</a>(T) | <a href="#type-s_label">s_label</a>(T) | <a href="#type-s_labelref">s_labelref()</a>
 </code></pre>
 
 
@@ -423,30 +423,6 @@ s_polar() = {polar, {Mag::<a href="#type-s_real">s_real()</a>, Ang::<a href="#ty
 
 
 
-### <a name="type-s_quasiquote">s_quasiquote()</a> ###
-
-
-
-<pre><code>
-s_quasiquote(T) = #quasiquote{val = <a href="#type-t_quasiquote">t_quasiquote</a>(T)}
-</code></pre>
-
-
-
-
-
-### <a name="type-s_quote">s_quote()</a> ###
-
-
-
-<pre><code>
-s_quote(T) = #quote{val = <a href="#type-t_quote">t_quote</a>(T)}
-</code></pre>
-
-
-
-
-
 ### <a name="type-s_rational">s_rational()</a> ###
 
 
@@ -513,30 +489,6 @@ s_symbol() = <a href="#type-t_symbol">t_symbol()</a>
 
 <pre><code>
 s_true() = #boolean{val = <a href="#type-t_true">t_true()</a>}
-</code></pre>
-
-
-
-
-
-### <a name="type-s_unquote">s_unquote()</a> ###
-
-
-
-<pre><code>
-s_unquote(T) = #unquote{val = <a href="#type-t_unquote">t_unquote</a>(T)}
-</code></pre>
-
-
-
-
-
-### <a name="type-s_unquote_splicing">s_unquote_splicing()</a> ###
-
-
-
-<pre><code>
-s_unquote_splicing(T) = #unquote_splicing{val = <a href="#type-t_unquote_splicing">t_unquote_splicing</a>(T)}
 </code></pre>
 
 
@@ -693,30 +645,6 @@ t_pair(T) = nonempty_maybe_improper_list(T, T)
 
 
 
-### <a name="type-t_quasiquote">t_quasiquote()</a> ###
-
-
-
-<pre><code>
-t_quasiquote(T) = <a href="#type-t_list">t_list</a>(T)
-</code></pre>
-
-
-
-
-
-### <a name="type-t_quote">t_quote()</a> ###
-
-
-
-<pre><code>
-t_quote(T) = <a href="#type-t_list">t_list</a>(T)
-</code></pre>
-
-
-
-
-
 ### <a name="type-t_string">t_string()</a> ###
 
 
@@ -747,30 +675,6 @@ t_symbol() = <a href="#type-t_identifier">t_identifier()</a>
 
 <pre><code>
 t_true() = true
-</code></pre>
-
-
-
-
-
-### <a name="type-t_unquote">t_unquote()</a> ###
-
-
-
-<pre><code>
-t_unquote(T) = <a href="#type-t_list">t_list</a>(T)
-</code></pre>
-
-
-
-
-
-### <a name="type-t_unquote_splicing">t_unquote_splicing()</a> ###
-
-
-
-<pre><code>
-t_unquote_splicing(T) = <a href="#type-t_list">t_list</a>(T)
 </code></pre>
 
 

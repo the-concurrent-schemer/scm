@@ -82,14 +82,6 @@
     'eqv?'(A, B);
 'eqv?'(#labelref{val=A}, #labelref{val=A}) ->
     ?TRUE;
-'eqv?'(#quote{val=A}, #quote{val=B}) ->
-    'eqv?'(A, B);
-'eqv?'(#quasiquote{val=A}, #quasiquote{val=B}) ->
-    'eqv?'(A, B);
-'eqv?'(#unquote{val=A}, #unquote{val=B}) ->
-    'eqv?'(A, B);
-'eqv?'(#unquote_splicing{val=A}, #unquote_splicing{val=B}) ->
-    'eqv?'(A, B);
 'eqv?'(A, A) when is_pid(A) ->
     ?TRUE;
 'eqv?'(#nip0{val=A}, #nip0{val=A}) ->

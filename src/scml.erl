@@ -53,13 +53,13 @@
 -spec libraries() -> [scm_symbol()].
 libraries() ->
     [
-     %% , 'base'            @TODO v0.4.0/v0.5.0
+     %% , 'base'            @TODO v0.4.0/v0.7.0
      %% , 'case-lambda'     @TODO v0.6.0
      %% , 'char'            @TODO v0.6.0
-     %% , 'complex'         @TODO v0.5.0
+     %% , 'complex'         @TODO v0.7.0
      %% , 'cxr'             @TODO v0.6.0
      %% , 'file'            @TODO v0.6.0
-     %% , 'inexact'         @TODO v0.5.0
+     %% , 'inexact'         @TODO v0.7.0
      %% , 'lazy'            @TODO v0.6.0
      %% , 'load'            @TODO v0.6.0
      %% , 'process-context' @TODO v0.6.0

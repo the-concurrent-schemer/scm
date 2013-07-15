@@ -47,9 +47,9 @@ Erlang/OTP R16B or higher.</p>
 <tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmd_types_impl.md" class="module">scmd_types_impl</a></td></tr>
 <tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi_analyze.md" class="module">scmi_analyze</a></td></tr>
 <tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi_analyze_derived.md" class="module">scmi_analyze_derived</a></td></tr>
+<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi_analyze_macro.md" class="module">scmi_analyze_macro</a></td></tr>
 <tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi_analyze_primitive.md" class="module">scmi_analyze_primitive</a></td></tr>
 <tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi_analyze_program.md" class="module">scmi_analyze_program</a></td></tr>
-<tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi_analyze_syntax.md" class="module">scmi_analyze_syntax</a></td></tr>
 <tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi_env.md" class="module">scmi_env</a></td></tr>
 <tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi_eval.md" class="module">scmi_eval</a></td></tr>
 <tr><td><a href="https://github.com/the-concurrent-schemer/scm/blob/master/doc/scmi_iodev.md" class="module">scmi_iodev</a></td></tr>

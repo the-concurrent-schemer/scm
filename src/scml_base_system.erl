@@ -54,11 +54,11 @@
 -spec features() -> [scm_symbol()].
 features() ->
     ['r7rs'
-     %% , 'exact-closed'  @TODO v0.5.0
-     %% , 'exact-complex' @TODO v0.5.0
-     %% , 'ieee-float'    @TODO v0.5.0
+     %% , 'exact-closed'  @TODO v0.7.0
+     %% , 'exact-complex' @TODO v0.7.0
+     %% , 'ieee-float'    @TODO v0.7.0
      , 'full-unicode'
-     %% , 'ratios'        @TODO v0.5.0
+     %% , 'ratios'        @TODO v0.7.0
     ]
         ++ [ 'posix' || has_posix() ]
         ++ [ 'windows' || has_windows() ]

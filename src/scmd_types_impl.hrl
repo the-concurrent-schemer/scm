@@ -60,12 +60,10 @@
 -record(character,        {lineno :: scmd_types_impl:lineno(), val}).
 -record(label,            {lineno :: scmd_types_impl:lineno(), val}).
 -record(labelref,         {lineno :: scmd_types_impl:lineno(), val}).
--record(quasiquote,       {lineno :: scmd_types_impl:lineno(), val}).
--record(quote,            {lineno :: scmd_types_impl:lineno(), val}).
 -record(string,           {lineno :: scmd_types_impl:lineno(), val}).
--record(unquote,          {lineno :: scmd_types_impl:lineno(), val}).
--record(unquote_splicing, {lineno :: scmd_types_impl:lineno(), val}).
 -record(vector,           {lineno :: scmd_types_impl:lineno(), val}).
+
+-record(sugar,            {lineno :: scmd_types_impl:lineno(), val}).
 
 -record(nip0,             {lineno :: scmd_types_impl:lineno(), val}).
 -record(nipn,             {lineno :: scmd_types_impl:lineno(), val}).

@@ -35,7 +35,7 @@
              scmi_analyze_derived,
              scmi_analyze_primitive,
              scmi_analyze_program,
-             scmi_analyze_syntax,
+             scmi_analyze_macro,
              scmi_env,
              scmi_eval,
              scmi_iodev,
