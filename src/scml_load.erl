@@ -57,7 +57,7 @@
     %% @TODO
     erlang:error({roadmap,'v0.6.0'}, [S]).
 
--spec 'load'(scm_string(), scmi_env()) -> scm_false().
+-spec 'load'(scm_string(), scmi_denv()) -> scm_false().
 'load'(S, Env) ->
     %% @TODO
     erlang:error({roadmap,'v0.6.0'}, [S, Env]).

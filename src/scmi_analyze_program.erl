@@ -64,13 +64,13 @@
 %%% API
 %%%----------------------------------------------------------------------
 
-analyze_import(Exp, Ana) ->
+analyze_import(Exp, SEnv) ->
     %% @TODO
-    erlang:error({roadmap,'v0.6.0'}, [Exp, Ana]).
+    erlang:error({roadmap,'v0.6.0'}, [Exp, SEnv]).
 
-analyze_define([Variable, Exp], Ana) when not is_list(Variable) ->
+analyze_define([Variable, Exp], SEnv) when not is_list(Variable) ->
     validate_variable(Variable), % validate variable
-    Exec = analyze(Exp, Ana),
+    Exec = analyze(Exp, SEnv),
     fun(Env, Ok, Ng) ->
             %% execute operands
             Exec(Env,
@@ -82,23 +82,23 @@ analyze_define([Variable, Exp], Ana) when not is_list(Variable) ->
                  end,
                  Ng)
     end;
-analyze_define(Exp, Ana) ->
-    analyze(from_define(Exp), Ana).
+analyze_define(Exp, SEnv) ->
+    analyze(from_define(Exp), SEnv).
 
-analyze_define_values(Exp, Ana) ->
-    analyze(from_define_values(Exp), Ana).
+analyze_define_values(Exp, SEnv) ->
+    analyze(from_define_values(Exp), SEnv).
 
-analyze_define_syntax(Exp, Ana) ->
+analyze_define_syntax(Exp, SEnv) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Exp, Ana]).
+    erlang:error({roadmap,'v0.5.0'}, [Exp, SEnv]).
 
-analyze_define_record_type(Exp, Ana) ->
+analyze_define_record_type(Exp, SEnv) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Exp, Ana]).
+    erlang:error({roadmap,'v0.5.0'}, [Exp, SEnv]).
 
-analyze_define_library(Exp, Ana) ->
+analyze_define_library(Exp, SEnv) ->
     %% @TODO
-    erlang:error({roadmap,'v0.6.0'}, [Exp, Ana]).
+    erlang:error({roadmap,'v0.6.0'}, [Exp, SEnv]).
 
 %%%----------------------------------------------------------------------
 %%% Internal functions

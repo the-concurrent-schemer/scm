@@ -57,21 +57,21 @@
 %%% API
 %%%----------------------------------------------------------------------
 
-analyze_let_syntax(Exp, Ana) ->
+analyze_let_syntax(Exp, SEnv) ->
     %% @TODO scan_out_internal_definitions(Body)
-    erlang:error({roadmap,'v0.5.0'}, [Exp, Ana]).
+    erlang:error({roadmap,'v0.5.0'}, [Exp, SEnv]).
 
-analyze_letrec_syntax(Exp, Ana) ->
+analyze_letrec_syntax(Exp, SEnv) ->
     %% @TODO scan_out_internal_definitions(Body)
-    erlang:error({roadmap,'v0.5.0'}, [Exp, Ana]).
+    erlang:error({roadmap,'v0.5.0'}, [Exp, SEnv]).
 
-analyze_syntax_rules(Exp, Ana) ->
+analyze_syntax_rules(Exp, SEnv) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Exp, Ana]).
+    erlang:error({roadmap,'v0.5.0'}, [Exp, SEnv]).
 
-analyze_syntax_error(Exp, Ana) ->
+analyze_syntax_error(Exp, SEnv) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Exp, Ana]).
+    erlang:error({roadmap,'v0.5.0'}, [Exp, SEnv]).
 
 %%%----------------------------------------------------------------------
 %%% Internal functions

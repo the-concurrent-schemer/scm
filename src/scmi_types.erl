@@ -25,18 +25,21 @@
 
 -module(scmi_types).
 
--export_type([ana/0
-              , exec/0
-              , env/0
-              , ccok/0
-              , ccng/0]).
+-export_type([exp/0]).
+
+-export_type([sexec/0
+              , senv/0]).
 
 -export_type([sugar/0]).
+
+-export_type([dexec/0
+              , denv/0
+              , dok/0
+              , dng/0]).
 
 -export_type([arg/0
               , vargs/0
               , var/0
-              , val/0
               , thunk/0
               , proc/0
               , f0/0
@@ -70,39 +73,44 @@
 
 -include("scmi_types.hrl").
 
-%% context
--type ana()         :: scmi_analyze:ana().
--type exec()        :: fun((env(), ccok(), ccng()) -> val()).
--type env()         :: scmi_env:env().
--type ccok()        :: fun((val(), ccng()) -> val()).
--type ccng()        :: fun((val()) -> no_return()).
+%% expression
+-type exp()         :: scm_any().
+
+%% analyze
+-type sexec()       :: fun((exp(), senv()) -> dexec()).
+-type senv()        :: scmi_analyze:senv().
 
 %% sugar
--type sugar()       :: #sugar{val :: fun((scm_any(), scmi_ana()) -> scmi_exec())}.
+-type sugar()       :: #sugar{val :: sexec()}.
+
+%% evaluate
+-type dexec()       :: fun((denv(), dok(), dng()) -> exp()).
+-type denv()        :: scmi_env:env().
+-type dok()         :: fun((exp(), dng()) -> exp()).
+-type dng()         :: fun((exp()) -> no_return()).
 
 %% arg and vargs
--type arg()         :: scm_any().
+-type arg()         :: exp().
 -type vargs()       :: [arg()].
 
-%% var and val
+%% var
 -type var()         :: scm_symbol() | reference().
--type val()         :: scm_any().
 
 %% param, params, body, and src
 -type param()       :: var().
 -type params()      :: [param()].
--type body()        :: exec().
--type src()         :: fun(() -> [scm_any()]).
+-type body()        :: dexec().
+-type src()         :: fun(() -> [exp()]).
 
 %% thunk and proc
 -type thunk()       :: nip0() | xnip0() | lip0().
 -type proc()        :: nip() | xnip() | lip().
 
 %% native implemented procedures
--type f0()          :: fun(() -> val()).
--type fn()          :: fun((...) -> val()).      % fun((arg(),...) -> val()).
--type fv()          :: fun((vargs()) -> val()).
--type fnv()         :: fun((...) -> val()).      % fun((arg(),...,vargs()) -> val()).
+-type f0()          :: fun(() -> exp()).
+-type fn()          :: fun((...) -> exp()).      % fun((arg(),...) -> exp()).
+-type fv()          :: fun((vargs()) -> exp()).
+-type fnv()         :: fun((...) -> exp()).      % fun((arg(),...,vargs()) -> exp()).
 -type f()           :: f0() | fn() | fv() | fnv().
 
 -type nip0()        :: #nip0{val :: f0()}.
@@ -112,10 +120,10 @@
 -type nip()         :: nip0() | nipn() | nipv() | nipnv().
 
 %% extended-API native implemented procedures
--type xf0()         :: fun((env(), ccok(), ccng()) -> val()).
--type xfn()         :: fun((...) -> val()).      % fun((arg(),... ,env(), ccok(), ccng()) -> val()).
--type xfv()         :: fun((vargs(), env(), ccok(), ccng()) -> val()).
--type xfnv()        :: fun((...) -> val()).      % fun((arg(),... ,vargs(), env(), ccok(), ccng()) -> val()).
+-type xf0()         :: fun((denv(), dok(), dng()) -> exp()).
+-type xfn()         :: fun((...) -> exp()).      % fun((arg(),... ,denv(), dok(), dng()) -> exp()).
+-type xfv()         :: fun((vargs(), denv(), dok(), dng()) -> exp()).
+-type xfnv()        :: fun((...) -> exp()).      % fun((arg(),... ,vargs(), denv(), dok(), dng()) -> exp()).
 -type xf()          :: xf0() | xfn() | xfv() | xfnv().
 
 -type xnip0()       :: #xnip0{val :: xf0()}.
@@ -125,10 +133,10 @@
 -type xnip()        :: xnip0() | xnipn() | xnipv() | xnipnv().
 
 %% lambda implemented procedures
--type l0()          :: #l0{body :: body(), env :: env(), src :: src()}.
--type ln()          :: #ln{params :: params(), body :: body(), env :: env(), src :: src()}.
--type lv()          :: #lv{param :: param(), body :: body(), env :: env(), src :: src()}.
--type lnv()         :: #lnv{n :: pos_integer(), params :: params(), body :: body(), env :: env(), src :: src()}.
+-type l0()          :: #l0{body :: body(), env :: denv(), src :: src()}.
+-type ln()          :: #ln{params :: params(), body :: body(), env :: denv(), src :: src()}.
+-type lv()          :: #lv{param :: param(), body :: body(), env :: denv(), src :: src()}.
+-type lnv()         :: #lnv{n :: pos_integer(), params :: params(), body :: body(), env :: denv(), src :: src()}.
 -type l()           :: l0() | ln() | lv() | lnv().
 
 -type lip0()        :: #lip0{val :: l0()}.
@@ -138,12 +146,12 @@
 -type lip()         :: lip0() | lipn() | lipv() | lipnv().
 
 %% exception and error
--type signal()      :: #signal{obj :: scm_any(), env :: env(), ccok :: ccok(), ccng :: ccng()}.
+-type signal()      :: #signal{obj :: exp(), env :: denv(), ok :: dok(), ng :: dng()}.
 -type exception()   :: #exception{val :: [signal()]} | #cexception{val :: [signal()]}.
 
--type error_user()  :: #error_user{val :: [scm_any(),...]}.
--type error_read()  :: #error_read{val :: scm_any()}.
--type error_file()  :: #error_file{val :: scm_any()}.
+-type error_user()  :: #error_user{val :: [exp(),...]}.
+-type error_read()  :: #error_read{val :: exp()}.
+-type error_file()  :: #error_file{val :: exp()}.
 -type error()       :: error_user() | error_read() | error_file().
 
 %% io devices

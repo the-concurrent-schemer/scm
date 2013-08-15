@@ -106,7 +106,7 @@ Erlang code.
 %%% API
 %%%----------------------------------------------------------------------
 
--spec to_number(scmd_types_impl:lineno(), string(), scmi_env()) -> {ok, scmd_types_impl:e_number()} | {error, scmd_types_impl:lineno(), Msg::iolist()}.
+-spec to_number(scmd_types_impl:lineno(), string(), scmi_denv()) -> {ok, scmd_types_impl:e_number()} | {error, scmd_types_impl:lineno(), Msg::iolist()}.
 to_number(N, X, Env) ->
     case parse_number(N, X) of
         {ok, #numR{lineno=N1, exactness=E, radix=R, val=Y}} ->

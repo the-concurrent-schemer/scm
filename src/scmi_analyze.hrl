@@ -25,8 +25,8 @@
 
 -include("scmi.hrl").
 
--record(ana, {
-          env     :: scmi_env(),             % Syntactic environment
+-record(senv, {
+          env     :: scmi_env:env(),         % Syntactic environment
           file    :: scmd_parse:filename(),  % Current file
           path=[] :: [scmd_parse:filename()] % Include-path
          }).

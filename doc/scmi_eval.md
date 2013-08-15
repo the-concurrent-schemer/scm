@@ -13,33 +13,33 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 ## Function Index ##
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#default_ccng-1">default_ccng/1</a></td><td></td></tr><tr><td valign="top"><a href="#default_ccok-2">default_ccok/2</a></td><td></td></tr><tr><td valign="top"><a href="#eval-1">eval/1</a></td><td></td></tr><tr><td valign="top"><a href="#eval-2">eval/2</a></td><td></td></tr><tr><td valign="top"><a href="#eval-3">eval/3</a></td><td></td></tr><tr><td valign="top"><a href="#eval-4">eval/4</a></td><td></td></tr><tr><td valign="top"><a href="#exec-1">exec/1</a></td><td></td></tr><tr><td valign="top"><a href="#exec-2">exec/2</a></td><td></td></tr><tr><td valign="top"><a href="#exec-3">exec/3</a></td><td></td></tr><tr><td valign="top"><a href="#exec-4">exec/4</a></td><td></td></tr></table>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#default_ng-1">default_ng/1</a></td><td></td></tr><tr><td valign="top"><a href="#default_ok-2">default_ok/2</a></td><td></td></tr><tr><td valign="top"><a href="#eval-1">eval/1</a></td><td></td></tr><tr><td valign="top"><a href="#eval-2">eval/2</a></td><td></td></tr><tr><td valign="top"><a href="#eval-3">eval/3</a></td><td></td></tr><tr><td valign="top"><a href="#eval-4">eval/4</a></td><td></td></tr><tr><td valign="top"><a href="#exec-1">exec/1</a></td><td></td></tr><tr><td valign="top"><a href="#exec-2">exec/2</a></td><td></td></tr><tr><td valign="top"><a href="#exec-3">exec/3</a></td><td></td></tr><tr><td valign="top"><a href="#exec-4">exec/4</a></td><td></td></tr></table>
 
 
 <a name="functions"></a>
 
 ## Function Details ##
 
-<a name="default_ccng-1"></a>
+<a name="default_ng-1"></a>
 
-### default_ccng/1 ###
+### default_ng/1 ###
 
 
 <pre><code>
-default_ccng(Error::<a href="#type-scm_any">scm_any()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
+default_ng(Error::<a href="#type-scmi_exp">scmi_exp()</a>) -&gt; no_return()
 </code></pre>
 
 <br></br>
 
 
 
-<a name="default_ccok-2"></a>
+<a name="default_ok-2"></a>
 
-### default_ccok/2 ###
+### default_ok/2 ###
 
 
 <pre><code>
-default_ccok(Value::<a href="#type-scm_any">scm_any()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
+default_ok(Value::<a href="#type-scmi_exp">scmi_exp()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scmi_exp">scmi_exp()</a>
 </code></pre>
 
 <br></br>
@@ -52,7 +52,7 @@ default_ccok(Value::<a href="#type-scm_any">scm_any()</a>, Ng::<a href="#type-sc
 
 
 <pre><code>
-eval(Exp::<a href="#type-scm_any">scm_any()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
+eval(Exp::<a href="#type-scmi_exp">scmi_exp()</a>) -&gt; <a href="#type-scmi_exp">scmi_exp()</a>
 </code></pre>
 
 <br></br>
@@ -65,7 +65,7 @@ eval(Exp::<a href="#type-scm_any">scm_any()</a>) -&gt; <a href="#type-scm_any">s
 
 
 <pre><code>
-eval(Exp::<a href="#type-scm_any">scm_any()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
+eval(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>) -&gt; <a href="#type-scmi_exp">scmi_exp()</a>
 </code></pre>
 
 <br></br>
@@ -78,7 +78,7 @@ eval(Exp::<a href="#type-scm_any">scm_any()</a>, Env::<a href="#type-scmi_env">s
 
 
 <pre><code>
-eval(Exp::<a href="#type-scm_any">scm_any()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
+eval(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>) -&gt; <a href="#type-scmi_exp">scmi_exp()</a>
 </code></pre>
 
 <br></br>
@@ -91,7 +91,7 @@ eval(Exp::<a href="#type-scm_any">scm_any()</a>, Env::<a href="#type-scmi_env">s
 
 
 <pre><code>
-eval(Exp::<a href="#type-scm_any">scm_any()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
+eval(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scmi_exp">scmi_exp()</a>
 </code></pre>
 
 <br></br>
@@ -104,7 +104,7 @@ eval(Exp::<a href="#type-scm_any">scm_any()</a>, Env::<a href="#type-scmi_env">s
 
 
 <pre><code>
-exec(Exec::<a href="#type-scmi_exec">scmi_exec()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
+exec(Exec::<a href="#type-scmi_dexec">scmi_dexec()</a>) -&gt; <a href="#type-scmi_exp">scmi_exp()</a>
 </code></pre>
 
 <br></br>
@@ -117,7 +117,7 @@ exec(Exec::<a href="#type-scmi_exec">scmi_exec()</a>) -&gt; <a href="#type-scm_a
 
 
 <pre><code>
-exec(Exec::<a href="#type-scmi_exec">scmi_exec()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
+exec(Exec::<a href="#type-scmi_dexec">scmi_dexec()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>) -&gt; <a href="#type-scmi_exp">scmi_exp()</a>
 </code></pre>
 
 <br></br>
@@ -130,7 +130,7 @@ exec(Exec::<a href="#type-scmi_exec">scmi_exec()</a>, Env::<a href="#type-scmi_e
 
 
 <pre><code>
-exec(Exec::<a href="#type-scmi_exec">scmi_exec()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
+exec(Exec::<a href="#type-scmi_dexec">scmi_dexec()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>) -&gt; <a href="#type-scmi_exp">scmi_exp()</a>
 </code></pre>
 
 <br></br>
@@ -143,7 +143,7 @@ exec(Exec::<a href="#type-scmi_exec">scmi_exec()</a>, Env::<a href="#type-scmi_e
 
 
 <pre><code>
-exec(Exec::<a href="#type-scmi_exec">scmi_exec()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
+exec(Exec::<a href="#type-scmi_dexec">scmi_dexec()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scmi_exp">scmi_exp()</a>
 </code></pre>
 
 <br></br>

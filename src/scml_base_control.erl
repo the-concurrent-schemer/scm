@@ -50,7 +50,7 @@
 %%% Types/Specs/Records
 %%%===================================================================
 
--type winder()  :: {Env::scmi_env(), Before::scm_thunk(), After::scm_thunk()}.
+-type winder()  :: {Env::scmi_denv(), Before::scm_thunk(), After::scm_thunk()}.
 -type winders() :: [winder()] | undefined.
 
 %%%===================================================================
@@ -109,7 +109,7 @@
 
 %% @doc Calls +Proc+ with the elements of the list +(append (list arg1
 %% ...) args)+ as the actual arguments.
--spec 'apply'([scm_any(),...], scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_any().
+-spec 'apply'([scm_any(),...], scmi_denv(), scmi_dok(), scmi_dng()) -> scm_any().
 'apply'([Proc|[Args|Arg]], Env, Ok, Ng) when is_list(Args), not is_list(Arg) ->
     apply(Proc, Args ++ [Arg], Env, Ok, Ng);
 'apply'([Proc|Args], Env, Ok, Ng) when is_list(Args) ->
@@ -120,17 +120,17 @@
 %% given and not all lists have the same length, map terminates when
 %% the shortest list runs out.  The dynamic order in which proc is
 %% applied to the elements of the lists is unspecified.
--spec 'map'([scm_any(),...], scmi_env(), scmi_ccok(), scmi_ccng()) -> [scm_any()].
+-spec 'map'([scm_any(),...], scmi_denv(), scmi_dok(), scmi_dng()) -> [scm_any()].
 'map'([Proc|Args], Env, Ok, Ng) ->
     do_map(Proc, Args, Env, Ok, Ng).
 
 %% @equiv 'map'([Proc|Args])
--spec 'string-map'([scm_any(),...], scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_string().
+-spec 'string-map'([scm_any(),...], scmi_denv(), scmi_dok(), scmi_dng()) -> scm_string().
 'string-map'([Proc|Args], Env, Ok, Ng) ->
     do_smap(Proc, Args, Env, Ok, Ng).
 
 %% @equiv 'map'([Proc|Args])
--spec 'vector-map'([scm_any(),...], scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_vector().
+-spec 'vector-map'([scm_any(),...], scmi_denv(), scmi_dok(), scmi_dng()) -> scm_vector().
 'vector-map'([Proc|Args], Env, Ok, Ng) ->
     do_vmap(Proc, Args, Env, Ok, Ng).
 
@@ -140,17 +140,17 @@
 %% elements of the lists in order from the first element(s) to the
 %% last. If more than one list is given and not all lists have the
 %% same length, for-each terminates when the shortest list runs out.
--spec 'for-each'([scm_any(),...], scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_false().
+-spec 'for-each'([scm_any(),...], scmi_denv(), scmi_dok(), scmi_dng()) -> scm_false().
 'for-each'([Proc|Args], Env, Ok, Ng) ->
     do_foreach(Proc, Args, Env, Ok, Ng).
 
 %% @equiv 'for-each'([Proc|Args])
--spec 'string-for-each'([scm_any(),...], scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_false().
+-spec 'string-for-each'([scm_any(),...], scmi_denv(), scmi_dok(), scmi_dng()) -> scm_false().
 'string-for-each'([Proc|Args], Env, Ok, Ng) ->
     do_sforeach(Proc, Args, Env, Ok, Ng).
 
 %% @equiv 'for-each'([Proc|Args])
--spec 'vector-for-each'([scm_any(),...], scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_false().
+-spec 'vector-for-each'([scm_any(),...], scmi_denv(), scmi_dok(), scmi_dng()) -> scm_false().
 'vector-for-each'([Proc|Args], Env, Ok, Ng) ->
     do_vforeach(Proc, Args, Env, Ok, Ng).
 
@@ -162,7 +162,7 @@
 %% created. Calling the escape procedure will cause the invocation of
 %% before and after thunks installed using +dynamic-wind+.
 %% @equiv 'call-with-current-continuation(Proc)'
--spec 'call/cc'(scm_proc(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_any().
+-spec 'call/cc'(scm_proc(), scmi_denv(), scmi_dok(), scmi_dng()) -> scm_any().
 'call/cc'(Proc, Env, Ok, Ng) ->
     Ws = get_winders(),
     Escape = fun(Exp, _Env, _Ok, _Ng) ->
@@ -171,7 +171,7 @@
     apply(Proc, [#xnipn{val=Escape}], Env, Ok, Ng).
 
 %% @doc Delivers all of its arguments to its continuation.
--spec 'values'([scm_any(),...], scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_any().
+-spec 'values'([scm_any(),...], scmi_denv(), scmi_dok(), scmi_dng()) -> scm_any().
 'values'(Args, _Env, Ok, Ng) ->
     Ok(Args, Ng).
 
@@ -179,7 +179,7 @@
 %% that, when passed some values, calls the consumer procedure with
 %% those values as arguments. The continuation for the call to
 %% consumer is the continuation of the call to +call-with-values+.
--spec 'call-with-values'(scm_thunk(), scm_proc(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_any().
+-spec 'call-with-values'(scm_thunk(), scm_proc(), scmi_denv(), scmi_dok(), scmi_dng()) -> scm_any().
 'call-with-values'(Producer, Consumer, Env, Ok, Ng) ->
     POk = fun(Val, _Ng) ->
                   apply(Consumer, Val, Env, Ok, Ng)
@@ -211,7 +211,7 @@
 %%    +Before+ will be called before control is returned to the place
 %%    of initial escape in the +Thunk+, and finally the +After+ is
 %%    called.
--spec 'dynamic-wind'(scm_thunk(), scm_thunk(), scm_thunk(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_any().
+-spec 'dynamic-wind'(scm_thunk(), scm_thunk(), scm_thunk(), scmi_denv(), scmi_dok(), scmi_dng()) -> scm_any().
 'dynamic-wind'(Before, Thunk, After, Env, Ok, Ng) ->
     %% before
     C = fun(_, Env1, Ok1, Ng1) ->
@@ -384,7 +384,7 @@ do_vforeachN(Proc, Strs, Env, Ok, Ng) ->
     ArgsL = [ scml_base_vector:'vector->list'(Str) || Str <- Strs ],
     do_foreachN(Proc, ArgsL, Env, Ok, Ng).
 
--spec do_wind(winders(), scm_any(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_any().
+-spec do_wind(winders(), scm_any(), scmi_denv(), scmi_dok(), scmi_dng()) -> scm_any().
 do_wind(New, Reply, Env, Ok, Ng) ->
     case get_winders() of
         New ->
@@ -411,7 +411,7 @@ do_wind(New, Reply, Env, Ok, Ng) ->
     end,
     do_wind(As,Bs, Reply, Env, Ok, Ng).
 
--spec do_wind(winders(), winders(), scm_any(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_any().
+-spec do_wind(winders(), winders(), scm_any(), scmi_denv(), scmi_dok(), scmi_dng()) -> scm_any().
 do_wind([], [], Reply, Env, Ok, Ng) ->
     %% return reply to continuation
     'values'(Reply, Env, Ok, Ng);

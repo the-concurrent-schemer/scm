@@ -97,96 +97,96 @@
 %%% API
 %%%----------------------------------------------------------------------
 
--spec analyze_cond(scm_any(), scmi_ana()) -> scmi_exec().
-analyze_cond(Exp, Ana) ->
-    analyze(from_cond(Exp), Ana).
+-spec analyze_cond(scm_any(), scmi_senv()) -> scmi_dexec().
+analyze_cond(Exp, SEnv) ->
+    analyze(from_cond(Exp), SEnv).
 
--spec analyze_case(scm_any(), scmi_ana()) -> scmi_exec().
-analyze_case(Exp, Ana) ->
-    analyze(from_case(Exp), Ana).
+-spec analyze_case(scm_any(), scmi_senv()) -> scmi_dexec().
+analyze_case(Exp, SEnv) ->
+    analyze(from_case(Exp), SEnv).
 
--spec analyze_and(scm_any(), scmi_ana()) -> scmi_exec().
-analyze_and(Exp, Ana) ->
-    analyze(from_and(Exp), Ana).
+-spec analyze_and(scm_any(), scmi_senv()) -> scmi_dexec().
+analyze_and(Exp, SEnv) ->
+    analyze(from_and(Exp), SEnv).
 
--spec analyze_or(scm_any(), scmi_ana()) -> scmi_exec().
-analyze_or(Exp, Ana) ->
-    analyze(from_or(Exp), Ana).
+-spec analyze_or(scm_any(), scmi_senv()) -> scmi_dexec().
+analyze_or(Exp, SEnv) ->
+    analyze(from_or(Exp), SEnv).
 
--spec analyze_when(scm_any(), scmi_ana()) -> scmi_exec().
-analyze_when(Exp, Ana) ->
-    analyze(from_when(Exp), Ana).
+-spec analyze_when(scm_any(), scmi_senv()) -> scmi_dexec().
+analyze_when(Exp, SEnv) ->
+    analyze(from_when(Exp), SEnv).
 
--spec analyze_unless(scm_any(), scmi_ana()) -> scmi_exec().
-analyze_unless(Exp, Ana) ->
-    analyze(from_unless(Exp), Ana).
+-spec analyze_unless(scm_any(), scmi_senv()) -> scmi_dexec().
+analyze_unless(Exp, SEnv) ->
+    analyze(from_unless(Exp), SEnv).
 
--spec analyze_cond_expand(scm_any(), scmi_ana()) -> scmi_exec().
-analyze_cond_expand(Exp, Ana) ->
-    analyze(from_cond_expand(Exp), Ana).
+-spec analyze_cond_expand(scm_any(), scmi_senv()) -> scmi_dexec().
+analyze_cond_expand(Exp, SEnv) ->
+    analyze(from_cond_expand(Exp), SEnv).
 
--spec analyze_let(scm_any(), scmi_ana()) -> scmi_exec().
-analyze_let(Exp, Ana) ->
-    analyze(from_let(Exp), Ana).
+-spec analyze_let(scm_any(), scmi_senv()) -> scmi_dexec().
+analyze_let(Exp, SEnv) ->
+    analyze(from_let(Exp), SEnv).
 
--spec analyze_lets(scm_any(), scmi_ana()) -> scmi_exec().
-analyze_lets(Exp, Ana) ->
-    analyze(from_lets(Exp), Ana).
+-spec analyze_lets(scm_any(), scmi_senv()) -> scmi_dexec().
+analyze_lets(Exp, SEnv) ->
+    analyze(from_lets(Exp), SEnv).
 
--spec analyze_letrec(scm_any(), scmi_ana()) -> scmi_exec().
-analyze_letrec(Exp, Ana) ->
-    analyze(from_letrec(Exp), Ana).
+-spec analyze_letrec(scm_any(), scmi_senv()) -> scmi_dexec().
+analyze_letrec(Exp, SEnv) ->
+    analyze(from_letrec(Exp), SEnv).
 
--spec analyze_letrecs(scm_any(), scmi_ana()) -> scmi_exec().
-analyze_letrecs(Exp, Ana) ->
-    analyze(from_letrecs(Exp), Ana).
+-spec analyze_letrecs(scm_any(), scmi_senv()) -> scmi_dexec().
+analyze_letrecs(Exp, SEnv) ->
+    analyze(from_letrecs(Exp), SEnv).
 
--spec analyze_let_values(scm_any(), scmi_ana()) -> scmi_exec().
-analyze_let_values(Exp, Ana) ->
-    analyze(from_let_values(Exp), Ana).
+-spec analyze_let_values(scm_any(), scmi_senv()) -> scmi_dexec().
+analyze_let_values(Exp, SEnv) ->
+    analyze(from_let_values(Exp), SEnv).
 
--spec analyze_lets_values(scm_any(), scmi_ana()) -> scmi_exec().
-analyze_lets_values(Exp, Ana) ->
-    analyze(from_lets_values(Exp), Ana).
+-spec analyze_lets_values(scm_any(), scmi_senv()) -> scmi_dexec().
+analyze_lets_values(Exp, SEnv) ->
+    analyze(from_lets_values(Exp), SEnv).
 
--spec analyze_letrec_values(scm_any(), scmi_ana()) -> scmi_exec().
-analyze_letrec_values(Exp, Ana) ->
-    analyze(from_letrec_values(Exp), Ana).
+-spec analyze_letrec_values(scm_any(), scmi_senv()) -> scmi_dexec().
+analyze_letrec_values(Exp, SEnv) ->
+    analyze(from_letrec_values(Exp), SEnv).
 
--spec analyze_begin(scm_any(), scmi_ana()) -> scmi_exec().
-analyze_begin(Exp, Ana) ->
-    analyze_sequence(Exp, Ana).
+-spec analyze_begin(scm_any(), scmi_senv()) -> scmi_dexec().
+analyze_begin(Exp, SEnv) ->
+    analyze_sequence(Exp, SEnv).
 
--spec analyze_do(scm_any(), scmi_ana()) -> scmi_exec().
-analyze_do(Exp, Ana) ->
-    analyze(from_do(Exp), Ana).
+-spec analyze_do(scm_any(), scmi_senv()) -> scmi_dexec().
+analyze_do(Exp, SEnv) ->
+    analyze(from_do(Exp), SEnv).
 
--spec analyze_make_parameter(scm_any(), scmi_ana()) -> scmi_exec().
-analyze_make_parameter(Exp, Ana) ->
-    analyze(from_make_parameter(Exp), Ana).
+-spec analyze_make_parameter(scm_any(), scmi_senv()) -> scmi_dexec().
+analyze_make_parameter(Exp, SEnv) ->
+    analyze(from_make_parameter(Exp), SEnv).
 
--spec analyze_parameterize(scm_any(), scmi_ana()) -> scmi_exec().
-analyze_parameterize(Exp, Ana) ->
-    analyze(from_parameterize(Exp), Ana).
+-spec analyze_parameterize(scm_any(), scmi_senv()) -> scmi_dexec().
+analyze_parameterize(Exp, SEnv) ->
+    analyze(from_parameterize(Exp), SEnv).
 
--spec analyze_guard(scm_any(), scmi_ana()) -> scmi_exec().
-analyze_guard(Exp, Ana) ->
-    analyze(from_guard(Exp), Ana).
+-spec analyze_guard(scm_any(), scmi_senv()) -> scmi_dexec().
+analyze_guard(Exp, SEnv) ->
+    analyze(from_guard(Exp), SEnv).
 
--spec analyze_quasiquote(scm_any(), scmi_ana()) -> scmi_exec().
-analyze_quasiquote(Exp, Ana) ->
+-spec analyze_quasiquote(scm_any(), scmi_senv()) -> scmi_dexec().
+analyze_quasiquote(Exp, SEnv) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Exp, Ana]).
+    erlang:error({roadmap,'v0.5.0'}, [Exp, SEnv]).
 
--spec analyze_unquote(scm_any(), scmi_ana()) -> scmi_exec().
-analyze_unquote(Exp, Ana) ->
+-spec analyze_unquote(scm_any(), scmi_senv()) -> scmi_dexec().
+analyze_unquote(Exp, SEnv) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Exp, Ana]).
+    erlang:error({roadmap,'v0.5.0'}, [Exp, SEnv]).
 
--spec analyze_unquote_splicing(scm_any(), scmi_ana()) -> scmi_exec().
-analyze_unquote_splicing(Exp, Ana) ->
+-spec analyze_unquote_splicing(scm_any(), scmi_senv()) -> scmi_dexec().
+analyze_unquote_splicing(Exp, SEnv) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Exp, Ana]).
+    erlang:error({roadmap,'v0.5.0'}, [Exp, SEnv]).
 
 -spec scan_out_internal_definitions([scm_any(),...]) -> [scm_any()].
 scan_out_internal_definitions(Body) ->

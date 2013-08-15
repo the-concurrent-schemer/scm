@@ -154,7 +154,7 @@
 %% the port is closed and the values yielded by the proc are returned.
 %% Otherwise, the port is automatically closed when there are no
 %% longer any references to the port.
--spec 'call-with-port'(scm_port(), scm_proc(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_obj().
+-spec 'call-with-port'(scm_port(), scm_proc(), scmi_denv(), scmi_dok(), scmi_dng()) -> scm_obj().
 'call-with-port'(Port, Proc, Env, Ok, Ng) ->
     POk = fun(Val, PNg) ->
                   _ = 'close-port'(Port),

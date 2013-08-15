@@ -73,16 +73,16 @@
 %% environment used for the invocation of +Thunk+.  It is an error if
 %% +Handler+ does not accept one argument.  It is also an error if
 %% +Thunk+ does not accept zero arguments.
--spec 'with-exception-handler'(scm_proc(), scm_thunk(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_obj().
+-spec 'with-exception-handler'(scm_proc(), scm_thunk(), scmi_denv(), scmi_dok(), scmi_dng()) -> scm_obj().
 'with-exception-handler'(Handler, Thunk, Env, Ok, Ng) ->
-    Ng1 = fun(#cexception{val=[#signal{obj=Obj1, ccok=OkC, ccng=NgC}|_]}) ->
+    Ng1 = fun(#cexception{val=[#signal{obj=Obj1, ok=OkC, ng=NgC}|_]}) ->
                   Ok1 = fun(Obj2, _Ng2) ->
                                 OkC(Obj2, NgC)
                         end,
                   apply(Handler, [Obj1], Env, Ok1, Ng);
              (#exception{val=[#signal{obj=Obj1}|_]=Signals}=Error) ->
                   Ok1 = fun(Obj2, Ng2) ->
-                                Signal = #signal{obj=Obj2, env=Env, ccok=Ok, ccng=Ng},
+                                Signal = #signal{obj=Obj2, env=Env, ok=Ok, ng=Ng},
                                 Ng2(Error#exception{val=[Signal|Signals]})
                         end,
                   apply(Handler, [Obj1], Env, Ok1, Ng)
@@ -95,9 +95,9 @@
 %% handler is the one that was in place when the handler being called
 %% was installed.  If the handler returns, a secondary exception is
 %% raised in the same dynamic environment as the handler.
--spec 'raise'(scm_obj(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_obj().
+-spec 'raise'(scm_obj(), scmi_denv(), scmi_dok(), scmi_dng()) -> scm_obj().
 'raise'(Obj, Env, Ok, Ng) ->
-    Signal = #signal{obj=Obj, env=Env, ccok=Ok, ccng=Ng},
+    Signal = #signal{obj=Obj, env=Env, ok=Ok, ng=Ng},
     Ng(#exception{val=[Signal]}).
 
 %% @doc Raises an exception by invoking the current exception handler
@@ -108,9 +108,9 @@
 %% returns, then it will again become the current exception handler.
 %% If the handler returns, the values it returns become the values
 %% returned by the call to +raise-continuable+.
--spec 'raise-continuable'(scm_obj(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_obj().
+-spec 'raise-continuable'(scm_obj(), scmi_denv(), scmi_dok(), scmi_dng()) -> scm_obj().
 'raise-continuable'(Obj, Env, Ok, Ng) ->
-    Signal = #signal{obj=Obj, env=Env, ccok=Ok, ccng=Ng},
+    Signal = #signal{obj=Obj, env=Env, ok=Ok, ng=Ng},
     Ng(#cexception{val=[Signal]}).
 
 %% @doc Raises an exception as if by calling +raise+ on a newly
@@ -118,7 +118,7 @@
 %% information provided by +Message+, as well as any objects, known as
 %% the +Irritants+. The procedure +error-object?+ must return #t on
 %% such objects.
--spec 'error'([scm_obj(),...], scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_obj().
+-spec 'error'([scm_obj(),...], scmi_denv(), scmi_dok(), scmi_dng()) -> scm_obj().
 'error'([_Message|Irritants]=Obj, Env, Ok, Ng) when is_list(Irritants) ->
     'raise'(#error_user{val=Obj}, Env, Ok, Ng).
 

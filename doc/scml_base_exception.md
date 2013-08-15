@@ -124,7 +124,7 @@ inability to open an input or output port on a file.</p>
 
 
 <pre><code>
-'raise-continuable'(Obj::<a href="#type-scm_obj">scm_obj()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
+'raise-continuable'(Obj::<a href="#type-scm_obj">scm_obj()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
 
 <br></br>
@@ -160,7 +160,7 @@ returned by the call to <code>raise-continuable</code>.</p>
 
 
 <pre><code>
-'with-exception-handler'(Handler::<a href="#type-scm_proc">scm_proc()</a>, Thunk::<a href="#type-scm_thunk">scm_thunk()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
+'with-exception-handler'(Handler::<a href="#type-scm_proc">scm_proc()</a>, Thunk::<a href="#type-scm_thunk">scm_thunk()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
 
 <br></br>
@@ -178,7 +178,7 @@ environment used for the invocation of <code>Thunk</code>.  It is an error if
 
 
 <pre><code>
-error(Irritants::[<a href="#type-scm_obj">scm_obj()</a>, ...], Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
+error(Irritants::[<a href="#type-scm_obj">scm_obj()</a>, ...], Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
 
 <br></br>
@@ -196,7 +196,7 @@ such objects.</p>
 
 
 <pre><code>
-raise(Obj::<a href="#type-scm_obj">scm_obj()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
+raise(Obj::<a href="#type-scm_obj">scm_obj()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
 
 <br></br>

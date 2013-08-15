@@ -39,7 +39,7 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 
 <pre><code>
-'call-with-current-continuation'(Proc::<a href="#type-scm_proc">scm_proc()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
+'call-with-current-continuation'(Proc::<a href="#type-scm_proc">scm_proc()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
 </code></pre>
 
 <br></br>
@@ -78,7 +78,7 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 
 <pre><code>
-'null-environment'(K::<a href="#type-scm_k">scm_k()</a>) -&gt; <a href="#type-scmi_env">scmi_env()</a>
+'null-environment'(K::<a href="#type-scm_k">scm_k()</a>) -&gt; <a href="#type-scmi_denv">scmi_denv()</a>
 </code></pre>
 
 <br></br>
@@ -91,7 +91,7 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 
 <pre><code>
-'scheme-report-environment'(K::<a href="#type-scm_k">scm_k()</a>) -&gt; <a href="#type-scmi_env">scmi_env()</a>
+'scheme-report-environment'(K::<a href="#type-scm_k">scm_k()</a>) -&gt; <a href="#type-scmi_denv">scmi_denv()</a>
 </code></pre>
 
 <br></br>

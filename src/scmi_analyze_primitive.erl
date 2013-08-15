@@ -71,36 +71,36 @@
 %%% API
 %%%----------------------------------------------------------------------
 
-analyze_quote([Exp], _Ana) ->
+analyze_quote([Exp], _SEnv) ->
     fun(_Env, Ok, Ng) -> Ok(Exp, Ng) end.
 
-analyze_lambda([[]|Body], Ana) ->
-    Exec = analyze_sequence(scan_out_internal_definitions(Body), Ana),
+analyze_lambda([[]|Body], SEnv) ->
+    Exec = analyze_sequence(scan_out_internal_definitions(Body), SEnv),
     Src = fun() -> Body end,
     fun(Env, Ok, Ng) -> Ok(#lip0{val=#l0{body=Exec, env=Env, src=Src}}, Ng) end;
-analyze_lambda([Variable|Body], Ana) when not is_list(Variable) ->
+analyze_lambda([Variable|Body], SEnv) when not is_list(Variable) ->
     validate_variable(Variable),
-    Exec = analyze_sequence(scan_out_internal_definitions(Body), Ana),
+    Exec = analyze_sequence(scan_out_internal_definitions(Body), SEnv),
     Src = fun() -> Body end,
     fun(Env, Ok, Ng) -> Ok(#lipv{val=#lv{param=Variable, body=Exec, env=Env, src=Src}}, Ng) end;
-analyze_lambda([[Variables|Variable]=Vs|Body], Ana) when not is_list(Variable) ->
+analyze_lambda([[Variables|Variable]=Vs|Body], SEnv) when not is_list(Variable) ->
     validate_variables(Vs),
     AllVariables = Variables ++ [Variable],
-    Exec = analyze_sequence(scan_out_internal_definitions(Body), Ana),
+    Exec = analyze_sequence(scan_out_internal_definitions(Body), SEnv),
     Src = fun() -> Body end,
     fun(Env, Ok, Ng) -> Ok(#lipnv{val=#lnv{n=length(Variables), params=AllVariables, body=Exec, env=Env, src=Src}}, Ng) end;
-analyze_lambda([Variables|Body], Ana) when is_list(Variables) ->
+analyze_lambda([Variables|Body], SEnv) when is_list(Variables) ->
     validate_variables(Variables),
-    Exec = analyze_sequence(scan_out_internal_definitions(Body), Ana),
+    Exec = analyze_sequence(scan_out_internal_definitions(Body), SEnv),
     Src = fun() -> Body end,
     fun(Env, Ok, Ng) -> Ok(#lipn{val=#ln{params=Variables, body=Exec, env=Env, src=Src}}, Ng) end.
 
-analyze_sequence(Exps, Ana) ->
-    sequentially([ analyze(Exp, Ana) || Exp <- Exps ]).
+analyze_sequence(Exps, SEnv) ->
+    sequentially([ analyze(Exp, SEnv) || Exp <- Exps ]).
 
-analyze_application([Operator|Operands], Ana) when is_list(Operands) ->
-    FExec = analyze(Operator, Ana),
-    AExecs = [ analyze(Operand, Ana) || Operand <- Operands ],
+analyze_application([Operator|Operands], SEnv) when is_list(Operands) ->
+    FExec = analyze(Operator, SEnv),
+    AExecs = [ analyze(Operand, SEnv) || Operand <- Operands ],
     fun(Env, Ok, Ng) ->
             FExec(Env,
                   fun(Proc, Ng1) ->
@@ -110,8 +110,8 @@ analyze_application([Operator|Operands], Ana) when is_list(Operands) ->
                   end,
                   Ng)
     end;
-analyze_application(Exp, Ana) ->
-    erlang:error(badarg, [Exp, Ana]).
+analyze_application(Exp, SEnv) ->
+    erlang:error(badarg, [Exp, SEnv]).
 
 apply(#nip0{val=Fun}, [], _Env, Ok, Ng) ->
     Ok(apply_nip0(Fun), Ng);
@@ -140,10 +140,10 @@ apply(#lipnv{val=Proc}, Args, _Env, Ok, Ng) ->
 apply(Proc, Args, Env, Ok, Ng) ->
     erlang:error(badarg, [Proc, Args, Env, Ok, Ng]).
 
-analyze_if([Test, Consequent, Alternate], Ana) ->
-    TExec = analyze(Test, Ana),
-    CExec = analyze(Consequent, Ana),
-    AExec = analyze(Alternate, Ana),
+analyze_if([Test, Consequent, Alternate], SEnv) ->
+    TExec = analyze(Test, SEnv),
+    CExec = analyze(Consequent, SEnv),
+    AExec = analyze(Alternate, SEnv),
     fun(Env, Ok, Ng) ->
             %% execute test
             TExec(Env,
@@ -156,12 +156,12 @@ analyze_if([Test, Consequent, Alternate], Ana) ->
                   end,
                   Ng)
     end;
-analyze_if([Test, Consequent], Ana) ->
-    analyze_if([Test, Consequent, ?FALSE], Ana).
+analyze_if([Test, Consequent], SEnv) ->
+    analyze_if([Test, Consequent, ?FALSE], SEnv).
 
-analyze_assignment([Variable, Exp], Ana) ->
+analyze_assignment([Variable, Exp], SEnv) ->
     validate_variable(Variable),
-    Exec = analyze(Exp, Ana),
+    Exec = analyze(Exp, SEnv),
     fun(Env, Ok, Ng) ->
             %% execute operands
             Exec(Env,
@@ -181,17 +181,17 @@ analyze_assignment([Variable, Exp], Ana) ->
                  Ng)
     end.
 
-analyze_include(Ss, Ana) ->
-    sequentially([ includer(include_pp(S), Ana) || S <- Ss ]).
+analyze_include(Ss, SEnv) ->
+    sequentially([ includer(include_pp(S), SEnv) || S <- Ss ]).
 
-analyze_include_ci(Exp, Ana) ->
-    erlang:error(unsupported, [Exp, Ana]).
+analyze_include_ci(Exp, SEnv) ->
+    erlang:error(unsupported, [Exp, SEnv]).
 
-analyze_include_lib(Ss, Ana) ->
-    sequentially([ includer_lib(include_pp(S), Ana) || S <- Ss ]).
+analyze_include_lib(Ss, SEnv) ->
+    sequentially([ includer_lib(include_pp(S), SEnv) || S <- Ss ]).
 
-analyze_include_lib_ci(Exp, Ana) ->
-    erlang:error(unsupported, [Exp, Ana]).
+analyze_include_lib_ci(Exp, SEnv) ->
+    erlang:error(unsupported, [Exp, SEnv]).
 
 %%%----------------------------------------------------------------------
 %%% Internal functions
@@ -288,60 +288,60 @@ include_pp(#string{val=Val}) when Val /= {} ->
 include_pp(Exp) ->
     erlang:error(badarg, [Exp]).
 
-includer(Name, Ana) ->
+includer(Name, SEnv) ->
     case filelib:is_regular(Name) of
         true ->
-            includer_analyze(Name, Ana);
+            includer_analyze(Name, SEnv);
         false ->
             case filename:pathtype(Name) of
                 absolute ->
-                    erlang:error(badarg, [Name, Ana]);
+                    erlang:error(badarg, [Name, SEnv]);
                 _ ->
-                    includer_path(Name, Ana)
+                    includer_path(Name, SEnv)
             end
     end.
 
-includer_path(Name, #ana{file=undefined, path=Path}=Ana) ->
-    includer_path(Path, Name, Ana);
-includer_path(Name, #ana{file=File, path=Path}=Ana) ->
+includer_path(Name, #senv{file=undefined, path=Path}=SEnv) ->
+    includer_path(Path, Name, SEnv);
+includer_path(Name, #senv{file=File, path=Path}=SEnv) ->
     DirName = filename:dirname(File),
-    includer_path([DirName|Path], Name, Ana).
+    includer_path([DirName|Path], Name, SEnv).
 
-includer_path([], Name, Ana) ->
-    erlang:error(badarg, [[], Name, Ana]);
-includer_path([H|T], Name, Ana) ->
+includer_path([], Name, SEnv) ->
+    erlang:error(badarg, [[], Name, SEnv]);
+includer_path([H|T], Name, SEnv) ->
     Path = filename:join(H, Name),
     case filelib:is_regular(Path) of
         true ->
-            includer_analyze(Path, Ana);
+            includer_analyze(Path, SEnv);
         false ->
-            includer_path(T, Name, Ana)
+            includer_path(T, Name, SEnv)
     end.
 
-includer_lib(Name, Ana) ->
+includer_lib(Name, SEnv) ->
     case filename:pathtype(Name) of
         absolute ->
-            erlang:error(badarg, [Name, Ana]);
+            erlang:error(badarg, [Name, SEnv]);
         _ ->
             [AppName|Rest] = filename:split(Name),
             case code:lib_dir(list_to_atom(AppName)) of
                 {error, bad_name} ->
-                    erlang:error(badarg, [Name, Ana]);
+                    erlang:error(badarg, [Name, SEnv]);
                 DirName ->
                     Path = filename:join(DirName, Rest),
                     case filelib:is_regular(Path) of
                         true ->
-                            includer_analyze(Path, Ana);
+                            includer_analyze(Path, SEnv);
                         false ->
-                            erlang:error(badarg, [Name, Ana])
+                            erlang:error(badarg, [Name, SEnv])
                     end
             end
     end.
 
-includer_analyze(Name, Ana) ->
+includer_analyze(Name, SEnv) ->
     case scmd_parse:file(Name) of
         {ok, Exp} ->
-            analyze(Exp, Ana#ana{file=Name});
+            analyze(Exp, SEnv#senv{file=Name});
         {error, Reason} ->
-            erlang:error(Reason, [Name, Ana])
+            erlang:error(Reason, [Name, SEnv])
     end.

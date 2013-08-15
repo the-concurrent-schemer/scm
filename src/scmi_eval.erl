@@ -34,8 +34,8 @@
          , exec/2
          , exec/3
          , exec/4
-         , default_ccok/2
-         , default_ccng/1
+         , default_ok/2
+         , default_ng/1
         ]).
 
 -include("scmi.hrl").
@@ -48,44 +48,44 @@
 %%% API
 %%%----------------------------------------------------------------------
 
--spec eval(scm_any()) -> scm_any().
+-spec eval(scmi_exp()) -> scmi_exp().
 eval(Exp) ->
     exec(scmi_analyze:analyze(Exp)).
 
--spec eval(scm_any(), scmi_env()) -> scm_any().
+-spec eval(scmi_exp(), scmi_denv()) -> scmi_exp().
 eval(Exp, Env) ->
     exec(scmi_analyze:analyze(Exp), Env).
 
--spec eval(scm_any(), scmi_env(), scmi_ccok()) -> scm_any().
+-spec eval(scmi_exp(), scmi_denv(), scmi_dok()) -> scmi_exp().
 eval(Exp, Env, Ok) ->
     exec(scmi_analyze:analyze(Exp), Env, Ok).
 
--spec eval(scm_any(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_any().
+-spec eval(scmi_exp(), scmi_denv(), scmi_dok(), scmi_dng()) -> scmi_exp().
 eval(Exp, Env, Ok, Ng) ->
     exec(scmi_analyze:analyze(Exp), Env, Ok, Ng).
 
--spec exec(scmi_exec()) -> scm_any().
+-spec exec(scmi_dexec()) -> scmi_exp().
 exec(Exec) ->
     exec(Exec, scmi_env:the_empty()).
 
--spec exec(scmi_exec(), scmi_env()) -> scm_any().
+-spec exec(scmi_dexec(), scmi_denv()) -> scmi_exp().
 exec(Exec, Env) ->
-    exec(Exec, Env, fun default_ccok/2).
+    exec(Exec, Env, fun default_ok/2).
 
--spec exec(scmi_exec(), scmi_env(), scmi_ccok()) -> scm_any().
+-spec exec(scmi_dexec(), scmi_denv(), scmi_dok()) -> scmi_exp().
 exec(Exec, Env, Ok) ->
-    exec(Exec, Env, Ok, fun default_ccng/1).
+    exec(Exec, Env, Ok, fun default_ng/1).
 
--spec exec(scmi_exec(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_any().
+-spec exec(scmi_dexec(), scmi_denv(), scmi_dok(), scmi_dng()) -> scmi_exp().
 exec(Exec, Env, Ok, Ng) ->
     Exec(Env, Ok, Ng).
 
--spec default_ccok(scm_any(), scmi_ccng()) -> scm_any().
-default_ccok(Value, _Ng) ->
+-spec default_ok(scmi_exp(), scmi_dng()) -> scmi_exp().
+default_ok(Value, _Ng) ->
     Value.
 
--spec default_ccng(scm_any()) -> scm_any().
-default_ccng(Error) ->
+-spec default_ng(scmi_exp()) -> no_return().
+default_ng(Error) ->
     erlang:error(scm_exception, [Error]).
 
 %%%----------------------------------------------------------------------

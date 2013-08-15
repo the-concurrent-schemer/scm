@@ -52,7 +52,7 @@ load(S::<a href="#type-scm_string">scm_string()</a>) -&gt; <a href="#type-scm_fa
 
 
 <pre><code>
-load(S::<a href="#type-scm_string">scm_string()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
+load(S::<a href="#type-scm_string">scm_string()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
 
 <br></br>

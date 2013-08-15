@@ -120,7 +120,7 @@ left-right order to the textual output port.</p>.</td></tr><tr><td valign="top">
 
 
 <pre><code>
-'call-with-port'(Port::<a href="#type-scm_port">scm_port()</a>, Proc::<a href="#type-scm_proc">scm_proc()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
+'call-with-port'(Port::<a href="#type-scm_port">scm_port()</a>, Proc::<a href="#type-scm_proc">scm_proc()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
 
 <br></br>

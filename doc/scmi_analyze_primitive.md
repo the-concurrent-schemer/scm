@@ -37,70 +37,70 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 ### analyze_application/2 ###
 
-`analyze_application(Operands, Ana) -> any()`
+`analyze_application(Operands, SEnv) -> any()`
 
 
 <a name="analyze_assignment-2"></a>
 
 ### analyze_assignment/2 ###
 
-`analyze_assignment(X1, Ana) -> any()`
+`analyze_assignment(X1, SEnv) -> any()`
 
 
 <a name="analyze_if-2"></a>
 
 ### analyze_if/2 ###
 
-`analyze_if(X1, Ana) -> any()`
+`analyze_if(X1, SEnv) -> any()`
 
 
 <a name="analyze_include-2"></a>
 
 ### analyze_include/2 ###
 
-`analyze_include(Ss, Ana) -> any()`
+`analyze_include(Ss, SEnv) -> any()`
 
 
 <a name="analyze_include_ci-2"></a>
 
 ### analyze_include_ci/2 ###
 
-`analyze_include_ci(Exp, Ana) -> any()`
+`analyze_include_ci(Exp, SEnv) -> any()`
 
 
 <a name="analyze_include_lib-2"></a>
 
 ### analyze_include_lib/2 ###
 
-`analyze_include_lib(Ss, Ana) -> any()`
+`analyze_include_lib(Ss, SEnv) -> any()`
 
 
 <a name="analyze_include_lib_ci-2"></a>
 
 ### analyze_include_lib_ci/2 ###
 
-`analyze_include_lib_ci(Exp, Ana) -> any()`
+`analyze_include_lib_ci(Exp, SEnv) -> any()`
 
 
 <a name="analyze_lambda-2"></a>
 
 ### analyze_lambda/2 ###
 
-`analyze_lambda(Body, Ana) -> any()`
+`analyze_lambda(Body, SEnv) -> any()`
 
 
 <a name="analyze_quote-2"></a>
 
 ### analyze_quote/2 ###
 
-`analyze_quote(X1, Ana) -> any()`
+`analyze_quote(X1, SEnv) -> any()`
 
 
 <a name="analyze_sequence-2"></a>
 
 ### analyze_sequence/2 ###
 
-`analyze_sequence(Exps, Ana) -> any()`
+`analyze_sequence(Exps, SEnv) -> any()`
 
 
 <a name="apply-5"></a>

@@ -39,7 +39,7 @@ __Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailt
 
 
 <pre><code>
-'interaction-environment'() -&gt; <a href="#type-scmi_env">scmi_env()</a>
+'interaction-environment'() -&gt; <a href="#type-scmi_denv">scmi_denv()</a>
 </code></pre>
 
 <br></br>

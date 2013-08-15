@@ -15,24 +15,12 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 
 
-### <a name="type-ana">ana()</a> ###
-
-
-
-<pre><code>
-ana() = <a href="scmi_analyze.md#type-ana">scmi_analyze:ana()</a>
-</code></pre>
-
-
-
-
-
 ### <a name="type-arg">arg()</a> ###
 
 
 
 <pre><code>
-arg() = <a href="#type-scm_any">scm_any()</a>
+arg() = <a href="#type-exp">exp()</a>
 </code></pre>
 
 
@@ -44,43 +32,55 @@ arg() = <a href="#type-scm_any">scm_any()</a>
 
 
 <pre><code>
-body() = <a href="#type-exec">exec()</a>
+body() = <a href="#type-dexec">dexec()</a>
 </code></pre>
 
 
 
 
 
-### <a name="type-ccng">ccng()</a> ###
+### <a name="type-denv">denv()</a> ###
 
 
 
 <pre><code>
-ccng() = fun((<a href="#type-val">val()</a>) -&gt; no_return())
+denv() = <a href="scmi_env.md#type-env">scmi_env:env()</a>
 </code></pre>
 
 
 
 
 
-### <a name="type-ccok">ccok()</a> ###
+### <a name="type-dexec">dexec()</a> ###
 
 
 
 <pre><code>
-ccok() = fun((<a href="#type-val">val()</a>, <a href="#type-ccng">ccng()</a>) -&gt; <a href="#type-val">val()</a>)
+dexec() = fun((<a href="#type-denv">denv()</a>, <a href="#type-dok">dok()</a>, <a href="#type-dng">dng()</a>) -&gt; <a href="#type-exp">exp()</a>)
 </code></pre>
 
 
 
 
 
-### <a name="type-env">env()</a> ###
+### <a name="type-dng">dng()</a> ###
 
 
 
 <pre><code>
-env() = <a href="scmi_env.md#type-env">scmi_env:env()</a>
+dng() = fun((<a href="#type-exp">exp()</a>) -&gt; no_return())
+</code></pre>
+
+
+
+
+
+### <a name="type-dok">dok()</a> ###
+
+
+
+<pre><code>
+dok() = fun((<a href="#type-exp">exp()</a>, <a href="#type-dng">dng()</a>) -&gt; <a href="#type-exp">exp()</a>)
 </code></pre>
 
 
@@ -122,7 +122,7 @@ error() = <a href="#type-error_user">error_user()</a> | <a href="#type-error_rea
 
 
 <pre><code>
-error_file() = #error_file{val = <a href="#type-scm_any">scm_any()</a>}
+error_file() = #error_file{val = <a href="#type-exp">exp()</a>}
 </code></pre>
 
 
@@ -134,7 +134,7 @@ error_file() = #error_file{val = <a href="#type-scm_any">scm_any()</a>}
 
 
 <pre><code>
-error_read() = #error_read{val = <a href="#type-scm_any">scm_any()</a>}
+error_read() = #error_read{val = <a href="#type-exp">exp()</a>}
 </code></pre>
 
 
@@ -146,7 +146,7 @@ error_read() = #error_read{val = <a href="#type-scm_any">scm_any()</a>}
 
 
 <pre><code>
-error_user() = #error_user{val = [<a href="#type-scm_any">scm_any()</a>, ...]}
+error_user() = #error_user{val = [<a href="#type-exp">exp()</a>, ...]}
 </code></pre>
 
 
@@ -165,12 +165,12 @@ exception() = #exception{val = [<a href="#type-signal">signal()</a>]} | #cexcept
 
 
 
-### <a name="type-exec">exec()</a> ###
+### <a name="type-exp">exp()</a> ###
 
 
 
 <pre><code>
-exec() = fun((<a href="#type-env">env()</a>, <a href="#type-ccok">ccok()</a>, <a href="#type-ccng">ccng()</a>) -&gt; <a href="#type-val">val()</a>)
+exp() = <a href="#type-scm_any">scm_any()</a>
 </code></pre>
 
 
@@ -194,7 +194,7 @@ f() = <a href="#type-f0">f0()</a> | <a href="#type-fn">fn()</a> | <a href="#type
 
 
 <pre><code>
-f0() = fun(() -&gt; <a href="#type-val">val()</a>)
+f0() = fun(() -&gt; <a href="#type-exp">exp()</a>)
 </code></pre>
 
 
@@ -206,14 +206,14 @@ f0() = fun(() -&gt; <a href="#type-val">val()</a>)
 
 
 <pre><code>
-fn() = fun((...) -&gt; <a href="#type-val">val()</a>)
+fn() = fun((...) -&gt; <a href="#type-exp">exp()</a>)
 </code></pre>
 
 
 
 
 
-<pre><code>fun((arg(),...) -> val()).</code></pre>
+<pre><code>fun((arg(),...) -> exp()).</code></pre>
 
 
 
@@ -224,14 +224,14 @@ fn() = fun((...) -&gt; <a href="#type-val">val()</a>)
 
 
 <pre><code>
-fnv() = fun((...) -&gt; <a href="#type-val">val()</a>)
+fnv() = fun((...) -&gt; <a href="#type-exp">exp()</a>)
 </code></pre>
 
 
 
 
 
-<pre><code>fun((arg(),...,vargs()) -> val()).</code></pre>
+<pre><code>fun((arg(),...,vargs()) -> exp()).</code></pre>
 
 
 
@@ -242,7 +242,7 @@ fnv() = fun((...) -&gt; <a href="#type-val">val()</a>)
 
 
 <pre><code>
-fv() = fun((<a href="#type-vargs">vargs()</a>) -&gt; <a href="#type-val">val()</a>)
+fv() = fun((<a href="#type-vargs">vargs()</a>) -&gt; <a href="#type-exp">exp()</a>)
 </code></pre>
 
 
@@ -278,7 +278,7 @@ l() = <a href="#type-l0">l0()</a> | <a href="#type-ln">ln()</a> | <a href="#type
 
 
 <pre><code>
-l0() = #l0{body = <a href="#type-body">body()</a>, env = <a href="#type-env">env()</a>, src = <a href="#type-src">src()</a>}
+l0() = #l0{body = <a href="#type-body">body()</a>, env = <a href="#type-denv">denv()</a>, src = <a href="#type-src">src()</a>}
 </code></pre>
 
 
@@ -350,7 +350,7 @@ lipv() = #lipv{val = <a href="#type-lv">lv()</a>}
 
 
 <pre><code>
-ln() = #ln{params = <a href="#type-params">params()</a>, body = <a href="#type-body">body()</a>, env = <a href="#type-env">env()</a>, src = <a href="#type-src">src()</a>}
+ln() = #ln{params = <a href="#type-params">params()</a>, body = <a href="#type-body">body()</a>, env = <a href="#type-denv">denv()</a>, src = <a href="#type-src">src()</a>}
 </code></pre>
 
 
@@ -362,7 +362,7 @@ ln() = #ln{params = <a href="#type-params">params()</a>, body = <a href="#type-b
 
 
 <pre><code>
-lnv() = #lnv{n = pos_integer(), params = <a href="#type-params">params()</a>, body = <a href="#type-body">body()</a>, env = <a href="#type-env">env()</a>, src = <a href="#type-src">src()</a>}
+lnv() = #lnv{n = pos_integer(), params = <a href="#type-params">params()</a>, body = <a href="#type-body">body()</a>, env = <a href="#type-denv">denv()</a>, src = <a href="#type-src">src()</a>}
 </code></pre>
 
 
@@ -374,7 +374,7 @@ lnv() = #lnv{n = pos_integer(), params = <a href="#type-params">params()</a>, bo
 
 
 <pre><code>
-lv() = #lv{param = <a href="#type-param">param()</a>, body = <a href="#type-body">body()</a>, env = <a href="#type-env">env()</a>, src = <a href="#type-src">src()</a>}
+lv() = #lv{param = <a href="#type-param">param()</a>, body = <a href="#type-body">body()</a>, env = <a href="#type-denv">denv()</a>, src = <a href="#type-src">src()</a>}
 </code></pre>
 
 
@@ -477,12 +477,36 @@ proc() = <a href="#type-nip">nip()</a> | <a href="#type-xnip">xnip()</a> | <a hr
 
 
 
+### <a name="type-senv">senv()</a> ###
+
+
+
+<pre><code>
+senv() = <a href="scmi_analyze.md#type-senv">scmi_analyze:senv()</a>
+</code></pre>
+
+
+
+
+
+### <a name="type-sexec">sexec()</a> ###
+
+
+
+<pre><code>
+sexec() = fun((<a href="#type-exp">exp()</a>, <a href="#type-senv">senv()</a>) -&gt; <a href="#type-dexec">dexec()</a>)
+</code></pre>
+
+
+
+
+
 ### <a name="type-signal">signal()</a> ###
 
 
 
 <pre><code>
-signal() = #signal{obj = <a href="#type-scm_any">scm_any()</a>, env = <a href="#type-env">env()</a>, ccok = <a href="#type-ccok">ccok()</a>, ccng = <a href="#type-ccng">ccng()</a>}
+signal() = #signal{obj = <a href="#type-exp">exp()</a>, env = <a href="#type-denv">denv()</a>, ok = <a href="#type-dok">dok()</a>, ng = <a href="#type-dng">dng()</a>}
 </code></pre>
 
 
@@ -494,7 +518,7 @@ signal() = #signal{obj = <a href="#type-scm_any">scm_any()</a>, env = <a href="#
 
 
 <pre><code>
-src() = fun(() -&gt; [<a href="#type-scm_any">scm_any()</a>])
+src() = fun(() -&gt; [<a href="#type-exp">exp()</a>])
 </code></pre>
 
 
@@ -506,7 +530,7 @@ src() = fun(() -&gt; [<a href="#type-scm_any">scm_any()</a>])
 
 
 <pre><code>
-sugar() = #sugar{val = fun((<a href="#type-scm_any">scm_any()</a>, <a href="#type-scmi_ana">scmi_ana()</a>) -&gt; <a href="#type-scmi_exec">scmi_exec()</a>)}
+sugar() = #sugar{val = <a href="#type-sexec">sexec()</a>}
 </code></pre>
 
 
@@ -519,18 +543,6 @@ sugar() = #sugar{val = fun((<a href="#type-scm_any">scm_any()</a>, <a href="#typ
 
 <pre><code>
 thunk() = <a href="#type-nip0">nip0()</a> | <a href="#type-xnip0">xnip0()</a> | <a href="#type-lip0">lip0()</a>
-</code></pre>
-
-
-
-
-
-### <a name="type-val">val()</a> ###
-
-
-
-<pre><code>
-val() = <a href="#type-scm_any">scm_any()</a>
 </code></pre>
 
 
@@ -578,7 +590,7 @@ xf() = <a href="#type-xf0">xf0()</a> | <a href="#type-xfn">xfn()</a> | <a href="
 
 
 <pre><code>
-xf0() = fun((<a href="#type-env">env()</a>, <a href="#type-ccok">ccok()</a>, <a href="#type-ccng">ccng()</a>) -&gt; <a href="#type-val">val()</a>)
+xf0() = fun((<a href="#type-denv">denv()</a>, <a href="#type-dok">dok()</a>, <a href="#type-dng">dng()</a>) -&gt; <a href="#type-exp">exp()</a>)
 </code></pre>
 
 
@@ -590,14 +602,14 @@ xf0() = fun((<a href="#type-env">env()</a>, <a href="#type-ccok">ccok()</a>, <a 
 
 
 <pre><code>
-xfn() = fun((...) -&gt; <a href="#type-val">val()</a>)
+xfn() = fun((...) -&gt; <a href="#type-exp">exp()</a>)
 </code></pre>
 
 
 
 
 
-<pre><code>fun((arg(),... ,env(), ccok(), ccng()) -> val()).</code></pre>
+<pre><code>fun((arg(),... ,denv(), dok(), dng()) -> exp()).</code></pre>
 
 
 
@@ -608,14 +620,14 @@ xfn() = fun((...) -&gt; <a href="#type-val">val()</a>)
 
 
 <pre><code>
-xfnv() = fun((...) -&gt; <a href="#type-val">val()</a>)
+xfnv() = fun((...) -&gt; <a href="#type-exp">exp()</a>)
 </code></pre>
 
 
 
 
 
-<pre><code>fun((arg(),... ,vargs(), env(), ccok(), ccng()) -> val()).</code></pre>
+<pre><code>fun((arg(),... ,vargs(), denv(), dok(), dng()) -> exp()).</code></pre>
 
 
 
@@ -626,7 +638,7 @@ xfnv() = fun((...) -&gt; <a href="#type-val">val()</a>)
 
 
 <pre><code>
-xfv() = fun((<a href="#type-vargs">vargs()</a>, <a href="#type-env">env()</a>, <a href="#type-ccok">ccok()</a>, <a href="#type-ccng">ccng()</a>) -&gt; <a href="#type-val">val()</a>)
+xfv() = fun((<a href="#type-vargs">vargs()</a>, <a href="#type-denv">denv()</a>, <a href="#type-dok">dok()</a>, <a href="#type-dng">dng()</a>) -&gt; <a href="#type-exp">exp()</a>)
 </code></pre>
 
 

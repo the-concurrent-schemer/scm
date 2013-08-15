@@ -550,7 +550,7 @@
 %%% API
 %%%===================================================================
 
--spec 'call-with-current-continuation'(scm_proc(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_any().
+-spec 'call-with-current-continuation'(scm_proc(), scmi_denv(), scmi_dok(), scmi_dng()) -> scm_any().
 'call-with-current-continuation'(Proc, Env, Ok, Ng) ->
     scml_base_control:'call/cc'(Proc, Env, Ok, Ng).
 
@@ -562,11 +562,11 @@
 'inexact->exact'(Z) ->
     scml_base_number:'exact'(Z).
 
--spec 'null-environment'(scm_k()) -> scmi_env().
+-spec 'null-environment'(scm_k()) -> scmi_denv().
 'null-environment'(K) ->
     erlang:error({roadmap,'v0.4.0'}, [K]).
 
--spec 'scheme-report-environment'(scm_k()) -> scmi_env().
+-spec 'scheme-report-environment'(scm_k()) -> scmi_denv().
 'scheme-report-environment'(K) ->
     erlang:error({roadmap,'v0.4.0'}, [K]).
 

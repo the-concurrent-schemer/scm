@@ -25,15 +25,21 @@
 
 -include("scmd_types.hrl").
 
-%% context
--type scmi_ana()       :: scmi_types:ana().
--type scmi_exec()      :: scmi_types:exec().
--type scmi_env()       :: scmi_types:env().
--type scmi_ccok()      :: scmi_types:ccok().
--type scmi_ccng()      :: scmi_types:ccng().
+%% expression
+-type scmi_exp()       :: scmi_types:exp().
+
+%% analyze
+-type scmi_sexec()     :: scmi_types:sexec().
+-type scmi_senv()      :: scmi_types:senv().
 
 %% sugar
 -type scmi_sugar()     :: scmi_types:sugar().
+
+%% evaluate
+-type scmi_dexec()     :: scmi_types:dexec().
+-type scmi_denv()      :: scmi_types:denv().
+-type scmi_dok()       :: scmi_types:dok().
+-type scmi_dng()       :: scmi_types:dng().
 
 %% vargs
 -type scmi_vargs()     :: scmi_types:vargs().
@@ -84,7 +90,7 @@
 -type scmi_exception() :: scmi_types:exception().
 -type scmi_error()     :: scmi_types:error().
 
--record(signal,        {obj, env, ccok, ccng}).
+-record(signal,        {obj, env, ok, ng}).
 
 %% io devices
 -type scmi_iodev()     :: scmi_types:iodev().

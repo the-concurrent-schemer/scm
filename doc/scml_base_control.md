@@ -97,7 +97,7 @@ applied to the elements of the lists is unspecified.</p>.</td></tr><tr><td valig
 
 
 <pre><code>
-'call-with-values'(Producer::<a href="#type-scm_thunk">scm_thunk()</a>, Consumer::<a href="#type-scm_proc">scm_proc()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
+'call-with-values'(Producer::<a href="#type-scm_thunk">scm_thunk()</a>, Consumer::<a href="#type-scm_proc">scm_proc()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
 </code></pre>
 
 <br></br>
@@ -114,7 +114,7 @@ consumer is the continuation of the call to <code>call-with-values</code>.</p>
 
 
 <pre><code>
-'call/cc'(Proc::<a href="#type-scm_proc">scm_proc()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
+'call/cc'(Proc::<a href="#type-scm_proc">scm_proc()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
 </code></pre>
 
 <br></br>
@@ -136,7 +136,7 @@ before and after thunks installed using <code>dynamic-wind</code>.</p>
 
 
 <pre><code>
-'dynamic-wind'(Before::<a href="#type-scm_thunk">scm_thunk()</a>, Thunk::<a href="#type-scm_thunk">scm_thunk()</a>, After::<a href="#type-scm_thunk">scm_thunk()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
+'dynamic-wind'(Before::<a href="#type-scm_thunk">scm_thunk()</a>, Thunk::<a href="#type-scm_thunk">scm_thunk()</a>, After::<a href="#type-scm_thunk">scm_thunk()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
 </code></pre>
 
 <br></br>
@@ -189,7 +189,7 @@ called.
 
 
 <pre><code>
-'for-each'(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
+'for-each'(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
 
 <br></br>
@@ -222,7 +222,7 @@ same length, for-each terminates when the shortest list runs out.</p>
 
 
 <pre><code>
-'string-for-each'(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
+'string-for-each'(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
 
 <br></br>
@@ -235,7 +235,7 @@ Equivalent to [`'for-each'([Proc | Args])`](#for-each-1).
 
 
 <pre><code>
-'string-map'(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_string">scm_string()</a>
+'string-map'(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_string">scm_string()</a>
 </code></pre>
 
 <br></br>
@@ -248,7 +248,7 @@ Equivalent to [`map([Proc | Args])`](#map-1).
 
 
 <pre><code>
-'vector-for-each'(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
+'vector-for-each'(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
 
 <br></br>
@@ -261,7 +261,7 @@ Equivalent to [`'for-each'([Proc | Args])`](#for-each-1).
 
 
 <pre><code>
-'vector-map'(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_vector">scm_vector()</a>
+'vector-map'(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_vector">scm_vector()</a>
 </code></pre>
 
 <br></br>
@@ -274,7 +274,7 @@ Equivalent to [`map([Proc | Args])`](#map-1).
 
 
 <pre><code>
-apply(Arg::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
+apply(Arg::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
 </code></pre>
 
 <br></br>
@@ -289,7 +289,7 @@ apply(Arg::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scm
 
 
 <pre><code>
-map(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; [<a href="#type-scm_any">scm_any()</a>]
+map(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; [<a href="#type-scm_any">scm_any()</a>]
 </code></pre>
 
 <br></br>
@@ -307,7 +307,7 @@ applied to the elements of the lists is unspecified.</p>
 
 
 <pre><code>
-values(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
+values(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
 </code></pre>
 
 <br></br>

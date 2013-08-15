@@ -228,7 +228,7 @@ can be of any type.</p>
 
 
 <pre><code>
-assoc(Obj::<a href="#type-scm_obj">scm_obj()</a>, Alist::<a href="#type-scm_alist">scm_alist()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_pair">scm_pair()</a> | <a href="#type-scm_false">scm_false()</a>
+assoc(Obj::<a href="#type-scm_obj">scm_obj()</a>, Alist::<a href="#type-scm_alist">scm_alist()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_pair">scm_pair()</a> | <a href="#type-scm_false">scm_false()</a>
 </code></pre>
 
 <br></br>
@@ -241,7 +241,7 @@ Equivalent to [`assoc(Obj, List, 'equal?')`](#assoc-3).
 
 
 <pre><code>
-assoc(Obj::<a href="#type-scm_obj">scm_obj()</a>, T::<a href="#type-scm_alist">scm_alist()</a>, Compare::<a href="#type-scm_proc">scm_proc()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_pair">scm_pair()</a> | <a href="#type-scm_false">scm_false()</a>
+assoc(Obj::<a href="#type-scm_obj">scm_obj()</a>, T::<a href="#type-scm_alist">scm_alist()</a>, Compare::<a href="#type-scm_proc">scm_proc()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_pair">scm_pair()</a> | <a href="#type-scm_false">scm_false()</a>
 </code></pre>
 
 <br></br>
@@ -256,7 +256,7 @@ pair in alist has obj as its car, then #f is returned.</p>
 
 
 <pre><code>
-assq(Obj::<a href="#type-scm_obj">scm_obj()</a>, Alist::<a href="#type-scm_alist">scm_alist()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_pair">scm_pair()</a> | <a href="#type-scm_false">scm_false()</a>
+assq(Obj::<a href="#type-scm_obj">scm_obj()</a>, Alist::<a href="#type-scm_alist">scm_alist()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_pair">scm_pair()</a> | <a href="#type-scm_false">scm_false()</a>
 </code></pre>
 
 <br></br>
@@ -269,7 +269,7 @@ Equivalent to [`assq(Obj, List, 'eq?')`](#assq-3).
 
 
 <pre><code>
-assv(Obj::<a href="#type-scm_obj">scm_obj()</a>, Alist::<a href="#type-scm_alist">scm_alist()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_pair">scm_pair()</a> | <a href="#type-scm_false">scm_false()</a>
+assv(Obj::<a href="#type-scm_obj">scm_obj()</a>, Alist::<a href="#type-scm_alist">scm_alist()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_pair">scm_pair()</a> | <a href="#type-scm_false">scm_false()</a>
 </code></pre>
 
 <br></br>
@@ -412,7 +412,7 @@ list(List::<a href="#type-scm_list">scm_list()</a>) -&gt; <a href="#type-scm_lis
 
 
 <pre><code>
-member(Obj::<a href="#type-scm_obj">scm_obj()</a>, List::<a href="#type-scm_list">scm_list()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_list">scm_list()</a> | <a href="#type-scm_false">scm_false()</a>
+member(Obj::<a href="#type-scm_obj">scm_obj()</a>, List::<a href="#type-scm_list">scm_list()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_list">scm_list()</a> | <a href="#type-scm_false">scm_false()</a>
 </code></pre>
 
 <br></br>
@@ -425,7 +425,7 @@ Equivalent to [`memq(Obj, List, 'equal?')`](#memq-3).
 
 
 <pre><code>
-member(Obj::<a href="#type-scm_obj">scm_obj()</a>, T::<a href="#type-scm_list">scm_list()</a>, Compare::<a href="#type-scm_proc">scm_proc()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_list">scm_list()</a> | <a href="#type-scm_false">scm_false()</a>
+member(Obj::<a href="#type-scm_obj">scm_obj()</a>, T::<a href="#type-scm_list">scm_list()</a>, Compare::<a href="#type-scm_proc">scm_proc()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_list">scm_list()</a> | <a href="#type-scm_false">scm_false()</a>
 </code></pre>
 
 <br></br>
@@ -442,7 +442,7 @@ in the list, the #f is returned.</p>
 
 
 <pre><code>
-memq(Obj::<a href="#type-scm_obj">scm_obj()</a>, List::<a href="#type-scm_list">scm_list()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_list">scm_list()</a> | <a href="#type-scm_false">scm_false()</a>
+memq(Obj::<a href="#type-scm_obj">scm_obj()</a>, List::<a href="#type-scm_list">scm_list()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_list">scm_list()</a> | <a href="#type-scm_false">scm_false()</a>
 </code></pre>
 
 <br></br>
@@ -455,7 +455,7 @@ Equivalent to [`memq(Obj, List, 'eq?')`](#memq-3).
 
 
 <pre><code>
-memv(Obj::<a href="#type-scm_obj">scm_obj()</a>, List::<a href="#type-scm_list">scm_list()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>, Ok::<a href="#type-scmi_ccok">scmi_ccok()</a>, Ng::<a href="#type-scmi_ccng">scmi_ccng()</a>) -&gt; <a href="#type-scm_list">scm_list()</a> | <a href="#type-scm_false">scm_false()</a>
+memv(Obj::<a href="#type-scm_obj">scm_obj()</a>, List::<a href="#type-scm_list">scm_list()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_list">scm_list()</a> | <a href="#type-scm_false">scm_false()</a>
 </code></pre>
 
 <br></br>

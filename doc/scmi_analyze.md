@@ -17,12 +17,12 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 
 
-### <a name="type-ana">ana()</a> ###
+### <a name="type-senv">senv()</a> ###
 
 
 
 <pre><code>
-ana() = #ana{}
+senv() = #senv{}
 </code></pre>
 
 
@@ -44,7 +44,7 @@ ana() = #ana{}
 
 
 <pre><code>
-analyze(Exp::<a href="#type-scm_any">scm_any()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
+analyze(Exp::<a href="#type-scmi_exp">scmi_exp()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -57,7 +57,7 @@ analyze(Exp::<a href="#type-scm_any">scm_any()</a>) -&gt; <a href="#type-scm_any
 
 
 <pre><code>
-analyze(Exp::<a href="#type-scm_any">scm_any()</a>, Ana::<a href="#type-scmi_ana">scmi_ana()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
+analyze(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_exp">scmi_exp()</a>
 </code></pre>
 
 <br></br>
@@ -83,7 +83,7 @@ are_valid_variables(Variable::[<a href="#type-scmi_var">scmi_var()</a>]) -&gt; b
 
 
 <pre><code>
-classify(Exp::<a href="#type-scm_any">scm_any()</a>) -&gt; atom() | {rectangular | polar, {atom(), atom()}}
+classify(Exp::<a href="#type-scmi_exp">scmi_exp()</a>) -&gt; atom() | {rectangular | polar, {atom(), atom()}}
 </code></pre>
 
 <br></br>
@@ -148,7 +148,7 @@ make_tmp_variables(Formal::<a href="#type-scmi_var">scmi_var()</a> | [<a href="#
 
 
 <pre><code>
-splitnv_arguments(N::pos_integer(), L::[<a href="#type-scm_any">scm_any()</a>, ...]) -&gt; [<a href="#type-scm_any">scm_any()</a>, ...]
+splitnv_arguments(N::pos_integer(), L::[<a href="#type-scmi_exp">scmi_exp()</a>, ...]) -&gt; [<a href="#type-scmi_exp">scmi_exp()</a>, ...]
 </code></pre>
 
 <br></br>
@@ -161,7 +161,7 @@ splitnv_arguments(N::pos_integer(), L::[<a href="#type-scm_any">scm_any()</a>, .
 
 
 <pre><code>
-the_default() -&gt; <a href="#type-scmi_ana">scmi_ana()</a>
+the_default() -&gt; <a href="#type-scmi_senv">scmi_senv()</a>
 </code></pre>
 
 <br></br>

@@ -53,14 +53,14 @@
 %%% API
 %%%===================================================================
 
--spec 'environment'(scmi_vargs()) -> scmi_env().
+-spec 'environment'(scmi_vargs()) -> scmi_denv().
 'environment'([]) ->
     scmi_env:the_empty();
 'environment'(L) ->
     %% @TODO
     erlang:error({roadmap,'v0.6.0'}, [L]).
 
--spec 'eval'(scm_any(), scmi_env()) -> scm_any().
+-spec 'eval'(scm_any(), scmi_denv()) -> scm_any().
 'eval'(ExprOrDef, Env) ->
     scmi_eval:'eval'(ExprOrDef, Env).
 

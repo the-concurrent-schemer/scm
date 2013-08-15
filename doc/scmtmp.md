@@ -28,7 +28,7 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 
 <pre><code>
-'make-polar'(X::<a href="#type-scm_x">scm_x()</a>, Y::<a href="#type-scm_y">scm_y()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>) -&gt; <a href="#type-scm_z">scm_z()</a>
+'make-polar'(X::<a href="#type-scm_x">scm_x()</a>, Y::<a href="#type-scm_y">scm_y()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>) -&gt; <a href="#type-scm_z">scm_z()</a>
 </code></pre>
 
 <br></br>
@@ -42,7 +42,7 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 
 <pre><code>
-'make-rational'(X::<a href="#type-scm_x">scm_x()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>) -&gt; <a href="#type-scm_q">scm_q()</a>
+'make-rational'(X::<a href="#type-scm_x">scm_x()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>) -&gt; <a href="#type-scm_q">scm_q()</a>
 </code></pre>
 
 <br></br>
@@ -56,7 +56,7 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 
 <pre><code>
-'make-rational'(N::<a href="#type-scm_n">scm_n()</a>, D::<a href="#type-scm_k">scm_k()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>) -&gt; <a href="#type-scm_q">scm_q()</a>
+'make-rational'(N::<a href="#type-scm_n">scm_n()</a>, D::<a href="#type-scm_k">scm_k()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>) -&gt; <a href="#type-scm_q">scm_q()</a>
 </code></pre>
 
 <br></br>
@@ -70,7 +70,7 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 
 <pre><code>
-'make-real'(X::<a href="#type-scm_x">scm_x()</a> | {<a href="#type-scm_n">scm_n()</a>, <a href="#type-scm_n">scm_n()</a>}, Env::<a href="#type-scmi_env">scmi_env()</a>) -&gt; <a href="#type-scm_x">scm_x()</a>
+'make-real'(X::<a href="#type-scm_x">scm_x()</a> | {<a href="#type-scm_n">scm_n()</a>, <a href="#type-scm_n">scm_n()</a>}, Env::<a href="#type-scmi_denv">scmi_denv()</a>) -&gt; <a href="#type-scm_x">scm_x()</a>
 </code></pre>
 
 <br></br>
@@ -84,7 +84,7 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 
 <pre><code>
-'make-rectangular'(X::<a href="#type-scm_x">scm_x()</a>, Y::<a href="#type-scm_y">scm_y()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>) -&gt; <a href="#type-scm_z">scm_z()</a>
+'make-rectangular'(X::<a href="#type-scm_x">scm_x()</a>, Y::<a href="#type-scm_y">scm_y()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>) -&gt; <a href="#type-scm_z">scm_z()</a>
 </code></pre>
 
 <br></br>
@@ -98,7 +98,7 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 
 <pre><code>
-exact(X::<a href="#type-scm_x">scm_x()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>) -&gt; <a href="#type-scm_x">scm_x()</a>
+exact(X::<a href="#type-scm_x">scm_x()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>) -&gt; <a href="#type-scm_x">scm_x()</a>
 </code></pre>
 
 <br></br>
@@ -112,7 +112,7 @@ exact(X::<a href="#type-scm_x">scm_x()</a>, Env::<a href="#type-scmi_env">scmi_e
 
 
 <pre><code>
-inexact(X::<a href="#type-scm_x">scm_x()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>) -&gt; <a href="#type-scm_x">scm_x()</a>
+inexact(X::<a href="#type-scm_x">scm_x()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>) -&gt; <a href="#type-scm_x">scm_x()</a>
 </code></pre>
 
 <br></br>

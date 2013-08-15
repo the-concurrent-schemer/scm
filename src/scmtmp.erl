@@ -48,31 +48,31 @@
 %%%----------------------------------------------------------------------
 
 %% @doc This function is a temporary place holder
--spec exact(scm_x(), scmi_env()) -> scm_x().
+-spec exact(scm_x(), scmi_denv()) -> scm_x().
 exact(X, _Env) ->
     X.
 
 %% @doc This function is a temporary place holder
--spec inexact(scm_x(), scmi_env()) -> scm_x().
+-spec inexact(scm_x(), scmi_denv()) -> scm_x().
 inexact(X, _Env) ->
     X.
 
 %% @doc This function is a temporary place holder
--spec 'make-rational'(scm_x(), scmi_env()) -> scm_q().
+-spec 'make-rational'(scm_x(), scmi_denv()) -> scm_q().
 'make-rational'({N, D}, Env) when erlang:is_number(N), erlang:is_number(D) ->
     'make-rational'(N, D, Env);
 'make-rational'(X, _Env) ->
     {X, 1}.
 
 %% @doc This function is a temporary place holder
--spec 'make-rational'(scm_n(), scm_k(), scmi_env()) -> scm_q().
+-spec 'make-rational'(scm_n(), scm_k(), scmi_denv()) -> scm_q().
 'make-rational'(0, 0, Env) ->
     'make-rational'(0, Env);
 'make-rational'(N, D, _Env) ->
     {N, D}.
 
 %% @doc This function is a temporary place holder
--spec 'make-real'(scm_x() | {scm_n(), scm_n()}, scmi_env()) -> scm_x().
+-spec 'make-real'(scm_x() | {scm_n(), scm_n()}, scmi_denv()) -> scm_x().
 'make-real'(?PINF, _Env) ->
     ?PINF;
 'make-real'(?NINF, _Env) ->
@@ -101,12 +101,12 @@ inexact(X, _Env) ->
     X.
 
 %% @doc This function is a temporary place holder
--spec 'make-polar'(scm_x(), scm_y(), scmi_env()) -> scm_z().
+-spec 'make-polar'(scm_x(), scm_y(), scmi_denv()) -> scm_z().
 'make-polar'(X, Y, _Env) ->
     {polar, {X, Y}}.
 
 %% @doc This function is a temporary place holder
--spec 'make-rectangular'(scm_x(), scm_y(), scmi_env()) -> scm_z().
+-spec 'make-rectangular'(scm_x(), scm_y(), scmi_denv()) -> scm_z().
 'make-rectangular'(X, Y, _Env) ->
     {rectangular, {X, Y}}.
 

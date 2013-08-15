@@ -51,7 +51,7 @@
 %%% API
 %%%===================================================================
 
--spec 'interaction-environment'() -> scmi_env().
+-spec 'interaction-environment'() -> scmi_denv().
 'interaction-environment'() ->
     erlang:error({roadmap,'v0.6.0'}, []).
 

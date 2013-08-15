@@ -41,7 +41,7 @@
         ]).
 
 %% External types
--export_type([ana/0
+-export_type([senv/0
              ]).
 
 %% Internal imports
@@ -54,13 +54,13 @@
 %%%----------------------------------------------------------------------
 
 %% analyze
--type ana() :: #ana{}.
+-type senv() :: #senv{}.
 
 %%%----------------------------------------------------------------------
 %%% API
 %%%----------------------------------------------------------------------
 
--spec the_default() -> scmi_ana().
+-spec the_default() -> scmi_senv().
 the_default() ->
     Env = scmi_env:the_empty(),
     Fun = fun(M) ->
@@ -68,57 +68,57 @@ the_default() ->
           end,
     Ms = [scmi_analyze_primitive, scmi_analyze_derived, scmi_analyze_macro, scmi_analyze_program],
     lists:foreach(Fun, Ms),
-    #ana{env=Env}.
+    #senv{env=Env}.
 
--spec analyze(scm_any()) -> scm_any().
+-spec analyze(scmi_exp()) -> scmi_dexec().
 analyze(Exp) ->
     analyze(Exp, the_default()).
 
--spec analyze(scm_any(), scmi_ana()) -> scm_any().
-analyze(Exp, Ana) when is_number(Exp) ->
-    analyze_self_evaluating(Exp, Ana);
-analyze({Num, Den}=Exp, Ana) when is_number(Num), is_number(Den) ->
-    analyze_self_evaluating(Exp, Ana);
-analyze(?PINF=Exp, Ana) ->
-    analyze_self_evaluating(Exp, Ana);
-analyze(?NINF=Exp, Ana) ->
-    analyze_self_evaluating(Exp, Ana);
-analyze(?PNAN=Exp, Ana) ->
-    analyze_self_evaluating(Exp, Ana);
-analyze(?NNAN=Exp, Ana) ->
-    analyze_self_evaluating(Exp, Ana);
-analyze(?NZER=Exp, Ana) ->
-    analyze_self_evaluating(Exp, Ana);
-analyze({Complex, {_A, _B}}=Exp, Ana) when Complex==rectangular; Complex==polar ->
-    analyze_self_evaluating(Exp, Ana);
-analyze(Exp, Ana) when is_record(Exp, boolean) ->
-    analyze_self_evaluating(Exp, Ana);
-analyze(Exp, Ana) when is_record(Exp, bytevector) ->
-    analyze_self_evaluating(Exp, Ana);
-analyze(Exp, Ana) when is_record(Exp, character) ->
-    analyze_self_evaluating(Exp, Ana);
-analyze(Exp, Ana) when is_record(Exp, string) ->
-    analyze_self_evaluating(Exp, Ana);
-analyze(Exp, Ana) when is_record(Exp, vector) ->
-    analyze_self_evaluating(Exp, Ana);
-analyze(?UNASSIGNED=Exp, Ana) ->
-    analyze_self_evaluating(Exp, Ana);
-analyze(Exp, Ana) when is_atom(Exp) ->
-    analyze_variable(Exp, Ana);
-analyze({Sha1, Var}=Exp, Ana) when is_atom(Sha1), is_binary(Var) ->
-    analyze_variable(Exp, Ana);
-analyze(Exp, Ana) when is_reference(Exp) ->
-    analyze_variable(Exp, Ana);
-analyze(Exp, Ana) when is_record(Exp, label) ->
-    analyze_label(Exp, Ana);
-analyze(Exp, Ana) when is_record(Exp, labelref) ->
-    analyze_labelref(Exp, Ana);
-analyze([_Rator|Rands]=Exp, Ana) when is_list(Rands) ->
-    analyze_expression(Exp, Ana);
-analyze(Exp, Ana) ->
-    erlang:error(badarg, [Exp, Ana]).
+-spec analyze(scmi_exp(), scmi_senv()) -> scmi_exp().
+analyze(Exp, SEnv) when is_number(Exp) ->
+    analyze_self_evaluating(Exp, SEnv);
+analyze({Num, Den}=Exp, SEnv) when is_number(Num), is_number(Den) ->
+    analyze_self_evaluating(Exp, SEnv);
+analyze(?PINF=Exp, SEnv) ->
+    analyze_self_evaluating(Exp, SEnv);
+analyze(?NINF=Exp, SEnv) ->
+    analyze_self_evaluating(Exp, SEnv);
+analyze(?PNAN=Exp, SEnv) ->
+    analyze_self_evaluating(Exp, SEnv);
+analyze(?NNAN=Exp, SEnv) ->
+    analyze_self_evaluating(Exp, SEnv);
+analyze(?NZER=Exp, SEnv) ->
+    analyze_self_evaluating(Exp, SEnv);
+analyze({Complex, {_A, _B}}=Exp, SEnv) when Complex==rectangular; Complex==polar ->
+    analyze_self_evaluating(Exp, SEnv);
+analyze(Exp, SEnv) when is_record(Exp, boolean) ->
+    analyze_self_evaluating(Exp, SEnv);
+analyze(Exp, SEnv) when is_record(Exp, bytevector) ->
+    analyze_self_evaluating(Exp, SEnv);
+analyze(Exp, SEnv) when is_record(Exp, character) ->
+    analyze_self_evaluating(Exp, SEnv);
+analyze(Exp, SEnv) when is_record(Exp, string) ->
+    analyze_self_evaluating(Exp, SEnv);
+analyze(Exp, SEnv) when is_record(Exp, vector) ->
+    analyze_self_evaluating(Exp, SEnv);
+analyze(?UNASSIGNED=Exp, SEnv) ->
+    analyze_self_evaluating(Exp, SEnv);
+analyze(Exp, SEnv) when is_atom(Exp) ->
+    analyze_variable(Exp, SEnv);
+analyze({Sha1, Var}=Exp, SEnv) when is_atom(Sha1), is_binary(Var) ->
+    analyze_variable(Exp, SEnv);
+analyze(Exp, SEnv) when is_reference(Exp) ->
+    analyze_variable(Exp, SEnv);
+analyze(Exp, SEnv) when is_record(Exp, label) ->
+    analyze_label(Exp, SEnv);
+analyze(Exp, SEnv) when is_record(Exp, labelref) ->
+    analyze_labelref(Exp, SEnv);
+analyze([_Rator|Rands]=Exp, SEnv) when is_list(Rands) ->
+    analyze_expression(Exp, SEnv);
+analyze(Exp, SEnv) ->
+    erlang:error(badarg, [Exp, SEnv]).
 
--spec classify(scm_any()) -> atom() | {rectangular | polar, {atom(), atom()}}.
+-spec classify(scmi_exp()) -> atom() | {rectangular | polar, {atom(), atom()}}.
 classify(Exp) when is_integer(Exp) ->
     integer;
 classify(Exp) when is_float(Exp) ->
@@ -231,7 +231,7 @@ make_tmp_variables([Formals|Formal]) when not is_list(Formal) ->
 make_tmp_variables(Formals) ->
     [ make_variable() || _ <- Formals ].
 
--spec splitnv_arguments(pos_integer(), [scm_any(),...]) -> [scm_any(),...].
+-spec splitnv_arguments(pos_integer(), [scmi_exp(),...]) -> [scmi_exp(),...].
 splitnv_arguments(N, L) ->
     splitnv_arguments(N, L, []).
 
@@ -246,24 +246,24 @@ splitnv_arguments(_, []=L, R) ->
 %%% Internal functions
 %%%----------------------------------------------------------------------
 
-analyze_label(Exp, _Ana) ->
-    erlang:error(unsupported, [Exp]).
+analyze_label(Exp, SEnv) ->
+    erlang:error(unsupported, [Exp, SEnv]).
 
-analyze_labelref(Exp, _Ana) ->
-    erlang:error(unsupported, [Exp]).
+analyze_labelref(Exp, SEnv) ->
+    erlang:error(unsupported, [Exp, SEnv]).
 
-analyze_self_evaluating(Exp, _Ana) ->
+analyze_self_evaluating(Exp, _SEnv) ->
     fun(_Env, Ok, Ng) -> Ok(Exp, Ng) end.
 
-analyze_variable(Exp, _Ana) ->
+analyze_variable(Exp, _SEnv) ->
     fun(Env, Ok, Ng) -> Ok(scmi_env:lookup_variable(Exp, Env), Ng) end.
 
-analyze_expression([Rator|Rands]=Exp, #ana{env=Env}=Ana) ->
+analyze_expression([Rator|Rands]=Exp, #senv{env=Env}=SEnv) ->
     case scmi_env:safe_lookup_variable(Rator, Env) of
         ?UNASSIGNED ->
-            analyze_application(Exp, Ana);
+            analyze_application(Exp, SEnv);
         #sugar{val=Fun} ->
-            Fun(Rands, Ana);
+            Fun(Rands, SEnv);
         _ ->
-            erlang:error(badarg, [Exp, Ana])
+            erlang:error(badarg, [Exp, SEnv])
     end.

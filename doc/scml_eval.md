@@ -39,7 +39,7 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 
 <pre><code>
-environment(L::<a href="#type-scmi_vargs">scmi_vargs()</a>) -&gt; <a href="#type-scmi_env">scmi_env()</a>
+environment(L::<a href="#type-scmi_vargs">scmi_vargs()</a>) -&gt; <a href="#type-scmi_denv">scmi_denv()</a>
 </code></pre>
 
 <br></br>
@@ -52,7 +52,7 @@ environment(L::<a href="#type-scmi_vargs">scmi_vargs()</a>) -&gt; <a href="#type
 
 
 <pre><code>
-eval(ExprOrDef::<a href="#type-scm_any">scm_any()</a>, Env::<a href="#type-scmi_env">scmi_env()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
+eval(ExprOrDef::<a href="#type-scm_any">scm_any()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
 </code></pre>
 
 <br></br>

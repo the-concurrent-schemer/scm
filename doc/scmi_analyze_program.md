@@ -37,41 +37,41 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 ### analyze_define/2 ###
 
-`analyze_define(Exp, Ana) -> any()`
+`analyze_define(Exp, SEnv) -> any()`
 
 
 <a name="analyze_define_library-2"></a>
 
 ### analyze_define_library/2 ###
 
-`analyze_define_library(Exp, Ana) -> any()`
+`analyze_define_library(Exp, SEnv) -> any()`
 
 
 <a name="analyze_define_record_type-2"></a>
 
 ### analyze_define_record_type/2 ###
 
-`analyze_define_record_type(Exp, Ana) -> any()`
+`analyze_define_record_type(Exp, SEnv) -> any()`
 
 
 <a name="analyze_define_syntax-2"></a>
 
 ### analyze_define_syntax/2 ###
 
-`analyze_define_syntax(Exp, Ana) -> any()`
+`analyze_define_syntax(Exp, SEnv) -> any()`
 
 
 <a name="analyze_define_values-2"></a>
 
 ### analyze_define_values/2 ###
 
-`analyze_define_values(Exp, Ana) -> any()`
+`analyze_define_values(Exp, SEnv) -> any()`
 
 
 <a name="analyze_import-2"></a>
 
 ### analyze_import/2 ###
 
-`analyze_import(Exp, Ana) -> any()`
+`analyze_import(Exp, SEnv) -> any()`
 
 

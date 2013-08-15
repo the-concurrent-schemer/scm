@@ -37,27 +37,27 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 ### analyze_let_syntax/2 ###
 
-`analyze_let_syntax(Exp, Ana) -> any()`
+`analyze_let_syntax(Exp, SEnv) -> any()`
 
 
 <a name="analyze_letrec_syntax-2"></a>
 
 ### analyze_letrec_syntax/2 ###
 
-`analyze_letrec_syntax(Exp, Ana) -> any()`
+`analyze_letrec_syntax(Exp, SEnv) -> any()`
 
 
 <a name="analyze_syntax_error-2"></a>
 
 ### analyze_syntax_error/2 ###
 
-`analyze_syntax_error(Exp, Ana) -> any()`
+`analyze_syntax_error(Exp, SEnv) -> any()`
 
 
 <a name="analyze_syntax_rules-2"></a>
 
 ### analyze_syntax_rules/2 ###
 
-`analyze_syntax_rules(Exp, Ana) -> any()`
+`analyze_syntax_rules(Exp, SEnv) -> any()`
 
 

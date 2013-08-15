@@ -236,17 +236,17 @@
     erlang:error(unsupported, [List, K, Obj]).
 
 %% @equiv 'memq'(Obj, List, 'eq?')
--spec 'memq'(scm_obj(), scm_list(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_list() | scm_false().
+-spec 'memq'(scm_obj(), scm_list(), scmi_denv(), scmi_dok(), scmi_dng()) -> scm_list() | scm_false().
 'memq'(Obj, List, Env, Ok, Ng) ->
     'member'(Obj, List, #nipn{val=fun scml_base_equality:'eq?'/2}, Env, Ok, Ng).
 
 %% @equiv 'memq'(Obj, List, 'eqv?')
--spec 'memv'(scm_obj(), scm_list(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_list() | scm_false().
+-spec 'memv'(scm_obj(), scm_list(), scmi_denv(), scmi_dok(), scmi_dng()) -> scm_list() | scm_false().
 'memv'(Obj, List, Env, Ok, Ng) ->
     'member'(Obj, List, #nipn{val=fun scml_base_equality:'eqv?'/2}, Env, Ok, Ng).
 
 %% @equiv 'memq'(Obj, List, 'equal?')
--spec 'member'(scm_obj(), scm_list(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_list() | scm_false().
+-spec 'member'(scm_obj(), scm_list(), scmi_denv(), scmi_dok(), scmi_dng()) -> scm_list() | scm_false().
 'member'(Obj, List, Env, Ok, Ng) ->
     'member'(Obj, List, #nipn{val=fun scml_base_equality:'equal?'/2}, Env, Ok, Ng).
 
@@ -254,7 +254,7 @@
 %% sublists of list are the non-empty lists returned by (list-tail
 %% list k) for k less than the length of list.  If obj does not occur
 %% in the list, the #f is returned.
--spec 'member'(scm_obj(), scm_list(), scm_proc(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_list() | scm_false().
+-spec 'member'(scm_obj(), scm_list(), scm_proc(), scmi_denv(), scmi_dok(), scmi_dng()) -> scm_list() | scm_false().
 'member'(_Obj, [], _Compare, _Env, Ok, Ng) ->
     Ok(?FALSE, Ng);
 'member'(Obj, [H|T]=List, Compare, Env, Ok, Ng) ->
@@ -266,23 +266,23 @@
     apply(Compare, [Obj, H], Env, Ok1, Ng).
 
 %% @equiv 'assq'(Obj, List, 'eq?')
--spec 'assq'(scm_obj(), scm_alist(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_pair() | scm_false().
+-spec 'assq'(scm_obj(), scm_alist(), scmi_denv(), scmi_dok(), scmi_dng()) -> scm_pair() | scm_false().
 'assq'(Obj, Alist, Env, Ok, Ng) ->
     'assoc'(Obj, Alist, #nipn{val=fun scml_base_equality:'eq?'/2}, Env, Ok, Ng).
 
 %% @equiv 'assv'(Obj, List, 'eqv?')
--spec 'assv'(scm_obj(), scm_alist(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_pair() | scm_false().
+-spec 'assv'(scm_obj(), scm_alist(), scmi_denv(), scmi_dok(), scmi_dng()) -> scm_pair() | scm_false().
 'assv'(Obj, Alist, Env, Ok, Ng) ->
     'assoc'(Obj, Alist, #nipn{val=fun scml_base_equality:'eqv?'/2}, Env, Ok, Ng).
 
 %% @equiv 'assoc'(Obj, List, 'equal?')
--spec 'assoc'(scm_obj(), scm_alist(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_pair() | scm_false().
+-spec 'assoc'(scm_obj(), scm_alist(), scmi_denv(), scmi_dok(), scmi_dng()) -> scm_pair() | scm_false().
 'assoc'(Obj, Alist, Env, Ok, Ng) ->
     'assoc'(Obj, Alist, #nipn{val=fun scml_base_equality:'equal?'/2}, Env, Ok, Ng).
 
 %% @doc Return the first pair of alist whose car field is obj.  If no
 %% pair in alist has obj as its car, then #f is returned.
--spec 'assoc'(scm_obj(), scm_alist(), scm_proc(), scmi_env(), scmi_ccok(), scmi_ccng()) -> scm_pair() | scm_false().
+-spec 'assoc'(scm_obj(), scm_alist(), scm_proc(), scmi_denv(), scmi_dok(), scmi_dng()) -> scm_pair() | scm_false().
 'assoc'(_Obj, [], _Compare, _Env, Ok, Ng) ->
     Ok(?FALSE, Ng);
 'assoc'(Obj, [[H|_]=Pair|T], Compare, Env, Ok, Ng) ->
