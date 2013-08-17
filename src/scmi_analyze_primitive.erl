@@ -43,7 +43,7 @@
 
 %% Internal imports
 -import(scmi_analyze, [analyze/2, validate_variables/1, validate_variable/1, splitnv_arguments/2]).
--import(scmi_analyze_derived, [scan_out_internal_definitions/1]).
+-import(scmi_analyze_derived, [scan_out_internal_definitions/2]).
 
 -include("scmi_analyze.hrl").
 
@@ -57,14 +57,14 @@
 
 -spec '$scmi_exports'() -> [{scm_symbol(), scmi_sugar()}].
 '$scmi_exports'() ->
-    [{'quote', #sugar{val=fun 'analyze_quote'/2}}
-     , {'lambda', #sugar{val=fun 'analyze_lambda'/2}}
-     , {'if', #sugar{val=fun 'analyze_if'/2}}
-     , {'set!', #sugar{val=fun 'analyze_assignment'/2}}
-     , {'include', #sugar{val=fun 'analyze_include'/2}}
-     , {'include-ci', #sugar{val=fun 'analyze_include_ci'/2}}
-     , {'include-lib', #sugar{val=fun 'analyze_include_lib'/2}}
-     , {'include-lib-ci', #sugar{val=fun 'analyze_include_lib_ci'/2}}
+    [{'quote', #sugar{val=fun ?MODULE:'analyze_quote'/2}}
+     , {'lambda', #sugar{val=fun ?MODULE:'analyze_lambda'/2}}
+     , {'if', #sugar{val=fun ?MODULE:'analyze_if'/2}}
+     , {'set!', #sugar{val=fun ?MODULE:'analyze_assignment'/2}}
+     , {'include', #sugar{val=fun ?MODULE:'analyze_include'/2}}
+     , {'include-ci', #sugar{val=fun ?MODULE:'analyze_include_ci'/2}}
+     , {'include-lib', #sugar{val=fun ?MODULE:'analyze_include_lib'/2}}
+     , {'include-lib-ci', #sugar{val=fun ?MODULE:'analyze_include_lib_ci'/2}}
     ].
 
 %%%----------------------------------------------------------------------
@@ -75,23 +75,23 @@ analyze_quote([Exp], _SEnv) ->
     fun(_Env, Ok, Ng) -> Ok(Exp, Ng) end.
 
 analyze_lambda([[]|Body], SEnv) ->
-    Exec = analyze_sequence(scan_out_internal_definitions(Body), SEnv),
+    Exec = analyze_sequence(scan_out_internal_definitions(Body, SEnv), SEnv),
     Src = fun() -> Body end,
     fun(Env, Ok, Ng) -> Ok(#lip0{val=#l0{body=Exec, env=Env, src=Src}}, Ng) end;
 analyze_lambda([Variable|Body], SEnv) when not is_list(Variable) ->
     validate_variable(Variable),
-    Exec = analyze_sequence(scan_out_internal_definitions(Body), SEnv),
+    Exec = analyze_sequence(scan_out_internal_definitions(Body, SEnv), SEnv),
     Src = fun() -> Body end,
     fun(Env, Ok, Ng) -> Ok(#lipv{val=#lv{param=Variable, body=Exec, env=Env, src=Src}}, Ng) end;
 analyze_lambda([[Variables|Variable]=Vs|Body], SEnv) when not is_list(Variable) ->
     validate_variables(Vs),
     AllVariables = Variables ++ [Variable],
-    Exec = analyze_sequence(scan_out_internal_definitions(Body), SEnv),
+    Exec = analyze_sequence(scan_out_internal_definitions(Body, SEnv), SEnv),
     Src = fun() -> Body end,
     fun(Env, Ok, Ng) -> Ok(#lipnv{val=#lnv{n=length(Variables), params=AllVariables, body=Exec, env=Env, src=Src}}, Ng) end;
 analyze_lambda([Variables|Body], SEnv) when is_list(Variables) ->
     validate_variables(Variables),
-    Exec = analyze_sequence(scan_out_internal_definitions(Body), SEnv),
+    Exec = analyze_sequence(scan_out_internal_definitions(Body, SEnv), SEnv),
     Src = fun() -> Body end,
     fun(Env, Ok, Ng) -> Ok(#lipn{val=#ln{params=Variables, body=Exec, env=Env, src=Src}}, Ng) end.
 

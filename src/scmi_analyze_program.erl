@@ -52,12 +52,12 @@
 
 -spec '$scmi_exports'() -> [{scm_symbol(), scmi_sugar()}].
 '$scmi_exports'() ->
-    [{'import', #sugar{val=fun 'analyze_import'/2}}
-     , {'define', #sugar{val=fun 'analyze_define'/2}}
-     , {'define-values', #sugar{val=fun 'analyze_define_values'/2}}
-     , {'define-syntax', #sugar{val=fun 'analyze_define_syntax'/2}}
-     , {'define-record-type', #sugar{val=fun 'analyze_define_record_type'/2}}
-     , {'define-library', #sugar{val=fun 'analyze_define_library'/2}}
+    [{'import', #sugar{val=fun ?MODULE:'analyze_import'/2}}
+     , {'define', #sugar{val=fun ?MODULE:'analyze_define'/2}}
+     , {'define-values', #sugar{val=fun ?MODULE:'analyze_define_values'/2}}
+     , {'define-syntax', #sugar{val=fun ?MODULE:'analyze_define_syntax'/2}}
+     , {'define-record-type', #sugar{val=fun ?MODULE:'analyze_define_record_type'/2}}
+     , {'define-library', #sugar{val=fun ?MODULE:'analyze_define_library'/2}}
     ].
 
 %%%----------------------------------------------------------------------
@@ -83,10 +83,10 @@ analyze_define([Variable, Exp], SEnv) when not is_list(Variable) ->
                  Ng)
     end;
 analyze_define(Exp, SEnv) ->
-    analyze(from_define(Exp), SEnv).
+    analyze(expand_define(Exp), SEnv).
 
 analyze_define_values(Exp, SEnv) ->
-    analyze(from_define_values(Exp), SEnv).
+    analyze(expand_define_values(Exp), SEnv).
 
 analyze_define_syntax(Exp, SEnv) ->
     %% @TODO
@@ -105,17 +105,17 @@ analyze_define_library(Exp, SEnv) ->
 %%%----------------------------------------------------------------------
 
 %% define
-from_define([[Variable|Formal]|Body]) when not is_list(Variable), not is_list(Formal)  ->
+expand_define([[Variable|Formal]|Body]) when not is_list(Variable), not is_list(Formal)  ->
     make_define(Variable, make_lambda(Formal, Body));
-from_define([[[Variable|Formals]|Formal]|Body]) when not is_list(Variable), is_list(Formals), not is_list(Formal)  ->
+expand_define([[[Variable|Formals]|Formal]|Body]) when not is_list(Variable), is_list(Formals), not is_list(Formal)  ->
     make_define(Variable, make_lambda([Formals|Formal], Body));
-from_define([[Variable|Formals]|Body]) when not is_list(Variable), is_list(Formals) ->
+expand_define([[Variable|Formals]|Body]) when not is_list(Variable), is_list(Formals) ->
     make_define(Variable, make_lambda(Formals, Body)).
 
 %% define-values
-from_define_values([[], Body]) ->
+expand_define_values([[], Body]) ->
     make_begin(Body ++ [?FALSE]);
-from_define_values([Formals|Body]) ->
+expand_define_values([Formals|Body]) ->
     Tmps = make_tmp_variables(Formals),
     Fs = flatten_variables(Formals),
     validate_variables(Fs), % validate formals

@@ -47,10 +47,10 @@
 
 -spec '$scmi_exports'() -> [{scm_symbol(), scmi_sugar()}].
 '$scmi_exports'() ->
-    [{'let-syntax', #sugar{val=fun 'analyze_let_syntax'/2}}
-     , {'letrec-syntax', #sugar{val=fun 'analyze_letrec_syntax'/2}}
-     , {'syntax-rules', #sugar{val=fun 'analyze_syntax_rules'/2}}
-     , {'syntax-error', #sugar{val=fun 'analyze_syntax_error'/2}}
+    [{'let-syntax', #sugar{val=fun ?MODULE:'analyze_let_syntax'/2}}
+     , {'letrec-syntax', #sugar{val=fun ?MODULE:'analyze_letrec_syntax'/2}}
+     , {'syntax-rules', #sugar{val=fun ?MODULE:'analyze_syntax_rules'/2}}
+     , {'syntax-error', #sugar{val=fun ?MODULE:'analyze_syntax_error'/2}}
     ].
 
 %%%----------------------------------------------------------------------
