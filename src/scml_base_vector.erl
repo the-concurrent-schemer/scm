@@ -70,20 +70,20 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'vector?', #nipn{val=fun 'vector?'/1}}
-     , {'make-vector', #nipn{val=[fun 'make-vector'/1, fun 'make-vector'/2]}}
-     , {'vector', #nipv{val=fun 'vector'/1}}
-     , {'vector-length', #nipn{val=fun 'vector-length'/1}}
-     , {'vector-ref', #nipn{val=fun 'vector-ref'/2}}
-     , {'vector-set!', #nipn{val=fun 'vector-set!'/3}}
-     , {'vector->list', #nipn{val=[fun 'vector->list'/1, fun 'vector->list'/2, fun 'vector->list'/3]}}
-     , {'list->vector', #nipn{val=fun 'list->vector'/1}}
-     , {'vector->string', #nipn{val=[fun 'vector->string'/1, fun 'vector->string'/2, fun 'vector->string'/3]}}
-     , {'string->vector', #nipn{val=[fun 'string->vector'/1, fun 'string->vector'/2, fun 'string->vector'/3]}}
-     , {'vector-copy', #nipn{val=[fun 'vector-copy'/1, fun 'vector-copy'/2, fun 'vector-copy'/3]}}
-     , {'vector-copy!', #nipn{val=[fun 'vector-copy!'/3, fun 'vector-copy!'/4, fun 'vector-copy!'/5]}}
-     , {'vector-append', #nipv{val=fun 'vector-append'/1}}
-     , {'vector-fill!', #nipn{val=[fun 'vector-fill!'/2, fun 'vector-fill!'/3, fun 'vector-fill!'/4]}}
+    [{'vector?', #nipn{val=fun ?MODULE:'vector?'/1}}
+     , {'make-vector', #nipn{val=[fun ?MODULE:'make-vector'/1, fun ?MODULE:'make-vector'/2]}}
+     , {'vector', #nipv{val=fun ?MODULE:'vector'/1}}
+     , {'vector-length', #nipn{val=fun ?MODULE:'vector-length'/1}}
+     , {'vector-ref', #nipn{val=fun ?MODULE:'vector-ref'/2}}
+     , {'vector-set!', #nipn{val=fun ?MODULE:'vector-set!'/3}}
+     , {'vector->list', #nipn{val=[fun ?MODULE:'vector->list'/1, fun ?MODULE:'vector->list'/2, fun ?MODULE:'vector->list'/3]}}
+     , {'list->vector', #nipn{val=fun ?MODULE:'list->vector'/1}}
+     , {'vector->string', #nipn{val=[fun ?MODULE:'vector->string'/1, fun ?MODULE:'vector->string'/2, fun ?MODULE:'vector->string'/3]}}
+     , {'string->vector', #nipn{val=[fun ?MODULE:'string->vector'/1, fun ?MODULE:'string->vector'/2, fun ?MODULE:'string->vector'/3]}}
+     , {'vector-copy', #nipn{val=[fun ?MODULE:'vector-copy'/1, fun ?MODULE:'vector-copy'/2, fun ?MODULE:'vector-copy'/3]}}
+     , {'vector-copy!', #nipn{val=[fun ?MODULE:'vector-copy!'/3, fun ?MODULE:'vector-copy!'/4, fun ?MODULE:'vector-copy!'/5]}}
+     , {'vector-append', #nipv{val=fun ?MODULE:'vector-append'/1}}
+     , {'vector-fill!', #nipn{val=[fun ?MODULE:'vector-fill!'/2, fun ?MODULE:'vector-fill!'/3, fun ?MODULE:'vector-fill!'/4]}}
     ].
 
 %%%===================================================================

@@ -44,7 +44,7 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'interaction-environment', #nip0{val=fun 'interaction-environment'/0}}
+    [{'interaction-environment', #nip0{val=fun ?MODULE:'interaction-environment'/0}}
     ].
 
 %%%===================================================================

@@ -46,9 +46,9 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'eqv?', #nipn{val=fun 'eqv?'/2}}
-     , {'eq?', #nipn{val=fun 'eq?'/2}}
-     , {'equal?', #nipn{val=fun 'equal?'/2}}
+    [{'eqv?', #nipn{val=fun ?MODULE:'eqv?'/2}}
+     , {'eq?', #nipn{val=fun ?MODULE:'eq?'/2}}
+     , {'equal?', #nipn{val=fun ?MODULE:'equal?'/2}}
     ].
 
 %%%===================================================================

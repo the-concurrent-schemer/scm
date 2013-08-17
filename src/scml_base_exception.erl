@@ -53,15 +53,15 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'with-exception-handler', #xnipn{val=fun 'with-exception-handler'/5}}
-     , {'raise', #xnipn{val=fun 'raise'/4}}
-     , {'raise-continuable', #xnipn{val=fun 'raise-continuable'/4}}
-     , {'error', #xnipv{val=fun 'error'/4}}
-     , {'error-object?', #nipn{val=fun 'error-object?'/1}}
-     , {'error-object-message', #nipn{val=fun 'error-object-message'/1}}
-     , {'error-object-irritants', #nipn{val=fun 'error-object-irritants'/1}}
-     , {'read-error?', #nipn{val=fun 'read-error?'/1}}
-     , {'file-error?', #nipn{val=fun 'file-error?'/1}}
+    [{'with-exception-handler', #xnipn{val=fun ?MODULE:'with-exception-handler'/5}}
+     , {'raise', #xnipn{val=fun ?MODULE:'raise'/4}}
+     , {'raise-continuable', #xnipn{val=fun ?MODULE:'raise-continuable'/4}}
+     , {'error', #xnipv{val=fun ?MODULE:'error'/4}}
+     , {'error-object?', #nipn{val=fun ?MODULE:'error-object?'/1}}
+     , {'error-object-message', #nipn{val=fun ?MODULE:'error-object-message'/1}}
+     , {'error-object-irritants', #nipn{val=fun ?MODULE:'error-object-irritants'/1}}
+     , {'read-error?', #nipn{val=fun ?MODULE:'read-error?'/1}}
+     , {'file-error?', #nipn{val=fun ?MODULE:'file-error?'/1}}
     ].
 
 %%%===================================================================

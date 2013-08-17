@@ -325,225 +325,225 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'*', #nipv{val=fun '*'/1}}
-     , {'+', #nipv{val=fun '+'/1}}
-     , {'-', #nipv{val=fun '-'/1}}
-     , {'/', #nipv{val=fun '/'/1}}
-     , {'<', #nipv{val=fun '<'/1}}
-     , {'<=', #nipv{val=fun '<='/1}}
-     , {'=', #nipv{val=fun '='/1}}
-     , {'>', #nipv{val=fun '>'/1}}
-     , {'>=', #nipv{val=fun '>='/1}}
-     , {'abs', #nipn{val=fun 'abs'/1}}
-     , {'acos', #nipn{val=fun 'acos'/1}}
+    [{'*', #nipv{val=fun ?MODULE:'*'/1}}
+     , {'+', #nipv{val=fun ?MODULE:'+'/1}}
+     , {'-', #nipv{val=fun ?MODULE:'-'/1}}
+     , {'/', #nipv{val=fun ?MODULE:'/'/1}}
+     , {'<', #nipv{val=fun ?MODULE:'<'/1}}
+     , {'<=', #nipv{val=fun ?MODULE:'<='/1}}
+     , {'=', #nipv{val=fun ?MODULE:'='/1}}
+     , {'>', #nipv{val=fun ?MODULE:'>'/1}}
+     , {'>=', #nipv{val=fun ?MODULE:'>='/1}}
+     , {'abs', #nipn{val=fun ?MODULE:'abs'/1}}
+     , {'acos', #nipn{val=fun ?MODULE:'acos'/1}}
      %% derived - and
-     , {'angle', #nipn{val=fun 'angle'/1}}
-     , {'append', #nipv{val=fun 'append'/1}}
-     , {'apply', #xnipv{val=fun 'apply'/4}}
-     , {'asin', #nipn{val=fun 'asin'/1}}
-     , {'assoc', #xnipn{val=[fun 'assoc'/5, fun 'assoc'/6]}}
-     , {'assq', #xnipn{val=fun 'assq'/5}}
-     , {'assv', #xnipn{val=fun 'assv'/5}}
-     , {'atan', #nipn{val=[fun 'atan'/1, fun 'atan'/2]}}
+     , {'angle', #nipn{val=fun ?MODULE:'angle'/1}}
+     , {'append', #nipv{val=fun ?MODULE:'append'/1}}
+     , {'apply', #xnipv{val=fun ?MODULE:'apply'/4}}
+     , {'asin', #nipn{val=fun ?MODULE:'asin'/1}}
+     , {'assoc', #xnipn{val=[fun ?MODULE:'assoc'/5, fun ?MODULE:'assoc'/6]}}
+     , {'assq', #xnipn{val=fun ?MODULE:'assq'/5}}
+     , {'assv', #xnipn{val=fun ?MODULE:'assv'/5}}
+     , {'atan', #nipn{val=[fun ?MODULE:'atan'/1, fun ?MODULE:'atan'/2]}}
      %% derived - begin
-     , {'boolean?', #nipn{val=fun 'boolean?'/1}}
-     , {'caaaar', #nipn{val=fun 'caaaar'/1}}
-     , {'caaadr', #nipn{val=fun 'caaadr'/1}}
-     , {'caaar', #nipn{val=fun 'caaar'/1}}
-     , {'caadar', #nipn{val=fun 'caadar'/1}}
-     , {'caaddr', #nipn{val=fun 'caaddr'/1}}
-     , {'caadr', #nipn{val=fun 'caadr'/1}}
-     , {'caar', #nipn{val=fun 'caar'/1}}
-     , {'cadaar', #nipn{val=fun 'cadaar'/1}}
-     , {'cadadr', #nipn{val=fun 'cadadr'/1}}
-     , {'cadar', #nipn{val=fun 'cadar'/1}}
-     , {'caddar', #nipn{val=fun 'caddar'/1}}
-     , {'cadddr', #nipn{val=fun 'cadddr'/1}}
-     , {'caddr', #nipn{val=fun 'caddr'/1}}
-     , {'cadr', #nipn{val=fun 'cadr'/1}}
-     , {'call-with-current-continuation', #xnipn{val=fun 'call-with-current-continuation'/4}}
-     , {'call-with-input-file', #nipn{val=fun 'call-with-input-file'/2}}
-     , {'call-with-output-file', #nipn{val=fun 'call-with-output-file'/2}}
-     , {'call-with-values', #xnipn{val=fun 'call-with-values'/5}}
-     , {'car', #nipn{val=fun 'car'/1}}
+     , {'boolean?', #nipn{val=fun ?MODULE:'boolean?'/1}}
+     , {'caaaar', #nipn{val=fun ?MODULE:'caaaar'/1}}
+     , {'caaadr', #nipn{val=fun ?MODULE:'caaadr'/1}}
+     , {'caaar', #nipn{val=fun ?MODULE:'caaar'/1}}
+     , {'caadar', #nipn{val=fun ?MODULE:'caadar'/1}}
+     , {'caaddr', #nipn{val=fun ?MODULE:'caaddr'/1}}
+     , {'caadr', #nipn{val=fun ?MODULE:'caadr'/1}}
+     , {'caar', #nipn{val=fun ?MODULE:'caar'/1}}
+     , {'cadaar', #nipn{val=fun ?MODULE:'cadaar'/1}}
+     , {'cadadr', #nipn{val=fun ?MODULE:'cadadr'/1}}
+     , {'cadar', #nipn{val=fun ?MODULE:'cadar'/1}}
+     , {'caddar', #nipn{val=fun ?MODULE:'caddar'/1}}
+     , {'cadddr', #nipn{val=fun ?MODULE:'cadddr'/1}}
+     , {'caddr', #nipn{val=fun ?MODULE:'caddr'/1}}
+     , {'cadr', #nipn{val=fun ?MODULE:'cadr'/1}}
+     , {'call-with-current-continuation', #xnipn{val=fun ?MODULE:'call-with-current-continuation'/4}}
+     , {'call-with-input-file', #nipn{val=fun ?MODULE:'call-with-input-file'/2}}
+     , {'call-with-output-file', #nipn{val=fun ?MODULE:'call-with-output-file'/2}}
+     , {'call-with-values', #xnipn{val=fun ?MODULE:'call-with-values'/5}}
+     , {'car', #nipn{val=fun ?MODULE:'car'/1}}
      %% derived - case
-     , {'cdaaar', #nipn{val=fun 'cdaaar'/1}}
-     , {'cdaadr', #nipn{val=fun 'cdaadr'/1}}
-     , {'cdaar', #nipn{val=fun 'cdaar'/1}}
-     , {'cdadar', #nipn{val=fun 'cdadar'/1}}
-     , {'cdaddr', #nipn{val=fun 'cdaddr'/1}}
-     , {'cdadr', #nipn{val=fun 'cdadr'/1}}
-     , {'cdar', #nipn{val=fun 'cdar'/1}}
-     , {'cddaar', #nipn{val=fun 'cddaar'/1}}
-     , {'cddadr', #nipn{val=fun 'cddadr'/1}}
-     , {'cddar', #nipn{val=fun 'cddar'/1}}
-     , {'cdddar', #nipn{val=fun 'cdddar'/1}}
-     , {'cddddr', #nipn{val=fun 'cddddr'/1}}
-     , {'cdddr', #nipn{val=fun 'cdddr'/1}}
-     , {'cddr', #nipn{val=fun 'cddr'/1}}
-     , {'cdr', #nipn{val=fun 'cdr'/1}}
-     , {'ceiling', #nipn{val=fun 'ceiling'/1}}
-     , {'char->integer', #nipn{val=fun 'char->integer'/1}}
-     , {'char-alphabetic?', #nipn{val=fun 'char-alphabetic?'/1}}
-     , {'char-ci<=?', #nipv{val=fun 'char-ci<=?'/1}}
-     , {'char-ci<?', #nipv{val=fun 'char-ci<?'/1}}
-     , {'char-ci=?', #nipv{val=fun 'char-ci=?'/1}}
-     , {'char-ci>=?', #nipv{val=fun 'char-ci>=?'/1}}
-     , {'char-ci>?', #nipv{val=fun 'char-ci>?'/1}}
-     , {'char-downcase', #nipn{val=fun 'char-downcase'/1}}
-     , {'char-lower-case?', #nipn{val=fun 'char-lower-case?'/1}}
-     , {'char-numeric?', #nipn{val=fun 'char-numeric?'/1}}
-     , {'char-ready?', #nipn{val=[fun 'char-ready?'/0, fun 'char-ready?'/1]}}
-     , {'char-upcase', #nipn{val=fun 'char-upcase'/1}}
-     , {'char-upper-case?', #nipn{val=fun 'char-upper-case?'/1}}
-     , {'char-whitespace?', #nipn{val=fun 'char-whitespace?'/1}}
-     , {'char<=?', #nipv{val=fun 'char<=?'/1}}
-     , {'char<?', #nipv{val=fun 'char<?'/1}}
-     , {'char=?', #nipv{val=fun 'char=?'/1}}
-     , {'char>=?', #nipv{val=fun 'char>=?'/1}}
-     , {'char>?', #nipv{val=fun 'char>?'/1}}
-     , {'char?', #nipv{val=fun 'char?'/1}}
-     , {'close-input-port', #nipn{val=fun 'close-input-port'/1}}
-     , {'close-output-port', #nipn{val=fun 'close-output-port'/1}}
-     , {'complex?', #nipn{val=fun 'complex?'/1}}
+     , {'cdaaar', #nipn{val=fun ?MODULE:'cdaaar'/1}}
+     , {'cdaadr', #nipn{val=fun ?MODULE:'cdaadr'/1}}
+     , {'cdaar', #nipn{val=fun ?MODULE:'cdaar'/1}}
+     , {'cdadar', #nipn{val=fun ?MODULE:'cdadar'/1}}
+     , {'cdaddr', #nipn{val=fun ?MODULE:'cdaddr'/1}}
+     , {'cdadr', #nipn{val=fun ?MODULE:'cdadr'/1}}
+     , {'cdar', #nipn{val=fun ?MODULE:'cdar'/1}}
+     , {'cddaar', #nipn{val=fun ?MODULE:'cddaar'/1}}
+     , {'cddadr', #nipn{val=fun ?MODULE:'cddadr'/1}}
+     , {'cddar', #nipn{val=fun ?MODULE:'cddar'/1}}
+     , {'cdddar', #nipn{val=fun ?MODULE:'cdddar'/1}}
+     , {'cddddr', #nipn{val=fun ?MODULE:'cddddr'/1}}
+     , {'cdddr', #nipn{val=fun ?MODULE:'cdddr'/1}}
+     , {'cddr', #nipn{val=fun ?MODULE:'cddr'/1}}
+     , {'cdr', #nipn{val=fun ?MODULE:'cdr'/1}}
+     , {'ceiling', #nipn{val=fun ?MODULE:'ceiling'/1}}
+     , {'char->integer', #nipn{val=fun ?MODULE:'char->integer'/1}}
+     , {'char-alphabetic?', #nipn{val=fun ?MODULE:'char-alphabetic?'/1}}
+     , {'char-ci<=?', #nipv{val=fun ?MODULE:'char-ci<=?'/1}}
+     , {'char-ci<?', #nipv{val=fun ?MODULE:'char-ci<?'/1}}
+     , {'char-ci=?', #nipv{val=fun ?MODULE:'char-ci=?'/1}}
+     , {'char-ci>=?', #nipv{val=fun ?MODULE:'char-ci>=?'/1}}
+     , {'char-ci>?', #nipv{val=fun ?MODULE:'char-ci>?'/1}}
+     , {'char-downcase', #nipn{val=fun ?MODULE:'char-downcase'/1}}
+     , {'char-lower-case?', #nipn{val=fun ?MODULE:'char-lower-case?'/1}}
+     , {'char-numeric?', #nipn{val=fun ?MODULE:'char-numeric?'/1}}
+     , {'char-ready?', #nipn{val=[fun ?MODULE:'char-ready?'/0, fun ?MODULE:'char-ready?'/1]}}
+     , {'char-upcase', #nipn{val=fun ?MODULE:'char-upcase'/1}}
+     , {'char-upper-case?', #nipn{val=fun ?MODULE:'char-upper-case?'/1}}
+     , {'char-whitespace?', #nipn{val=fun ?MODULE:'char-whitespace?'/1}}
+     , {'char<=?', #nipv{val=fun ?MODULE:'char<=?'/1}}
+     , {'char<?', #nipv{val=fun ?MODULE:'char<?'/1}}
+     , {'char=?', #nipv{val=fun ?MODULE:'char=?'/1}}
+     , {'char>=?', #nipv{val=fun ?MODULE:'char>=?'/1}}
+     , {'char>?', #nipv{val=fun ?MODULE:'char>?'/1}}
+     , {'char?', #nipv{val=fun ?MODULE:'char?'/1}}
+     , {'close-input-port', #nipn{val=fun ?MODULE:'close-input-port'/1}}
+     , {'close-output-port', #nipn{val=fun ?MODULE:'close-output-port'/1}}
+     , {'complex?', #nipn{val=fun ?MODULE:'complex?'/1}}
      %% derived - cond
-     , {'cons', #nipn{val=fun 'cons'/2}}
-     , {'cos', #nipn{val=fun 'cos'/1}}
-     , {'current-input-port', #nip0{val=fun 'current-input-port'/0}}
-     , {'current-output-port', #nip0{val=fun 'current-output-port'/0}}
+     , {'cons', #nipn{val=fun ?MODULE:'cons'/2}}
+     , {'cos', #nipn{val=fun ?MODULE:'cos'/1}}
+     , {'current-input-port', #nip0{val=fun ?MODULE:'current-input-port'/0}}
+     , {'current-output-port', #nip0{val=fun ?MODULE:'current-output-port'/0}}
      %% program - define
      %% program - define-syntax
-     , {'delay', #nipv{val=fun 'delay'/1}}
-     , {'denominator', #nipn{val=fun 'denominator'/1}}
-     , {'display', #nipn{val=[fun 'display'/1, fun 'display'/2]}}
+     , {'delay', #nipv{val=fun ?MODULE:'delay'/1}}
+     , {'denominator', #nipn{val=fun ?MODULE:'denominator'/1}}
+     , {'display', #nipn{val=[fun ?MODULE:'display'/1, fun ?MODULE:'display'/2]}}
      %% derived - do
-     , {'dynamic-wind', #xnipn{val=fun 'dynamic-wind'/6}}
-     , {'eof-object?', #nipn{val=fun 'eof-object?'/1}}
-     , {'eq?', #nipn{val=fun 'eq?'/2}}
-     , {'equal?', #nipn{val=fun 'equal?'/2}}
-     , {'eqv?', #nipn{val=fun 'eqv?'/2}}
-     , {'eval', #nipn{val=fun 'eval'/2}}
-     , {'even?', #nipn{val=fun 'even?'/1}}
-     , {'exact->inexact', #nipn{val=fun 'exact->inexact'/1}}
-     , {'exact?', #nipn{val=fun 'exact?'/1}}
-     , {'exp', #nipn{val=fun 'exp'/1}}
-     , {'expt', #nipn{val=fun 'expt'/2}}
-     , {'floor', #nipn{val=fun 'floor'/1}}
-     , {'for-each', #xnipv{val=fun 'for-each'/4}}
-     , {'force', #nipv{val=fun 'force'/1}}
-     , {'gcd', #nipv{val=fun 'gcd'/1}}
+     , {'dynamic-wind', #xnipn{val=fun ?MODULE:'dynamic-wind'/6}}
+     , {'eof-object?', #nipn{val=fun ?MODULE:'eof-object?'/1}}
+     , {'eq?', #nipn{val=fun ?MODULE:'eq?'/2}}
+     , {'equal?', #nipn{val=fun ?MODULE:'equal?'/2}}
+     , {'eqv?', #nipn{val=fun ?MODULE:'eqv?'/2}}
+     , {'eval', #nipn{val=fun ?MODULE:'eval'/2}}
+     , {'even?', #nipn{val=fun ?MODULE:'even?'/1}}
+     , {'exact->inexact', #nipn{val=fun ?MODULE:'exact->inexact'/1}}
+     , {'exact?', #nipn{val=fun ?MODULE:'exact?'/1}}
+     , {'exp', #nipn{val=fun ?MODULE:'exp'/1}}
+     , {'expt', #nipn{val=fun ?MODULE:'expt'/2}}
+     , {'floor', #nipn{val=fun ?MODULE:'floor'/1}}
+     , {'for-each', #xnipv{val=fun ?MODULE:'for-each'/4}}
+     , {'force', #nipv{val=fun ?MODULE:'force'/1}}
+     , {'gcd', #nipv{val=fun ?MODULE:'gcd'/1}}
      %% primitive - if
-     , {'imag-part', #nipn{val=fun 'imag-part'/1}}
-     , {'inexact->exact', #nipn{val=fun 'inexact->exact'/1}}
-     , {'inexact?', #nipn{val=fun 'inexact?'/1}}
-     , {'input-port?', #nipn{val=fun 'input-port?'/1}}
-     , {'integer->char', #nipn{val=fun 'integer->char'/1}}
-     , {'integer?', #nipn{val=fun 'integer?'/1}}
-     , {'interaction-environment', #nip0{val=fun 'interaction-environment'/0}}
+     , {'imag-part', #nipn{val=fun ?MODULE:'imag-part'/1}}
+     , {'inexact->exact', #nipn{val=fun ?MODULE:'inexact->exact'/1}}
+     , {'inexact?', #nipn{val=fun ?MODULE:'inexact?'/1}}
+     , {'input-port?', #nipn{val=fun ?MODULE:'input-port?'/1}}
+     , {'integer->char', #nipn{val=fun ?MODULE:'integer->char'/1}}
+     , {'integer?', #nipn{val=fun ?MODULE:'integer?'/1}}
+     , {'interaction-environment', #nip0{val=fun ?MODULE:'interaction-environment'/0}}
      %% primitive - lambda
-     , {'lcm', #nipv{val=fun 'lcm'/1}}
-     , {'length', #nipn{val=fun 'length'/1}}
+     , {'lcm', #nipv{val=fun ?MODULE:'lcm'/1}}
+     , {'length', #nipn{val=fun ?MODULE:'length'/1}}
      %% derived - let
      %% derived - let*
      %% derived - let-syntax
      %% derived - letrec
      %% derived - letrec-syntax
-     , {'list', #nipn{val=fun 'list'/1}}
-     , {'list->string', #nipn{val=fun 'list->string'/1}}
-     , {'list->vector', #nipn{val=fun 'list->vector'/1}}
-     , {'list-ref', #nipn{val=fun 'list-ref'/2}}
-     , {'list-tail', #nipn{val=fun 'list-tail'/2}}
-     , {'list?', #nipn{val=fun 'list?'/1}}
-     , {'load', #nipn{val=fun 'load'/1}}
-     , {'log', #nipn{val=[fun 'log'/1, fun 'log'/2]}}
-     , {'magnitude', #nipn{val=fun 'magnitude'/1}}
-     , {'make-polar', #nipn{val=fun 'make-polar'/2}}
-     , {'make-rectangular', #nipn{val=fun 'make-rectangular'/2}}
-     , {'make-string', #nipn{val=[fun 'make-string'/1, fun 'make-string'/2]}}
-     , {'make-vector', #nipn{val=[fun 'make-vector'/1, fun 'make-vector'/2]}}
-     , {'map', #xnipv{val=fun 'map'/4}}
-     , {'max', #nipv{val=fun 'max'/1}}
-     , {'member', #xnipn{val=[fun 'member'/5, fun 'member'/6]}}
-     , {'memq', #xnipn{val=fun 'memq'/5}}
-     , {'memv', #xnipn{val=fun 'memv'/5}}
-     , {'min', #nipv{val=fun 'min'/1}}
-     , {'modulo', #nipn{val=fun 'modulo'/2}}
-     , {'negative?', #nipn{val=fun 'negative?'/1}}
-     , {'newline', #nipn{val=[fun 'newline'/0, fun 'newline'/1]}}
-     , {'not', #nipn{val=fun 'not'/1}}
-     , {'null-environment', #nipn{val=fun 'null-environment'/1}}
-     , {'null?', #nipn{val=fun 'null?'/1}}
-     , {'number->string', #nipn{val=[fun 'number->string'/1, fun 'number->string'/2]}}
-     , {'number?', #nipn{val=fun 'number?'/1}}
-     , {'numerator', #nipn{val=fun 'numerator'/1}}
-     , {'odd?', #nipn{val=fun 'odd?'/1}}
-     , {'open-input-file', #nipn{val=fun 'open-input-file'/1}}
-     , {'open-output-file', #nipn{val=fun 'open-output-file'/1}}
+     , {'list', #nipn{val=fun ?MODULE:'list'/1}}
+     , {'list->string', #nipn{val=fun ?MODULE:'list->string'/1}}
+     , {'list->vector', #nipn{val=fun ?MODULE:'list->vector'/1}}
+     , {'list-ref', #nipn{val=fun ?MODULE:'list-ref'/2}}
+     , {'list-tail', #nipn{val=fun ?MODULE:'list-tail'/2}}
+     , {'list?', #nipn{val=fun ?MODULE:'list?'/1}}
+     , {'load', #nipn{val=fun ?MODULE:'load'/1}}
+     , {'log', #nipn{val=[fun ?MODULE:'log'/1, fun ?MODULE:'log'/2]}}
+     , {'magnitude', #nipn{val=fun ?MODULE:'magnitude'/1}}
+     , {'make-polar', #nipn{val=fun ?MODULE:'make-polar'/2}}
+     , {'make-rectangular', #nipn{val=fun ?MODULE:'make-rectangular'/2}}
+     , {'make-string', #nipn{val=[fun ?MODULE:'make-string'/1, fun ?MODULE:'make-string'/2]}}
+     , {'make-vector', #nipn{val=[fun ?MODULE:'make-vector'/1, fun ?MODULE:'make-vector'/2]}}
+     , {'map', #xnipv{val=fun ?MODULE:'map'/4}}
+     , {'max', #nipv{val=fun ?MODULE:'max'/1}}
+     , {'member', #xnipn{val=[fun ?MODULE:'member'/5, fun ?MODULE:'member'/6]}}
+     , {'memq', #xnipn{val=fun ?MODULE:'memq'/5}}
+     , {'memv', #xnipn{val=fun ?MODULE:'memv'/5}}
+     , {'min', #nipv{val=fun ?MODULE:'min'/1}}
+     , {'modulo', #nipn{val=fun ?MODULE:'modulo'/2}}
+     , {'negative?', #nipn{val=fun ?MODULE:'negative?'/1}}
+     , {'newline', #nipn{val=[fun ?MODULE:'newline'/0, fun ?MODULE:'newline'/1]}}
+     , {'not', #nipn{val=fun ?MODULE:'not'/1}}
+     , {'null-environment', #nipn{val=fun ?MODULE:'null-environment'/1}}
+     , {'null?', #nipn{val=fun ?MODULE:'null?'/1}}
+     , {'number->string', #nipn{val=[fun ?MODULE:'number->string'/1, fun ?MODULE:'number->string'/2]}}
+     , {'number?', #nipn{val=fun ?MODULE:'number?'/1}}
+     , {'numerator', #nipn{val=fun ?MODULE:'numerator'/1}}
+     , {'odd?', #nipn{val=fun ?MODULE:'odd?'/1}}
+     , {'open-input-file', #nipn{val=fun ?MODULE:'open-input-file'/1}}
+     , {'open-output-file', #nipn{val=fun ?MODULE:'open-output-file'/1}}
      %% primitive - or
-     , {'output-port?', #nipn{val=fun 'output-port?'/1}}
-     , {'pair?', #nipn{val=fun 'pair?'/1}}
-     , {'peek-char', #nipn{val=[fun 'peek-char'/0, fun 'peek-char'/1]}}
-     , {'positive?', #nipn{val=fun 'positive?'/1}}
-     , {'procedure?', #nipn{val=fun 'procedure?'/1}}
+     , {'output-port?', #nipn{val=fun ?MODULE:'output-port?'/1}}
+     , {'pair?', #nipn{val=fun ?MODULE:'pair?'/1}}
+     , {'peek-char', #nipn{val=[fun ?MODULE:'peek-char'/0, fun ?MODULE:'peek-char'/1]}}
+     , {'positive?', #nipn{val=fun ?MODULE:'positive?'/1}}
+     , {'procedure?', #nipn{val=fun ?MODULE:'procedure?'/1}}
      %% derived - quasiquote
      %% primitive - quote
-     , {'quotient', #nipn{val=fun 'quotient'/2}}
-     , {'rational?', #nipn{val=fun 'rational?'/1}}
-     , {'rationalize', #nipn{val=fun 'rationalize'/2}}
-     , {'read', #nipn{val=[fun 'read'/0, fun 'read'/1]}}
-     , {'read-char', #nipn{val=[fun 'read-char'/0, fun 'read-char'/1]}}
-     , {'real-part', #nipn{val=fun 'real-part'/1}}
-     , {'real?', #nipn{val=fun 'real?'/1}}
-     , {'remainder', #nipn{val=fun 'remainder'/2}}
-     , {'reverse', #nipn{val=fun 'reverse'/1}}
-     , {'round', #nipn{val=fun 'round'/1}}
-     , {'scheme-report-environment', #nipn{val=fun 'scheme-report-environment'/1}}
+     , {'quotient', #nipn{val=fun ?MODULE:'quotient'/2}}
+     , {'rational?', #nipn{val=fun ?MODULE:'rational?'/1}}
+     , {'rationalize', #nipn{val=fun ?MODULE:'rationalize'/2}}
+     , {'read', #nipn{val=[fun ?MODULE:'read'/0, fun ?MODULE:'read'/1]}}
+     , {'read-char', #nipn{val=[fun ?MODULE:'read-char'/0, fun ?MODULE:'read-char'/1]}}
+     , {'real-part', #nipn{val=fun ?MODULE:'real-part'/1}}
+     , {'real?', #nipn{val=fun ?MODULE:'real?'/1}}
+     , {'remainder', #nipn{val=fun ?MODULE:'remainder'/2}}
+     , {'reverse', #nipn{val=fun ?MODULE:'reverse'/1}}
+     , {'round', #nipn{val=fun ?MODULE:'round'/1}}
+     , {'scheme-report-environment', #nipn{val=fun ?MODULE:'scheme-report-environment'/1}}
      %% primitive - set!
-     , {'set-car!', #nipn{val=fun 'set-car!'/2}}
-     , {'set-cdr!', #nipn{val=fun 'set-cdr!'/2}}
-     , {'sin', #nipn{val=fun 'sin'/1}}
-     , {'sqrt', #nipn{val=fun 'sqrt'/1}}
-     , {'string', #nipv{val=fun 'string'/1}}
-     , {'string->list', #nipn{val=fun 'string->list'/1}}
-     , {'string->number', #nipn{val=[fun 'string->number'/1, fun 'string->number'/2]}}
-     , {'string->symbol', #nipn{val=fun 'string->symbol'/1}}
-     , {'string-append', #nipv{val=fun 'string-append'/1}}
-     , {'string-ci<=?', #nipv{val=fun 'string-ci<=?'/1}}
-     , {'string-ci<?', #nipv{val=fun 'string-ci<?'/1}}
-     , {'string-ci=?', #nipv{val=fun 'string-ci=?'/1}}
-     , {'string-ci>=?', #nipv{val=fun 'string-ci>=?'/1}}
-     , {'string-ci>?', #nipv{val=fun 'string-ci>?'/1}}
-     , {'string-copy', #nipn{val=fun 'string-copy'/1}}
-     , {'string-fill!', #nipn{val=fun 'string-fill!'/2}}
-     , {'string-length', #nipn{val=fun 'string-length'/1}}
-     , {'string-ref', #nipn{val=fun 'string-ref'/2}}
-     , {'string-set!', #nipn{val=fun 'string-set!'/3}}
-     , {'string<=?', #nipv{val=fun 'string<=?'/1}}
-     , {'string<?', #nipv{val=fun 'string<?'/1}}
-     , {'string=?', #nipv{val=fun 'string=?'/1}}
-     , {'string>=?', #nipv{val=fun 'string>=?'/1}}
-     , {'string>?', #nipv{val=fun 'string>?'/1}}
-     , {'string?', #nipn{val=fun 'string?'/1}}
-     , {'substring', #nipn{val=fun 'substring'/3}}
-     , {'symbol->string', #nipn{val=fun 'symbol->string'/1}}
-     , {'symbol?', #nipn{val=fun 'symbol?'/1}}
-     , {'tan', #nipn{val=fun 'tan'/1}}
-     , {'transcript-on', #nipn{val=fun 'transcript-on'/1}}
-     , {'transcript-off', #nip0{val=fun 'transcript-off'/0}}
-     , {'truncate', #nipn{val=fun 'truncate'/1}}
-     , {'values', #xnipv{val=fun 'values'/4}}
-     , {'vector', #nipv{val=fun 'vector'/1}}
-     , {'vector->list', #nipn{val=fun 'vector->list'/1}}
-     , {'vector-fill!', #nipn{val=fun 'vector-fill!'/2}}
-     , {'vector-length', #nipn{val=fun 'vector-length'/1}}
-     , {'vector-ref', #nipn{val=fun 'vector-ref'/2}}
-     , {'vector-set!', #nipn{val=fun 'vector-set!'/3}}
-     , {'vector?', #nipn{val=fun 'vector?'/1}}
-     , {'with-input-from-file', #nipn{val=fun 'with-input-from-file'/2}}
-     , {'with-output-to-file', #nipn{val=fun 'with-output-to-file'/2}}
-     , {'write', #nipn{val=[fun 'write'/1, fun 'write'/2]}}
-     , {'write-char', #nipn{val=[fun 'write-char'/1, fun 'write-char'/2]}}
-     , {'zero?', #nipn{val=fun 'zero?'/1}}
+     , {'set-car!', #nipn{val=fun ?MODULE:'set-car!'/2}}
+     , {'set-cdr!', #nipn{val=fun ?MODULE:'set-cdr!'/2}}
+     , {'sin', #nipn{val=fun ?MODULE:'sin'/1}}
+     , {'sqrt', #nipn{val=fun ?MODULE:'sqrt'/1}}
+     , {'string', #nipv{val=fun ?MODULE:'string'/1}}
+     , {'string->list', #nipn{val=fun ?MODULE:'string->list'/1}}
+     , {'string->number', #nipn{val=[fun ?MODULE:'string->number'/1, fun ?MODULE:'string->number'/2]}}
+     , {'string->symbol', #nipn{val=fun ?MODULE:'string->symbol'/1}}
+     , {'string-append', #nipv{val=fun ?MODULE:'string-append'/1}}
+     , {'string-ci<=?', #nipv{val=fun ?MODULE:'string-ci<=?'/1}}
+     , {'string-ci<?', #nipv{val=fun ?MODULE:'string-ci<?'/1}}
+     , {'string-ci=?', #nipv{val=fun ?MODULE:'string-ci=?'/1}}
+     , {'string-ci>=?', #nipv{val=fun ?MODULE:'string-ci>=?'/1}}
+     , {'string-ci>?', #nipv{val=fun ?MODULE:'string-ci>?'/1}}
+     , {'string-copy', #nipn{val=fun ?MODULE:'string-copy'/1}}
+     , {'string-fill!', #nipn{val=fun ?MODULE:'string-fill!'/2}}
+     , {'string-length', #nipn{val=fun ?MODULE:'string-length'/1}}
+     , {'string-ref', #nipn{val=fun ?MODULE:'string-ref'/2}}
+     , {'string-set!', #nipn{val=fun ?MODULE:'string-set!'/3}}
+     , {'string<=?', #nipv{val=fun ?MODULE:'string<=?'/1}}
+     , {'string<?', #nipv{val=fun ?MODULE:'string<?'/1}}
+     , {'string=?', #nipv{val=fun ?MODULE:'string=?'/1}}
+     , {'string>=?', #nipv{val=fun ?MODULE:'string>=?'/1}}
+     , {'string>?', #nipv{val=fun ?MODULE:'string>?'/1}}
+     , {'string?', #nipn{val=fun ?MODULE:'string?'/1}}
+     , {'substring', #nipn{val=fun ?MODULE:'substring'/3}}
+     , {'symbol->string', #nipn{val=fun ?MODULE:'symbol->string'/1}}
+     , {'symbol?', #nipn{val=fun ?MODULE:'symbol?'/1}}
+     , {'tan', #nipn{val=fun ?MODULE:'tan'/1}}
+     , {'transcript-on', #nipn{val=fun ?MODULE:'transcript-on'/1}}
+     , {'transcript-off', #nip0{val=fun ?MODULE:'transcript-off'/0}}
+     , {'truncate', #nipn{val=fun ?MODULE:'truncate'/1}}
+     , {'values', #xnipv{val=fun ?MODULE:'values'/4}}
+     , {'vector', #nipv{val=fun ?MODULE:'vector'/1}}
+     , {'vector->list', #nipn{val=fun ?MODULE:'vector->list'/1}}
+     , {'vector-fill!', #nipn{val=fun ?MODULE:'vector-fill!'/2}}
+     , {'vector-length', #nipn{val=fun ?MODULE:'vector-length'/1}}
+     , {'vector-ref', #nipn{val=fun ?MODULE:'vector-ref'/2}}
+     , {'vector-set!', #nipn{val=fun ?MODULE:'vector-set!'/3}}
+     , {'vector?', #nipn{val=fun ?MODULE:'vector?'/1}}
+     , {'with-input-from-file', #nipn{val=fun ?MODULE:'with-input-from-file'/2}}
+     , {'with-output-to-file', #nipn{val=fun ?MODULE:'with-output-to-file'/2}}
+     , {'write', #nipn{val=[fun ?MODULE:'write'/1, fun ?MODULE:'write'/2]}}
+     , {'write-char', #nipn{val=[fun ?MODULE:'write-char'/1, fun ?MODULE:'write-char'/2]}}
+     , {'zero?', #nipn{val=fun ?MODULE:'zero?'/1}}
     ].
 
 %%%===================================================================

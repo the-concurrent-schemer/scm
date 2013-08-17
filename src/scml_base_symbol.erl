@@ -50,10 +50,10 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'symbol?', #nipn{val=fun 'symbol?'/1}}
-     , {'symbol=?', #nipv{val=fun 'symbol=?'/1}}
-     , {'symbol->string', #nipn{val=fun 'symbol->string'/1}}
-     , {'string->symbol', #nipn{val=fun 'string->symbol'/1}}
+    [{'symbol?', #nipn{val=fun ?MODULE:'symbol?'/1}}
+     , {'symbol=?', #nipv{val=fun ?MODULE:'symbol=?'/1}}
+     , {'symbol->string', #nipn{val=fun ?MODULE:'symbol->string'/1}}
+     , {'string->symbol', #nipn{val=fun ?MODULE:'string->symbol'/1}}
     ].
 
 %%%===================================================================

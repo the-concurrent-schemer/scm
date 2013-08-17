@@ -70,24 +70,24 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'string?', #nipn{val=fun 'string?'/1}}
-     , {'make-string', #nipn{val=[fun 'make-string'/1, fun 'make-string'/2]}}
-     , {'string', #nipn{val=fun 'string'/1}}
-     , {'string-length', #nipn{val=fun 'string-length'/1}}
-     , {'string-ref', #nipn{val=fun 'string-ref'/2}}
-     , {'string-set!', #nipn{val=fun 'string-set!'/3}}
-     , {'string=?', #nipv{val=fun 'string=?'/1}}
-     , {'string<?', #nipv{val=fun 'string<?'/1}}
-     , {'string>?', #nipv{val=fun 'string>?'/1}}
-     , {'string<=?', #nipv{val=fun 'string<=?'/1}}
-     , {'string>=?', #nipv{val=fun 'string>=?'/1}}
-     , {'substring', #nipn{val=fun 'substring'/3}}
-     , {'string-append', #nipv{val=fun 'string-append'/1}}
-     , {'string->list', #nipn{val=[fun 'string->list'/1, fun 'string->list'/2, fun 'string->list'/3]}}
-     , {'list->string', #nipn{val=fun 'list->string'/1}}
-     , {'string-copy', #nipn{val=[fun 'string-copy'/1, fun 'string-copy'/2, fun 'string-copy'/3]}}
-     , {'string-copy!', #nipn{val=[fun 'string-copy!'/3, fun 'string-copy!'/4, fun 'string-copy!'/5]}}
-     , {'string-fill!', #nipn{val=[fun 'string-fill!'/2, fun 'string-fill!'/3, fun 'string-fill!'/4]}}
+    [{'string?', #nipn{val=fun ?MODULE:'string?'/1}}
+     , {'make-string', #nipn{val=[fun ?MODULE:'make-string'/1, fun ?MODULE:'make-string'/2]}}
+     , {'string', #nipn{val=fun ?MODULE:'string'/1}}
+     , {'string-length', #nipn{val=fun ?MODULE:'string-length'/1}}
+     , {'string-ref', #nipn{val=fun ?MODULE:'string-ref'/2}}
+     , {'string-set!', #nipn{val=fun ?MODULE:'string-set!'/3}}
+     , {'string=?', #nipv{val=fun ?MODULE:'string=?'/1}}
+     , {'string<?', #nipv{val=fun ?MODULE:'string<?'/1}}
+     , {'string>?', #nipv{val=fun ?MODULE:'string>?'/1}}
+     , {'string<=?', #nipv{val=fun ?MODULE:'string<=?'/1}}
+     , {'string>=?', #nipv{val=fun ?MODULE:'string>=?'/1}}
+     , {'substring', #nipn{val=fun ?MODULE:'substring'/3}}
+     , {'string-append', #nipv{val=fun ?MODULE:'string-append'/1}}
+     , {'string->list', #nipn{val=[fun ?MODULE:'string->list'/1, fun ?MODULE:'string->list'/2, fun ?MODULE:'string->list'/3]}}
+     , {'list->string', #nipn{val=fun ?MODULE:'list->string'/1}}
+     , {'string-copy', #nipn{val=[fun ?MODULE:'string-copy'/1, fun ?MODULE:'string-copy'/2, fun ?MODULE:'string-copy'/3]}}
+     , {'string-copy!', #nipn{val=[fun ?MODULE:'string-copy!'/3, fun ?MODULE:'string-copy!'/4, fun ?MODULE:'string-copy!'/5]}}
+     , {'string-fill!', #nipn{val=[fun ?MODULE:'string-fill!'/2, fun ?MODULE:'string-fill!'/3, fun ?MODULE:'string-fill!'/4]}}
     ].
 
 %%%===================================================================

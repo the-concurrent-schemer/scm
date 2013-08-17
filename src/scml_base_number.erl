@@ -95,56 +95,56 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'number?', #nipn{val=fun 'number?'/1}}
-     , {'complex?', #nipn{val=fun 'complex?'/1}}
-     , {'real?', #nipn{val=fun 'real?'/1}}
-     , {'rational?', #nipn{val=fun 'rational?'/1}}
-     , {'integer?', #nipn{val=fun 'integer?'/1}}
-     , {'exact?', #nipn{val=fun 'exact?'/1}}
-     , {'inexact?', #nipn{val=fun 'inexact?'/1}}
-     , {'exact-integer?', #nipn{val=fun 'exact-integer?'/1}}
-     , {'=', #nipv{val=fun '='/1}}
-     , {'<', #nipv{val=fun '<'/1}}
-     , {'>', #nipv{val=fun '>'/1}}
-     , {'<=', #nipv{val=fun '<='/1}}
-     , {'>=', #nipv{val=fun '>='/1}}
-     , {'zero?', #nipn{val=fun 'zero?'/1}}
-     , {'positive?', #nipn{val=fun 'positive?'/1}}
-     , {'negative?', #nipn{val=fun 'negative?'/1}}
-     , {'odd?', #nipn{val=fun 'odd?'/1}}
-     , {'even?', #nipn{val=fun 'even?'/1}}
-     , {'max', #nipv{val=fun 'max'/1}}
-     , {'min', #nipv{val=fun 'min'/1}}
-     , {'+', #nipv{val=fun '+'/1}}
-     , {'*', #nipv{val=fun '*'/1}}
-     , {'-', #nipv{val=fun '-'/1}}
-     , {'/', #nipv{val=fun '/'/1}}
-     , {'abs', #nipn{val=fun 'abs'/1}}
-     , {'floor/', #nipn{val=fun 'floor/'/2}}
-     , {'floor-quotient', #nipn{val=fun 'floor-quotient'/2}}
-     , {'floor-remainder', #nipn{val=fun 'floor-remainder'/2}}
-     , {'truncate/', #nipn{val=fun 'truncate/'/2}}
-     , {'truncate-quotient', #nipn{val=fun 'truncate-quotient'/2}}
-     , {'truncate-remainder', #nipn{val=fun 'truncate-remainder'/2}}
-     , {'quotient', #nipn{val=fun 'quotient'/2}}
-     , {'remainder', #nipn{val=fun 'remainder'/2}}
-     , {'modulo', #nipn{val=fun 'modulo'/2}}
-     , {'gcd', #nipv{val=fun 'gcd'/1}}
-     , {'lcm', #nipv{val=fun 'lcm'/1}}
-     , {'numerator', #nipn{val=fun 'numerator'/1}}
-     , {'denominator', #nipn{val=fun 'denominator'/1}}
-     , {'floor', #nipn{val=fun 'floor'/1}}
-     , {'ceiling', #nipn{val=fun 'ceiling'/1}}
-     , {'truncate', #nipn{val=fun 'truncate'/1}}
-     , {'round', #nipn{val=fun 'round'/1}}
-     , {'rationalize', #nipn{val=fun 'rationalize'/2}}
-     , {'square', #nipn{val=fun 'square'/1}}
-     , {'exact-integer-sqrt', #nipn{val=fun 'exact-integer-sqrt'/1}}
-     , {'expt', #nipn{val=fun 'expt'/2}}
-     , {'inexact', #nipn{val=fun 'inexact'/1}}
-     , {'exact', #nipn{val=fun 'exact'/1}}
-     , {'number->string', #nipn{val=[fun 'number->string'/1, fun 'number->string'/2]}}
-     , {'string->number', #nipn{val=[fun 'string->number'/1, fun 'string->number'/2]}}
+    [{'number?', #nipn{val=fun ?MODULE:'number?'/1}}
+     , {'complex?', #nipn{val=fun ?MODULE:'complex?'/1}}
+     , {'real?', #nipn{val=fun ?MODULE:'real?'/1}}
+     , {'rational?', #nipn{val=fun ?MODULE:'rational?'/1}}
+     , {'integer?', #nipn{val=fun ?MODULE:'integer?'/1}}
+     , {'exact?', #nipn{val=fun ?MODULE:'exact?'/1}}
+     , {'inexact?', #nipn{val=fun ?MODULE:'inexact?'/1}}
+     , {'exact-integer?', #nipn{val=fun ?MODULE:'exact-integer?'/1}}
+     , {'=', #nipv{val=fun ?MODULE:'='/1}}
+     , {'<', #nipv{val=fun ?MODULE:'<'/1}}
+     , {'>', #nipv{val=fun ?MODULE:'>'/1}}
+     , {'<=', #nipv{val=fun ?MODULE:'<='/1}}
+     , {'>=', #nipv{val=fun ?MODULE:'>='/1}}
+     , {'zero?', #nipn{val=fun ?MODULE:'zero?'/1}}
+     , {'positive?', #nipn{val=fun ?MODULE:'positive?'/1}}
+     , {'negative?', #nipn{val=fun ?MODULE:'negative?'/1}}
+     , {'odd?', #nipn{val=fun ?MODULE:'odd?'/1}}
+     , {'even?', #nipn{val=fun ?MODULE:'even?'/1}}
+     , {'max', #nipv{val=fun ?MODULE:'max'/1}}
+     , {'min', #nipv{val=fun ?MODULE:'min'/1}}
+     , {'+', #nipv{val=fun ?MODULE:'+'/1}}
+     , {'*', #nipv{val=fun ?MODULE:'*'/1}}
+     , {'-', #nipv{val=fun ?MODULE:'-'/1}}
+     , {'/', #nipv{val=fun ?MODULE:'/'/1}}
+     , {'abs', #nipn{val=fun ?MODULE:'abs'/1}}
+     , {'floor/', #nipn{val=fun ?MODULE:'floor/'/2}}
+     , {'floor-quotient', #nipn{val=fun ?MODULE:'floor-quotient'/2}}
+     , {'floor-remainder', #nipn{val=fun ?MODULE:'floor-remainder'/2}}
+     , {'truncate/', #nipn{val=fun ?MODULE:'truncate/'/2}}
+     , {'truncate-quotient', #nipn{val=fun ?MODULE:'truncate-quotient'/2}}
+     , {'truncate-remainder', #nipn{val=fun ?MODULE:'truncate-remainder'/2}}
+     , {'quotient', #nipn{val=fun ?MODULE:'quotient'/2}}
+     , {'remainder', #nipn{val=fun ?MODULE:'remainder'/2}}
+     , {'modulo', #nipn{val=fun ?MODULE:'modulo'/2}}
+     , {'gcd', #nipv{val=fun ?MODULE:'gcd'/1}}
+     , {'lcm', #nipv{val=fun ?MODULE:'lcm'/1}}
+     , {'numerator', #nipn{val=fun ?MODULE:'numerator'/1}}
+     , {'denominator', #nipn{val=fun ?MODULE:'denominator'/1}}
+     , {'floor', #nipn{val=fun ?MODULE:'floor'/1}}
+     , {'ceiling', #nipn{val=fun ?MODULE:'ceiling'/1}}
+     , {'truncate', #nipn{val=fun ?MODULE:'truncate'/1}}
+     , {'round', #nipn{val=fun ?MODULE:'round'/1}}
+     , {'rationalize', #nipn{val=fun ?MODULE:'rationalize'/2}}
+     , {'square', #nipn{val=fun ?MODULE:'square'/1}}
+     , {'exact-integer-sqrt', #nipn{val=fun ?MODULE:'exact-integer-sqrt'/1}}
+     , {'expt', #nipn{val=fun ?MODULE:'expt'/2}}
+     , {'inexact', #nipn{val=fun ?MODULE:'inexact'/1}}
+     , {'exact', #nipn{val=fun ?MODULE:'exact'/1}}
+     , {'number->string', #nipn{val=[fun ?MODULE:'number->string'/1, fun ?MODULE:'number->string'/2]}}
+     , {'string->number', #nipn{val=[fun ?MODULE:'string->number'/1, fun ?MODULE:'string->number'/2]}}
     ].
 
 %%%===================================================================

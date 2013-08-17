@@ -45,7 +45,7 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'read', #nipn{val=[fun 'read'/0, fun 'read'/1]}}
+    [{'read', #nipn{val=[fun ?MODULE:'read'/0, fun ?MODULE:'read'/1]}}
     ].
 
 %%%===================================================================

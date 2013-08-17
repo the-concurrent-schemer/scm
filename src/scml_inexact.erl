@@ -55,18 +55,18 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'finite?', #nipn{val=fun 'finite?'/1}}
-     , {'infinite?', #nipn{val=fun 'infinite?'/1}}
-     , {'nan?', #nipn{val=fun 'nan?'/1}}
-     , {'exp', #nipn{val=fun 'exp'/1}}
-     , {'log', #nipn{val=[fun 'log'/1, fun 'log'/2]}}
-     , {'sin', #nipn{val=fun 'sin'/1}}
-     , {'cos', #nipn{val=fun 'cos'/1}}
-     , {'tan', #nipn{val=fun 'tan'/1}}
-     , {'asin', #nipn{val=fun 'asin'/1}}
-     , {'acos', #nipn{val=fun 'acos'/1}}
-     , {'atan', #nipn{val=[fun 'atan'/1, fun 'atan'/2]}}
-     , {'sqrt', #nipn{val=fun 'sqrt'/1}}
+    [{'finite?', #nipn{val=fun ?MODULE:'finite?'/1}}
+     , {'infinite?', #nipn{val=fun ?MODULE:'infinite?'/1}}
+     , {'nan?', #nipn{val=fun ?MODULE:'nan?'/1}}
+     , {'exp', #nipn{val=fun ?MODULE:'exp'/1}}
+     , {'log', #nipn{val=[fun ?MODULE:'log'/1, fun ?MODULE:'log'/2]}}
+     , {'sin', #nipn{val=fun ?MODULE:'sin'/1}}
+     , {'cos', #nipn{val=fun ?MODULE:'cos'/1}}
+     , {'tan', #nipn{val=fun ?MODULE:'tan'/1}}
+     , {'asin', #nipn{val=fun ?MODULE:'asin'/1}}
+     , {'acos', #nipn{val=fun ?MODULE:'acos'/1}}
+     , {'atan', #nipn{val=[fun ?MODULE:'atan'/1, fun ?MODULE:'atan'/2]}}
+     , {'sqrt', #nipn{val=fun ?MODULE:'sqrt'/1}}
     ].
 
 %%%===================================================================

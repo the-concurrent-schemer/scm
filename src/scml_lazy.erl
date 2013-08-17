@@ -48,11 +48,11 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'delay', #nipv{val=fun 'delay'/1}}
-     , {'delay-force', #nipv{val=fun 'delay-force'/1}}
-     , {'force', #nipv{val=fun 'force'/1}}
-     , {'promise?', #nipv{val=fun 'promise?'/1}}
-     , {'make-promise', #nipv{val=fun 'make-promise'/1}}
+    [{'delay', #nipv{val=fun ?MODULE:'delay'/1}}
+     , {'delay-force', #nipv{val=fun ?MODULE:'delay-force'/1}}
+     , {'force', #nipv{val=fun ?MODULE:'force'/1}}
+     , {'promise?', #nipv{val=fun ?MODULE:'promise?'/1}}
+     , {'make-promise', #nipv{val=fun ?MODULE:'make-promise'/1}}
     ].
 
 %%%===================================================================

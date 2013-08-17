@@ -65,28 +65,28 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'char-ci=?', #nipv{val=fun 'char-ci=?'/1}}
-     , {'char-ci<?', #nipv{val=fun 'char-ci<?'/1}}
-     , {'char-ci>?', #nipv{val=fun 'char-ci>?'/1}}
-     , {'char-ci<=?', #nipv{val=fun 'char-ci<=?'/1}}
-     , {'char-ci>=?', #nipv{val=fun 'char-ci>=?'/1}}
-     , {'char-alphabetic?', #nipn{val=fun 'char-alphabetic?'/1}}
-     , {'char-numeric?', #nipn{val=fun 'char-numeric?'/1}}
-     , {'char-whitespace?', #nipn{val=fun 'char-whitespace?'/1}}
-     , {'char-upper-case?', #nipn{val=fun 'char-upper-case?'/1}}
-     , {'char-lower-case?', #nipn{val=fun 'char-lower-case?'/1}}
-     , {'digit-value', #nipn{val=fun 'digit-value'/1}}
-     , {'char-upcase', #nipn{val=fun 'char-upcase'/1}}
-     , {'char-downcase', #nipn{val=fun 'char-downcase'/1}}
-     , {'char-foldcase', #nipn{val=fun 'char-foldcase'/1}}
-     , {'string-ci=?', #nipv{val=fun 'string-ci=?'/1}}
-     , {'string-ci<?', #nipv{val=fun 'string-ci<?'/1}}
-     , {'string-ci>?', #nipv{val=fun 'string-ci>?'/1}}
-     , {'string-ci<=?', #nipv{val=fun 'string-ci<=?'/1}}
-     , {'string-ci>=?', #nipv{val=fun 'string-ci>=?'/1}}
-     , {'string-upcase', #nipn{val=fun 'string-upcase'/1}}
-     , {'string-downcase', #nipn{val=fun 'string-downcase'/1}}
-     , {'string-foldcase', #nipn{val=fun 'string-foldcase'/1}}
+    [{'char-ci=?', #nipv{val=fun ?MODULE:'char-ci=?'/1}}
+     , {'char-ci<?', #nipv{val=fun ?MODULE:'char-ci<?'/1}}
+     , {'char-ci>?', #nipv{val=fun ?MODULE:'char-ci>?'/1}}
+     , {'char-ci<=?', #nipv{val=fun ?MODULE:'char-ci<=?'/1}}
+     , {'char-ci>=?', #nipv{val=fun ?MODULE:'char-ci>=?'/1}}
+     , {'char-alphabetic?', #nipn{val=fun ?MODULE:'char-alphabetic?'/1}}
+     , {'char-numeric?', #nipn{val=fun ?MODULE:'char-numeric?'/1}}
+     , {'char-whitespace?', #nipn{val=fun ?MODULE:'char-whitespace?'/1}}
+     , {'char-upper-case?', #nipn{val=fun ?MODULE:'char-upper-case?'/1}}
+     , {'char-lower-case?', #nipn{val=fun ?MODULE:'char-lower-case?'/1}}
+     , {'digit-value', #nipn{val=fun ?MODULE:'digit-value'/1}}
+     , {'char-upcase', #nipn{val=fun ?MODULE:'char-upcase'/1}}
+     , {'char-downcase', #nipn{val=fun ?MODULE:'char-downcase'/1}}
+     , {'char-foldcase', #nipn{val=fun ?MODULE:'char-foldcase'/1}}
+     , {'string-ci=?', #nipv{val=fun ?MODULE:'string-ci=?'/1}}
+     , {'string-ci<?', #nipv{val=fun ?MODULE:'string-ci<?'/1}}
+     , {'string-ci>?', #nipv{val=fun ?MODULE:'string-ci>?'/1}}
+     , {'string-ci<=?', #nipv{val=fun ?MODULE:'string-ci<=?'/1}}
+     , {'string-ci>=?', #nipv{val=fun ?MODULE:'string-ci>=?'/1}}
+     , {'string-upcase', #nipn{val=fun ?MODULE:'string-upcase'/1}}
+     , {'string-downcase', #nipn{val=fun ?MODULE:'string-downcase'/1}}
+     , {'string-foldcase', #nipn{val=fun ?MODULE:'string-foldcase'/1}}
     ].
 
 %%%===================================================================

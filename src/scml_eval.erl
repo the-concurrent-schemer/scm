@@ -45,8 +45,8 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'environment', #nipv{val=fun 'environment'/1}}
-     , {'eval', #nipn{val=fun 'eval'/2}}
+    [{'environment', #nipv{val=fun ?MODULE:'environment'/1}}
+     , {'eval', #nipn{val=fun ?MODULE:'eval'/2}}
     ].
 
 %%%===================================================================

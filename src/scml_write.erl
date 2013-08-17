@@ -51,10 +51,10 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'write', #nipn{val=[fun 'write'/1, fun 'write'/2]}}
-     , {'write-shared', #nipn{val=[fun 'write-shared'/1, fun 'write-shared'/2]}}
-     , {'write-simple', #nipn{val=[fun 'write-simple'/1, fun 'write-simple'/2]}}
-     , {'display', #nipn{val=[fun 'display'/1, fun 'display'/2]}}
+    [{'write', #nipn{val=[fun ?MODULE:'write'/1, fun ?MODULE:'write'/2]}}
+     , {'write-shared', #nipn{val=[fun ?MODULE:'write-shared'/1, fun ?MODULE:'write-shared'/2]}}
+     , {'write-simple', #nipn{val=[fun ?MODULE:'write-simple'/1, fun ?MODULE:'write-simple'/2]}}
+     , {'display', #nipn{val=[fun ?MODULE:'display'/1, fun ?MODULE:'display'/2]}}
     ].
 
 %%%===================================================================

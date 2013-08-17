@@ -50,11 +50,11 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'command-line', #nip0{val=fun 'command-line'/0}}
-     , {'exit', #nipn{val=[fun 'exit'/0, fun 'exit'/1]}}
-     , {'emergency-exit', #nipn{val=[fun 'emergency-exit'/0, fun 'emergency-exit'/1]}}
-     , {'get-environment-variable', #nipn{val=fun 'get-environment-variable'/1}}
-     , {'get-environment-variables', #nip0{val=fun 'get-environment-variables'/0}}
+    [{'command-line', #nip0{val=fun ?MODULE:'command-line'/0}}
+     , {'exit', #nipn{val=[fun ?MODULE:'exit'/0, fun ?MODULE:'exit'/1]}}
+     , {'emergency-exit', #nipn{val=[fun ?MODULE:'emergency-exit'/0, fun ?MODULE:'emergency-exit'/1]}}
+     , {'get-environment-variable', #nipn{val=fun ?MODULE:'get-environment-variable'/1}}
+     , {'get-environment-variables', #nip0{val=fun ?MODULE:'get-environment-variables'/0}}
     ].
 
 %%%===================================================================

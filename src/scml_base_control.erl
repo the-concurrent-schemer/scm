@@ -59,19 +59,19 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'procedure?', #nipn{val=fun 'procedure?'/1}}
-     , {'apply', #xnipv{val=fun 'apply'/4}}
-     , {'map', #xnipv{val=fun 'map'/4}}
-     , {'string-map', #xnipv{val=fun 'string-map'/4}}
-     , {'vector-map', #xnipv{val=fun 'vector-map'/4}}
-     , {'for-each', #xnipv{val=fun 'for-each'/4}}
-     , {'string-for-each', #xnipv{val=fun 'string-for-each'/4}}
-     , {'vector-for-each', #xnipv{val=fun 'vector-for-each'/4}}
-     , {'call/cc', #xnipn{val=fun 'call/cc'/4}}
-     , {'call-with-current-continuation', #xnipn{val=fun 'call/cc'/4}}
-     , {'values', #xnipv{val=fun 'values'/4}}
-     , {'call-with-values', #xnipn{val=fun 'call-with-values'/5}}
-     , {'dynamic-wind', #xnipn{val=fun 'dynamic-wind'/6}}
+    [{'procedure?', #nipn{val=fun ?MODULE:'procedure?'/1}}
+     , {'apply', #xnipv{val=fun ?MODULE:'apply'/4}}
+     , {'map', #xnipv{val=fun ?MODULE:'map'/4}}
+     , {'string-map', #xnipv{val=fun ?MODULE:'string-map'/4}}
+     , {'vector-map', #xnipv{val=fun ?MODULE:'vector-map'/4}}
+     , {'for-each', #xnipv{val=fun ?MODULE:'for-each'/4}}
+     , {'string-for-each', #xnipv{val=fun ?MODULE:'string-for-each'/4}}
+     , {'vector-for-each', #xnipv{val=fun ?MODULE:'vector-for-each'/4}}
+     , {'call/cc', #xnipn{val=fun ?MODULE:'call/cc'/4}}
+     , {'call-with-current-continuation', #xnipn{val=fun ?MODULE:'call/cc'/4}}
+     , {'values', #xnipv{val=fun ?MODULE:'values'/4}}
+     , {'call-with-values', #xnipn{val=fun ?MODULE:'call-with-values'/5}}
+     , {'dynamic-wind', #xnipn{val=fun ?MODULE:'dynamic-wind'/6}}
     ].
 
 %%%===================================================================

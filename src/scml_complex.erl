@@ -49,12 +49,12 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'make-rectangular', #nipn{val=fun 'make-rectangular'/2}}
-     , {'make-polar', #nipn{val=fun 'make-polar'/2}}
-     , {'real-part', #nipn{val=fun 'real-part'/1}}
-     , {'imag-part', #nipn{val=fun 'imag-part'/1}}
-     , {'magnitude', #nipn{val=fun 'magnitude'/1}}
-     , {'angle', #nipn{val=fun 'angle'/1}}
+    [{'make-rectangular', #nipn{val=fun ?MODULE:'make-rectangular'/2}}
+     , {'make-polar', #nipn{val=fun ?MODULE:'make-polar'/2}}
+     , {'real-part', #nipn{val=fun ?MODULE:'real-part'/1}}
+     , {'imag-part', #nipn{val=fun ?MODULE:'imag-part'/1}}
+     , {'magnitude', #nipn{val=fun ?MODULE:'magnitude'/1}}
+     , {'angle', #nipn{val=fun ?MODULE:'angle'/1}}
     ].
 
 %%%===================================================================

@@ -44,7 +44,7 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'case-lambda', #nipv{val=fun 'case-lambda'/1}}
+    [{'case-lambda', #nipv{val=fun ?MODULE:'case-lambda'/1}}
     ].
 
 %%%===================================================================

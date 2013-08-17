@@ -74,33 +74,33 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'pair?', #nipn{val=fun 'pair?'/1}}
-     , {'cons', #nipn{val=fun 'cons'/2}}
-     , {'car', #nipn{val=fun 'car'/1}}
-     , {'cdr', #nipn{val=fun 'cdr'/1}}
-     , {'set-car!', #nipn{val=fun 'set-car!'/2}}
-     , {'set-cdr!', #nipn{val=fun 'set-cdr!'/2}}
-     , {'caar', #nipn{val=fun 'caar'/1}}
-     , {'cadr', #nipn{val=fun 'cadr'/1}}
-     , {'cdar', #nipn{val=fun 'cdar'/1}}
-     , {'cddr', #nipn{val=fun 'cddr'/1}}
-     , {'null?', #nipn{val=fun 'null?'/1}}
-     , {'list?', #nipn{val=fun 'list?'/1}}
-     , {'make-list', #nipn{val=[fun 'make-list'/1, fun 'make-list'/2]}}
-     , {'list', #nipv{val=fun 'list'/1}}
-     , {'length', #nipn{val=fun 'length'/1}}
-     , {'append', #nipv{val=fun 'append'/1}}
-     , {'reverse', #nipn{val=fun 'reverse'/1}}
-     , {'list-tail', #nipn{val=fun 'list-tail'/2}}
-     , {'list-ref', #nipn{val=fun 'list-ref'/2}}
-     , {'list-set!', #nipn{val=fun 'list-set!'/3}}
-     , {'memq', #xnipn{val=fun 'memq'/5}}
-     , {'memv', #xnipn{val=fun 'memv'/5}}
-     , {'member', #xnipn{val=[fun 'member'/5, fun 'member'/6]}}
-     , {'assq', #xnipn{val=fun 'assq'/5}}
-     , {'assv', #xnipn{val=fun 'assv'/5}}
-     , {'assoc', #xnipn{val=[fun 'assoc'/5, fun 'assoc'/6]}}
-     , {'list-copy', #nipv{val=fun 'list-copy'/1}}
+    [{'pair?', #nipn{val=fun ?MODULE:'pair?'/1}}
+     , {'cons', #nipn{val=fun ?MODULE:'cons'/2}}
+     , {'car', #nipn{val=fun ?MODULE:'car'/1}}
+     , {'cdr', #nipn{val=fun ?MODULE:'cdr'/1}}
+     , {'set-car!', #nipn{val=fun ?MODULE:'set-car!'/2}}
+     , {'set-cdr!', #nipn{val=fun ?MODULE:'set-cdr!'/2}}
+     , {'caar', #nipn{val=fun ?MODULE:'caar'/1}}
+     , {'cadr', #nipn{val=fun ?MODULE:'cadr'/1}}
+     , {'cdar', #nipn{val=fun ?MODULE:'cdar'/1}}
+     , {'cddr', #nipn{val=fun ?MODULE:'cddr'/1}}
+     , {'null?', #nipn{val=fun ?MODULE:'null?'/1}}
+     , {'list?', #nipn{val=fun ?MODULE:'list?'/1}}
+     , {'make-list', #nipn{val=[fun ?MODULE:'make-list'/1, fun ?MODULE:'make-list'/2]}}
+     , {'list', #nipv{val=fun ?MODULE:'list'/1}}
+     , {'length', #nipn{val=fun ?MODULE:'length'/1}}
+     , {'append', #nipv{val=fun ?MODULE:'append'/1}}
+     , {'reverse', #nipn{val=fun ?MODULE:'reverse'/1}}
+     , {'list-tail', #nipn{val=fun ?MODULE:'list-tail'/2}}
+     , {'list-ref', #nipn{val=fun ?MODULE:'list-ref'/2}}
+     , {'list-set!', #nipn{val=fun ?MODULE:'list-set!'/3}}
+     , {'memq', #xnipn{val=fun ?MODULE:'memq'/5}}
+     , {'memv', #xnipn{val=fun ?MODULE:'memv'/5}}
+     , {'member', #xnipn{val=[fun ?MODULE:'member'/5, fun ?MODULE:'member'/6]}}
+     , {'assq', #xnipn{val=fun ?MODULE:'assq'/5}}
+     , {'assv', #xnipn{val=fun ?MODULE:'assv'/5}}
+     , {'assoc', #xnipn{val=[fun ?MODULE:'assoc'/5, fun ?MODULE:'assoc'/6]}}
+     , {'list-copy', #nipv{val=fun ?MODULE:'list-copy'/1}}
     ].
 
 %%%===================================================================

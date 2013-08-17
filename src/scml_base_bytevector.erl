@@ -63,17 +63,17 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'bytevector?', #nipn{val=fun 'bytevector?'/1}}
-     , {'make-bytevector', #nipn{val=[fun 'make-bytevector'/1, fun 'make-bytevector'/2]}}
-     , {'bytevector', #nipn{val=fun 'bytevector'/1}}
-     , {'bytevector-length', #nipn{val=fun 'bytevector-length'/1}}
-     , {'bytevector-u8-ref', #nipn{val=fun 'bytevector-u8-ref'/2}}
-     , {'bytevector-u8-set!', #nipn{val=fun 'bytevector-u8-set!'/3}}
-     , {'bytevector-copy', #nipn{val=[fun 'bytevector-copy'/1, fun 'bytevector-copy'/2, fun 'bytevector-copy'/3]}}
-     , {'bytevector-copy!', #nipn{val=[fun 'bytevector-copy!'/3, fun 'bytevector-copy!'/4, fun 'bytevector-copy!'/5]}}
-     , {'bytevector-append', #nipv{val=fun 'bytevector-append'/1}}
-     , {'utf8->string', #nipn{val=[fun 'utf8->string'/1, fun 'utf8->string'/2, fun 'utf8->string'/3]}}
-     , {'string->utf8', #nipn{val=[fun 'string->utf8'/1, fun 'string->utf8'/2, fun 'string->utf8'/3]}}
+    [{'bytevector?', #nipn{val=fun ?MODULE:'bytevector?'/1}}
+     , {'make-bytevector', #nipn{val=[fun ?MODULE:'make-bytevector'/1, fun ?MODULE:'make-bytevector'/2]}}
+     , {'bytevector', #nipn{val=fun ?MODULE:'bytevector'/1}}
+     , {'bytevector-length', #nipn{val=fun ?MODULE:'bytevector-length'/1}}
+     , {'bytevector-u8-ref', #nipn{val=fun ?MODULE:'bytevector-u8-ref'/2}}
+     , {'bytevector-u8-set!', #nipn{val=fun ?MODULE:'bytevector-u8-set!'/3}}
+     , {'bytevector-copy', #nipn{val=[fun ?MODULE:'bytevector-copy'/1, fun ?MODULE:'bytevector-copy'/2, fun ?MODULE:'bytevector-copy'/3]}}
+     , {'bytevector-copy!', #nipn{val=[fun ?MODULE:'bytevector-copy!'/3, fun ?MODULE:'bytevector-copy!'/4, fun ?MODULE:'bytevector-copy!'/5]}}
+     , {'bytevector-append', #nipv{val=fun ?MODULE:'bytevector-append'/1}}
+     , {'utf8->string', #nipn{val=[fun ?MODULE:'utf8->string'/1, fun ?MODULE:'utf8->string'/2, fun ?MODULE:'utf8->string'/3]}}
+     , {'string->utf8', #nipn{val=[fun ?MODULE:'string->utf8'/1, fun ?MODULE:'string->utf8'/2, fun ?MODULE:'string->utf8'/3]}}
     ].
 
 %%%===================================================================

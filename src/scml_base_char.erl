@@ -51,14 +51,14 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{'char?', #nipn{val=fun 'char?'/1}}
-     , {'char=?', #nipv{val=fun 'char=?'/1}}
-     , {'char<?', #nipv{val=fun 'char<?'/1}}
-     , {'char>?', #nipv{val=fun 'char>?'/1}}
-     , {'char<=?', #nipv{val=fun 'char<=?'/1}}
-     , {'char>=?', #nipv{val=fun 'char>=?'/1}}
-     , {'char->integer', #nipn{val=fun 'char->integer'/1}}
-     , {'integer->char', #nipn{val=fun 'integer->char'/1}}
+    [{'char?', #nipn{val=fun ?MODULE:'char?'/1}}
+     , {'char=?', #nipv{val=fun ?MODULE:'char=?'/1}}
+     , {'char<?', #nipv{val=fun ?MODULE:'char<?'/1}}
+     , {'char>?', #nipv{val=fun ?MODULE:'char>?'/1}}
+     , {'char<=?', #nipv{val=fun ?MODULE:'char<=?'/1}}
+     , {'char>=?', #nipv{val=fun ?MODULE:'char>=?'/1}}
+     , {'char->integer', #nipn{val=fun ?MODULE:'char->integer'/1}}
+     , {'integer->char', #nipn{val=fun ?MODULE:'integer->char'/1}}
     ].
 
 %%%===================================================================
