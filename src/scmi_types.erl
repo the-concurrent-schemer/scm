@@ -30,7 +30,7 @@
 -export_type([sexec/0
               , senv/0]).
 
--export_type([sugar/0]).
+-export_type([expander/0]).
 
 -export_type([dexec/0
               , denv/0
@@ -77,11 +77,11 @@
 -type exp()         :: scm_any().
 
 %% analyze
--type sexec()       :: fun((exp(), senv()) -> dexec()).
+-type sexec()       :: fun((exp(), senv()) -> expander() | dexec()).
 -type senv()        :: scmi_analyze:senv().
 
-%% sugar
--type sugar()       :: #sugar{val :: sexec()}.
+%% expander
+-type expander()    :: #expander{val :: sexec()}.
 
 %% evaluate
 -type dexec()       :: fun((denv(), dok(), dng()) -> exp()).

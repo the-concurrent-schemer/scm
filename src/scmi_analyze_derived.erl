@@ -67,140 +67,140 @@
 %%% SCMI Exports
 %%%----------------------------------------------------------------------
 
--spec '$scmi_exports'() -> [{scm_symbol(), scmi_sugar()}].
+-spec '$scmi_exports'() -> [{scm_symbol(), scmi_expander()}].
 '$scmi_exports'() ->
-    [{'cond', #sugar{val=fun ?MODULE:'analyze_cond'/2}}
-     , {'case', #sugar{val=fun ?MODULE:'analyze_case'/2}}
-     , {'and', #sugar{val=fun ?MODULE:'analyze_and'/2}}
-     , {'or', #sugar{val=fun ?MODULE:'analyze_or'/2}}
-     , {'when', #sugar{val=fun ?MODULE:'analyze_when'/2}}
-     , {'unless', #sugar{val=fun ?MODULE:'analyze_unless'/2}}
-     , {'cond-expand', #sugar{val=fun ?MODULE:'analyze_cond_expand'/2}}
-     , {'let', #sugar{val=fun ?MODULE:'analyze_let'/2}}
-     , {'let*', #sugar{val=fun ?MODULE:'analyze_lets'/2}}
-     , {'letrec', #sugar{val=fun ?MODULE:'analyze_letrec'/2}}
-     , {'letrec*', #sugar{val=fun ?MODULE:'analyze_letrecs'/2}}
-     , {'let-values', #sugar{val=fun ?MODULE:'analyze_let_values'/2}}
-     , {'let*-values', #sugar{val=fun ?MODULE:'analyze_lets_values'/2}}
-     , {'letrec-values', #sugar{val=fun ?MODULE:'analyze_letrec_values'/2}}
-     , {'begin', #sugar{val=fun ?MODULE:'analyze_begin'/2}}
-     , {'do', #sugar{val=fun ?MODULE:'analyze_do'/2}}
-     , {'make-parameter', #sugar{val=fun ?MODULE:'analyze_make_parameter'/2}}
-     , {'parameterize', #sugar{val=fun ?MODULE:'analyze_parameterize'/2}}
-     , {'guard', #sugar{val=fun ?MODULE:'analyze_guard'/2}}
-     , {'quasiquote', #sugar{val=fun ?MODULE:'analyze_quasiquote'/2}}
-     , {'unquote', #sugar{val=fun ?MODULE:'analyze_unquote'/2}}
-     , {'unquote-splicing', #sugar{val=fun ?MODULE:'analyze_unquote_splicing'/2}}
+    [{'cond', #expander{val=fun ?MODULE:'analyze_cond'/2}}
+     , {'case', #expander{val=fun ?MODULE:'analyze_case'/2}}
+     , {'and', #expander{val=fun ?MODULE:'analyze_and'/2}}
+     , {'or', #expander{val=fun ?MODULE:'analyze_or'/2}}
+     , {'when', #expander{val=fun ?MODULE:'analyze_when'/2}}
+     , {'unless', #expander{val=fun ?MODULE:'analyze_unless'/2}}
+     , {'cond-expand', #expander{val=fun ?MODULE:'analyze_cond_expand'/2}}
+     , {'let', #expander{val=fun ?MODULE:'analyze_let'/2}}
+     , {'let*', #expander{val=fun ?MODULE:'analyze_lets'/2}}
+     , {'letrec', #expander{val=fun ?MODULE:'analyze_letrec'/2}}
+     , {'letrec*', #expander{val=fun ?MODULE:'analyze_letrecs'/2}}
+     , {'let-values', #expander{val=fun ?MODULE:'analyze_let_values'/2}}
+     , {'let*-values', #expander{val=fun ?MODULE:'analyze_lets_values'/2}}
+     , {'letrec-values', #expander{val=fun ?MODULE:'analyze_letrec_values'/2}}
+     , {'begin', #expander{val=fun ?MODULE:'analyze_begin'/2}}
+     , {'do', #expander{val=fun ?MODULE:'analyze_do'/2}}
+     , {'make-parameter', #expander{val=fun ?MODULE:'analyze_make_parameter'/2}}
+     , {'parameterize', #expander{val=fun ?MODULE:'analyze_parameterize'/2}}
+     , {'guard', #expander{val=fun ?MODULE:'analyze_guard'/2}}
+     , {'quasiquote', #expander{val=fun ?MODULE:'analyze_quasiquote'/2}}
+     , {'unquote', #expander{val=fun ?MODULE:'analyze_unquote'/2}}
+     , {'unquote-splicing', #expander{val=fun ?MODULE:'analyze_unquote_splicing'/2}}
     ].
 
 %%%----------------------------------------------------------------------
 %%% API
 %%%----------------------------------------------------------------------
 
--spec analyze_cond(scm_any(), scmi_senv()) -> scmi_dexec().
+-spec analyze_cond(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_cond(Exp, SEnv) ->
     analyze(expand_cond(Exp), SEnv).
 
--spec analyze_case(scm_any(), scmi_senv()) -> scmi_dexec().
+-spec analyze_case(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_case(Exp, SEnv) ->
     analyze(expand_case(Exp), SEnv).
 
--spec analyze_and(scm_any(), scmi_senv()) -> scmi_dexec().
+-spec analyze_and(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_and(Exp, SEnv) ->
     analyze(expand_and(Exp), SEnv).
 
--spec analyze_or(scm_any(), scmi_senv()) -> scmi_dexec().
+-spec analyze_or(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_or(Exp, SEnv) ->
     analyze(expand_or(Exp), SEnv).
 
--spec analyze_when(scm_any(), scmi_senv()) -> scmi_dexec().
+-spec analyze_when(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_when(Exp, SEnv) ->
     analyze(expand_when(Exp), SEnv).
 
--spec analyze_unless(scm_any(), scmi_senv()) -> scmi_dexec().
+-spec analyze_unless(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_unless(Exp, SEnv) ->
     analyze(expand_unless(Exp), SEnv).
 
--spec analyze_cond_expand(scm_any(), scmi_senv()) -> scmi_dexec().
+-spec analyze_cond_expand(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_cond_expand(Exp, SEnv) ->
     analyze(expand_cond_expand(Exp), SEnv).
 
--spec analyze_let(scm_any(), scmi_senv()) -> scmi_dexec().
+-spec analyze_let(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_let(Exp, SEnv) ->
     analyze(expand_let(Exp, SEnv), SEnv).
 
--spec analyze_lets(scm_any(), scmi_senv()) -> scmi_dexec().
+-spec analyze_lets(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_lets(Exp, SEnv) ->
     analyze(expand_lets(Exp, SEnv), SEnv).
 
--spec analyze_letrec(scm_any(), scmi_senv()) -> scmi_dexec().
+-spec analyze_letrec(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_letrec(Exp, SEnv) ->
     analyze(expand_letrec(Exp, SEnv), SEnv).
 
--spec analyze_letrecs(scm_any(), scmi_senv()) -> scmi_dexec().
+-spec analyze_letrecs(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_letrecs(Exp, SEnv) ->
     analyze(expand_letrecs(Exp, SEnv), SEnv).
 
--spec analyze_let_values(scm_any(), scmi_senv()) -> scmi_dexec().
+-spec analyze_let_values(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_let_values(Exp, SEnv) ->
     analyze(expand_let_values(Exp, SEnv), SEnv).
 
--spec analyze_lets_values(scm_any(), scmi_senv()) -> scmi_dexec().
+-spec analyze_lets_values(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_lets_values(Exp, SEnv) ->
     analyze(expand_lets_values(Exp, SEnv), SEnv).
 
--spec analyze_letrec_values(scm_any(), scmi_senv()) -> scmi_dexec().
+-spec analyze_letrec_values(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_letrec_values(Exp, SEnv) ->
     analyze(expand_letrec_values(Exp, SEnv), SEnv).
 
--spec analyze_begin(scm_any(), scmi_senv()) -> scmi_dexec().
+-spec analyze_begin(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_begin(Exp, SEnv) ->
     analyze_sequence(Exp, SEnv).
 
--spec analyze_do(scm_any(), scmi_senv()) -> scmi_dexec().
+-spec analyze_do(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_do(Exp, SEnv) ->
     analyze(expand_do(Exp), SEnv).
 
--spec analyze_make_parameter(scm_any(), scmi_senv()) -> scmi_dexec().
+-spec analyze_make_parameter(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_make_parameter(Exp, SEnv) ->
     analyze(expand_make_parameter(Exp), SEnv).
 
--spec analyze_parameterize(scm_any(), scmi_senv()) -> scmi_dexec().
+-spec analyze_parameterize(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_parameterize(Exp, SEnv) ->
     analyze(expand_parameterize(Exp, SEnv), SEnv).
 
--spec analyze_guard(scm_any(), scmi_senv()) -> scmi_dexec().
+-spec analyze_guard(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_guard(Exp, SEnv) ->
     analyze(expand_guard(Exp, SEnv), SEnv).
 
--spec analyze_quasiquote(scm_any(), scmi_senv()) -> scmi_dexec().
+-spec analyze_quasiquote(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_quasiquote(Exp, SEnv) ->
     %% @TODO
     erlang:error({roadmap,'v0.5.0'}, [Exp, SEnv]).
 
--spec analyze_unquote(scm_any(), scmi_senv()) -> scmi_dexec().
+-spec analyze_unquote(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_unquote(Exp, SEnv) ->
     %% @TODO
     erlang:error({roadmap,'v0.5.0'}, [Exp, SEnv]).
 
--spec analyze_unquote_splicing(scm_any(), scmi_senv()) -> scmi_dexec().
+-spec analyze_unquote_splicing(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_unquote_splicing(Exp, SEnv) ->
     %% @TODO
     erlang:error({roadmap,'v0.5.0'}, [Exp, SEnv]).
 
--spec scan_out_internal_definitions([scm_any(),...], scmi_senv()) -> [scm_any()].
+-spec scan_out_internal_definitions([scmi_exp(),...], scmi_senv()) -> [scmi_exp()].
 scan_out_internal_definitions(Body, #senv{env=Env}) ->
     FunDV = fun scmi_analyze_program:'analyze_define_values'/2,
     FunD = fun scmi_analyze_program:'analyze_define'/2,
 
     HaveFunDV = case scmi_env:safe_lookup_variable('define-values', Env) of
-                    #sugar{val=FunDV} ->
+                    #expander{val=FunDV} ->
                         true;
                     _ ->
                         false
                 end,
     HaveFunD = case scmi_env:safe_lookup_variable('define', Env) of
-                   #sugar{val=FunD} ->
+                   #expander{val=FunD} ->
                        true;
                    _ ->
                        false
@@ -209,15 +209,15 @@ scan_out_internal_definitions(Body, #senv{env=Env}) ->
     Fun = fun(['define-values'|_], _) when HaveFunDV ->
                   define_values;
              (['define'|_], none) when HaveFunD ->
-                  defines;
+                  define;
              (_, Acc) ->
                   Acc
           end,
     case lists:foldl(Fun, none, Body) of
         define_values ->
             scan_out_internal_define_values(Body, HaveFunD);
-        defines ->
-            scan_out_internal_defines(Body);
+        define ->
+            scan_out_internal_define(Body);
         none ->
             Body
     end.
@@ -613,15 +613,15 @@ scan_out_internal_define_values([['define'|H]|T], true, Defines, Body) ->
 scan_out_internal_define_values([H|T], HaveD, Defines, Body) ->
     scan_out_internal_define_values(T, HaveD, Defines, [H|Body]).
 
-scan_out_internal_defines(Body) ->
-    scan_out_internal_defines(Body, [], []).
+scan_out_internal_define(Body) ->
+    scan_out_internal_define(Body, [], []).
 
-scan_out_internal_defines([], Defines, Body) ->
+scan_out_internal_define([], Defines, Body) ->
     [make_letrecs(lists:reverse(Defines), lists:reverse(Body))];
-scan_out_internal_defines([['define'|H]|T], Defines, Body) ->
-    scan_out_internal_defines(T, [define_to_binding(H)|Defines], Body);
-scan_out_internal_defines([H|T], Defines, Body) ->
-    scan_out_internal_defines(T, Defines, [H|Body]).
+scan_out_internal_define([['define'|H]|T], Defines, Body) ->
+    scan_out_internal_define(T, [define_to_binding(H)|Defines], Body);
+scan_out_internal_define([H|T], Defines, Body) ->
+    scan_out_internal_define(T, Defines, [H|Body]).
 
 define_values_to_values_binding([Formal, Init]) ->
     [Formal, Init];

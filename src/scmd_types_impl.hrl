@@ -63,7 +63,7 @@
 -record(string,           {lineno :: scmd_types_impl:lineno(), val}).
 -record(vector,           {lineno :: scmd_types_impl:lineno(), val}).
 
--record(sugar,            {lineno :: scmd_types_impl:lineno(), val}).
+-record(expander,         {lineno :: scmd_types_impl:lineno(), val}).
 
 -record(nip0,             {lineno :: scmd_types_impl:lineno(), val}).
 -record(nipn,             {lineno :: scmd_types_impl:lineno(), val}).

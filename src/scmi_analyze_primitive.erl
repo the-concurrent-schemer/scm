@@ -55,49 +55,53 @@
 %%% SCMI Exports
 %%%----------------------------------------------------------------------
 
--spec '$scmi_exports'() -> [{scm_symbol(), scmi_sugar()}].
+-spec '$scmi_exports'() -> [{scm_symbol(), scmi_expander()}].
 '$scmi_exports'() ->
-    [{'quote', #sugar{val=fun ?MODULE:'analyze_quote'/2}}
-     , {'lambda', #sugar{val=fun ?MODULE:'analyze_lambda'/2}}
-     , {'if', #sugar{val=fun ?MODULE:'analyze_if'/2}}
-     , {'set!', #sugar{val=fun ?MODULE:'analyze_assignment'/2}}
-     , {'include', #sugar{val=fun ?MODULE:'analyze_include'/2}}
-     , {'include-ci', #sugar{val=fun ?MODULE:'analyze_include_ci'/2}}
-     , {'include-lib', #sugar{val=fun ?MODULE:'analyze_include_lib'/2}}
-     , {'include-lib-ci', #sugar{val=fun ?MODULE:'analyze_include_lib_ci'/2}}
+    [{'quote', #expander{val=fun ?MODULE:'analyze_quote'/2}}
+     , {'lambda', #expander{val=fun ?MODULE:'analyze_lambda'/2}}
+     , {'if', #expander{val=fun ?MODULE:'analyze_if'/2}}
+     , {'set!', #expander{val=fun ?MODULE:'analyze_assignment'/2}}
+     , {'include', #expander{val=fun ?MODULE:'analyze_include'/2}}
+     , {'include-ci', #expander{val=fun ?MODULE:'analyze_include_ci'/2}}
+     , {'include-lib', #expander{val=fun ?MODULE:'analyze_include_lib'/2}}
+     , {'include-lib-ci', #expander{val=fun ?MODULE:'analyze_include_lib_ci'/2}}
     ].
 
 %%%----------------------------------------------------------------------
 %%% API
 %%%----------------------------------------------------------------------
 
+-spec analyze_quote(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_quote([Exp], _SEnv) ->
     fun(_Env, Ok, Ng) -> Ok(Exp, Ng) end.
 
+-spec analyze_lambda(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_lambda([[]|Body], SEnv) ->
     Exec = analyze_sequence(scan_out_internal_definitions(Body, SEnv), SEnv),
     Src = fun() -> Body end,
     fun(Env, Ok, Ng) -> Ok(#lip0{val=#l0{body=Exec, env=Env, src=Src}}, Ng) end;
 analyze_lambda([Variable|Body], SEnv) when not is_list(Variable) ->
-    validate_variable(Variable),
+    validate_variable(Variable), % validate variable
     Exec = analyze_sequence(scan_out_internal_definitions(Body, SEnv), SEnv),
     Src = fun() -> Body end,
     fun(Env, Ok, Ng) -> Ok(#lipv{val=#lv{param=Variable, body=Exec, env=Env, src=Src}}, Ng) end;
 analyze_lambda([[Variables|Variable]=Vs|Body], SEnv) when not is_list(Variable) ->
-    validate_variables(Vs),
+    validate_variables(Vs), % validate variables
     AllVariables = Variables ++ [Variable],
     Exec = analyze_sequence(scan_out_internal_definitions(Body, SEnv), SEnv),
     Src = fun() -> Body end,
     fun(Env, Ok, Ng) -> Ok(#lipnv{val=#lnv{n=length(Variables), params=AllVariables, body=Exec, env=Env, src=Src}}, Ng) end;
 analyze_lambda([Variables|Body], SEnv) when is_list(Variables) ->
-    validate_variables(Variables),
+    validate_variables(Variables), % validate variables
     Exec = analyze_sequence(scan_out_internal_definitions(Body, SEnv), SEnv),
     Src = fun() -> Body end,
     fun(Env, Ok, Ng) -> Ok(#lipn{val=#ln{params=Variables, body=Exec, env=Env, src=Src}}, Ng) end.
 
+-spec analyze_sequence(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_sequence(Exps, SEnv) ->
     sequentially([ analyze(Exp, SEnv) || Exp <- Exps ]).
 
+-spec analyze_application(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_application([Operator|Operands], SEnv) when is_list(Operands) ->
     FExec = analyze(Operator, SEnv),
     AExecs = [ analyze(Operand, SEnv) || Operand <- Operands ],
@@ -140,6 +144,7 @@ apply(#lipnv{val=Proc}, Args, _Env, Ok, Ng) ->
 apply(Proc, Args, Env, Ok, Ng) ->
     erlang:error(badarg, [Proc, Args, Env, Ok, Ng]).
 
+-spec analyze_if(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_if([Test, Consequent, Alternate], SEnv) ->
     TExec = analyze(Test, SEnv),
     CExec = analyze(Consequent, SEnv),
@@ -159,8 +164,9 @@ analyze_if([Test, Consequent, Alternate], SEnv) ->
 analyze_if([Test, Consequent], SEnv) ->
     analyze_if([Test, Consequent, ?FALSE], SEnv).
 
+-spec analyze_assignment(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_assignment([Variable, Exp], SEnv) ->
-    validate_variable(Variable),
+    validate_variable(Variable), % validate variable
     Exec = analyze(Exp, SEnv),
     fun(Env, Ok, Ng) ->
             %% execute operands
@@ -181,15 +187,19 @@ analyze_assignment([Variable, Exp], SEnv) ->
                  Ng)
     end.
 
+-spec analyze_include(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_include(Ss, SEnv) ->
     sequentially([ includer(include_pp(S), SEnv) || S <- Ss ]).
 
+-spec analyze_include_ci(scmi_exp(), scmi_senv()) -> no_return().
 analyze_include_ci(Exp, SEnv) ->
     erlang:error(unsupported, [Exp, SEnv]).
 
+-spec analyze_include_lib(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_include_lib(Ss, SEnv) ->
     sequentially([ includer_lib(include_pp(S), SEnv) || S <- Ss ]).
 
+-spec analyze_include_lib_ci(scmi_exp(), scmi_senv()) -> no_return().
 analyze_include_lib_ci(Exp, SEnv) ->
     erlang:error(unsupported, [Exp, SEnv]).
 

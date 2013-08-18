@@ -50,24 +50,26 @@
 %%% SCMI Exports
 %%%----------------------------------------------------------------------
 
--spec '$scmi_exports'() -> [{scm_symbol(), scmi_sugar()}].
+-spec '$scmi_exports'() -> [{scm_symbol(), scmi_expander()}].
 '$scmi_exports'() ->
-    [{'import', #sugar{val=fun ?MODULE:'analyze_import'/2}}
-     , {'define', #sugar{val=fun ?MODULE:'analyze_define'/2}}
-     , {'define-values', #sugar{val=fun ?MODULE:'analyze_define_values'/2}}
-     , {'define-syntax', #sugar{val=fun ?MODULE:'analyze_define_syntax'/2}}
-     , {'define-record-type', #sugar{val=fun ?MODULE:'analyze_define_record_type'/2}}
-     , {'define-library', #sugar{val=fun ?MODULE:'analyze_define_library'/2}}
+    [{'import', #expander{val=fun ?MODULE:'analyze_import'/2}}
+     , {'define', #expander{val=fun ?MODULE:'analyze_define'/2}}
+     , {'define-values', #expander{val=fun ?MODULE:'analyze_define_values'/2}}
+     , {'define-syntax', #expander{val=fun ?MODULE:'analyze_define_syntax'/2}}
+     , {'define-record-type', #expander{val=fun ?MODULE:'analyze_define_record_type'/2}}
+     , {'define-library', #expander{val=fun ?MODULE:'analyze_define_library'/2}}
     ].
 
 %%%----------------------------------------------------------------------
 %%% API
 %%%----------------------------------------------------------------------
 
+-spec analyze_import(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_import(Exp, SEnv) ->
     %% @TODO
     erlang:error({roadmap,'v0.6.0'}, [Exp, SEnv]).
 
+-spec analyze_define(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_define([Variable, Exp], SEnv) when not is_list(Variable) ->
     validate_variable(Variable), % validate variable
     Exec = analyze(Exp, SEnv),
@@ -85,6 +87,7 @@ analyze_define([Variable, Exp], SEnv) when not is_list(Variable) ->
 analyze_define(Exp, SEnv) ->
     analyze(expand_define(Exp), SEnv).
 
+-spec analyze_define_values(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_define_values(Exp, SEnv) ->
     analyze(expand_define_values(Exp), SEnv).
 
@@ -92,10 +95,12 @@ analyze_define_syntax(Exp, SEnv) ->
     %% @TODO
     erlang:error({roadmap,'v0.5.0'}, [Exp, SEnv]).
 
+-spec analyze_define_record_type(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_define_record_type(Exp, SEnv) ->
     %% @TODO
     erlang:error({roadmap,'v0.5.0'}, [Exp, SEnv]).
 
+-spec analyze_define_library(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_define_library(Exp, SEnv) ->
     %% @TODO
     erlang:error({roadmap,'v0.6.0'}, [Exp, SEnv]).

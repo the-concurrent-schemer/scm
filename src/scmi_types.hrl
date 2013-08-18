@@ -32,8 +32,8 @@
 -type scmi_sexec()     :: scmi_types:sexec().
 -type scmi_senv()      :: scmi_types:senv().
 
-%% sugar
--type scmi_sugar()     :: scmi_types:sugar().
+%% expander
+-type scmi_expander()  :: scmi_types:expander().
 
 %% evaluate
 -type scmi_dexec()     :: scmi_types:dexec().

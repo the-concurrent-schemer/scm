@@ -70,11 +70,11 @@ the_default() ->
     lists:foreach(Fun, Ms),
     #senv{env=Env}.
 
--spec analyze(scmi_exp()) -> scmi_dexec().
+-spec analyze(scmi_exp()) -> scmi_expander() | scmi_dexec().
 analyze(Exp) ->
     analyze(Exp, the_default()).
 
--spec analyze(scmi_exp(), scmi_senv()) -> scmi_exp().
+-spec analyze(scmi_exp(), scmi_senv()) -> scmi_expander() | scmi_dexec().
 analyze(Exp, SEnv) when is_number(Exp) ->
     analyze_self_evaluating(Exp, SEnv);
 analyze({Num, Den}=Exp, SEnv) when is_number(Num), is_number(Den) ->
@@ -246,23 +246,28 @@ splitnv_arguments(_, []=L, R) ->
 %%% Internal functions
 %%%----------------------------------------------------------------------
 
+-spec analyze_label(scmi_exp(), scmi_senv()) -> no_return().
 analyze_label(Exp, SEnv) ->
     erlang:error(unsupported, [Exp, SEnv]).
 
+-spec analyze_labelref(scmi_exp(), scmi_senv()) -> no_return().
 analyze_labelref(Exp, SEnv) ->
     erlang:error(unsupported, [Exp, SEnv]).
 
+-spec analyze_self_evaluating(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_self_evaluating(Exp, _SEnv) ->
     fun(_Env, Ok, Ng) -> Ok(Exp, Ng) end.
 
+-spec analyze_variable(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_variable(Exp, _SEnv) ->
     fun(Env, Ok, Ng) -> Ok(scmi_env:lookup_variable(Exp, Env), Ng) end.
 
+-spec analyze_expression(scmi_exp(), scmi_senv()) -> scmi_expander() | scmi_dexec().
 analyze_expression([Rator|Rands]=Exp, #senv{env=Env}=SEnv) ->
     case scmi_env:safe_lookup_variable(Rator, Env) of
         ?UNASSIGNED ->
             analyze_application(Exp, SEnv);
-        #sugar{val=Fun} ->
+        #expander{val=Fun} ->
             Fun(Rands, SEnv);
         _ ->
             erlang:error(badarg, [Exp, SEnv])

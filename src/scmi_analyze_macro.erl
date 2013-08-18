@@ -45,12 +45,12 @@
 %%% SCMI Exports
 %%%----------------------------------------------------------------------
 
--spec '$scmi_exports'() -> [{scm_symbol(), scmi_sugar()}].
+-spec '$scmi_exports'() -> [{scm_symbol(), scmi_expander()}].
 '$scmi_exports'() ->
-    [{'let-syntax', #sugar{val=fun ?MODULE:'analyze_let_syntax'/2}}
-     , {'letrec-syntax', #sugar{val=fun ?MODULE:'analyze_letrec_syntax'/2}}
-     , {'syntax-rules', #sugar{val=fun ?MODULE:'analyze_syntax_rules'/2}}
-     , {'syntax-error', #sugar{val=fun ?MODULE:'analyze_syntax_error'/2}}
+    [{'let-syntax', #expander{val=fun ?MODULE:'analyze_let_syntax'/2}}
+     , {'letrec-syntax', #expander{val=fun ?MODULE:'analyze_letrec_syntax'/2}}
+     , {'syntax-rules', #expander{val=fun ?MODULE:'analyze_syntax_rules'/2}}
+     , {'syntax-error', #expander{val=fun ?MODULE:'analyze_syntax_error'/2}}
     ].
 
 %%%----------------------------------------------------------------------

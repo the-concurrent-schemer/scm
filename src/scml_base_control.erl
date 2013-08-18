@@ -409,7 +409,7 @@ do_wind(New, Reply, Env, Ok, Ng) ->
                     Bs = New -- Old
             end
     end,
-    do_wind(As,Bs, Reply, Env, Ok, Ng).
+    do_wind(As, Bs, Reply, Env, Ok, Ng).
 
 -spec do_wind(winders(), winders(), scm_any(), scmi_denv(), scmi_dok(), scmi_dng()) -> scm_any().
 do_wind([], [], Reply, Env, Ok, Ng) ->
