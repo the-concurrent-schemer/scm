@@ -213,7 +213,7 @@ file(Filename) ->
 file(Leex, Yecc, Filename) ->
     case file:read_file(Filename) of
         {ok, X} ->
-            binary(Leex, Yecc, X);
+            binary(Leex, Yecc, <<"(begin ", X/binary, ")">>);
         Err ->
             Err
     end.
