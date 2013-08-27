@@ -67,21 +67,7 @@
 
 -spec init() -> ok | {error, {Reason::bad_lib|load|load_failed|old_code|reload|upgrade, Text::string()}}.
 init() ->
-    Path =
-        case code:priv_dir(scm) of
-            {error, bad_name} ->
-                Fun = fun (Dir, Acc) ->
-                              case filelib:wildcard(Dir++"priv/lib/scmi_env.*") of
-                                  [] ->
-                                      Acc;
-                                  [H] ->
-                                      filename:dirname(H)
-                              end
-                      end,
-                lists:foldl(Fun, "priv/lib", ["../../scm", "../scm", "../", "./"]);
-            Dir ->
-                filename:join([Dir, "lib"])
-        end,
+    Path = scm_app:priv_libdir(),
     erlang:load_nif(filename:join(Path, "scmi_env"), 0).
 
 -spec notify_when_destroyed(term(), env()) -> true.

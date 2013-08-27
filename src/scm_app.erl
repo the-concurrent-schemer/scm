@@ -28,7 +28,7 @@
 -behaviour(application).
 
 %% External exports
--export([start/2, stop/1]).
+-export([start/2, stop/1, priv_libdir/0, priv_scmdir/0]).
 
 %%%----------------------------------------------------------------------
 %%% API
@@ -44,6 +44,38 @@ start(_StartType, _StartArgs) ->
 
 stop(_State) ->
     ok.
+
+priv_libdir() ->
+    case code:priv_dir(scm) of
+        {error, bad_name} ->
+            Fun = fun (Dir, Acc) ->
+                          case filelib:wildcard(filename:join([Dir, "priv/lib/scmi_env.*"])) of
+                              [] ->
+                                  Acc;
+                              [H] ->
+                                  filename:dirname(H)
+                          end
+                  end,
+            lists:foldl(Fun, "priv/lib", ["../../scm", "../scm", "../", "./"]);
+        Dir ->
+            filename:join([Dir, "lib"])
+    end.
+
+priv_scmdir() ->
+    case code:priv_dir(scm) of
+        {error, bad_name} ->
+            Fun = fun (Dir, Acc) ->
+                          case filelib:wildcard(filename:join([Dir, "priv/scm/*.scm"])) of
+                              [] ->
+                                  Acc;
+                              [H|_] ->
+                                  filename:dirname(H)
+                          end
+                  end,
+            lists:foldl(Fun, "priv/scm", ["../../scm", "../scm", "../", "./"]);
+        Dir ->
+            filename:join([Dir, "scm"])
+    end.
 
 %%%----------------------------------------------------------------------
 %%% Internal functions
