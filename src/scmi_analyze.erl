@@ -136,7 +136,7 @@ classify(?NNAN) ->
 classify(?NZER) ->
     nzer;
 classify({Complex, {A, B}}) when Complex==rectangular; Complex==polar ->
-    {Complex, {classify(A), classify(B)}};
+    {Complex, {classify_real(A), classify_real(B)}};
 classify(Exp) when is_record(Exp, boolean) ->
     boolean;
 classify(Exp) when is_record(Exp, bytevector) ->
@@ -164,6 +164,26 @@ classify([_Rator|Rands]) when is_list(Rands) ->
 classify([]) ->
     nil;
 classify(Exp) ->
+    erlang:error(badarg, [Exp]).
+
+-spec classify_real(scmi_exp()) -> atom().
+classify_real(Exp) when is_integer(Exp) ->
+    integer;
+classify_real(Exp) when is_float(Exp) ->
+    float;
+classify_real({Num, Den}) when is_number(Num), is_number(Den) ->
+    rational;
+classify_real(?PINF) ->
+    pinf;
+classify_real(?NINF) ->
+    ninf;
+classify_real(?PNAN) ->
+    pnan;
+classify_real(?NNAN) ->
+    nnan;
+classify_real(?NZER) ->
+    nzer;
+classify_real(Exp) ->
     erlang:error(badarg, [Exp]).
 
 -spec is_reserved_symbol(scmi_var()) -> boolean().
