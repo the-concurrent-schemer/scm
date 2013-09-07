@@ -378,6 +378,37 @@ scmi_env_safe_lookup_variable2(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv
         return MAKEBADARG(env);
     }
 
+    // if macro identifier is given, find environment that contains
+    // marker and then continue with normal processing from that
+    // environment.
+    {
+        int arity;
+        const ERL_NIF_TERM* tuple;
+        ERL_NIF_TERM marker;
+
+        if (enif_get_tuple(env, var, &arity, &tuple) && arity == 3) {
+            if (enif_is_identical(tuple[0], scmi_env_atom_mid)) {
+                marker = tuple[1];
+                var = tuple[2];
+
+            mid_env_loop:
+                ErlNifVec::size_type size = h->ivar->size();
+                for (ErlNifVec::size_type i=0; i < size; i++) {
+                    if (enif_is_identical(marker, (*(h->ivar))[i])) {
+                        goto env_loop;
+                    }
+                }
+
+                if (h->base) {
+                    h = h->base;
+                    goto mid_env_loop;
+                }
+
+                return scmi_env_atom_;
+            }
+        }
+    }
+
  env_loop:
     ErlNifVec::size_type size = h->ivar->size();
     for (ErlNifVec::size_type i=0; i < size; i++) {

@@ -32,6 +32,7 @@ extern "C" {
     extern ERL_NIF_TERM scmi_env_atom_;
     extern ERL_NIF_TERM scmi_env_atom_true;
     extern ERL_NIF_TERM scmi_env_atom_false;
+    extern ERL_NIF_TERM scmi_env_atom_mid;
 
     // prototypes
     extern bool scmi_env_lib_init(ErlNifEnv* env);

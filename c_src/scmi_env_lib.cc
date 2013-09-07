@@ -25,6 +25,7 @@
 ERL_NIF_TERM scmi_env_atom_ = 0;
 ERL_NIF_TERM scmi_env_atom_true = 0;
 ERL_NIF_TERM scmi_env_atom_false = 0;
+ERL_NIF_TERM scmi_env_atom_mid = 0;
 
 bool
 scmi_env_lib_init(ErlNifEnv* env)
@@ -32,6 +33,7 @@ scmi_env_lib_init(ErlNifEnv* env)
     scmi_env_atom_ = enif_make_atom(env, "");
     scmi_env_atom_true = enif_make_atom(env, "true");
     scmi_env_atom_false = enif_make_atom(env, "false");
+    scmi_env_atom_mid = enif_make_atom(env, "mid");
 
     return true;
 }

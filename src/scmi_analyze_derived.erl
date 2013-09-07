@@ -176,17 +176,17 @@ analyze_guard(Exp, SEnv) ->
 -spec analyze_quasiquote(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_quasiquote(Exp, SEnv) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Exp, SEnv]).
+    erlang:error({roadmap,'v0.5.5'}, [Exp, SEnv]).
 
 -spec analyze_unquote(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_unquote(Exp, SEnv) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Exp, SEnv]).
+    erlang:error({roadmap,'v0.5.5'}, [Exp, SEnv]).
 
 -spec analyze_unquote_splicing(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_unquote_splicing(Exp, SEnv) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Exp, SEnv]).
+    erlang:error({roadmap,'v0.5.5'}, [Exp, SEnv]).
 
 -spec scan_out_internal_definitions([scmi_exp(),...], scmi_senv()) -> [scmi_exp()].
 scan_out_internal_definitions(Body, #senv{env=Env}) ->

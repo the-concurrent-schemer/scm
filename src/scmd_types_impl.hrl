@@ -63,7 +63,8 @@
 -record(string,           {lineno :: scmd_types_impl:lineno(), val}).
 -record(vector,           {lineno :: scmd_types_impl:lineno(), val}).
 
--record(expander,         {lineno :: scmd_types_impl:lineno(), val}).
+-record(expander,         {defref :: reference(), val}).
+-record(mid,              {defref :: reference(), val}). % macro identifier
 
 -record(nip0,             {lineno :: scmd_types_impl:lineno(), val}).
 -record(nipn,             {lineno :: scmd_types_impl:lineno(), val}).

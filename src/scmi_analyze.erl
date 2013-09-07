@@ -45,7 +45,7 @@
              ]).
 
 %% Internal imports
--import(scmi_analyze_primitive, [analyze_application/2]).
+-import(scmi_analyze_primitive, [analyze_application/2, analyze_proc_application/3]).
 
 -include("scmi_analyze.hrl").
 
@@ -62,13 +62,13 @@
 
 -spec the_default() -> scmi_senv().
 the_default() ->
-    Env = scmi_env:the_empty(),
+    BaseEnv = scmi_env:the_empty(),
     Fun = fun(M) ->
-                  [ scmi_env:define_variable(K, V, Env) || {K, V} <- M:'$scmi_exports'() ]
+                  [ scmi_env:define_variable(K, V, BaseEnv) || {K, V} <- M:'$scmi_exports'() ]
           end,
     Ms = [scmi_analyze_primitive, scmi_analyze_derived, scmi_analyze_macro, scmi_analyze_program],
     lists:foreach(Fun, Ms),
-    #senv{env=Env}.
+    #senv{env=scmi_env:extend([], [], BaseEnv)}.
 
 -spec analyze(scmi_exp()) -> scmi_expander() | scmi_dexec().
 analyze(Exp) ->
@@ -105,9 +105,15 @@ analyze(?UNASSIGNED=Exp, SEnv) ->
     analyze_self_evaluating(Exp, SEnv);
 analyze(Exp, SEnv) when is_atom(Exp) ->
     analyze_variable(Exp, SEnv);
-analyze({Sha1, Var}=Exp, SEnv) when is_atom(Sha1), is_binary(Var) ->
+analyze({Sha1, Id}=Exp, SEnv) when is_atom(Sha1), is_binary(Id) ->
+    analyze_variable(Exp, SEnv);
+analyze(Exp, SEnv) when is_record(Exp, mid) ->
     analyze_variable(Exp, SEnv);
 analyze(Exp, SEnv) when is_reference(Exp) ->
+    analyze_variable(Exp, SEnv);
+analyze({Var, Id}=Exp, SEnv) when is_reference(Var), is_atom(Id) ->
+    analyze_variable(Exp, SEnv);
+analyze({Var, {Sha1, Id}}=Exp, SEnv) when is_reference(Var), is_atom(Sha1), is_binary(Id) ->
     analyze_variable(Exp, SEnv);
 analyze(Exp, SEnv) when is_record(Exp, label) ->
     analyze_label(Exp, SEnv);
@@ -151,9 +157,15 @@ classify(?UNASSIGNED) ->
     unassigned;
 classify(Exp) when is_atom(Exp) ->
     identifier;
-classify({Sha1, Var}) when is_atom(Sha1), is_binary(Var) ->
+classify({Sha1, Id}) when is_atom(Sha1), is_binary(Id) ->
+    identifier;
+classify(Exp) when is_record(Exp, mid) ->
     identifier;
 classify(Exp) when is_reference(Exp) ->
+    variable;
+classify({Var, Id}) when is_reference(Var), is_atom(Id) ->
+    variable;
+classify({Var, {Sha1, Id}}) when is_reference(Var), is_atom(Sha1), is_binary(Id) ->
     variable;
 classify(Exp) when is_record(Exp, label) ->
     label;
@@ -163,6 +175,30 @@ classify([_Rator|Rands]) when is_list(Rands) ->
     expression;
 classify([]) ->
     nil;
+classify(#nip0{}) ->
+    procedure;
+classify(#nipn{}) ->
+    procedure;
+classify(#nipv{}) ->
+    procedure;
+classify(#nipnv{}) ->
+    procedure;
+classify(#xnip0{}) ->
+    procedure;
+classify(#xnipn{}) ->
+    procedure;
+classify(#xnipv{}) ->
+    procedure;
+classify(#xnipnv{}) ->
+    procedure;
+classify(#lip0{}) ->
+    procedure;
+classify(#lipn{}) ->
+    procedure;
+classify(#lipv{}) ->
+    procedure;
+classify(#lipnv{}) ->
+    procedure;
 classify(Exp) ->
     erlang:error(badarg, [Exp]).
 
@@ -283,12 +319,17 @@ analyze_variable(Exp, _SEnv) ->
     fun(Env, Ok, Ng) -> Ok(scmi_env:lookup_variable(Exp, Env), Ng) end.
 
 -spec analyze_expression(scmi_exp(), scmi_senv()) -> scmi_expander() | scmi_dexec().
-analyze_expression([Rator|Rands]=Exp, #senv{env=Env}=SEnv) ->
-    case scmi_env:safe_lookup_variable(Rator, Env) of
-        ?UNASSIGNED ->
-            analyze_application(Exp, SEnv);
+analyze_expression([Rator|Rands]=Exp, #senv{env=BaseEnv}=SEnv) ->
+    case scmi_env:safe_lookup_variable(Rator, BaseEnv) of
         #expander{val=Fun} ->
             Fun(Rands, SEnv);
-        _ ->
-            erlang:error(badarg, [Exp, SEnv])
+        ?UNASSIGNED ->
+            analyze_application(Exp, SEnv);
+        Proc ->
+            case classify(Proc) of
+                procedure ->
+                    analyze_proc_application(Proc, Rands, SEnv);
+                _ ->
+                    erlang:error(badarg, [Exp, SEnv])
+            end
     end.

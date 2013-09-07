@@ -560,14 +560,14 @@ t_false() = false
 
 
 <pre><code>
-t_identifier() = atom() | {atom(), <a href="#type-utf8">utf8()</a>}
+t_identifier() = atom() | {atom(), <a href="#type-utf8">utf8()</a>} | #mid{}
 </code></pre>
 
 
 
 
 
-<pre><code>atom(utf-8()) | {atom(sha(utf-8())), utf-8()}</code></pre>
+<pre><code>atom(utf-8()) | {atom(sha(utf-8())), utf-8()} | #mid{}</code></pre>
 
 
 
@@ -662,7 +662,7 @@ t_string() = {<a href="#type-unichar">unichar()</a>}
 
 
 <pre><code>
-t_symbol() = <a href="#type-t_identifier">t_identifier()</a>
+t_symbol() = <a href="#type-t_identifier">t_identifier()</a> | <a href="#type-t_variable">t_variable()</a> | {<a href="#type-t_variable">t_variable()</a>, <a href="#type-t_identifier">t_identifier()</a>}
 </code></pre>
 
 
@@ -675,6 +675,18 @@ t_symbol() = <a href="#type-t_identifier">t_identifier()</a>
 
 <pre><code>
 t_true() = true
+</code></pre>
+
+
+
+
+
+### <a name="type-t_variable">t_variable()</a> ###
+
+
+
+<pre><code>
+t_variable() = reference()
 </code></pre>
 
 

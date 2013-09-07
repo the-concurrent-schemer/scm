@@ -91,14 +91,26 @@ analyze_define(Exp, SEnv) ->
 analyze_define_values(Exp, SEnv) ->
     analyze(expand_define_values(Exp), SEnv).
 
+-spec analyze_define_syntax(scmi_exp(), scmi_senv()) -> scmi_dexec().
+analyze_define_syntax([Variable, Exp]=Exp0, #senv{env=Env}=SEnv) when not is_list(Variable) ->
+    validate_variable(Variable), % validate variable
+    case analyze(Exp, SEnv) of
+        #expander{defref=DefRef}=Val ->
+            scmi_env:define_variable(Variable, Val, Env),
+            fun(DefEnv, Ok, Ng) ->
+                    %% define marker for macro identifiers
+                    scmi_env:define_variable(DefRef, ?UNASSIGNED, DefEnv),
+                    Ok(?FALSE, Ng) end;
+        _ ->
+            erlang:error(badarg, [Exp0, SEnv])
+    end;
 analyze_define_syntax(Exp, SEnv) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Exp, SEnv]).
+    erlang:error(badarg, [Exp, SEnv]).
 
 -spec analyze_define_record_type(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_define_record_type(Exp, SEnv) ->
     %% @TODO
-    erlang:error({roadmap,'v0.5.0'}, [Exp, SEnv]).
+    erlang:error({roadmap,'v0.5.5'}, [Exp, SEnv]).
 
 -spec analyze_define_library(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_define_library(Exp, SEnv) ->

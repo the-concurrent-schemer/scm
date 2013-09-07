@@ -32,7 +32,7 @@
 -export([analyze_quote/2
          , analyze_lambda/2
          , analyze_sequence/2
-         , analyze_application/2, apply/5
+         , analyze_application/2, analyze_proc_application/3, apply/5
          , analyze_if/2
          , analyze_assignment/2
          , analyze_include/2
@@ -103,19 +103,35 @@ analyze_sequence(Exps, SEnv) ->
 
 -spec analyze_application(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_application([Operator|Operands], SEnv) when is_list(Operands) ->
-    FExec = analyze(Operator, SEnv),
-    AExecs = [ analyze(Operand, SEnv) || Operand <- Operands ],
-    fun(Env, Ok, Ng) ->
-            FExec(Env,
-                  fun(Proc, Ng1) ->
-                          get_args(AExecs, Env,
-                                   fun(Args, Ng2) -> apply(Proc, Args, Env, Ok, Ng2) end,
-                                   Ng1)
-                  end,
-                  Ng)
+    case analyze(Operator, SEnv) of
+        #expander{val=Fun} ->
+            Args = [ analyze(Operand, SEnv) || Operand <- Operands ],
+            Fun(Args, SEnv);
+        FExec ->
+            AExecs = [ analyze(Operand, SEnv) || Operand <- Operands ],
+            fun(Env, Ok, Ng) ->
+                    FExec(Env,
+                          fun(Proc, Ng1) ->
+                                  get_args(AExecs, Env,
+                                           fun(Args, Ng2) -> apply(Proc, Args, Env, Ok, Ng2) end,
+                                           Ng1)
+                          end,
+                          Ng)
+            end
     end;
 analyze_application(Exp, SEnv) ->
     erlang:error(badarg, [Exp, SEnv]).
+
+-spec analyze_proc_application(scmi_proc(), scmi_exp(), scmi_senv()) -> scmi_dexec().
+analyze_proc_application(Proc, Operands, SEnv) when is_list(Operands) ->
+    AExecs = [ analyze(Operand, SEnv) || Operand <- Operands ],
+    fun(Env, Ok, Ng) ->
+            get_args(AExecs, Env,
+                     fun(Args, Ng1) -> apply(Proc, Args, Env, Ok, Ng1) end,
+                     Ng)
+    end;
+analyze_proc_application(Proc, Operands, SEnv) ->
+    erlang:error(badarg, [Proc, Operands, SEnv]).
 
 apply(#nip0{val=Fun}, [], _Env, Ok, Ng) ->
     Ok(apply_nip0(Fun), Ng);

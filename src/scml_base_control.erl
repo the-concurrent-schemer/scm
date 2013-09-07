@@ -43,6 +43,7 @@
          , 'dynamic-wind'/6
         ]).
 
+-import(scmi_analyze, [classify/1]).
 -import(scmi_analyze_primitive, [apply/5]).
 -include("scml.hrl").
 
@@ -80,32 +81,13 @@
 
 %% @doc Returns #t if obj is a procedure, otherwise returns #f.
 -spec 'procedure?'(scm_obj()) -> scm_boolean().
-'procedure?'(#nip0{}) ->
-    ?TRUE;
-'procedure?'(#nipn{}) ->
-    ?TRUE;
-'procedure?'(#nipv{}) ->
-    ?TRUE;
-'procedure?'(#nipnv{}) ->
-    ?TRUE;
-'procedure?'(#xnip0{}) ->
-    ?TRUE;
-'procedure?'(#xnipn{}) ->
-    ?TRUE;
-'procedure?'(#xnipv{}) ->
-    ?TRUE;
-'procedure?'(#xnipnv{}) ->
-    ?TRUE;
-'procedure?'(#lip0{}) ->
-    ?TRUE;
-'procedure?'(#lipn{}) ->
-    ?TRUE;
-'procedure?'(#lipv{}) ->
-    ?TRUE;
-'procedure?'(#lipnv{}) ->
-    ?TRUE;
-'procedure?'(_) ->
-    ?FALSE.
+'procedure?'(Exp) ->
+    case classify(Exp) of
+        procedure ->
+            ?TRUE;
+        _ ->
+            ?FALSE
+    end.
 
 %% @doc Calls +Proc+ with the elements of the list +(append (list arg1
 %% ...) args)+ as the actual arguments.

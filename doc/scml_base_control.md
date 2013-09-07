@@ -208,7 +208,7 @@ same length, for-each terminates when the shortest list runs out.</p>
 
 
 <pre><code>
-'procedure?'(Nip0::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
+'procedure?'(Exp::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
 
 <br></br>

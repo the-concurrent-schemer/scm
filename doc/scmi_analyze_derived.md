@@ -26,7 +26,7 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 
 <pre><code>
-'$scmi_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_sugar">scmi_sugar()</a>}]
+'$scmi_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_expander">scmi_expander()</a>}]
 </code></pre>
 
 <br></br>
@@ -39,7 +39,7 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 
 <pre><code>
-analyze_and(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
+analyze_and(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -52,7 +52,7 @@ analyze_and(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scm
 
 
 <pre><code>
-analyze_begin(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
+analyze_begin(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -65,7 +65,7 @@ analyze_begin(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-s
 
 
 <pre><code>
-analyze_case(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
+analyze_case(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -78,7 +78,7 @@ analyze_case(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-sc
 
 
 <pre><code>
-analyze_cond(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
+analyze_cond(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -91,7 +91,7 @@ analyze_cond(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-sc
 
 
 <pre><code>
-analyze_cond_expand(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
+analyze_cond_expand(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -104,7 +104,7 @@ analyze_cond_expand(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#
 
 
 <pre><code>
-analyze_do(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
+analyze_do(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -117,7 +117,7 @@ analyze_do(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi
 
 
 <pre><code>
-analyze_guard(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
+analyze_guard(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -130,7 +130,7 @@ analyze_guard(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-s
 
 
 <pre><code>
-analyze_let(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
+analyze_let(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -143,7 +143,7 @@ analyze_let(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scm
 
 
 <pre><code>
-analyze_let_values(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
+analyze_let_values(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -156,7 +156,7 @@ analyze_let_values(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#t
 
 
 <pre><code>
-analyze_letrec(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
+analyze_letrec(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -169,7 +169,7 @@ analyze_letrec(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-
 
 
 <pre><code>
-analyze_letrec_values(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
+analyze_letrec_values(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -182,7 +182,7 @@ analyze_letrec_values(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href=
 
 
 <pre><code>
-analyze_letrecs(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
+analyze_letrecs(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -195,7 +195,7 @@ analyze_letrecs(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type
 
 
 <pre><code>
-analyze_lets(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
+analyze_lets(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -208,7 +208,7 @@ analyze_lets(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-sc
 
 
 <pre><code>
-analyze_lets_values(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
+analyze_lets_values(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -221,7 +221,7 @@ analyze_lets_values(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#
 
 
 <pre><code>
-analyze_make_parameter(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
+analyze_make_parameter(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -234,7 +234,7 @@ analyze_make_parameter(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href
 
 
 <pre><code>
-analyze_or(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
+analyze_or(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -247,7 +247,7 @@ analyze_or(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi
 
 
 <pre><code>
-analyze_parameterize(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
+analyze_parameterize(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -260,7 +260,7 @@ analyze_parameterize(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="
 
 
 <pre><code>
-analyze_quasiquote(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
+analyze_quasiquote(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -273,7 +273,7 @@ analyze_quasiquote(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#t
 
 
 <pre><code>
-analyze_unless(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
+analyze_unless(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -286,7 +286,7 @@ analyze_unless(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-
 
 
 <pre><code>
-analyze_unquote(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
+analyze_unquote(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -299,7 +299,7 @@ analyze_unquote(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type
 
 
 <pre><code>
-analyze_unquote_splicing(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
+analyze_unquote_splicing(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -312,7 +312,7 @@ analyze_unquote_splicing(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a hr
 
 
 <pre><code>
-analyze_when(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
+analyze_when(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -325,7 +325,7 @@ analyze_when(Exp::<a href="#type-scm_any">scm_any()</a>, SEnv::<a href="#type-sc
 
 
 <pre><code>
-scan_out_internal_definitions(Body::[<a href="#type-scm_any">scm_any()</a>, ...], Senv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; [<a href="#type-scm_any">scm_any()</a>]
+scan_out_internal_definitions(Body::[<a href="#type-scmi_exp">scmi_exp()</a>, ...], Senv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; [<a href="#type-scmi_exp">scmi_exp()</a>]
 </code></pre>
 
 <br></br>

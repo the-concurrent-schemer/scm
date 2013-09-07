@@ -37,6 +37,7 @@
            , make_apply/2
            , make_assoc/2, make_assoc/3
            , make_begin/1
+           , make_begin_syntax/1
            , make_booleanp/1
            , make_booleansp/1
            , make_bytevector_length/1, make_bytevector_ref/1
@@ -62,6 +63,7 @@
            , make_if/2, make_if/3
            , make_guard/3, make_guard/4
            , make_lambda/2
+           , make_lambda_syntax/2
            , make_list/1
            , make_let/2
            , make_let_named/3
@@ -71,6 +73,10 @@
            , make_let_values/2
            , make_lets_values/2
            , make_letrec_values/2
+           , make_let_syntax/2
+           , make_lets_syntax/2
+           , make_letrec_syntax/2
+           , make_letrecs_syntax/2
            , make_map/2
            , make_member/2, make_member/3
            , make_not/1
@@ -82,6 +88,7 @@
            , make_raise/1
            , make_raise_continuable/1
            , make_setb/2
+           , make_setb_syntax/2
            , make_string_length/1, make_string_ref/1
            , make_stringsp/1
            , make_string_to_list/1, make_string_to_list/2, make_string_to_list/3, make_list_to_string/1
@@ -123,6 +130,9 @@ make_assoc(Obj, Alist, Compare) when is_list(Alist) ->
 
 make_begin(Exps) when is_list(Exps) ->
     ['begin'|Exps].
+
+make_begin_syntax(Exps) when is_list(Exps) ->
+    ['begin-syntax'|Exps].
 
 make_booleanp(Obj) ->
     ['boolean?', Obj].
@@ -255,6 +265,9 @@ make_guard(Variable, Exps, Else, Body) when is_list(Exps), is_list(Else), is_lis
 make_lambda(Formals, Body) when is_list(Body) ->
     ['lambda'|[Formals|Body]].
 
+make_lambda_syntax(Formals, Body) when is_list(Body) ->
+    ['lambda-syntax'|[Formals|Body]].
+
 make_let(Bindings, Body) when is_list(Bindings), is_list(Body) ->
     ['let'|[Bindings|Body]].
 
@@ -278,6 +291,18 @@ make_lets_values(Bindings, Body) when is_list(Bindings), is_list(Body) ->
 
 make_letrec_values(Bindings, Body) when is_list(Bindings), is_list(Body) ->
     ['letrec-values'|[Bindings|Body]].
+
+make_let_syntax(Bindings, Body) when is_list(Bindings), is_list(Body) ->
+    ['let-syntax'|[Bindings|Body]].
+
+make_lets_syntax(Bindings, Body) when is_list(Bindings), is_list(Body) ->
+    ['let*-syntax'|[Bindings|Body]].
+
+make_letrec_syntax(Bindings, Body) when is_list(Bindings), is_list(Body) ->
+    ['letrec-syntax'|[Bindings|Body]].
+
+make_letrecs_syntax(Bindings, Body) when is_list(Bindings), is_list(Body) ->
+    ['letrec*-syntax'|[Bindings|Body]].
 
 make_list(List) when is_list(List) ->
     ['list'|List].
@@ -320,6 +345,9 @@ make_raise_continuable(Obj) ->
 
 make_setb(Variable, Value) ->
     ['set!', Variable, Value].
+
+make_setb_syntax(Variable, Value) ->
+    ['set!-syntax', Variable, Value].
 
 make_string_length(S) ->
     ['string-length', S].

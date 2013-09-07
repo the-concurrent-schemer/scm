@@ -177,6 +177,18 @@ exp() = <a href="#type-scm_any">scm_any()</a>
 
 
 
+### <a name="type-expander">expander()</a> ###
+
+
+
+<pre><code>
+expander() = #expander{val = <a href="#type-sexec">sexec()</a>}
+</code></pre>
+
+
+
+
+
 ### <a name="type-f">f()</a> ###
 
 
@@ -494,7 +506,7 @@ senv() = <a href="scmi_analyze.md#type-senv">scmi_analyze:senv()</a>
 
 
 <pre><code>
-sexec() = fun((<a href="#type-exp">exp()</a>, <a href="#type-senv">senv()</a>) -&gt; <a href="#type-dexec">dexec()</a>)
+sexec() = fun((<a href="#type-exp">exp()</a>, <a href="#type-senv">senv()</a>) -&gt; <a href="#type-expander">expander()</a> | <a href="#type-dexec">dexec()</a>)
 </code></pre>
 
 
@@ -519,18 +531,6 @@ signal() = #signal{obj = <a href="#type-exp">exp()</a>, env = <a href="#type-den
 
 <pre><code>
 src() = fun(() -&gt; [<a href="#type-exp">exp()</a>])
-</code></pre>
-
-
-
-
-
-### <a name="type-sugar">sugar()</a> ###
-
-
-
-<pre><code>
-sugar() = #sugar{val = <a href="#type-sexec">sexec()</a>}
 </code></pre>
 
 

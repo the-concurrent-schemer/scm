@@ -24,7 +24,7 @@
 -define(scm, true).
 
 -define(SCM,            'scm').
--define(SCMVSN,         'scm-0.4.2'). % @TODO make this depend on git describe
+-define(SCMVSN,         'scm-0.5.0'). % @TODO make this depend on git describe
 
 -define(SCMIEXPORTS,    '$scmi_exports').
 -define(SCMIPARAMSET,   1).

@@ -44,7 +44,7 @@ senv() = #senv{}
 
 
 <pre><code>
-analyze(Exp::<a href="#type-scmi_exp">scmi_exp()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
+analyze(Exp::<a href="#type-scmi_exp">scmi_exp()</a>) -&gt; <a href="#type-scmi_expander">scmi_expander()</a> | <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
@@ -57,7 +57,7 @@ analyze(Exp::<a href="#type-scmi_exp">scmi_exp()</a>) -&gt; <a href="#type-scmi_
 
 
 <pre><code>
-analyze(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_exp">scmi_exp()</a>
+analyze(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_expander">scmi_expander()</a> | <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
 
 <br></br>
