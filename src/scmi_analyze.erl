@@ -328,16 +328,21 @@ analyze_variable(Exp, _SEnv) ->
 
 -spec analyze_expression(scmi_exp(), scmi_senv()) -> scmi_expander() | scmi_dexec().
 analyze_expression([Rator|Rands]=Exp, #senv{env=BaseEnv}=SEnv) ->
-    case scmi_env:safe_lookup_variable(Rator, BaseEnv) of
-        #expander{val=Fun} ->
-            Fun(Rands, SEnv);
-        ?UNASSIGNED ->
-            analyze_application(Exp, SEnv);
-        Proc ->
-            case classify(Proc) of
-                procedure ->
-                    analyze_proc_application(Proc, Rands, SEnv);
-                _ ->
-                    erlang:error(badarg, [Exp, SEnv])
-            end
+    case classify(Rator) of
+        Class when Class==identifier; Class==variable ->
+            case scmi_env:safe_lookup_variable(Rator, BaseEnv) of
+                ?UNASSIGNED ->
+                    analyze_application(Exp, SEnv);
+                #expander{val=Fun} ->
+                    Fun(Rands, SEnv);
+                Proc ->
+                    case classify(Proc) of
+                        procedure ->
+                            analyze_proc_application(Proc, Rands, SEnv);
+                        _ ->
+                            erlang:error(badarg, [Exp, SEnv])
+                    end
+            end;
+        _ ->
+            analyze_application(Exp, SEnv)
     end.
