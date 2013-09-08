@@ -97,13 +97,13 @@
 -type t_bytevector()             :: bytes().
 -type t_character()              :: unichar().
 -type t_false()                  :: false.
--type t_identifier()             :: atom() | {atom(), utf8()} | #mid{}.   % atom(utf-8()) | {atom(sha(utf-8())), utf-8()} | #mid{}
+-type t_identifier()             :: atom() | {atom(), utf8()} | #mid{val :: t_symbol()}.   % atom(utf-8()) | {atom(sha(utf-8())), utf-8()} | #mid{}
 -type t_labelref()               :: non_neg_integer().
 -type t_letter()                 :: 65..90 | 97..122.
 -type t_string()                 :: tuple(unichar()).
--type t_symbol()                 :: t_identifier() | t_variable() | {t_variable(), t_identifier()}.
+-type t_symbol()                 :: t_identifier() | t_variable().
 -type t_true()                   :: true.
--type t_variable()               :: reference().
+-type t_variable()               :: reference() | {reference(), t_symbol()}.
 
 %% number
 -type s_complex()                :: s_rectangular() | s_polar() | s_real().

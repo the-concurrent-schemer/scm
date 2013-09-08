@@ -137,10 +137,10 @@ analyze_letrecs_syntax(Exp, SEnv) ->
 -spec analyze_syntax_rules(scmi_exp(), scmi_senv()) -> scmi_expander().
 analyze_syntax_rules([Ellipsis, Literals|Rules], #senv{env=DefEnv}=DefSEnv) when not is_list(Ellipsis), is_list(Literals), is_list(Rules) ->
     Rules1 = validate_rules(Ellipsis, Literals, Rules),
-    DefRef = make_ref(),
+    DefRef = make_variable(),
     Fun = fun(Args, SEnv) ->
                   {Bindings, Template} = match_rules(Args, Rules1),
-                  UseRef = make_ref(),
+                  UseRef = make_variable(),
                   Exp = expand_template(DefSEnv, DefRef, UseRef, Bindings, Template),
                   analyze(Exp, SEnv)
           end,
@@ -361,9 +361,7 @@ validate_pattern(State, Pattern) ->
             {State, Pattern};
         {Complex, {_A, _B}} when Complex==rectangular; Complex==polar ->
             {State, Pattern};
-        identifier ->
-            validate_pattern_identifier(State, Pattern);
-        variable ->
+        Class when Class==identifier; Class==variable ->
             validate_pattern_identifier(State, Pattern);
         _ ->
             erlang:error(badarg, [State, Pattern])
@@ -431,9 +429,7 @@ validate_template(State, Template) ->
             {State, Template};
         {Complex, {_A, _B}} when Complex==rectangular; Complex==polar ->
             {State, Template};
-        identifier ->
-            validate_template_identifier(State, Template);
-        variable ->
+        Class when Class==identifier; Class==variable ->
             validate_template_identifier(State, Template);
         _ ->
             erlang:error(badarg, [State, Template])
@@ -538,7 +534,7 @@ expand_template(DefSEnv, DefRef, UseRef, Bindings, Template) ->
 expand_template_identifier(_DI, #senv{env=DefEnv}, DefRef, UseRef, _Bindings, #mid{val=Identifier}=Template) ->
     case scmi_env:safe_lookup_variable(Identifier, DefEnv) of
         ?UNASSIGNED ->
-            {UseRef, Identifier};
+            make_variable(UseRef, Identifier);
         _ ->
             Template#mid{defref=DefRef}
     end.
@@ -603,9 +599,7 @@ expand_template(DI, DefSEnv, DefRef, UseRef, Bindings, Template) ->
             Template;
         {Complex, {_A, _B}} when Complex==rectangular; Complex==polar ->
             Template;
-        identifier ->
-            expand_template_identifier(DI, DefSEnv, DefRef, UseRef, Bindings, Template);
-        variable ->
+        Class when Class==identifier; Class==variable ->
             expand_template_identifier(DI, DefSEnv, DefRef, UseRef, Bindings, Template);
         _ ->
             erlang:error(badarg, [DI, DefSEnv, DefRef, UseRef, Bindings, Template])

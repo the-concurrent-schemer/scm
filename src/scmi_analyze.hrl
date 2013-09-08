@@ -100,7 +100,7 @@
            , make_thunk/1
            , make_unless/2
            , make_values/1
-           , make_variable/0
+           , make_variable/0, make_variable/1, make_variable/2
            , make_vector_length/1, make_vector_ref/1
            , make_vectorsp/1
            , make_vector_to_list/1, make_vector_to_list/2, make_vector_to_list/3, make_list_to_vector/1
@@ -414,6 +414,12 @@ make_values(Args) when is_list(Args) ->
 
 make_variable() ->
     erlang:make_ref().
+
+make_variable(V) ->
+    make_variable(make_variable(), V).
+
+make_variable(V1, V2) when is_reference(V1) ->
+    {V1, V2}.
 
 make_vector_length(V) ->
     ['vector-length', V].

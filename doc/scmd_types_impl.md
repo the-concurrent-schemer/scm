@@ -560,7 +560,7 @@ t_false() = false
 
 
 <pre><code>
-t_identifier() = atom() | {atom(), <a href="#type-utf8">utf8()</a>} | #mid{}
+t_identifier() = atom() | {atom(), <a href="#type-utf8">utf8()</a>} | #mid{val = <a href="#type-t_symbol">t_symbol()</a>}
 </code></pre>
 
 
@@ -662,7 +662,7 @@ t_string() = {<a href="#type-unichar">unichar()</a>}
 
 
 <pre><code>
-t_symbol() = <a href="#type-t_identifier">t_identifier()</a> | <a href="#type-t_variable">t_variable()</a> | {<a href="#type-t_variable">t_variable()</a>, <a href="#type-t_identifier">t_identifier()</a>}
+t_symbol() = <a href="#type-t_identifier">t_identifier()</a> | <a href="#type-t_variable">t_variable()</a>
 </code></pre>
 
 
@@ -686,7 +686,7 @@ t_true() = true
 
 
 <pre><code>
-t_variable() = reference()
+t_variable() = reference() | {reference(), <a href="#type-t_symbol">t_symbol()</a>}
 </code></pre>
 
 

@@ -159,14 +159,22 @@ classify(Exp) when is_atom(Exp) ->
     identifier;
 classify({Sha1, Id}) when is_atom(Sha1), is_binary(Id) ->
     identifier;
-classify(Exp) when is_record(Exp, mid) ->
-    identifier;
+classify(#mid{val=Exp}=Exp0) ->
+    case classify(Exp) of
+        Class when Class==identifier; Class==variable ->
+            identifier;
+        _ ->
+            erlang:error(badarg, [Exp0])
+    end;
 classify(Exp) when is_reference(Exp) ->
     variable;
-classify({Var, Id}) when is_reference(Var), is_atom(Id) ->
-    variable;
-classify({Var, {Sha1, Id}}) when is_reference(Var), is_atom(Sha1), is_binary(Id) ->
-    variable;
+classify({Var, Exp}=Exp0) when is_reference(Var) ->
+    case classify(Exp) of
+        Class when Class==identifier; Class==variable ->
+            variable;
+        _ ->
+            erlang:error(badarg, [Exp0])
+    end;
 classify(Exp) when is_record(Exp, label) ->
     label;
 classify(Exp) when is_record(Exp, labelref) ->

@@ -378,6 +378,7 @@ scmi_env_safe_lookup_variable2(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv
         return MAKEBADARG(env);
     }
 
+ mid_env_start:
     // if macro identifier is given, find environment that contains
     // marker and then continue with normal processing from that
     // environment.
@@ -395,7 +396,7 @@ scmi_env_safe_lookup_variable2(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv
                 ErlNifVec::size_type size = h->ivar->size();
                 for (ErlNifVec::size_type i=0; i < size; i++) {
                     if (enif_is_identical(marker, (*(h->ivar))[i])) {
-                        goto env_loop;
+                        goto mid_env_start;
                     }
                 }
 
