@@ -139,7 +139,7 @@ analyze_syntax_rules([Ellipsis, Literals|Rules], #senv{env=DefEnv}=DefSEnv) when
     Rules1 = validate_rules(Ellipsis, Literals, Rules),
     DefRef = make_variable(),
     Fun = fun(Args, SEnv) ->
-                  {Bindings, Template} = match_rules(Args, Rules1),
+                  {_N, Bindings, Template} = match_rules(Args, Rules1),
                   UseRef = make_variable(),
                   Exp = expand_template(DefSEnv, DefRef, UseRef, Bindings, Template),
                   analyze(Exp, SEnv)
@@ -435,14 +435,17 @@ validate_template(State, Template) ->
             erlang:error(badarg, [State, Template])
     end.
 
-match_rules(Args, []=Rules) ->
-    erlang:error(badarg, [Args, Rules]);
-match_rules(Args, [Rule|Rules]) ->
+match_rules(Args, Rules) ->
+    match_rules1(Args, Rules, 1).
+
+match_rules1(Args, []=Rules, N) ->
+    erlang:error(badarg, [Args, Rules, N]);
+match_rules1(Args, [Rule|Rules], N) ->
     case match_srpattern(Args, Rule) of
         none ->
-            match_rules(Args, Rules);
+            match_rules1(Args, Rules, N+1);
         {Bindings, Template} ->
-            {Bindings, Template}
+            {N, Bindings, Template}
     end.
 
 match_srpattern(Args, [Pattern, Template]) ->
