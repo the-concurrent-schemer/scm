@@ -93,7 +93,7 @@ raised in the same dynamic environment as the handler.</p>.</td></tr></table>
 
 
 <pre><code>
-'error-object?'(Obj::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
+'error-object?'(Error_file::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
 
 <br></br>
@@ -109,7 +109,7 @@ to open an input or output port on a file.</p>
 
 
 <pre><code>
-'file-error?'(Obj::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
+'file-error?'(Error_file::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
 
 <br></br>
@@ -145,7 +145,7 @@ returned by the call to <code>raise-continuable</code>.</p>
 
 
 <pre><code>
-'read-error?'(Obj::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
+'read-error?'(Error_read::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
 
 <br></br>

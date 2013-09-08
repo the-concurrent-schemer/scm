@@ -91,15 +91,15 @@ analyze(?NZER=Exp, SEnv) ->
     analyze_self_evaluating(Exp, SEnv);
 analyze({Complex, {_A, _B}}=Exp, SEnv) when Complex==rectangular; Complex==polar ->
     analyze_self_evaluating(Exp, SEnv);
-analyze(Exp, SEnv) when is_record(Exp, boolean) ->
+analyze(#boolean{}=Exp, SEnv) ->
     analyze_self_evaluating(Exp, SEnv);
-analyze(Exp, SEnv) when is_record(Exp, bytevector) ->
+analyze(#bytevector{}=Exp, SEnv) ->
     analyze_self_evaluating(Exp, SEnv);
-analyze(Exp, SEnv) when is_record(Exp, character) ->
+analyze(#character{}=Exp, SEnv)  ->
     analyze_self_evaluating(Exp, SEnv);
-analyze(Exp, SEnv) when is_record(Exp, string) ->
+analyze(#string{}=Exp, SEnv)  ->
     analyze_self_evaluating(Exp, SEnv);
-analyze(Exp, SEnv) when is_record(Exp, vector) ->
+analyze(#vector{}=Exp, SEnv)  ->
     analyze_self_evaluating(Exp, SEnv);
 analyze(?UNASSIGNED=Exp, SEnv) ->
     analyze_self_evaluating(Exp, SEnv);
@@ -107,7 +107,7 @@ analyze(Exp, SEnv) when is_atom(Exp) ->
     analyze_variable(Exp, SEnv);
 analyze({Sha1, Id}=Exp, SEnv) when is_atom(Sha1), is_binary(Id) ->
     analyze_variable(Exp, SEnv);
-analyze(Exp, SEnv) when is_record(Exp, mid) ->
+analyze(#mid{}=Exp, SEnv) ->
     analyze_variable(Exp, SEnv);
 analyze(Exp, SEnv) when is_reference(Exp) ->
     analyze_variable(Exp, SEnv);
@@ -115,9 +115,9 @@ analyze({Var, Id}=Exp, SEnv) when is_reference(Var), is_atom(Id) ->
     analyze_variable(Exp, SEnv);
 analyze({Var, {Sha1, Id}}=Exp, SEnv) when is_reference(Var), is_atom(Sha1), is_binary(Id) ->
     analyze_variable(Exp, SEnv);
-analyze(Exp, SEnv) when is_record(Exp, label) ->
+analyze(#label{}=Exp, SEnv) ->
     analyze_label(Exp, SEnv);
-analyze(Exp, SEnv) when is_record(Exp, labelref) ->
+analyze(#labelref{}=Exp, SEnv) ->
     analyze_labelref(Exp, SEnv);
 analyze([_Rator|Rands]=Exp, SEnv) when is_list(Rands) ->
     analyze_expression(Exp, SEnv);
@@ -143,15 +143,15 @@ classify(?NZER) ->
     nzer;
 classify({Complex, {A, B}}) when Complex==rectangular; Complex==polar ->
     {Complex, {classify_real(A), classify_real(B)}};
-classify(Exp) when is_record(Exp, boolean) ->
+classify(#boolean{}) ->
     boolean;
-classify(Exp) when is_record(Exp, bytevector) ->
+classify(#bytevector{}) ->
     bytevector;
-classify(Exp) when is_record(Exp, character) ->
+classify(#character{}) ->
     character;
-classify(Exp) when is_record(Exp, string) ->
+classify(#string{}) ->
     string;
-classify(Exp) when is_record(Exp, vector) ->
+classify(#vector{}) ->
     vector;
 classify(?UNASSIGNED) ->
     unassigned;
@@ -175,9 +175,9 @@ classify({Var, Exp}=Exp0) when is_reference(Var) ->
         _ ->
             erlang:error(badarg, [Exp0])
     end;
-classify(Exp) when is_record(Exp, label) ->
+classify(#label{}) ->
     label;
-classify(Exp) when is_record(Exp, labelref) ->
+classify(#labelref{}) ->
     labelref;
 classify([_Rator|Rands]) when is_list(Rands) ->
     expression;

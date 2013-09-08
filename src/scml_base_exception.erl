@@ -126,10 +126,11 @@
 %% +error+, raised by the +read+ procedure, or raised by the inability
 %% to open an input or output port on a file.
 -spec 'error-object?'(scm_obj()) -> scm_boolean().
-'error-object?'(Obj)
-  when is_record(Obj, error_file);
-       is_record(Obj, error_read);
-       is_record(Obj, error_user) ->
+'error-object?'(#error_file{}) ->
+    ?TRUE;
+'error-object?'(#error_read{}) ->
+    ?TRUE;
+'error-object?'(#error_user{}) ->
     ?TRUE;
 'error-object?'(_) ->
     ?FALSE.
@@ -156,7 +157,7 @@
 %% @doc Returns #t if the given object is an object raised by the
 %% +read+ procedure.
 -spec 'read-error?'(scm_obj()) -> scm_boolean().
-'read-error?'(Obj) when is_record(Obj, error_read) ->
+'read-error?'(#error_read{}) ->
     ?TRUE;
 'read-error?'(_) ->
     ?FALSE.
@@ -164,7 +165,7 @@
 %% @doc Returns #t if the given object is an object raised by the
 %% inability to open an input or output port on a file.
 -spec 'file-error?'(scm_obj()) -> scm_boolean().
-'file-error?'(Obj) when is_record(Obj, error_file) ->
+'file-error?'(#error_file{}) ->
     ?TRUE;
 'file-error?'(_) ->
     ?FALSE.
