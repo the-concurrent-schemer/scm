@@ -2,5 +2,5 @@ The following people, in chronological order, have sent patches, pull
 requests, and/or bug reports that have been incorporated in CSCM's
 code base:
 
-1. Joseph Wayne Norton
-2. ...
+Joseph Wayne Norton
+Sina Samavati
