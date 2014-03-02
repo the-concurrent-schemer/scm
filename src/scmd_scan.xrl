@@ -78,7 +78,7 @@ initial              = ({letter}|{special_initial})
 
 letter               = [a-zA-Z]
 
-special_initial      = [!$%&*/:<=>?^_~]
+special_initial      = [!$%&*/:<=>?@^_~]
 
 subsequent           = ({initial}|{digit}|{special_subsequent})
 
