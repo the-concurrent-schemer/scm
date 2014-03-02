@@ -2,7 +2,7 @@
 
 # The Concurrent Schemer #
 
-Copyright (c) 2013 by Joseph Wayne Norton
+Copyright (c) 2013-2014 by Joseph Wayne Norton
 
 __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
 <p>"The Concurrent Schemer" (CSCM) is an implementation of the Scheme
