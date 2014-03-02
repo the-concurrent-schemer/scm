@@ -92,7 +92,12 @@ special_subsequent   = ({explicit_sign}|\.|@)
 
 inline_hex_escape    = (\\{X}{hex_scalar_value};)
 
-hex_scalar_value     = 0*(([0-9a-eA-e]{hex_digit}{hex_digit}{hex_digit})|({D}{digit8}{hex_digit}{hex_digit})|(({E}|{F}){hex_digit}{hex_digit}{hex_digit})|10{hex_digit}{hex_digit}{hex_digit}{hex_digit})
+hex_digit_lt_d       = [0-9a-cA-C]
+hex_2digit           = {hex_digit}{hex_digit}
+hex_3digit           = {hex_2digit}{hex_digit}
+hex_4digit           = {hex_3digit}{hex_digit}
+
+hex_scalar_value     = ({hex_digit}|{hex_2digit}|{hex_3digit}|0*(({hex_digit_lt_d}{hex_3digit})|({D}{digit8}{hex_2digit})|(({E}|{F}){hex_3digit})|(10{hex_4digit})))
 
 mnemonic_escape      = \\(a|b|t|n|r)
 
@@ -102,7 +107,7 @@ dot_subsequent       = ({sign_subsequent}|\.)
 
 sign_subsequent      = ({initial}|{explicit_sign}|@)
 
-symbol_element       = ([^|\\]|{mnemonic_escape}|\\\||{inline_hex_escape})
+symbol_element       = ([^|\\]|{inline_hex_escape}|{mnemonic_escape}|\\\|)
 
 boolean_false        = #({F}{A}{L}{S}{E}|{F})
 boolean_true         = #({T}{R}{U}{E}|{T})
@@ -113,9 +118,9 @@ character_any        = (.|\n)
 
 character_name       = (alarm|backspace|delete|escape|newline|null|return|space|tab)
 
-string               = "{string_element}*"
+string               = \"{string_element}*\"
 
-string_element       = ([^"\\]|{mnemonic_escape}|\\("|\\|{intraline_whitespace}*{line_ending}{intraline_whitespace}*)|{inline_hex_escape})
+string_element       = ([^\"\\]|{mnemonic_escape}|\\\"|\\\\|\\\|||\\{intraline_whitespace}*{line_ending}{intraline_whitespace}*|{inline_hex_escape})
 
 %% bytevector and byte - see LALR-1 parser generator
 
