@@ -361,6 +361,8 @@ validate_pattern(State, Pattern) ->
             {State, Pattern};
         {Complex, {_A, _B}} when Complex==rectangular; Complex==polar ->
             {State, Pattern};
+        bytevector ->
+            {State, Pattern};
         Class when Class==identifier; Class==variable ->
             validate_pattern_identifier(State, Pattern);
         _ ->
@@ -428,6 +430,8 @@ validate_template(State, Template) ->
                     Number==nzer ->
             {State, Template};
         {Complex, {_A, _B}} when Complex==rectangular; Complex==polar ->
+            {State, Template};
+        bytevector ->
             {State, Template};
         Class when Class==identifier; Class==variable ->
             validate_template_identifier(State, Template);
@@ -601,6 +605,8 @@ expand_template(DI, DefSEnv, DefRef, UseRef, Bindings, Template) ->
                     Number==nzer ->
             Template;
         {Complex, {_A, _B}} when Complex==rectangular; Complex==polar ->
+            Template;
+        bytevector ->
             Template;
         Class when Class==identifier; Class==variable ->
             expand_template_identifier(DI, DefSEnv, DefRef, UseRef, Bindings, Template);
