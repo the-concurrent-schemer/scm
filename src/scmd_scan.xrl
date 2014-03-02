@@ -317,6 +317,9 @@ to_label(X) ->
 to_labelref(X) ->
     list_to_integer(string:substr(X, 2, length(X) - 2)).
 
+to_identifier(N, [$||X]) ->
+    [$||Y] = lists:reverse(X),
+    to_identifier(N, lists:reverse(Y));
 to_identifier(N, X) ->
     Y = unescape(N, X),
     Opts = [unicode, caseless, {capture,all_but_first,index}],

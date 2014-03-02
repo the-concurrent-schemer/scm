@@ -118,6 +118,9 @@ unicode_to_symbol(L) ->
     try
         Y = binary_to_atom(X, utf8),
         case atom_to_list(Y) of
+            "" ->
+                %% special case for the || identifier
+                {'', X};
             Z when length(Z) < 20 ->
                 Y;
             _ ->
