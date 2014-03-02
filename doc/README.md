@@ -25,7 +25,7 @@ distribution and fault tolerance.  Erlang is designed at the Ericsson
 Computer Science Laboratory and is maintained as an open-source
 project and community.</p>
 <p>The default language is Scheme R7RS.  The default virtual machine is
-Erlang/OTP R16B or higher.</p>
+Erlang/OTP R16B03-1 or higher.</p>
 <p>For further information, see
 <a href="https://github.com/the-concurrent-schemer">https://github.com/the-concurrent-schemer</a>.</p>
 
