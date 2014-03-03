@@ -58,31 +58,19 @@
 %% @doc Returns #t if obj1 and obj2 are normally regarded as the same
 %% object.  Otherwise, #f.
 -spec 'eqv?'(scm_obj(), scm_obj()) -> scm_boolean().
-'eqv?'(#boolean{val=A}, #boolean{val=A}) ->
-    ?TRUE;
-'eqv?'(A, A) when is_atom(A) ->
-    ?TRUE;
-'eqv?'({SHA, A}, {SHA, A}) when is_atom(SHA), is_binary(A) ->
-    ?TRUE;
-'eqv?'(A, B) when is_number(A); is_number(B) ->
-    'eqv-number?'(A, B);
-'eqv?'(A, B) when tuple_size(A)==2; tuple_size(B)==2 ->
-    'eqv-number?'(A, B);
-'eqv?'(#character{val=A}, #character{val=A}) ->
-    ?TRUE;
+'eqv?'(#boolean{}=O1, #boolean{}=O2) ->
+    scml_base_boolean:'boolean=?'([O1, O2]);
+'eqv?'(O1, O2) when is_atom(O1) ->
+    scml_base_symbol:'symbol=?'([O1, O2]);
+'eqv?'({SHA, A}=O1, O2) when is_atom(SHA), is_binary(A) ->
+    scml_base_symbol:'symbol=?'([O1, O2]);
+'eqv?'(O1, O2) when is_number(O1) ->
+    'number=?'(O1, O2);
+'eqv?'(O1, O2) when tuple_size(O1)==2 ->
+    'number=?'(O1, O2);
+'eqv?'(#character{}=O1, #character{}=O2) ->
+    scml_base_char:'char=?'([O1, O2]);
 'eqv?'([], []) ->
-    ?TRUE;
-'eqv?'(#vector{val=A}, #vector{val=B}) ->
-    'eqv?'(tuple_to_list(A), tuple_to_list(B));
-'eqv?'(#bytevector{val=A}, #bytevector{val=A}) ->
-    ?TRUE;
-'eqv?'(#string{val=A}, #string{val=A}) ->
-    ?TRUE;
-'eqv?'(#label{val={C,A}}, #label{val={C,B}}) ->
-    'eqv?'(A, B);
-'eqv?'(#labelref{val=A}, #labelref{val=A}) ->
-    ?TRUE;
-'eqv?'(A, A) when is_pid(A) ->
     ?TRUE;
 'eqv?'(#nip0{val=A}, #nip0{val=A}) ->
     ?TRUE;
@@ -108,64 +96,104 @@
     ?TRUE;
 'eqv?'(#lipnv{val=A}, #lipnv{val=A}) ->
     ?TRUE;
-'eqv?'([A1|A2], [B1|B2]) ->
-    case 'eqv?'(A1, B1) of
-        ?FALSE ->
-            ?FALSE;
-        _ ->
-            'eqv?'(A2, B2)
-    end;
 'eqv?'(_, _) ->
     ?FALSE.
 
 %% @equiv 'eqv?'/2
 -spec 'eq?'(scm_obj(), scm_obj()) -> scm_boolean().
-'eq?'(A, B) ->
-    'eqv?'(A, B).
+'eq?'(O1, O2) ->
+    'eqv?'(O1, O2).
 
 %% @doc Returns #t if obj1 and obj2 have the same display
 %% representation.  Otherwise, #f.
 -spec 'equal?'(scm_obj(), scm_obj()) -> scm_boolean().
-'equal?'(A, B) ->
-    case 'eqv?'(A, B) of
+'equal?'(#boolean{}=O1, #boolean{}=O2) ->
+    scml_base_boolean:'boolean=?'([O1, O2]);
+'equal?'(O1, O2) when is_atom(O1) ->
+    scml_base_symbol:'symbol=?'([O1, O2]);
+'equal?'({SHA, A}=O1, O2) when is_atom(SHA), is_binary(A) ->
+    scml_base_symbol:'symbol=?'([O1, O2]);
+'equal?'(O1, O2) when is_number(O1) ->
+    'number=?'(O1, O2);
+'equal?'(O1, O2) when tuple_size(O1)==2 ->
+    'number=?'(O1, O2);
+'equal?'(#character{}=O1, #character{}=O2) ->
+    scml_base_char:'char=?'([O1, O2]);
+'equal?'(#vector{}=O1, #vector{}=O2) ->
+    'equal?'(scml_base_vector:'vector->list'(O1), scml_base_vector:'vector->list'(O2));
+'equal?'(#bytevector{val=A}, #bytevector{val=A}) ->
+    ?TRUE;
+'equal?'(#string{}=O1, #string{}=O2) ->
+    scml_base_string:'string=?'([O1, O2]);
+'equal?'(#label{val={C,A}}, #label{val={C,B}}) ->
+    'equal?'(A, B);
+'equal?'(#labelref{val=A}, #labelref{val=A}) ->
+    ?TRUE;
+'equal?'(O1, O1) when is_pid(O1) ->
+    ?TRUE;
+'equal?'([], []) ->
+    ?TRUE;
+'equal?'([AH|AT], [BH|BT]) ->
+    case 'equal?'(AH, BH) of
         ?FALSE ->
-            %% Recursively call equal? on the arguments and body
-            %% sources of lambda-based procedures
-            case {A, B} of
-                {#lip0{val=#l0{src=X}}, #lip0{val=#l0{src=Y}}} ->
-                    'equal-lambda?'(X, Y);
-                {#lipn{val=#ln{params=I, src=X}}, #lipn{val=#ln{params=J, src=Y}}} ->
-                    'equal-lambda?'(I, X, J, Y);
-                {#lipv{val=#lv{param=I, src=X}}, #lipv{val=#lv{param=J, src=Y}}} ->
-                    'equal-lambda?'(I, X, J, Y);
-                {#lipnv{val=#lnv{n=N, params=I, src=X}}, #lipnv{val=#lnv{n=N, params=J, src=Y}}} ->
-                    'equal-lambda?'(I, X, J, Y);
-                _ ->
-                    ?FALSE
-            end;
+            ?FALSE;
         _ ->
-            ?TRUE
-    end.
+            'equal?'(AT, BT)
+    end;
+'equal?'(#nip0{val=A}, #nip0{val=A}) ->
+    ?TRUE;
+'equal?'(#nipn{val=A}, #nipn{val=A}) ->
+    ?TRUE;
+'equal?'(#nipv{val=A}, #nipv{val=A}) ->
+    ?TRUE;
+'equal?'(#nipnv{val=A}, #nipnv{val=A}) ->
+    ?TRUE;
+'equal?'(#xnip0{val=A}, #xnip0{val=A}) ->
+    ?TRUE;
+'equal?'(#xnipn{val=A}, #xnipn{val=A}) ->
+    ?TRUE;
+'equal?'(#xnipv{val=A}, #xnipv{val=A}) ->
+    ?TRUE;
+'equal?'(#xnipnv{val=A}, #xnipnv{val=A}) ->
+    ?TRUE;
+'equal?'(#lip0{val=A}, #lip0{val=A}) ->
+    ?TRUE;
+'equal?'(#lip0{val=#l0{src=AS}}, #lip0{val=#l0{src=BS}}) ->
+    'equal-lambda?'(AS, BS);
+'equal?'(#lipn{val=A}, #lipn{val=A}) ->
+    ?TRUE;
+'equal?'(#lipn{val=#ln{params=APs, src=AS}}, #lipn{val=#ln{params=BPs, src=BS}}) ->
+    'equal-lambda?'(APs, AS, BPs, BS);
+'equal?'(#lipv{val=A}, #lipv{val=A}) ->
+    ?TRUE;
+'equal?'(#lipv{val=#lv{param=APs, src=AS}}, #lipv{val=#lv{param=BPs, src=BS}}) ->
+    'equal-lambda?'(APs, AS, BPs, BS);
+'equal?'(#lipnv{val=A}, #lipnv{val=A}) ->
+    ?TRUE;
+'equal?'(#lipnv{val=#lnv{n=N, params=APs, src=AS}}, #lipnv{val=#lnv{n=N, params=BPs, src=BS}}) ->
+    'equal-lambda?'(APs, AS, BPs, BS);
+'equal?'(_, _) ->
+    ?FALSE.
 
 %%%===================================================================
 %%% internal helpers
 %%%===================================================================
 
-'eqv-number?'(A, B) ->
-    case {scml_base_number:'exact?'(A), scml_base_number:'exact?'(B)} of
-        {X, X} ->
-            scml_base_number:'='([A, B]);
+'number=?'(O1, O2) ->
+    case {scml_base_number:'exact?'(O1), scml_base_number:'exact?'(O2)} of
+        {A, A} ->
+            scml_base_number:'='([O1, O2]);
         _ ->
             ?FALSE
     end.
 
-'equal-lambda?'(SrcA, SrcB) ->
-    'equal?'(SrcA(), SrcB()).
+'equal-lambda?'(AS, BS) ->
+    'equal?'(AS(), BS()).
 
-'equal-lambda?'(ParamsA, SrcA, ParamsB, SrcB) ->
-    case 'equal?'(ParamsA, ParamsB) of
+'equal-lambda?'(APs, AS, BPs, BS) ->
+    case 'equal?'(APs, BPs) of
         ?FALSE ->
             ?FALSE;
         _ ->
-            'equal-lambda?'(SrcA, SrcB)
+            'equal-lambda?'(AS, BS)
     end.

@@ -62,6 +62,8 @@
 
 %% @doc Returns #t if obj is a symbol, otherwise returns #f.
 -spec 'symbol?'(scm_obj()) -> scm_boolean().
+'symbol?'(?UNASSIGNED) ->
+    ?FALSE; % special treatment for the Erlang empty atom (i.e. '')
 'symbol?'(Obj) when is_atom(Obj) ->
     ?TRUE;
 'symbol?'({SHA, Obj}) when is_atom(SHA), is_binary(Obj) ->
@@ -107,6 +109,8 @@
 %%%===================================================================
 
 -spec symbol_to_unicode(scm_symbol()) -> [scmd_types_impl:unichar()].
+symbol_to_unicode(?UNASSIGNED=S) ->
+    erlang:error(badarg, [S]); % special treatment for the Erlang empty atom (i.e. '')
 symbol_to_unicode(S) when is_atom(S) ->
     scml:to_unicode(atom_to_binary(S, utf8));
 symbol_to_unicode({SHA, S}) when is_atom(SHA), is_binary(S) ->

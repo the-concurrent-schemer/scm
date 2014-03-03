@@ -156,4 +156,4 @@
 
 %% io devices
 -type iodev()       :: scmi_iodev:iodev().
--type eof()         :: ''.  % ?EOF
+-type eof()         :: ?EOF. % ?EOF
