@@ -90,7 +90,8 @@
     end.
 
 %% @doc Calls +Proc+ with the elements of the list +(append (list arg1
-%% ...) args)+ as the actual arguments.
+%% \.\.\.) args)+ as the actual arguments.
+
 -spec 'apply'([scm_any(),...], scmi_denv(), scmi_dok(), scmi_dng()) -> scm_any().
 'apply'([Proc|[Args|Arg]], Env, Ok, Ng) when is_list(Args), not is_list(Arg) ->
     apply(Proc, Args ++ [Arg], Env, Ok, Ng);

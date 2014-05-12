@@ -41,7 +41,7 @@ object.  Otherwise, #f.</p>.</td></tr></table>
 
 
 <pre><code>
-'eq?'(A::<a href="#type-scm_obj">scm_obj()</a>, B::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
+'eq?'(O1::<a href="#type-scm_obj">scm_obj()</a>, O2::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
 
 <br></br>
@@ -54,7 +54,7 @@ Equivalent to `'eqv?' / 2`.
 
 
 <pre><code>
-'equal?'(A::<a href="#type-scm_obj">scm_obj()</a>, B::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
+'equal?'(Boolean::<a href="#type-scm_obj">scm_obj()</a>, O2::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
 
 <br></br>
@@ -69,7 +69,7 @@ representation.  Otherwise, #f.</p>
 
 
 <pre><code>
-'eqv?'(Boolean::<a href="#type-scm_obj">scm_obj()</a>, A::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
+'eqv?'(Boolean::<a href="#type-scm_obj">scm_obj()</a>, O2::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
 
 <br></br>

@@ -92,7 +92,7 @@ dok() = fun((<a href="#type-exp">exp()</a>, <a href="#type-dng">dng()</a>) -&gt;
 
 
 <pre><code>
-eof() = ''
+eof() = '?EOF'
 </code></pre>
 
 

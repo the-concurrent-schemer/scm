@@ -67,7 +67,7 @@ values.  Unlike map, for-each is guaranteed to call proc on the
 elements of the lists in order from the first element(s) to the
 last. If more than one list is given and not all lists have the
 same length, for-each terminates when the shortest list runs out.</p>.</td></tr><tr><td valign="top"><a href="#procedure%3f-1">'procedure?'/1</a></td><td><p>Returns #t if obj is a procedure, otherwise returns #f.</p>.</td></tr><tr><td valign="top"><a href="#string-for-each-4">'string-for-each'/4</a></td><td>Equivalent to <a href="#for-each-1"><tt>'for-each'([Proc | Args])</tt></a>.</td></tr><tr><td valign="top"><a href="#string-map-4">'string-map'/4</a></td><td>Equivalent to <a href="#map-1"><tt>map([Proc | Args])</tt></a>.</td></tr><tr><td valign="top"><a href="#vector-for-each-4">'vector-for-each'/4</a></td><td>Equivalent to <a href="#for-each-1"><tt>'for-each'([Proc | Args])</tt></a>.</td></tr><tr><td valign="top"><a href="#vector-map-4">'vector-map'/4</a></td><td>Equivalent to <a href="#map-1"><tt>map([Proc | Args])</tt></a>.</td></tr><tr><td valign="top"><a href="#apply-4">apply/4</a></td><td><p>Calls <code>Proc</code> with the elements of the list <code>(append (list arg1
-[8230,41,32,97,114,103,115,41]</code> as the actual arguments.</p>.</td></tr><tr><td valign="top"><a href="#map-4">map/4</a></td><td><p>Applies proc element-wise to the elements of the lists and
+\.\.\.) args)</code> as the actual arguments.</p>.</td></tr><tr><td valign="top"><a href="#map-4">map/4</a></td><td><p>Applies proc element-wise to the elements of the lists and
 returns a list of the results, in order.  If more than one list is
 given and not all lists have the same length, map terminates when
 the shortest list runs out.  The dynamic order in which proc is
@@ -281,7 +281,7 @@ apply(Arg::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scm
 
 
 <p>Calls <code>Proc</code> with the elements of the list <code>(append (list arg1
-[8230,41,32,97,114,103,115,41]</code> as the actual arguments.</p>
+\.\.\.) args)</code> as the actual arguments.</p>
 
 <a name="map-4"></a>
 
