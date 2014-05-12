@@ -1,6 +1,7 @@
 .eqc-info
 .eunit/
 .qc/
+.rebar/
 c_src/*.o
 deps/
 ebin/

@@ -4,8 +4,8 @@ REBAR?=./rebar
 ARCHIVETAG?=$(shell git describe --always --long --tags)
 ARCHIVE?=$(shell basename $(CURDIR))-$(ARCHIVETAG)
 
-.PHONY: all archive clean deps compile xref doc test eunit eqc eqcmini proper triq \
-	compile-for-eunit compile-for-eqc compile-for-eqcmini compile-for-proper compile-for-triq
+.PHONY: all archive clean deps compile xref doc test eunit eqc proper \
+	compile-for-eunit compile-for-eqc compile-for-proper
 
 all: compile
 
@@ -18,7 +18,7 @@ deps:
 
 clean:
 	@rm -f $(ARCHIVE).tar.gz
-	$(REBAR) clean
+	$(REBAR) clean -r
 
 compile:
 	$(REBAR) compile
@@ -39,14 +39,8 @@ eunit: compile-for-eunit
 eqc: compile-for-eqc
 	$(REBAR) eqc skip_deps=true
 
-eqcmini: compile-for-eqcmini
-	$(REBAR) eqc skip_deps=true
-
 proper: compile-for-proper
 	@echo "rebar does not implement a 'proper' command" && false
-
-triq: compile-for-triq
-	$(REBAR) triq skip_deps=true
 
 compile-for-eunit:
 	$(REBAR) compile eunit compile_only=true
@@ -54,11 +48,5 @@ compile-for-eunit:
 compile-for-eqc:
 	$(REBAR) -D QC -D QC_EQC compile eqc compile_only=true
 
-compile-for-eqcmini:
-	$(REBAR) -D QC -D QC_EQCMINI compile eqc compile_only=true
-
 compile-for-proper:
 	$(REBAR) -D QC -D QC_PROPER compile eqc compile_only=true
-
-compile-for-triq:
-	$(REBAR) -D QC -D QC_TRIQ compile triq compile_only=true
