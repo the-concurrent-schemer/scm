@@ -5,9 +5,10 @@
 * [Function Index](#index)
 * [Function Details](#functions)
 
-
 <p>Scheme r5rs library</p>.
+
 __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
+
 <a name="index"></a>
 
 ## Function Index ##
@@ -24,103 +25,71 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 ### '$scml_exports'/0 ###
 
-
 <pre><code>
 '$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="call-with-current-continuation-4"></a>
 
 ### 'call-with-current-continuation'/4 ###
 
-
 <pre><code>
 'call-with-current-continuation'(Proc::<a href="#type-scm_proc">scm_proc()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="exact-%3einexact-1"></a>
 
 ### 'exact->inexact'/1 ###
 
-
 <pre><code>
 'exact-&gt;inexact'(Z::<a href="#type-scm_z">scm_z()</a>) -&gt; <a href="#type-scm_z">scm_z()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="inexact-%3eexact-1"></a>
 
 ### 'inexact->exact'/1 ###
 
-
 <pre><code>
 'inexact-&gt;exact'(Z::<a href="#type-scm_z">scm_z()</a>) -&gt; <a href="#type-scm_z">scm_z()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="null-environment-1"></a>
 
 ### 'null-environment'/1 ###
 
-
 <pre><code>
 'null-environment'(K::<a href="#type-scm_k">scm_k()</a>) -&gt; <a href="#type-scmi_denv">scmi_denv()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="scheme-report-environment-1"></a>
 
 ### 'scheme-report-environment'/1 ###
 
-
 <pre><code>
 'scheme-report-environment'(K::<a href="#type-scm_k">scm_k()</a>) -&gt; <a href="#type-scmi_denv">scmi_denv()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="transcript-off-0"></a>
 
 ### 'transcript-off'/0 ###
 
-
 <pre><code>
 'transcript-off'() -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="transcript-on-1"></a>
 
 ### 'transcript-on'/1 ###
 
-
 <pre><code>
 'transcript-on'(S::<a href="#type-scm_string">scm_string()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 

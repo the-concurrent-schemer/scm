@@ -5,11 +5,12 @@
 * [Function Index](#index)
 * [Function Details](#functions)
 
-
 <p>Scheme supervisor</p>.
+
 __Behaviours:__ [`supervisor`](supervisor.html).
 
 __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
+
 <a name="index"></a>
 
 ## Function Index ##
@@ -28,11 +29,9 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 `init(X1) -> any()`
 
-
 <a name="start_link-0"></a>
 
 ### start_link/0 ###
 
 `start_link() -> any()`
-
 

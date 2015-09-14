@@ -5,9 +5,10 @@
 * [Function Index](#index)
 * [Function Details](#functions)
 
-
 <p>Scheme base library for exceptions</p>.
+
 __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
+
 <a name="index"></a>
 
 ## Function Index ##
@@ -49,26 +50,19 @@ raised in the same dynamic environment as the handler.</p>.</td></tr></table>
 
 ### '$scml_exports'/0 ###
 
-
 <pre><code>
 '$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="error-object-irritants-1"></a>
 
 ### 'error-object-irritants'/1 ###
 
-
 <pre><code>
 'error-object-irritants'(Error_file::<a href="#type-scm_error">scm_error()</a>) -&gt; [<a href="#type-scm_obj">scm_obj()</a>]
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns the list of the irritants encapsulated by the
 <code>error-object</code>.</p>
@@ -77,13 +71,10 @@ raised in the same dynamic environment as the handler.</p>.</td></tr></table>
 
 ### 'error-object-message'/1 ###
 
-
 <pre><code>
 'error-object-message'(Error_file::<a href="#type-scm_error">scm_error()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns the message encapsulated by the <code>error-object</code>.</p>
 
@@ -91,13 +82,10 @@ raised in the same dynamic environment as the handler.</p>.</td></tr></table>
 
 ### 'error-object?'/1 ###
 
-
 <pre><code>
 'error-object?'(Error_file::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns #t if the given object is an object created by
 <code>error</code>, raised by the <code>read</code> procedure, or raised by the inability
@@ -107,13 +95,10 @@ to open an input or output port on a file.</p>
 
 ### 'file-error?'/1 ###
 
-
 <pre><code>
 'file-error?'(Error_file::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns #t if the given object is an object raised by the
 inability to open an input or output port on a file.</p>
@@ -122,13 +107,10 @@ inability to open an input or output port on a file.</p>
 
 ### 'raise-continuable'/4 ###
 
-
 <pre><code>
 'raise-continuable'(Obj::<a href="#type-scm_obj">scm_obj()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Raises an exception by invoking the current exception handler
 on <code>Obj</code>.  The handler is called with the same dynamic environment
@@ -143,13 +125,10 @@ returned by the call to <code>raise-continuable</code>.</p>
 
 ### 'read-error?'/1 ###
 
-
 <pre><code>
 'read-error?'(Error_read::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns #t if the given object is an object raised by the
 <code>read</code> procedure.</p>
@@ -158,13 +137,10 @@ returned by the call to <code>raise-continuable</code>.</p>
 
 ### 'with-exception-handler'/5 ###
 
-
 <pre><code>
 'with-exception-handler'(Handler::<a href="#type-scm_proc">scm_proc()</a>, Thunk::<a href="#type-scm_thunk">scm_thunk()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns the results of invoking <code>Thunk</code>. <code>Handler</code> is
 installed as the current exception handler in the dynamic
@@ -176,13 +152,10 @@ environment used for the invocation of <code>Thunk</code>.  It is an error if
 
 ### error/4 ###
 
-
 <pre><code>
 error(Irritants::[<a href="#type-scm_obj">scm_obj()</a>, ...], Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Raises an exception as if by calling <code>raise</code> on a newly
 allocated implementation-defined object which encapsulates the
@@ -194,13 +167,10 @@ such objects.</p>
 
 ### raise/4 ###
 
-
 <pre><code>
 raise(Obj::<a href="#type-scm_obj">scm_obj()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Raises an exception by invoking the current exception handler
 on <code>Obj</code>.  The handler is called with the same dynamic environment

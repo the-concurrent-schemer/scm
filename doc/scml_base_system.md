@@ -5,9 +5,10 @@
 * [Function Index](#index)
 * [Function Details](#functions)
 
-
 <p>Scheme base library for system interface</p>.
+
 __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
+
 <a name="index"></a>
 
 ## Function Index ##
@@ -24,25 +25,17 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 ### '$scml_exports'/0 ###
 
-
 <pre><code>
 '$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="features-0"></a>
 
 ### features/0 ###
 
-
 <pre><code>
 features() -&gt; [<a href="#type-scm_symbol">scm_symbol()</a>]
 </code></pre>
-
-<br></br>
-
-
+<br />
 

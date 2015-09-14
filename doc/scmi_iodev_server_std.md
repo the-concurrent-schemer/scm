@@ -6,8 +6,8 @@
 * [Function Index](#index)
 * [Function Details](#functions)
 
-
 <p>Scheme interpreter i/o device stdio and stderr server</p>.
+
 __Behaviours:__ [`gen_server`](gen_server.html).
 
 __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
@@ -22,7 +22,6 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 ### <a name="type-mode">mode()</a> ###
 
 
-
 <pre><code>
 mode() = read | write
 </code></pre>
@@ -30,9 +29,7 @@ mode() = read | write
 
 
 
-
 ### <a name="type-mode_error">mode_error()</a> ###
-
 
 
 <pre><code>
@@ -42,9 +39,7 @@ mode_error() = write
 
 
 
-
 ### <a name="type-opt">opt()</a> ###
-
 
 
 <pre><code>
@@ -54,15 +49,12 @@ opt() = {read, boolean()} | {write, boolean()} | {binary, false} | {test, boolea
 
 
 
-
 ### <a name="type-server">server()</a> ###
-
 
 
 <pre><code>
 server() = pid()
 </code></pre>
-
 
 <a name="index"></a>
 
@@ -80,27 +72,19 @@ server() = pid()
 
 ### close/1 ###
 
-
 <pre><code>
 close(Server::<a href="#type-server">server()</a>) -&gt; boolean()
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="close-2"></a>
 
 ### close/2 ###
 
-
 <pre><code>
 close(Server::<a href="#type-server">server()</a>, Mode::read | write) -&gt; boolean()
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="code_change-3"></a>
 
@@ -108,45 +92,32 @@ close(Server::<a href="#type-server">server()</a>, Mode::read | write) -&gt; boo
 
 `code_change(OldVsn, State, Extra) -> any()`
 
-
 <a name="flush-1"></a>
 
 ### flush/1 ###
 
-
 <pre><code>
 flush(Server::<a href="#type-server">server()</a>) -&gt; ok | {error, Reason::term()}
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="getopts-1"></a>
 
 ### getopts/1 ###
 
-
 <pre><code>
 getopts(Server::<a href="#type-server">server()</a>) -&gt; [<a href="#type-opt">opt()</a>]
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="getopts-2"></a>
 
 ### getopts/2 ###
 
-
 <pre><code>
 getopts(Server::<a href="#type-server">server()</a>, Mode::read | write | binary) -&gt; boolean()
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="handle_call-3"></a>
 
@@ -154,13 +125,11 @@ getopts(Server::<a href="#type-server">server()</a>, Mode::read | write | binary
 
 `handle_call(Msg, From, State) -> any()`
 
-
 <a name="handle_cast-2"></a>
 
 ### handle_cast/2 ###
 
 `handle_cast(Msg, State) -> any()`
-
 
 <a name="handle_info-2"></a>
 
@@ -168,97 +137,68 @@ getopts(Server::<a href="#type-server">server()</a>, Mode::read | write | binary
 
 `handle_info(Info, State) -> any()`
 
-
 <a name="init-1"></a>
 
 ### init/1 ###
 
-
 <pre><code>
 init(X1::{iodata() | standard_io | standard_error, [<a href="#type-mode">mode()</a>]}) -&gt; {ok, #state{}}
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="is_ready-1"></a>
 
 ### is_ready/1 ###
 
-
 <pre><code>
 is_ready(Server::<a href="#type-server">server()</a>) -&gt; boolean()
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="peek-2"></a>
 
 ### peek/2 ###
 
-
 <pre><code>
 peek(Server::<a href="#type-server">server()</a>, K::non_neg_integer()) -&gt; string() | eof | {error, Reason::term()}
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="read-2"></a>
 
 ### read/2 ###
 
-
 <pre><code>
 read(Server::<a href="#type-server">server()</a>, K::non_neg_integer()) -&gt; string() | eof | {error, Reason::term()}
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="read_all-1"></a>
 
 ### read_all/1 ###
 
-
 <pre><code>
 read_all(Server::<a href="#type-server">server()</a>) -&gt; string() | eof | {error, Reason::term()}
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="read_line-1"></a>
 
 ### read_line/1 ###
 
-
 <pre><code>
 read_line(Server::<a href="#type-server">server()</a>) -&gt; string() | eof | {error, Reason::term()}
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="start-2"></a>
 
 ### start/2 ###
 
-
 <pre><code>
 start(Term::standard_io, Modes::[<a href="#type-mode">mode()</a>]) -&gt; {ok, pid()} | ignore | {error, Reason::term()}
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="terminate-2"></a>
 
@@ -266,17 +206,12 @@ start(Term::standard_io, Modes::[<a href="#type-mode">mode()</a>]) -&gt; {ok, pi
 
 `terminate(Reason, State) -> any()`
 
-
 <a name="write-2"></a>
 
 ### write/2 ###
 
-
 <pre><code>
 write(Server::<a href="#type-server">server()</a>, Data::string()) -&gt; ok | {error, Reason::term()}
 </code></pre>
-
-<br></br>
-
-
+<br />
 

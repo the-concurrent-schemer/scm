@@ -5,9 +5,10 @@
 * [Function Index](#index)
 * [Function Details](#functions)
 
-
 <p>Scheme time library</p>.
+
 __Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailto:the-concurrent-schemer@googlegroups.com)).
+
 <a name="index"></a>
 
 ## Function Index ##
@@ -24,51 +25,35 @@ __Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailt
 
 ### '$scml_exports'/0 ###
 
-
 <pre><code>
 '$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="current-jiffy-0"></a>
 
 ### 'current-jiffy'/0 ###
 
-
 <pre><code>
 'current-jiffy'() -&gt; <a href="#type-scm_k">scm_k()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="current-second-0"></a>
 
 ### 'current-second'/0 ###
 
-
 <pre><code>
 'current-second'() -&gt; <a href="#type-scm_x">scm_x()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="jiffies-per-second-0"></a>
 
 ### 'jiffies-per-second'/0 ###
 
-
 <pre><code>
 'jiffies-per-second'() -&gt; <a href="#type-scm_k">scm_k()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 

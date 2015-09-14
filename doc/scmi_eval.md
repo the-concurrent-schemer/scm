@@ -5,9 +5,10 @@
 * [Function Index](#index)
 * [Function Details](#functions)
 
-
 <p>Scheme interpreter expression evaluator</p>.
+
 __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
+
 <a name="index"></a>
 
 ## Function Index ##
@@ -24,129 +25,89 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 ### default_ng/1 ###
 
-
 <pre><code>
 default_ng(Error::<a href="#type-scmi_exp">scmi_exp()</a>) -&gt; no_return()
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="default_ok-2"></a>
 
 ### default_ok/2 ###
 
-
 <pre><code>
 default_ok(Value::<a href="#type-scmi_exp">scmi_exp()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scmi_exp">scmi_exp()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="eval-1"></a>
 
 ### eval/1 ###
 
-
 <pre><code>
 eval(Exp::<a href="#type-scmi_exp">scmi_exp()</a>) -&gt; <a href="#type-scmi_exp">scmi_exp()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="eval-2"></a>
 
 ### eval/2 ###
 
-
 <pre><code>
 eval(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>) -&gt; <a href="#type-scmi_exp">scmi_exp()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="eval-3"></a>
 
 ### eval/3 ###
 
-
 <pre><code>
 eval(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>) -&gt; <a href="#type-scmi_exp">scmi_exp()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="eval-4"></a>
 
 ### eval/4 ###
 
-
 <pre><code>
 eval(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scmi_exp">scmi_exp()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="exec-1"></a>
 
 ### exec/1 ###
 
-
 <pre><code>
 exec(Exec::<a href="#type-scmi_dexec">scmi_dexec()</a>) -&gt; <a href="#type-scmi_exp">scmi_exp()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="exec-2"></a>
 
 ### exec/2 ###
 
-
 <pre><code>
 exec(Exec::<a href="#type-scmi_dexec">scmi_dexec()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>) -&gt; <a href="#type-scmi_exp">scmi_exp()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="exec-3"></a>
 
 ### exec/3 ###
 
-
 <pre><code>
 exec(Exec::<a href="#type-scmi_dexec">scmi_dexec()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>) -&gt; <a href="#type-scmi_exp">scmi_exp()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="exec-4"></a>
 
 ### exec/4 ###
 
-
 <pre><code>
 exec(Exec::<a href="#type-scmi_dexec">scmi_dexec()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scmi_exp">scmi_exp()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 

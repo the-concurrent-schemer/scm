@@ -6,8 +6,8 @@
 * [Function Index](#index)
 * [Function Details](#functions)
 
-
 <p>Scheme library</p>.
+
 __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
 
 <a name="types"></a>
@@ -20,7 +20,6 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 ### <a name="type-unichar">unichar()</a> ###
 
 
-
 <pre><code>
 unichar() = <a href="scmd_types_impl.md#type-unichar">scmd_types_impl:unichar()</a>
 </code></pre>
@@ -28,15 +27,12 @@ unichar() = <a href="scmd_types_impl.md#type-unichar">scmd_types_impl:unichar()<
 
 
 
-
 ### <a name="type-utf8">utf8()</a> ###
-
 
 
 <pre><code>
 utf8() = <a href="scmd_types_impl.md#type-utf8">scmd_types_impl:utf8()</a>
 </code></pre>
-
 
 <a name="index"></a>
 
@@ -54,39 +50,28 @@ utf8() = <a href="scmd_types_impl.md#type-utf8">scmd_types_impl:utf8()</a>
 
 ### binary_part/2 ###
 
-
 <pre><code>
 binary_part(X::binary(), Start::<a href="#type-scm_start">scm_start()</a>) -&gt; binary()
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="binary_part-3"></a>
 
 ### binary_part/3 ###
 
-
 <pre><code>
 binary_part(X::binary(), Start::<a href="#type-scm_start">scm_start()</a>, End::<a href="#type-scm_end">scm_end()</a>) -&gt; binary()
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="libraries-0"></a>
 
 ### libraries/0 ###
 
-
 <pre><code>
 libraries() -&gt; [<a href="#type-scm_symbol">scm_symbol()</a>]
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>This function is a temporary place holder</p>
 
@@ -94,155 +79,107 @@ libraries() -&gt; [<a href="#type-scm_symbol">scm_symbol()</a>]
 
 ### list_part/2 ###
 
-
 <pre><code>
 list_part(X::<a href="#type-scm_list">scm_list()</a>, Start::<a href="#type-scm_start">scm_start()</a>) -&gt; <a href="#type-scm_list">scm_list()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="list_part-3"></a>
 
 ### list_part/3 ###
 
-
 <pre><code>
 list_part(X::<a href="#type-scm_list">scm_list()</a>, Start::<a href="#type-scm_start">scm_start()</a>, End::<a href="#type-scm_end">scm_end()</a>) -&gt; <a href="#type-scm_list">scm_list()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="to_unicode-1"></a>
 
 ### to_unicode/1 ###
 
-
 <pre><code>
 to_unicode(X::iodata()) -&gt; [<a href="#type-unichar">unichar()</a>]
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="to_utf8-1"></a>
 
 ### to_utf8/1 ###
 
-
 <pre><code>
 to_utf8(X::iodata()) -&gt; <a href="#type-utf8">utf8()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="tuple_part-2"></a>
 
 ### tuple_part/2 ###
 
-
 <pre><code>
 tuple_part(X::tuple(), Start::<a href="#type-scm_start">scm_start()</a>) -&gt; tuple()
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="tuple_part-3"></a>
 
 ### tuple_part/3 ###
 
-
 <pre><code>
 tuple_part(X::tuple(), Start::<a href="#type-scm_start">scm_start()</a>, End::<a href="#type-scm_end">scm_end()</a>) -&gt; tuple()
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="unicode_to_utf8-1"></a>
 
 ### unicode_to_utf8/1 ###
 
-
 <pre><code>
 unicode_to_utf8(X::[<a href="#type-unichar">unichar()</a>]) -&gt; <a href="#type-utf8">utf8()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="unicode_to_utf8-2"></a>
 
 ### unicode_to_utf8/2 ###
 
-
 <pre><code>
 unicode_to_utf8(X::[<a href="#type-unichar">unichar()</a>], Start::<a href="#type-scm_start">scm_start()</a>) -&gt; <a href="#type-utf8">utf8()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="unicode_to_utf8-3"></a>
 
 ### unicode_to_utf8/3 ###
 
-
 <pre><code>
 unicode_to_utf8(X::[<a href="#type-unichar">unichar()</a>], Start::<a href="#type-scm_start">scm_start()</a>, End::<a href="#type-scm_end">scm_end()</a>) -&gt; <a href="#type-utf8">utf8()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="utf8_to_unicode-1"></a>
 
 ### utf8_to_unicode/1 ###
 
-
 <pre><code>
 utf8_to_unicode(X::<a href="#type-utf8">utf8()</a>) -&gt; [<a href="#type-unichar">unichar()</a>]
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="utf8_to_unicode-2"></a>
 
 ### utf8_to_unicode/2 ###
 
-
 <pre><code>
 utf8_to_unicode(X::<a href="#type-utf8">utf8()</a>, Start::<a href="#type-scm_start">scm_start()</a>) -&gt; [<a href="#type-unichar">unichar()</a>]
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="utf8_to_unicode-3"></a>
 
 ### utf8_to_unicode/3 ###
 
-
 <pre><code>
 utf8_to_unicode(X::<a href="#type-utf8">utf8()</a>, Start::<a href="#type-scm_start">scm_start()</a>, End::<a href="#type-scm_end">scm_end()</a>) -&gt; [<a href="#type-unichar">unichar()</a>]
 </code></pre>
-
-<br></br>
-
-
+<br />
 

@@ -5,9 +5,10 @@
 * [Function Index](#index)
 * [Function Details](#functions)
 
-
 <p>Scheme base library for strings</p>.
+
 __Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailto:the-concurrent-schemer@googlegroups.com)).
+
 <a name="index"></a>
 
 ## Function Index ##
@@ -34,26 +35,19 @@ otherwise returns #f.</p>.</td></tr><tr><td valign="top"><a href="#string%3f-1">
 
 ### '$scml_exports'/0 ###
 
-
 <pre><code>
 '$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="list-%3estring-1"></a>
 
 ### 'list->string'/1 ###
 
-
 <pre><code>
 'list-&gt;string'(Cs::[<a href="#type-scm_char">scm_char()</a>]) -&gt; <a href="#type-scm_string">scm_string()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns a string constructed from the characters in the list.</p>
 
@@ -61,26 +55,21 @@ otherwise returns #f.</p>.</td></tr><tr><td valign="top"><a href="#string%3f-1">
 
 ### 'make-string'/1 ###
 
-
 <pre><code>
 'make-string'(K::<a href="#type-scm_k">scm_k()</a>) -&gt; <a href="#type-scm_string">scm_string()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'make-string'(K, '#\\null')`](#make-string-2).
+
 <a name="make-string-2"></a>
 
 ### 'make-string'/2 ###
 
-
 <pre><code>
 'make-string'(K::<a href="#type-scm_k">scm_k()</a>, Character::<a href="#type-scm_char">scm_char()</a>) -&gt; <a href="#type-scm_string">scm_string()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns a string of k characters.</p>
 
@@ -88,39 +77,32 @@ Equivalent to [`'make-string'(K, '#\\null')`](#make-string-2).
 
 ### 'string->list'/1 ###
 
-
 <pre><code>
 'string-&gt;list'(String::<a href="#type-scm_string">scm_string()</a>) -&gt; [<a href="#type-scm_char">scm_char()</a>]
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'string->list'(S, 0, 'string-length'(S))`](#string-%3elist-3).
+
 <a name="string-%3elist-2"></a>
 
 ### 'string->list'/2 ###
 
-
 <pre><code>
 'string-&gt;list'(String::<a href="#type-scm_string">scm_string()</a>, Start::<a href="#type-scm_start">scm_start()</a>) -&gt; [<a href="#type-scm_char">scm_char()</a>]
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'string->list'(S, Start, 'string-length'(S))`](#string-%3elist-3).
+
 <a name="string-%3elist-3"></a>
 
 ### 'string->list'/3 ###
 
-
 <pre><code>
 'string-&gt;list'(String::<a href="#type-scm_string">scm_string()</a>, Start::<a href="#type-scm_start">scm_start()</a>, End::<a href="#type-scm_end">scm_end()</a>) -&gt; [<a href="#type-scm_char">scm_char()</a>]
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns a list of the characters of string between start and
 end.</p>
@@ -129,13 +111,10 @@ end.</p>
 
 ### 'string-append'/1 ###
 
-
 <pre><code>
 'string-append'(Ss::[<a href="#type-scm_string">scm_string()</a>, ...]) -&gt; <a href="#type-scm_string">scm_string()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns a string whose characters are the concatenation of the
 characters in the given strings.</p>
@@ -144,13 +123,10 @@ characters in the given strings.</p>
 
 ### 'string-copy!'/3 ###
 
-
 <pre><code>
 'string-copy!'(To::<a href="#type-scm_bytevector">scm_bytevector()</a>, At::<a href="#type-scm_k">scm_k()</a>, From::<a href="#type-scm_string">scm_string()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p><em>unsupported</em></p>
 
@@ -158,13 +134,10 @@ characters in the given strings.</p>
 
 ### 'string-copy!'/4 ###
 
-
 <pre><code>
 'string-copy!'(To::<a href="#type-scm_bytevector">scm_bytevector()</a>, At::<a href="#type-scm_k">scm_k()</a>, From::<a href="#type-scm_string">scm_string()</a>, Start::<a href="#type-scm_start">scm_start()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p><em>unsupported</em></p>
 
@@ -172,13 +145,10 @@ characters in the given strings.</p>
 
 ### 'string-copy!'/5 ###
 
-
 <pre><code>
 'string-copy!'(To::<a href="#type-scm_bytevector">scm_bytevector()</a>, At::<a href="#type-scm_k">scm_k()</a>, From::<a href="#type-scm_string">scm_string()</a>, Start::<a href="#type-scm_start">scm_start()</a>, End::<a href="#type-scm_end">scm_end()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p><em>unsupported</em></p>
 
@@ -186,39 +156,32 @@ characters in the given strings.</p>
 
 ### 'string-copy'/1 ###
 
-
 <pre><code>
 'string-copy'(S::<a href="#type-scm_string">scm_string()</a>) -&gt; <a href="#type-scm_string">scm_string()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'string-copy'(S, 0, 'string-length'(S))`](#string-copy-3).
+
 <a name="string-copy-2"></a>
 
 ### 'string-copy'/2 ###
 
-
 <pre><code>
 'string-copy'(String::<a href="#type-scm_string">scm_string()</a>, Start::<a href="#type-scm_start">scm_start()</a>) -&gt; <a href="#type-scm_string">scm_string()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'string-copy'(S, Start, 'string-length'(S))`](#string-copy-3).
+
 <a name="string-copy-3"></a>
 
 ### 'string-copy'/3 ###
 
-
 <pre><code>
 'string-copy'(S::<a href="#type-scm_string">scm_string()</a>, Start::<a href="#type-scm_start">scm_start()</a>, End::<a href="#type-scm_end">scm_end()</a>) -&gt; <a href="#type-scm_string">scm_string()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns a string constructed from the characters of string
 beginning with index start and ending with index end.</p>
@@ -227,13 +190,10 @@ beginning with index start and ending with index end.</p>
 
 ### 'string-fill!'/2 ###
 
-
 <pre><code>
 'string-fill!'(S::<a href="#type-scm_string">scm_string()</a>, Fill::<a href="#type-scm_char">scm_char()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p><em>unsupported</em></p>
 
@@ -241,13 +201,10 @@ beginning with index start and ending with index end.</p>
 
 ### 'string-fill!'/3 ###
 
-
 <pre><code>
 'string-fill!'(S::<a href="#type-scm_string">scm_string()</a>, Fill::<a href="#type-scm_char">scm_char()</a>, Start::<a href="#type-scm_start">scm_start()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p><em>unsupported</em></p>
 
@@ -255,13 +212,10 @@ beginning with index start and ending with index end.</p>
 
 ### 'string-fill!'/4 ###
 
-
 <pre><code>
 'string-fill!'(S::<a href="#type-scm_string">scm_string()</a>, Fill::<a href="#type-scm_char">scm_char()</a>, Start::<a href="#type-scm_start">scm_start()</a>, End::<a href="#type-scm_end">scm_end()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p><em>unsupported</em></p>
 
@@ -269,13 +223,10 @@ beginning with index start and ending with index end.</p>
 
 ### 'string-length'/1 ###
 
-
 <pre><code>
 'string-length'(String::<a href="#type-scm_string">scm_string()</a>) -&gt; <a href="#type-scm_k">scm_k()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns the number of characters in the given string.</p>
 
@@ -283,13 +234,10 @@ beginning with index start and ending with index end.</p>
 
 ### 'string-ref'/2 ###
 
-
 <pre><code>
 'string-ref'(String::<a href="#type-scm_string">scm_string()</a>, K::<a href="#type-scm_k">scm_k()</a>) -&gt; <a href="#type-scm_char">scm_char()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns character k of string using zero-origin indexing.  It
 is an error if k is not a valid index of string.</p>
@@ -298,13 +246,10 @@ is an error if k is not a valid index of string.</p>
 
 ### 'string-set!'/3 ###
 
-
 <pre><code>
 'string-set!'(S::<a href="#type-scm_string">scm_string()</a>, K::<a href="#type-scm_k">scm_k()</a>, C::<a href="#type-scm_char">scm_char()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p><em>unsupported</em></p>
 
@@ -312,13 +257,10 @@ is an error if k is not a valid index of string.</p>
 
 ### 'string<=?'/1 ###
 
-
 <pre><code>
 'string&lt;=?'(Ss::[<a href="#type-scm_string">scm_string()</a>, ...]) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns #t if all the strings are monotonically
 non-decreasing, otherwise returns #f.</p>
@@ -327,13 +269,10 @@ non-decreasing, otherwise returns #f.</p>
 
 ### 'string<?'/1 ###
 
-
 <pre><code>
 'string&lt;?'(Ss::[<a href="#type-scm_string">scm_string()</a>, ...]) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns #t if all the strings are monotonically increasing,
 otherwise returns #f.</p>
@@ -342,13 +281,10 @@ otherwise returns #f.</p>
 
 ### 'string=?'/1 ###
 
-
 <pre><code>
 'string=?'(Ss::[<a href="#type-scm_string">scm_string()</a>, ...]) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns #t if all the strings are the same length and contain
 exactly the same characters in the same positions, otherwise
@@ -358,13 +294,10 @@ returns #f.</p>
 
 ### 'string>=?'/1 ###
 
-
 <pre><code>
 'string&gt;=?'(Ss::[<a href="#type-scm_string">scm_string()</a>, ...]) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns #t if all the strings are monotonically
 non-increasing, otherwise returns #f.</p>
@@ -373,13 +306,10 @@ non-increasing, otherwise returns #f.</p>
 
 ### 'string>?'/1 ###
 
-
 <pre><code>
 'string&gt;?'(Ss::[<a href="#type-scm_string">scm_string()</a>, ...]) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns #t if all the strings are monotonically decreasing,
 otherwise returns #f.</p>
@@ -388,13 +318,10 @@ otherwise returns #f.</p>
 
 ### 'string?'/1 ###
 
-
 <pre><code>
 'string?'(String::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns #t if obj is a string, otherwise returns #f.</p>
 
@@ -402,13 +329,10 @@ otherwise returns #f.</p>
 
 ### string/1 ###
 
-
 <pre><code>
 string(Cs::[<a href="#type-scm_char">scm_char()</a>, ...]) -&gt; <a href="#type-scm_string">scm_string()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns a string composed of the arguments.</p>
 
@@ -416,12 +340,10 @@ string(Cs::[<a href="#type-scm_char">scm_char()</a>, ...]) -&gt; <a href="#type-
 
 ### substring/3 ###
 
-
 <pre><code>
 substring(S::<a href="#type-scm_string">scm_string()</a>, Start::<a href="#type-scm_start">scm_start()</a>, End::<a href="#type-scm_end">scm_end()</a>) -&gt; <a href="#type-scm_string">scm_string()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'string-copy'(S, Start, End)`](#string-copy-3).
+

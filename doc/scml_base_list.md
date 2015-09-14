@@ -5,9 +5,10 @@
 * [Function Index](#index)
 * [Function Details](#functions)
 
-
 <p>Scheme base library for pairs and lists</p>.
+
 __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
+
 <a name="index"></a>
 
 ## Function Index ##
@@ -40,39 +41,30 @@ order.</p>.</td></tr></table>
 
 ### '$scml_exports'/0 ###
 
-
 <pre><code>
 '$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="list-copy-1"></a>
 
 ### 'list-copy'/1 ###
 
-
 <pre><code>
 'list-copy'(Obj::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`list(obj)`](#list-1).
+
 <a name="list-ref-2"></a>
 
 ### 'list-ref'/2 ###
 
-
 <pre><code>
 'list-ref'(List::<a href="#type-scm_list">scm_list()</a>, K::<a href="#type-scm_k">scm_k()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns the kth element of list.  It is an error if list has
 fewer than k elements.</p>
@@ -81,13 +73,10 @@ fewer than k elements.</p>
 
 ### 'list-set!'/3 ###
 
-
 <pre><code>
 'list-set!'(List::<a href="#type-scm_list">scm_list()</a>, K::<a href="#type-scm_k">scm_k()</a>, Obj::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p><em>unsupported</em></p>
 
@@ -95,13 +84,10 @@ fewer than k elements.</p>
 
 ### 'list-tail'/2 ###
 
-
 <pre><code>
 'list-tail'(List::<a href="#type-scm_list">scm_list()</a>, K::<a href="#type-scm_k">scm_k()</a>) -&gt; <a href="#type-scm_list">scm_list()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns the sublist of list obtained by omitting the first k
 elements.  It is an error if list has fewer than k elements.</p>
@@ -110,13 +96,10 @@ elements.  It is an error if list has fewer than k elements.</p>
 
 ### 'list?'/1 ###
 
-
 <pre><code>
 'list?'(T::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns #t if obj is a (proper) list, otherwise returns #f.</p>
 
@@ -124,26 +107,21 @@ elements.  It is an error if list has fewer than k elements.</p>
 
 ### 'make-list'/1 ###
 
-
 <pre><code>
 'make-list'(K::<a href="#type-scm_k">scm_k()</a>) -&gt; <a href="#type-scm_list">scm_list()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'make-list'(K, '#f')`](#make-list-2).
+
 <a name="make-list-2"></a>
 
 ### 'make-list'/2 ###
 
-
 <pre><code>
 'make-list'(K::<a href="#type-scm_k">scm_k()</a>, Fill::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_list">scm_list()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns a list of k elements.</p>
 
@@ -151,13 +129,10 @@ Equivalent to [`'make-list'(K, '#f')`](#make-list-2).
 
 ### 'null?'/1 ###
 
-
 <pre><code>
 'null?'(X1::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns #t if obj is the empty list, otherwise returns #f.</p>
 
@@ -165,13 +140,10 @@ Equivalent to [`'make-list'(K, '#f')`](#make-list-2).
 
 ### 'pair?'/1 ###
 
-
 <pre><code>
 'pair?'(X1::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns #t if obj is a pair, and otherwise returns #f.</p>
 
@@ -179,13 +151,10 @@ Equivalent to [`'make-list'(K, '#f')`](#make-list-2).
 
 ### 'set-car!'/2 ###
 
-
 <pre><code>
 'set-car!'(Pair::<a href="#type-scm_pair">scm_pair()</a>, Obj::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p><em>unsupported</em></p>
 
@@ -193,13 +162,10 @@ Equivalent to [`'make-list'(K, '#f')`](#make-list-2).
 
 ### 'set-cdr!'/2 ###
 
-
 <pre><code>
 'set-cdr!'(Pair::<a href="#type-scm_pair">scm_pair()</a>, Obj::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p><em>unsupported</em></p>
 
@@ -207,13 +173,10 @@ Equivalent to [`'make-list'(K, '#f')`](#make-list-2).
 
 ### append/1 ###
 
-
 <pre><code>
 append(Lists::<a href="#type-scmi_vargs">scmi_vargs()</a>) -&gt; <a href="#type-scm_list">scm_list()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns a list consisting of the elements of the first list
 followed by the elements of the other lists.  If there are no
@@ -226,26 +189,21 @@ can be of any type.</p>
 
 ### assoc/5 ###
 
-
 <pre><code>
 assoc(Obj::<a href="#type-scm_obj">scm_obj()</a>, Alist::<a href="#type-scm_alist">scm_alist()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_pair">scm_pair()</a> | <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`assoc(Obj, List, 'equal?')`](#assoc-3).
+
 <a name="assoc-6"></a>
 
 ### assoc/6 ###
 
-
 <pre><code>
 assoc(Obj::<a href="#type-scm_obj">scm_obj()</a>, T::<a href="#type-scm_alist">scm_alist()</a>, Compare::<a href="#type-scm_proc">scm_proc()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_pair">scm_pair()</a> | <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Return the first pair of alist whose car field is obj.  If no
 pair in alist has obj as its car, then #f is returned.</p>
@@ -254,39 +212,32 @@ pair in alist has obj as its car, then #f is returned.</p>
 
 ### assq/5 ###
 
-
 <pre><code>
 assq(Obj::<a href="#type-scm_obj">scm_obj()</a>, Alist::<a href="#type-scm_alist">scm_alist()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_pair">scm_pair()</a> | <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`assq(Obj, List, 'eq?')`](#assq-3).
+
 <a name="assv-5"></a>
 
 ### assv/5 ###
 
-
 <pre><code>
 assv(Obj::<a href="#type-scm_obj">scm_obj()</a>, Alist::<a href="#type-scm_alist">scm_alist()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_pair">scm_pair()</a> | <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`assv(Obj, List, 'eqv?')`](#assv-3).
+
 <a name="caar-1"></a>
 
 ### caar/1 ###
 
-
 <pre><code>
 caar(Pair::<a href="#type-scm_pair">scm_pair()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns the composition of car.</p>
 
@@ -294,13 +245,10 @@ caar(Pair::<a href="#type-scm_pair">scm_pair()</a>) -&gt; <a href="#type-scm_obj
 
 ### cadr/1 ###
 
-
 <pre><code>
 cadr(Pair::<a href="#type-scm_pair">scm_pair()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns the composition of car and cdr.</p>
 
@@ -308,13 +256,10 @@ cadr(Pair::<a href="#type-scm_pair">scm_pair()</a>) -&gt; <a href="#type-scm_obj
 
 ### car/1 ###
 
-
 <pre><code>
 car(X1::<a href="#type-scm_pair">scm_pair()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns the contents of the car field of pair.  Note that it
 is an error to take the car of the empty list.</p>
@@ -323,13 +268,10 @@ is an error to take the car of the empty list.</p>
 
 ### cdar/1 ###
 
-
 <pre><code>
 cdar(Pair::<a href="#type-scm_pair">scm_pair()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns the composition of cdr and car.</p>
 
@@ -337,13 +279,10 @@ cdar(Pair::<a href="#type-scm_pair">scm_pair()</a>) -&gt; <a href="#type-scm_obj
 
 ### cddr/1 ###
 
-
 <pre><code>
 cddr(Pair::<a href="#type-scm_pair">scm_pair()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns the composition of cdr and cdr.</p>
 
@@ -351,13 +290,10 @@ cddr(Pair::<a href="#type-scm_pair">scm_pair()</a>) -&gt; <a href="#type-scm_obj
 
 ### cdr/1 ###
 
-
 <pre><code>
 cdr(T::<a href="#type-scm_pair">scm_pair()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns the contents of the cdr field of pair.  Note that it
 is an error to take the car of the empty list.</p>
@@ -366,13 +302,10 @@ is an error to take the car of the empty list.</p>
 
 ### cons/2 ###
 
-
 <pre><code>
 cons(Obj1::<a href="#type-scm_obj">scm_obj()</a>, Obj2::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_pair">scm_pair()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns a pair whose car is obj1 and whose cdr is obj2.  The
 pair constructed by <code>cons</code> is not guaranteed to be different (in
@@ -382,13 +315,10 @@ the sense of <code>eqv?</code>) from every existing object.</p>
 
 ### length/1 ###
 
-
 <pre><code>
 length(List::<a href="#type-scm_list">scm_list()</a>) -&gt; <a href="#type-scm_k">scm_k()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns the length of list.</p>
 
@@ -396,13 +326,10 @@ length(List::<a href="#type-scm_list">scm_list()</a>) -&gt; <a href="#type-scm_k
 
 ### list/1 ###
 
-
 <pre><code>
 list(List::<a href="#type-scm_list">scm_list()</a>) -&gt; <a href="#type-scm_list">scm_list()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns a list of the arguments.</p>
 
@@ -410,26 +337,21 @@ list(List::<a href="#type-scm_list">scm_list()</a>) -&gt; <a href="#type-scm_lis
 
 ### member/5 ###
 
-
 <pre><code>
 member(Obj::<a href="#type-scm_obj">scm_obj()</a>, List::<a href="#type-scm_list">scm_list()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_list">scm_list()</a> | <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`memq(Obj, List, 'equal?')`](#memq-3).
+
 <a name="member-6"></a>
 
 ### member/6 ###
 
-
 <pre><code>
 member(Obj::<a href="#type-scm_obj">scm_obj()</a>, T::<a href="#type-scm_list">scm_list()</a>, Compare::<a href="#type-scm_proc">scm_proc()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_list">scm_list()</a> | <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Return the first sublist of list whose car is obj where the
 sublists of list are the non-empty lists returned by (list-tail
@@ -440,39 +362,32 @@ in the list, the #f is returned.</p>
 
 ### memq/5 ###
 
-
 <pre><code>
 memq(Obj::<a href="#type-scm_obj">scm_obj()</a>, List::<a href="#type-scm_list">scm_list()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_list">scm_list()</a> | <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`memq(Obj, List, 'eq?')`](#memq-3).
+
 <a name="memv-5"></a>
 
 ### memv/5 ###
 
-
 <pre><code>
 memv(Obj::<a href="#type-scm_obj">scm_obj()</a>, List::<a href="#type-scm_list">scm_list()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_list">scm_list()</a> | <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`memq(Obj, List, 'eqv?')`](#memq-3).
+
 <a name="reverse-1"></a>
 
 ### reverse/1 ###
 
-
 <pre><code>
 reverse(List::<a href="#type-scm_list">scm_list()</a>) -&gt; <a href="#type-scm_list">scm_list()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns a list consisting of the elements of list in reverse
 order.</p>

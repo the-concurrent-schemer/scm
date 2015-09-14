@@ -5,9 +5,10 @@
 * [Function Index](#index)
 * [Function Details](#functions)
 
-
 <p>Scheme interpreter syntactic analyzer for syntax expressions</p>.
+
 __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
+
 <a name="index"></a>
 
 ## Function Index ##
@@ -24,142 +25,98 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 ### '$scmi_exports'/0 ###
 
-
 <pre><code>
 '$scmi_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_expander">scmi_expander()</a>}]
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="analyze_assignment_syntax-2"></a>
 
 ### analyze_assignment_syntax/2 ###
 
-
 <pre><code>
 analyze_assignment_syntax(Exp0::<a href="#type-scmi_exp">scmi_exp()</a>, Senv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="analyze_lambda_syntax-2"></a>
 
 ### analyze_lambda_syntax/2 ###
 
-
 <pre><code>
 analyze_lambda_syntax(Body::<a href="#type-scmi_exp">scmi_exp()</a>, Senv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_expander">scmi_expander()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="analyze_let_syntax-2"></a>
 
 ### analyze_let_syntax/2 ###
 
-
 <pre><code>
 analyze_let_syntax(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="analyze_letrec_syntax-2"></a>
 
 ### analyze_letrec_syntax/2 ###
 
-
 <pre><code>
 analyze_letrec_syntax(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="analyze_letrecs_syntax-2"></a>
 
 ### analyze_letrecs_syntax/2 ###
 
-
 <pre><code>
 analyze_letrecs_syntax(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="analyze_lets_syntax-2"></a>
 
 ### analyze_lets_syntax/2 ###
 
-
 <pre><code>
 analyze_lets_syntax(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="analyze_sequence_syntax-2"></a>
 
 ### analyze_sequence_syntax/2 ###
 
-
 <pre><code>
 analyze_sequence_syntax(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_dexec">scmi_dexec()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="analyze_syntax_error-2"></a>
 
 ### analyze_syntax_error/2 ###
 
-
 <pre><code>
 analyze_syntax_error(Exp::<a href="#type-scmi_exp">scmi_exp()</a>, SEnv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; no_return()
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="analyze_syntax_rules-2"></a>
 
 ### analyze_syntax_rules/2 ###
 
-
 <pre><code>
 analyze_syntax_rules(Rules::<a href="#type-scmi_exp">scmi_exp()</a>, Senv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; <a href="#type-scmi_expander">scmi_expander()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="scan_out_internal_definitions-2"></a>
 
 ### scan_out_internal_definitions/2 ###
 
-
 <pre><code>
 scan_out_internal_definitions(Body::[<a href="#type-scmi_exp">scmi_exp()</a>, ...], Senv::<a href="#type-scmi_senv">scmi_senv()</a>) -&gt; [<a href="#type-scmi_exp">scmi_exp()</a>]
 </code></pre>
-
-<br></br>
-
-
+<br />
 

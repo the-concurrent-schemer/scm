@@ -5,9 +5,10 @@
 * [Function Index](#index)
 * [Function Details](#functions)
 
-
 <p>Scheme load library</p>.
+
 __Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailto:the-concurrent-schemer@googlegroups.com)).
+
 <a name="index"></a>
 
 ## Function Index ##
@@ -24,38 +25,26 @@ __Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailt
 
 ### '$scml_exports'/0 ###
 
-
 <pre><code>
 '$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="load-1"></a>
 
 ### load/1 ###
 
-
 <pre><code>
 load(S::<a href="#type-scm_string">scm_string()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="load-2"></a>
 
 ### load/2 ###
 
-
 <pre><code>
 load(S::<a href="#type-scm_string">scm_string()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 

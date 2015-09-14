@@ -5,9 +5,10 @@
 * [Function Index](#index)
 * [Function Details](#functions)
 
-
 <p>Scheme read library</p>.
+
 __Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailto:the-concurrent-schemer@googlegroups.com)).
+
 <a name="index"></a>
 
 ## Function Index ##
@@ -24,38 +25,26 @@ __Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailt
 
 ### '$scml_exports'/0 ###
 
-
 <pre><code>
 '$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="read-0"></a>
 
 ### read/0 ###
 
-
 <pre><code>
 read() -&gt; <a href="#type-scm_obj">scm_obj()</a> | <a href="#type-scm_eof">scm_eof()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="read-1"></a>
 
 ### read/1 ###
 
-
 <pre><code>
 read(Port::<a href="#type-scm_port">scm_port()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a> | <a href="#type-scm_eof">scm_eof()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 

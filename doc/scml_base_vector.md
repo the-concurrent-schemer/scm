@@ -5,9 +5,10 @@
 * [Function Index](#index)
 * [Function Details](#functions)
 
-
 <p>Scheme base library for vectors</p>.
+
 __Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailto:the-concurrent-schemer@googlegroups.com)).
+
 <a name="index"></a>
 
 ## Function Index ##
@@ -29,26 +30,19 @@ an error if k is not a valid index of vector.</p>.</td></tr><tr><td valign="top"
 
 ### '$scml_exports'/0 ###
 
-
 <pre><code>
 '$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="list-%3evector-1"></a>
 
 ### 'list->vector'/1 ###
 
-
 <pre><code>
 'list-&gt;vector'(Objs::[<a href="#type-scm_obj">scm_obj()</a>]) -&gt; <a href="#type-scm_vector">scm_vector()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns a vector constructed from the elements in the list.</p>
 
@@ -56,26 +50,21 @@ an error if k is not a valid index of vector.</p>.</td></tr><tr><td valign="top"
 
 ### 'make-vector'/1 ###
 
-
 <pre><code>
 'make-vector'(K::<a href="#type-scm_k">scm_k()</a>) -&gt; <a href="#type-scm_vector">scm_vector()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'make-vector'(K, '#f')`](#make-vector-2).
+
 <a name="make-vector-2"></a>
 
 ### 'make-vector'/2 ###
 
-
 <pre><code>
 'make-vector'(K::<a href="#type-scm_k">scm_k()</a>, Obj::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_vector">scm_vector()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns a vector of k elements.</p>
 
@@ -83,78 +72,65 @@ Equivalent to [`'make-vector'(K, '#f')`](#make-vector-2).
 
 ### 'string->vector'/1 ###
 
-
 <pre><code>
 'string-&gt;vector'(S::<a href="#type-scm_string">scm_string()</a>) -&gt; <a href="#type-scm_vector">scm_vector()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'list->vector'('string->list'(S, 0, 'string-length'(S)))`](#list-%3evector-1).
+
 <a name="string-%3evector-2"></a>
 
 ### 'string->vector'/2 ###
 
-
 <pre><code>
 'string-&gt;vector'(S::<a href="#type-scm_string">scm_string()</a>, Start::<a href="#type-scm_start">scm_start()</a>) -&gt; <a href="#type-scm_vector">scm_vector()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'list->vector'('string->list'(S, Start,'string-length'(S)))`](#list-%3evector-1).
+
 <a name="string-%3evector-3"></a>
 
 ### 'string->vector'/3 ###
 
-
 <pre><code>
 'string-&gt;vector'(S::<a href="#type-scm_string">scm_string()</a>, Start::<a href="#type-scm_start">scm_start()</a>, End::<a href="#type-scm_end">scm_end()</a>) -&gt; <a href="#type-scm_vector">scm_vector()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'list->vector'('string->list'(S, Start, End))`](#list-%3evector-1).
+
 <a name="vector-%3elist-1"></a>
 
 ### 'vector->list'/1 ###
 
-
 <pre><code>
 'vector-&gt;list'(Vector::<a href="#type-scm_vector">scm_vector()</a>) -&gt; [<a href="#type-scm_obj">scm_obj()</a>]
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'vector->list'(V, 0, 'vector-length'(V))`](#vector-%3elist-3).
+
 <a name="vector-%3elist-2"></a>
 
 ### 'vector->list'/2 ###
 
-
 <pre><code>
 'vector-&gt;list'(Vector::<a href="#type-scm_vector">scm_vector()</a>, Start::<a href="#type-scm_start">scm_start()</a>) -&gt; [<a href="#type-scm_obj">scm_obj()</a>]
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'vector->list'(V, Start, 'vector-length'(V))`](#vector-%3elist-3).
+
 <a name="vector-%3elist-3"></a>
 
 ### 'vector->list'/3 ###
 
-
 <pre><code>
 'vector-&gt;list'(Vector::<a href="#type-scm_vector">scm_vector()</a>, Start::<a href="#type-scm_start">scm_start()</a>, End::<a href="#type-scm_end">scm_end()</a>) -&gt; [<a href="#type-scm_obj">scm_obj()</a>]
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns a list of the elements of vector between start and
 end.</p>
@@ -163,52 +139,43 @@ end.</p>
 
 ### 'vector->string'/1 ###
 
-
 <pre><code>
 'vector-&gt;string'(V::<a href="#type-scm_vector">scm_vector()</a>) -&gt; <a href="#type-scm_string">scm_string()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'vector->string'(V, 0, 'vector-length'(V))`](#vector-%3estring-3).
+
 <a name="vector-%3estring-2"></a>
 
 ### 'vector->string'/2 ###
 
-
 <pre><code>
 'vector-&gt;string'(V::<a href="#type-scm_vector">scm_vector()</a>, Start::<a href="#type-scm_start">scm_start()</a>) -&gt; <a href="#type-scm_string">scm_string()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'vector->string'(V, Start, 'vector-length'(V))`](#vector-%3estring-3).
+
 <a name="vector-%3estring-3"></a>
 
 ### 'vector->string'/3 ###
 
-
 <pre><code>
 'vector-&gt;string'(V::<a href="#type-scm_vector">scm_vector()</a>, Start::<a href="#type-scm_start">scm_start()</a>, End::<a href="#type-scm_end">scm_end()</a>) -&gt; <a href="#type-scm_string">scm_string()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'list->string'('vector->list'(V, Start, End))`](#list-%3estring-1).
+
 <a name="vector-append-1"></a>
 
 ### 'vector-append'/1 ###
 
-
 <pre><code>
 'vector-append'(Vs::[<a href="#type-scm_vector">scm_vector()</a>, ...]) -&gt; <a href="#type-scm_vector">scm_vector()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns a vector whose elements are the concatenation of the
 elements in the given vectors.</p>
@@ -217,13 +184,10 @@ elements in the given vectors.</p>
 
 ### 'vector-copy!'/3 ###
 
-
 <pre><code>
 'vector-copy!'(To::<a href="#type-scm_vector">scm_vector()</a>, At::<a href="#type-scm_k">scm_k()</a>, From::<a href="#type-scm_vector">scm_vector()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p><em>unsupported</em></p>
 
@@ -231,13 +195,10 @@ elements in the given vectors.</p>
 
 ### 'vector-copy!'/4 ###
 
-
 <pre><code>
 'vector-copy!'(To::<a href="#type-scm_vector">scm_vector()</a>, At::<a href="#type-scm_k">scm_k()</a>, From::<a href="#type-scm_vector">scm_vector()</a>, Start::<a href="#type-scm_start">scm_start()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p><em>unsupported</em></p>
 
@@ -245,13 +206,10 @@ elements in the given vectors.</p>
 
 ### 'vector-copy!'/5 ###
 
-
 <pre><code>
 'vector-copy!'(To::<a href="#type-scm_vector">scm_vector()</a>, At::<a href="#type-scm_k">scm_k()</a>, From::<a href="#type-scm_vector">scm_vector()</a>, Start::<a href="#type-scm_start">scm_start()</a>, End::<a href="#type-scm_end">scm_end()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p><em>unsupported</em></p>
 
@@ -259,39 +217,32 @@ elements in the given vectors.</p>
 
 ### 'vector-copy'/1 ###
 
-
 <pre><code>
 'vector-copy'(V::<a href="#type-scm_vector">scm_vector()</a>) -&gt; <a href="#type-scm_vector">scm_vector()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'vector-copy'(V, 0, 'vector-length'(V))`](#vector-copy-3).
+
 <a name="vector-copy-2"></a>
 
 ### 'vector-copy'/2 ###
 
-
 <pre><code>
 'vector-copy'(Vector::<a href="#type-scm_vector">scm_vector()</a>, Start::<a href="#type-scm_start">scm_start()</a>) -&gt; <a href="#type-scm_vector">scm_vector()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'vector-copy'(V, Start, 'vector-length'(V))`](#vector-copy-3).
+
 <a name="vector-copy-3"></a>
 
 ### 'vector-copy'/3 ###
 
-
 <pre><code>
 'vector-copy'(V::<a href="#type-scm_vector">scm_vector()</a>, Start::<a href="#type-scm_start">scm_start()</a>, End::<a href="#type-scm_end">scm_end()</a>) -&gt; <a href="#type-scm_vector">scm_vector()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns a vector constructed from the elements of vector
 beginning with index start and ending with index end.</p>
@@ -300,13 +251,10 @@ beginning with index start and ending with index end.</p>
 
 ### 'vector-fill!'/2 ###
 
-
 <pre><code>
 'vector-fill!'(V::<a href="#type-scm_vector">scm_vector()</a>, Fill::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p><em>unsupported</em></p>
 
@@ -314,13 +262,10 @@ beginning with index start and ending with index end.</p>
 
 ### 'vector-fill!'/3 ###
 
-
 <pre><code>
 'vector-fill!'(V::<a href="#type-scm_vector">scm_vector()</a>, Fill::<a href="#type-scm_obj">scm_obj()</a>, Start::<a href="#type-scm_start">scm_start()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p><em>unsupported</em></p>
 
@@ -328,13 +273,10 @@ beginning with index start and ending with index end.</p>
 
 ### 'vector-fill!'/4 ###
 
-
 <pre><code>
 'vector-fill!'(V::<a href="#type-scm_vector">scm_vector()</a>, Fill::<a href="#type-scm_obj">scm_obj()</a>, Start::<a href="#type-scm_start">scm_start()</a>, End::<a href="#type-scm_end">scm_end()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p><em>unsupported</em></p>
 
@@ -342,13 +284,10 @@ beginning with index start and ending with index end.</p>
 
 ### 'vector-length'/1 ###
 
-
 <pre><code>
 'vector-length'(Vector::<a href="#type-scm_vector">scm_vector()</a>) -&gt; <a href="#type-scm_k">scm_k()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns the number of elements in the given vector.</p>
 
@@ -356,13 +295,10 @@ beginning with index start and ending with index end.</p>
 
 ### 'vector-ref'/2 ###
 
-
 <pre><code>
 'vector-ref'(Vector::<a href="#type-scm_vector">scm_vector()</a>, K::<a href="#type-scm_k">scm_k()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns element k of vector using zero-origin indexing.  It is
 an error if k is not a valid index of vector.</p>
@@ -371,13 +307,10 @@ an error if k is not a valid index of vector.</p>
 
 ### 'vector-set!'/3 ###
 
-
 <pre><code>
 'vector-set!'(V::<a href="#type-scm_vector">scm_vector()</a>, K::<a href="#type-scm_k">scm_k()</a>, Obj::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p><em>unsupported</em></p>
 
@@ -385,13 +318,10 @@ an error if k is not a valid index of vector.</p>
 
 ### 'vector?'/1 ###
 
-
 <pre><code>
 'vector?'(Vector::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns #t if obj is a vector, otherwise returns #f.</p>
 
@@ -399,13 +329,10 @@ an error if k is not a valid index of vector.</p>
 
 ### vector/1 ###
 
-
 <pre><code>
 vector(Objs::[<a href="#type-scm_obj">scm_obj()</a>, ...]) -&gt; <a href="#type-scm_vector">scm_vector()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns a vector whose elements contain the given arguments.</p>
 

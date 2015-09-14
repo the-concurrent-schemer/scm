@@ -5,9 +5,10 @@
 * [Function Index](#index)
 * [Function Details](#functions)
 
-
 <p>Scheme base library for symbols</p>.
+
 __Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailto:the-concurrent-schemer@googlegroups.com)).
+
 <a name="index"></a>
 
 ## Function Index ##
@@ -29,26 +30,19 @@ same names in the sense of string=?.</p>.</td></tr><tr><td valign="top"><a href=
 
 ### '$scml_exports'/0 ###
 
-
 <pre><code>
 '$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="string-%3esymbol-1"></a>
 
 ### 'string->symbol'/1 ###
 
-
 <pre><code>
 'string-&gt;symbol'(String::<a href="#type-scm_string">scm_string()</a>) -&gt; <a href="#type-scm_symbol">scm_symbol()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns the symbol whose name is string.  This procedure can
 create symbols with names containing special characters that would
@@ -59,13 +53,10 @@ its input.</p>
 
 ### 'symbol->string'/1 ###
 
-
 <pre><code>
 'symbol-&gt;string'(S::<a href="#type-scm_symbol">scm_symbol()</a>) -&gt; <a href="#type-scm_string">scm_string()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns the name of symbol as a string, but without adding
 escapes.</p>
@@ -74,13 +65,10 @@ escapes.</p>
 
 ### 'symbol=?'/1 ###
 
-
 <pre><code>
 'symbol=?'(Ss::[<a href="#type-scm_symbol">scm_symbol()</a>, ...]) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns #t if all the arguments are symbols and all have the
 same names in the sense of string=?.</p>
@@ -89,13 +77,10 @@ same names in the sense of string=?.</p>
 
 ### 'symbol?'/1 ###
 
-
 <pre><code>
 'symbol?'(Obj::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns #t if obj is a symbol, otherwise returns #f.</p>
 
@@ -103,25 +88,17 @@ same names in the sense of string=?.</p>
 
 ### symbol_to_unicode/1 ###
 
-
 <pre><code>
 symbol_to_unicode(S::<a href="#type-scm_symbol">scm_symbol()</a>) -&gt; [<a href="scmd_types_impl.md#type-unichar">scmd_types_impl:unichar()</a>]
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="unicode_to_symbol-1"></a>
 
 ### unicode_to_symbol/1 ###
 
-
 <pre><code>
 unicode_to_symbol(L::[<a href="scmd_types_impl.md#type-unichar">scmd_types_impl:unichar()</a>]) -&gt; <a href="#type-scm_symbol">scm_symbol()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 

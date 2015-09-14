@@ -5,9 +5,10 @@
 * [Function Index](#index)
 * [Function Details](#functions)
 
-
 <p>Scheme write library</p>.
+
 __Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailto:the-concurrent-schemer@googlegroups.com)).
+
 <a name="index"></a>
 
 ## Function Index ##
@@ -24,116 +25,80 @@ __Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailt
 
 ### '$scml_exports'/0 ###
 
-
 <pre><code>
 '$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="write-shared-1"></a>
 
 ### 'write-shared'/1 ###
 
-
 <pre><code>
 'write-shared'(Obj::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="write-shared-2"></a>
 
 ### 'write-shared'/2 ###
 
-
 <pre><code>
 'write-shared'(Obj::<a href="#type-scm_obj">scm_obj()</a>, Port::<a href="#type-scm_port">scm_port()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="write-simple-1"></a>
 
 ### 'write-simple'/1 ###
 
-
 <pre><code>
 'write-simple'(Obj::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="write-simple-2"></a>
 
 ### 'write-simple'/2 ###
 
-
 <pre><code>
 'write-simple'(Obj::<a href="#type-scm_obj">scm_obj()</a>, Port::<a href="#type-scm_port">scm_port()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="display-1"></a>
 
 ### display/1 ###
 
-
 <pre><code>
 display(Obj::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="display-2"></a>
 
 ### display/2 ###
 
-
 <pre><code>
 display(Obj::<a href="#type-scm_obj">scm_obj()</a>, Port::<a href="#type-scm_port">scm_port()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="write-1"></a>
 
 ### write/1 ###
 
-
 <pre><code>
 write(Obj::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="write-2"></a>
 
 ### write/2 ###
 
-
 <pre><code>
 write(Obj::<a href="#type-scm_obj">scm_obj()</a>, Port::<a href="#type-scm_port">scm_port()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 

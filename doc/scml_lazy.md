@@ -5,9 +5,10 @@
 * [Function Index](#index)
 * [Function Details](#functions)
 
-
 <p>Scheme lazy library</p>.
+
 __Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailto:the-concurrent-schemer@googlegroups.com)).
+
 <a name="index"></a>
 
 ## Function Index ##
@@ -24,77 +25,53 @@ __Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailt
 
 ### '$scml_exports'/0 ###
 
-
 <pre><code>
 '$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="delay-force-1"></a>
 
 ### 'delay-force'/1 ###
 
-
 <pre><code>
 'delay-force'(Exp::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="make-promise-1"></a>
 
 ### 'make-promise'/1 ###
 
-
 <pre><code>
 'make-promise'(Obj::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="promise%3f-1"></a>
 
 ### 'promise?'/1 ###
 
-
 <pre><code>
 'promise?'(Obj::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="delay-1"></a>
 
 ### delay/1 ###
 
-
 <pre><code>
 delay(Exp::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="force-1"></a>
 
 ### force/1 ###
 
-
 <pre><code>
 force(Promise::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 

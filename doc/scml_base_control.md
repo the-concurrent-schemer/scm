@@ -5,9 +5,10 @@
 * [Function Index](#index)
 * [Function Details](#functions)
 
-
 <p>Scheme base library for control features</p>.
+
 __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
+
 <a name="index"></a>
 
 ## Function Index ##
@@ -82,26 +83,19 @@ applied to the elements of the lists is unspecified.</p>.</td></tr><tr><td valig
 
 ### '$scml_exports'/0 ###
 
-
 <pre><code>
 '$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="call-with-values-5"></a>
 
 ### 'call-with-values'/5 ###
 
-
 <pre><code>
 'call-with-values'(Producer::<a href="#type-scm_thunk">scm_thunk()</a>, Consumer::<a href="#type-scm_proc">scm_proc()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Calls its producer argument with no values and a continuation
 that, when passed some values, calls the consumer procedure with
@@ -112,13 +106,10 @@ consumer is the continuation of the call to <code>call-with-values</code>.</p>
 
 ### 'call/cc'/4 ###
 
-
 <pre><code>
 'call/cc'(Proc::<a href="#type-scm_proc">scm_proc()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to `'call-with-current-continuation(Proc)'`.
 
@@ -134,13 +125,10 @@ before and after thunks installed using <code>dynamic-wind</code>.</p>
 
 ### 'dynamic-wind'/6 ###
 
-
 <pre><code>
 'dynamic-wind'(Before::<a href="#type-scm_thunk">scm_thunk()</a>, Thunk::<a href="#type-scm_thunk">scm_thunk()</a>, After::<a href="#type-scm_thunk">scm_thunk()</a>, Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Calls <code>Thunk</code> without arguments, returning the result(s) of
 this call. <code>Before</code> and <code>After</code> are called, also without arguments,
@@ -187,13 +175,10 @@ called.
 
 ### 'for-each'/4 ###
 
-
 <pre><code>
 'for-each'(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Applies proc element-wise to the elements of the lists and
 returns #f.  Calls proc for its side effects rather than for its
@@ -206,13 +191,10 @@ same length, for-each terminates when the shortest list runs out.</p>
 
 ### 'procedure?'/1 ###
 
-
 <pre><code>
 'procedure?'(Exp::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns #t if obj is a procedure, otherwise returns #f.</p>
 
@@ -220,65 +202,54 @@ same length, for-each terminates when the shortest list runs out.</p>
 
 ### 'string-for-each'/4 ###
 
-
 <pre><code>
 'string-for-each'(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'for-each'([Proc | Args])`](#for-each-1).
+
 <a name="string-map-4"></a>
 
 ### 'string-map'/4 ###
 
-
 <pre><code>
 'string-map'(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_string">scm_string()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`map([Proc | Args])`](#map-1).
+
 <a name="vector-for-each-4"></a>
 
 ### 'vector-for-each'/4 ###
 
-
 <pre><code>
 'vector-for-each'(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'for-each'([Proc | Args])`](#for-each-1).
+
 <a name="vector-map-4"></a>
 
 ### 'vector-map'/4 ###
 
-
 <pre><code>
 'vector-map'(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_vector">scm_vector()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`map([Proc | Args])`](#map-1).
+
 <a name="apply-4"></a>
 
 ### apply/4 ###
 
-
 <pre><code>
 apply(Arg::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Calls <code>Proc</code> with the elements of the list <code>(append (list arg1
 \.\.\.) args)</code> as the actual arguments.</p>
@@ -287,13 +258,10 @@ apply(Arg::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scm
 
 ### map/4 ###
 
-
 <pre><code>
 map(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; [<a href="#type-scm_any">scm_any()</a>]
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Applies proc element-wise to the elements of the lists and
 returns a list of the results, in order.  If more than one list is
@@ -305,13 +273,10 @@ applied to the elements of the lists is unspecified.</p>
 
 ### values/4 ###
 
-
 <pre><code>
 values(Args::[<a href="#type-scm_any">scm_any()</a>, ...], Env::<a href="#type-scmi_denv">scmi_denv()</a>, Ok::<a href="#type-scmi_dok">scmi_dok()</a>, Ng::<a href="#type-scmi_dng">scmi_dng()</a>) -&gt; <a href="#type-scm_any">scm_any()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Delivers all of its arguments to its continuation.</p>
 

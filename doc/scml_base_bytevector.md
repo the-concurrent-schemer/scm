@@ -5,9 +5,10 @@
 * [Function Index](#index)
 * [Function Details](#functions)
 
-
 <p>Scheme base library for bytevectors</p>.
+
 __Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailto:the-concurrent-schemer@googlegroups.com)).
+
 <a name="index"></a>
 
 ## Function Index ##
@@ -29,26 +30,19 @@ returns the corresponding string.</p>.</td></tr><tr><td valign="top"><a href="#b
 
 ### '$scml_exports'/0 ###
 
-
 <pre><code>
 '$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="bytevector-append-1"></a>
 
 ### 'bytevector-append'/1 ###
 
-
 <pre><code>
 'bytevector-append'(Vs::[<a href="#type-scm_bytevector">scm_bytevector()</a>, ...]) -&gt; <a href="#type-scm_bytevector">scm_bytevector()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns a bytevector whose bytes are the concatenation of the
 bytes in the given bytevectors.</p>
@@ -57,13 +51,10 @@ bytes in the given bytevectors.</p>
 
 ### 'bytevector-copy!'/3 ###
 
-
 <pre><code>
 'bytevector-copy!'(To::<a href="#type-scm_bytevector">scm_bytevector()</a>, At::<a href="#type-scm_k">scm_k()</a>, From::<a href="#type-scm_bytevector">scm_bytevector()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p><em>unsupported</em></p>
 
@@ -71,13 +62,10 @@ bytes in the given bytevectors.</p>
 
 ### 'bytevector-copy!'/4 ###
 
-
 <pre><code>
 'bytevector-copy!'(To::<a href="#type-scm_bytevector">scm_bytevector()</a>, At::<a href="#type-scm_k">scm_k()</a>, From::<a href="#type-scm_bytevector">scm_bytevector()</a>, Start::<a href="#type-scm_start">scm_start()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p><em>unsupported</em></p>
 
@@ -85,13 +73,10 @@ bytes in the given bytevectors.</p>
 
 ### 'bytevector-copy!'/5 ###
 
-
 <pre><code>
 'bytevector-copy!'(To::<a href="#type-scm_bytevector">scm_bytevector()</a>, At::<a href="#type-scm_k">scm_k()</a>, From::<a href="#type-scm_bytevector">scm_bytevector()</a>, Start::<a href="#type-scm_start">scm_start()</a>, End::<a href="#type-scm_end">scm_end()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p><em>unsupported</em></p>
 
@@ -99,39 +84,32 @@ bytes in the given bytevectors.</p>
 
 ### 'bytevector-copy'/1 ###
 
-
 <pre><code>
 'bytevector-copy'(V::<a href="#type-scm_bytevector">scm_bytevector()</a>) -&gt; <a href="#type-scm_bytevector">scm_bytevector()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'bytevector-copy'(V, 0, 'bytevector-length'(V))`](#bytevector-copy-3).
+
 <a name="bytevector-copy-2"></a>
 
 ### 'bytevector-copy'/2 ###
 
-
 <pre><code>
 'bytevector-copy'(Bytevector::<a href="#type-scm_bytevector">scm_bytevector()</a>, Start::<a href="#type-scm_start">scm_start()</a>) -&gt; <a href="#type-scm_bytevector">scm_bytevector()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'bytevector-copy'(V, Start, 'bytevector-length'(V))`](#bytevector-copy-3).
+
 <a name="bytevector-copy-3"></a>
 
 ### 'bytevector-copy'/3 ###
 
-
 <pre><code>
 'bytevector-copy'(Bytevector::<a href="#type-scm_bytevector">scm_bytevector()</a>, Start::<a href="#type-scm_start">scm_start()</a>, End::<a href="#type-scm_end">scm_end()</a>) -&gt; <a href="#type-scm_bytevector">scm_bytevector()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns a bytevector constructed from the bytes of bytevector
 beginning with index start and ending with index end.</p>
@@ -140,13 +118,10 @@ beginning with index start and ending with index end.</p>
 
 ### 'bytevector-length'/1 ###
 
-
 <pre><code>
 'bytevector-length'(Bytevector::<a href="#type-scm_bytevector">scm_bytevector()</a>) -&gt; <a href="#type-scm_k">scm_k()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns the number of bytes in the given bytevector.</p>
 
@@ -154,13 +129,10 @@ beginning with index start and ending with index end.</p>
 
 ### 'bytevector-u8-ref'/2 ###
 
-
 <pre><code>
 'bytevector-u8-ref'(Bytevector::<a href="#type-scm_bytevector">scm_bytevector()</a>, K::<a href="#type-scm_k">scm_k()</a>) -&gt; <a href="#type-scm_byte">scm_byte()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns byte k of bytevector using zero-origin indexing.  It
 is an error if k is not a valid index of bytevector.</p>
@@ -169,13 +141,10 @@ is an error if k is not a valid index of bytevector.</p>
 
 ### 'bytevector-u8-set!'/3 ###
 
-
 <pre><code>
 'bytevector-u8-set!'(V::<a href="#type-scm_bytevector">scm_bytevector()</a>, K::<a href="#type-scm_k">scm_k()</a>, Byte::<a href="#type-scm_byte">scm_byte()</a>) -&gt; <a href="#type-scm_false">scm_false()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p><em>unsupported</em></p>
 
@@ -183,13 +152,10 @@ is an error if k is not a valid index of bytevector.</p>
 
 ### 'bytevector?'/1 ###
 
-
 <pre><code>
 'bytevector?'(Bytevector::<a href="#type-scm_obj">scm_obj()</a>) -&gt; <a href="#type-scm_boolean">scm_boolean()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns #t if obj is a bytevector, otherwise returns #f.</p>
 
@@ -197,26 +163,21 @@ is an error if k is not a valid index of bytevector.</p>
 
 ### 'make-bytevector'/1 ###
 
-
 <pre><code>
 'make-bytevector'(K::<a href="#type-scm_k">scm_k()</a>) -&gt; <a href="#type-scm_bytevector">scm_bytevector()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'make-bytevector'(K, 0)`](#make-bytevector-2).
+
 <a name="make-bytevector-2"></a>
 
 ### 'make-bytevector'/2 ###
 
-
 <pre><code>
 'make-bytevector'(K::<a href="#type-scm_k">scm_k()</a>, Byte::<a href="#type-scm_byte">scm_byte()</a>) -&gt; <a href="#type-scm_bytevector">scm_bytevector()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns a bytevector of k bytes.</p>
 
@@ -224,39 +185,32 @@ Equivalent to [`'make-bytevector'(K, 0)`](#make-bytevector-2).
 
 ### 'string->utf8'/1 ###
 
-
 <pre><code>
 'string-&gt;utf8'(String::<a href="#type-scm_string">scm_string()</a>) -&gt; <a href="#type-scm_bytevector">scm_bytevector()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'string->utf8'(S, 0, 'string-length'(S))`](#string-%3eutf8-3).
+
 <a name="string-%3eutf8-2"></a>
 
 ### 'string->utf8'/2 ###
 
-
 <pre><code>
 'string-&gt;utf8'(String::<a href="#type-scm_string">scm_string()</a>, Start::<a href="#type-scm_start">scm_start()</a>) -&gt; <a href="#type-scm_bytevector">scm_bytevector()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'string->utf8'(S, Start, 'string-length'(S))`](#string-%3eutf8-3).
+
 <a name="string-%3eutf8-3"></a>
 
 ### 'string->utf8'/3 ###
 
-
 <pre><code>
 'string-&gt;utf8'(String::<a href="#type-scm_string">scm_string()</a>, Start::<a href="#type-scm_start">scm_start()</a>, End::<a href="#type-scm_end">scm_end()</a>) -&gt; <a href="#type-scm_bytevector">scm_bytevector()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>encodes the characters of a string between start and end and
 returns the corresponding bytevector.</p>
@@ -265,39 +219,32 @@ returns the corresponding bytevector.</p>
 
 ### 'utf8->string'/1 ###
 
-
 <pre><code>
 'utf8-&gt;string'(Bytevector::<a href="#type-scm_bytevector">scm_bytevector()</a>) -&gt; <a href="#type-scm_string">scm_string()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'utf8->string'(V, 0, 'bytevector-length'(V))`](#utf8-%3estring-3).
+
 <a name="utf8-%3estring-2"></a>
 
 ### 'utf8->string'/2 ###
 
-
 <pre><code>
 'utf8-&gt;string'(Bytevector::<a href="#type-scm_bytevector">scm_bytevector()</a>, Start::<a href="#type-scm_start">scm_start()</a>) -&gt; <a href="#type-scm_string">scm_string()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 Equivalent to [`'utf8->string'(V, Start, 'bytevector-length'(V))`](#utf8-%3estring-3).
+
 <a name="utf8-%3estring-3"></a>
 
 ### 'utf8->string'/3 ###
 
-
 <pre><code>
 'utf8-&gt;string'(Bytevector::<a href="#type-scm_bytevector">scm_bytevector()</a>, Start::<a href="#type-scm_start">scm_start()</a>, End::<a href="#type-scm_end">scm_end()</a>) -&gt; <a href="#type-scm_string">scm_string()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Decodes the bytes of a bytevector between start and end and
 returns the corresponding string.</p>
@@ -306,13 +253,10 @@ returns the corresponding string.</p>
 
 ### bytevector/1 ###
 
-
 <pre><code>
 bytevector(Bytes::[<a href="#type-scm_byte">scm_byte()</a>, ...]) -&gt; <a href="#type-scm_bytevector">scm_bytevector()</a>
 </code></pre>
-
-<br></br>
-
+<br />
 
 <p>Returns a bytevector whose bytes contain the given arguments.</p>
 

@@ -5,9 +5,10 @@
 * [Function Index](#index)
 * [Function Details](#functions)
 
-
 <p>Scheme case-lambda library</p>.
+
 __Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailto:the-concurrent-schemer@googlegroups.com)).
+
 <a name="index"></a>
 
 ## Function Index ##
@@ -24,25 +25,17 @@ __Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailt
 
 ### '$scml_exports'/0 ###
 
-
 <pre><code>
 '$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="case-lambda-1"></a>
 
 ### 'case-lambda'/1 ###
 
-
 <pre><code>
 'case-lambda'(Exps::[<a href="#type-scm_obj">scm_obj()</a>, ...]) -&gt; <a href="#type-scm_obj">scm_obj()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 

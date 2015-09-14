@@ -4,8 +4,8 @@
 * [Description](#description)
 * [Data Types](#types)
 
-
 <p>Scheme datum implementation types (for Erlang types and specs)</p>.
+
 __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
 
 <a name="types"></a>
@@ -18,13 +18,9 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 ### <a name="type-bytes">bytes()</a> ###
 
 
-
 <pre><code>
 bytes() = &lt;&lt;_:_*8&gt;&gt;
 </code></pre>
-
-
-
 
 
 <pre><code>0..255</code></pre>
@@ -32,9 +28,7 @@ bytes() = &lt;&lt;_:_*8&gt;&gt;
 
 
 
-
 ### <a name="type-integer_non_zero">integer_non_zero()</a> ###
-
 
 
 <pre><code>
@@ -44,9 +38,7 @@ integer_non_zero() = neg_integer() | pos_integer()
 
 
 
-
 ### <a name="type-lineno">lineno()</a> ###
-
 
 
 <pre><code>
@@ -56,9 +48,7 @@ lineno() = non_neg_integer()
 
 
 
-
 ### <a name="type-s_any">s_any()</a> ###
-
 
 
 <pre><code>
@@ -68,9 +58,7 @@ s_any(T) = <a href="#type-s_boolean">s_boolean()</a> | <a href="#type-s_number">
 
 
 
-
 ### <a name="type-s_boolean">s_boolean()</a> ###
-
 
 
 <pre><code>
@@ -80,9 +68,7 @@ s_boolean() = #boolean{val = <a href="#type-t_boolean">t_boolean()</a>}
 
 
 
-
 ### <a name="type-s_bytevector">s_bytevector()</a> ###
-
 
 
 <pre><code>
@@ -92,9 +78,7 @@ s_bytevector() = #bytevector{val = <a href="#type-t_bytevector">t_bytevector()</
 
 
 
-
 ### <a name="type-s_character">s_character()</a> ###
-
 
 
 <pre><code>
@@ -104,9 +88,7 @@ s_character() = #character{val = <a href="#type-t_character">t_character()</a>}
 
 
 
-
 ### <a name="type-s_complex">s_complex()</a> ###
-
 
 
 <pre><code>
@@ -116,9 +98,7 @@ s_complex() = <a href="#type-s_rectangular">s_rectangular()</a> | <a href="#type
 
 
 
-
 ### <a name="type-s_datum">s_datum()</a> ###
-
 
 
 <pre><code>
@@ -128,9 +108,7 @@ s_datum() = <a href="#type-s_any">s_any</a>(<a href="#type-s_datum">s_datum()</a
 
 
 
-
 ### <a name="type-s_denominator">s_denominator()</a> ###
-
 
 
 <pre><code>
@@ -140,9 +118,7 @@ s_denominator() = <a href="#type-s_integer_exact_pos">s_integer_exact_pos()</a>
 
 
 
-
 ### <a name="type-s_false">s_false()</a> ###
-
 
 
 <pre><code>
@@ -152,9 +128,7 @@ s_false() = #boolean{val = <a href="#type-t_false">t_false()</a>}
 
 
 
-
 ### <a name="type-s_finite">s_finite()</a> ###
-
 
 
 <pre><code>
@@ -164,9 +138,7 @@ s_finite() = <a href="#type-s_finite_inexact">s_finite_inexact()</a> | <a href="
 
 
 
-
 ### <a name="type-s_finite_exact">s_finite_exact()</a> ###
-
 
 
 <pre><code>
@@ -176,9 +148,7 @@ s_finite_exact() = <a href="#type-s_rational">s_rational()</a> | <a href="#type-
 
 
 
-
 ### <a name="type-s_finite_inexact">s_finite_inexact()</a> ###
-
 
 
 <pre><code>
@@ -188,9 +158,7 @@ s_finite_inexact() = <a href="#type-s_negzero">s_negzero()</a> | float() | <a hr
 
 
 
-
 ### <a name="type-s_identifier">s_identifier()</a> ###
-
 
 
 <pre><code>
@@ -200,9 +168,7 @@ s_identifier() = <a href="#type-t_identifier">t_identifier()</a>
 
 
 
-
 ### <a name="type-s_infnan">s_infnan()</a> ###
-
 
 
 <pre><code>
@@ -212,9 +178,7 @@ s_infnan() = '?PINF' | '?NINF' | '?PNAN' | '?NNAN'
 
 
 
-
 ### <a name="type-s_integer">s_integer()</a> ###
-
 
 
 <pre><code>
@@ -224,9 +188,7 @@ s_integer() = <a href="#type-s_integer_inexact">s_integer_inexact()</a> | <a hre
 
 
 
-
 ### <a name="type-s_integer_exact">s_integer_exact()</a> ###
-
 
 
 <pre><code>
@@ -236,9 +198,7 @@ s_integer_exact() = integer()
 
 
 
-
 ### <a name="type-s_integer_exact_neg">s_integer_exact_neg()</a> ###
-
 
 
 <pre><code>
@@ -248,9 +208,7 @@ s_integer_exact_neg() = neg_integer()
 
 
 
-
 ### <a name="type-s_integer_exact_non_neg">s_integer_exact_non_neg()</a> ###
-
 
 
 <pre><code>
@@ -260,9 +218,7 @@ s_integer_exact_non_neg() = non_neg_integer()
 
 
 
-
 ### <a name="type-s_integer_exact_non_zero">s_integer_exact_non_zero()</a> ###
-
 
 
 <pre><code>
@@ -272,9 +228,7 @@ s_integer_exact_non_zero() = <a href="#type-integer_non_zero">integer_non_zero()
 
 
 
-
 ### <a name="type-s_integer_exact_pos">s_integer_exact_pos()</a> ###
-
 
 
 <pre><code>
@@ -284,9 +238,7 @@ s_integer_exact_pos() = pos_integer()
 
 
 
-
 ### <a name="type-s_integer_inexact">s_integer_inexact()</a> ###
-
 
 
 <pre><code>
@@ -294,17 +246,12 @@ s_integer_inexact() = float()
 </code></pre>
 
 
-
-
-
 <pre><code>trunc(float()) == float()</code></pre>
 
 
 
 
-
 ### <a name="type-s_label">s_label()</a> ###
-
 
 
 <pre><code>
@@ -314,9 +261,7 @@ s_label(T) = #label{val = <a href="#type-t_label">t_label</a>(T)}
 
 
 
-
 ### <a name="type-s_labelref">s_labelref()</a> ###
-
 
 
 <pre><code>
@@ -326,9 +271,7 @@ s_labelref() = #labelref{val = <a href="#type-t_labelref">t_labelref()</a>}
 
 
 
-
 ### <a name="type-s_letter">s_letter()</a> ###
-
 
 
 <pre><code>
@@ -338,9 +281,7 @@ s_letter() = #character{val = <a href="#type-t_letter">t_letter()</a>}
 
 
 
-
 ### <a name="type-s_list">s_list()</a> ###
-
 
 
 <pre><code>
@@ -350,9 +291,7 @@ s_list(T) = <a href="#type-t_list">t_list</a>(T)
 
 
 
-
 ### <a name="type-s_list_nonempty">s_list_nonempty()</a> ###
-
 
 
 <pre><code>
@@ -362,9 +301,7 @@ s_list_nonempty(T) = <a href="#type-t_list_nonempty">t_list_nonempty</a>(T)
 
 
 
-
 ### <a name="type-s_negzero">s_negzero()</a> ###
-
 
 
 <pre><code>
@@ -374,9 +311,7 @@ s_negzero() = '?NZER'
 
 
 
-
 ### <a name="type-s_number">s_number()</a> ###
-
 
 
 <pre><code>
@@ -386,9 +321,7 @@ s_number() = <a href="#type-s_complex">s_complex()</a>
 
 
 
-
 ### <a name="type-s_numerator">s_numerator()</a> ###
-
 
 
 <pre><code>
@@ -398,9 +331,7 @@ s_numerator() = <a href="#type-s_integer">s_integer()</a>
 
 
 
-
 ### <a name="type-s_pair">s_pair()</a> ###
-
 
 
 <pre><code>
@@ -410,9 +341,7 @@ s_pair(T) = <a href="#type-t_pair">t_pair</a>(T)
 
 
 
-
 ### <a name="type-s_polar">s_polar()</a> ###
-
 
 
 <pre><code>
@@ -422,9 +351,7 @@ s_polar() = {polar, {Mag::<a href="#type-s_real">s_real()</a>, Ang::<a href="#ty
 
 
 
-
 ### <a name="type-s_rational">s_rational()</a> ###
-
 
 
 <pre><code>
@@ -434,9 +361,7 @@ s_rational() = {<a href="#type-s_numerator">s_numerator()</a>, <a href="#type-s_
 
 
 
-
 ### <a name="type-s_real">s_real()</a> ###
-
 
 
 <pre><code>
@@ -446,9 +371,7 @@ s_real() = <a href="#type-s_infnan">s_infnan()</a> | <a href="#type-s_finite">s_
 
 
 
-
 ### <a name="type-s_rectangular">s_rectangular()</a> ###
-
 
 
 <pre><code>
@@ -458,9 +381,7 @@ s_rectangular() = {rectangular, {Real::<a href="#type-s_real">s_real()</a>, Imag
 
 
 
-
 ### <a name="type-s_string">s_string()</a> ###
-
 
 
 <pre><code>
@@ -470,9 +391,7 @@ s_string() = #string{val = <a href="#type-t_string">t_string()</a>}
 
 
 
-
 ### <a name="type-s_symbol">s_symbol()</a> ###
-
 
 
 <pre><code>
@@ -482,9 +401,7 @@ s_symbol() = <a href="#type-t_symbol">t_symbol()</a>
 
 
 
-
 ### <a name="type-s_true">s_true()</a> ###
-
 
 
 <pre><code>
@@ -494,9 +411,7 @@ s_true() = #boolean{val = <a href="#type-t_true">t_true()</a>}
 
 
 
-
 ### <a name="type-s_vector">s_vector()</a> ###
-
 
 
 <pre><code>
@@ -506,9 +421,7 @@ s_vector(T) = #vector{val = <a href="#type-t_vector">t_vector</a>(T)}
 
 
 
-
 ### <a name="type-t_boolean">t_boolean()</a> ###
-
 
 
 <pre><code>
@@ -518,9 +431,7 @@ t_boolean() = boolean()
 
 
 
-
 ### <a name="type-t_bytevector">t_bytevector()</a> ###
-
 
 
 <pre><code>
@@ -530,9 +441,7 @@ t_bytevector() = <a href="#type-bytes">bytes()</a>
 
 
 
-
 ### <a name="type-t_character">t_character()</a> ###
-
 
 
 <pre><code>
@@ -542,9 +451,7 @@ t_character() = <a href="#type-unichar">unichar()</a>
 
 
 
-
 ### <a name="type-t_false">t_false()</a> ###
-
 
 
 <pre><code>
@@ -554,9 +461,7 @@ t_false() = false
 
 
 
-
 ### <a name="type-t_identifier">t_identifier()</a> ###
-
 
 
 <pre><code>
@@ -564,17 +469,12 @@ t_identifier() = atom() | {atom(), <a href="#type-utf8">utf8()</a>} | #mid{val =
 </code></pre>
 
 
-
-
-
 <pre><code>atom(utf-8()) | {atom(sha(utf-8())), utf-8()} | #mid{}</code></pre>
 
 
 
 
-
 ### <a name="type-t_label">t_label()</a> ###
-
 
 
 <pre><code>
@@ -584,9 +484,7 @@ t_label(T) = {non_neg_integer(), T}
 
 
 
-
 ### <a name="type-t_labelref">t_labelref()</a> ###
-
 
 
 <pre><code>
@@ -596,9 +494,7 @@ t_labelref() = non_neg_integer()
 
 
 
-
 ### <a name="type-t_letter">t_letter()</a> ###
-
 
 
 <pre><code>
@@ -608,9 +504,7 @@ t_letter() = 65..90 | 97..122
 
 
 
-
 ### <a name="type-t_list">t_list()</a> ###
-
 
 
 <pre><code>
@@ -620,9 +514,7 @@ t_list(T) = maybe_improper_list(T, T | [])
 
 
 
-
 ### <a name="type-t_list_nonempty">t_list_nonempty()</a> ###
-
 
 
 <pre><code>
@@ -632,9 +524,7 @@ t_list_nonempty(T) = nonempty_maybe_improper_list(T, T | [])
 
 
 
-
 ### <a name="type-t_pair">t_pair()</a> ###
-
 
 
 <pre><code>
@@ -644,21 +534,17 @@ t_pair(T) = nonempty_maybe_improper_list(T, T)
 
 
 
-
 ### <a name="type-t_string">t_string()</a> ###
 
 
-
 <pre><code>
-t_string() = {<a href="#type-unichar">unichar()</a>}
+t_string() = <a href="#type-tuple">tuple</a>(<a href="#type-unichar">unichar()</a>)
 </code></pre>
 
 
 
 
-
 ### <a name="type-t_symbol">t_symbol()</a> ###
-
 
 
 <pre><code>
@@ -668,9 +554,7 @@ t_symbol() = <a href="#type-t_identifier">t_identifier()</a> | <a href="#type-t_
 
 
 
-
 ### <a name="type-t_true">t_true()</a> ###
-
 
 
 <pre><code>
@@ -680,9 +564,7 @@ t_true() = true
 
 
 
-
 ### <a name="type-t_variable">t_variable()</a> ###
-
 
 
 <pre><code>
@@ -692,17 +574,12 @@ t_variable() = reference() | {reference(), <a href="#type-t_symbol">t_symbol()</
 
 
 
-
 ### <a name="type-t_vector">t_vector()</a> ###
 
 
-
 <pre><code>
-t_vector(T) = {T}
+t_vector(T) = <a href="#type-tuple">tuple</a>(T)
 </code></pre>
-
-
-
 
 
 <pre><code>tuple of any size</code></pre>
@@ -710,9 +587,17 @@ t_vector(T) = {T}
 
 
 
+### <a name="type-tuple">tuple()</a> ###
+
+
+<pre><code>
+tuple(T) = {T}
+</code></pre>
+
+
+
 
 ### <a name="type-unichar">unichar()</a> ###
-
 
 
 <pre><code>
@@ -720,17 +605,12 @@ unichar() = <a href="#type-unichar_low">unichar_low()</a> | <a href="#type-unich
 </code></pre>
 
 
-
-
-
 <pre><code>unicode "code point"</code></pre>
 
 
 
 
-
 ### <a name="type-unichar_high">unichar_high()</a> ###
-
 
 
 <pre><code>
@@ -740,9 +620,7 @@ unichar_high() = 57344..1114111
 
 
 
-
 ### <a name="type-unichar_low">unichar_low()</a> ###
-
 
 
 <pre><code>
@@ -752,17 +630,12 @@ unichar_low() = 0..55295
 
 
 
-
 ### <a name="type-utf8">utf8()</a> ###
-
 
 
 <pre><code>
 utf8() = &lt;&lt;_:_*8&gt;&gt;
 </code></pre>
-
-
-
 
 
 <pre><code>utf-8</code></pre>

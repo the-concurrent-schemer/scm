@@ -1,6 +1,5 @@
 %% encoding: UTF-8
 {application,scm}.
-{packages,[]}.
 {modules,[scm_app,scm_sup,scmd_parse,scmd_parse_numR,scmd_scan,
           scmd_scan_num10,scmd_scan_num16,scmd_scan_num2,scmd_scan_num8,
           scmd_types,scmd_types_impl,scmi_analyze,scmi_analyze_derived,

@@ -5,11 +5,12 @@
 * [Function Index](#index)
 * [Function Details](#functions)
 
-
 <p>Scheme application</p>.
+
 __Behaviours:__ [`application`](application.html).
 
 __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
+
 <a name="index"></a>
 
 ## Function Index ##
@@ -28,13 +29,11 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 `priv_libdir() -> any()`
 
-
 <a name="priv_scmdir-0"></a>
 
 ### priv_scmdir/0 ###
 
 `priv_scmdir() -> any()`
-
 
 <a name="start-2"></a>
 
@@ -42,11 +41,9 @@ __Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit
 
 `start(StartType, StartArgs) -> any()`
 
-
 <a name="stop-1"></a>
 
 ### stop/1 ###
 
 `stop(State) -> any()`
-
 

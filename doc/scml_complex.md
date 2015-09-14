@@ -5,9 +5,10 @@
 * [Function Index](#index)
 * [Function Details](#functions)
 
-
 <p>Scheme complex library</p>.
+
 __Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailto:the-concurrent-schemer@googlegroups.com)).
+
 <a name="index"></a>
 
 ## Function Index ##
@@ -24,90 +25,62 @@ __Authors:__ CSCM Contributor ([`the-concurrent-schemer@googlegroups.com`](mailt
 
 ### '$scml_exports'/0 ###
 
-
 <pre><code>
 '$scml_exports'() -&gt; [{<a href="#type-scm_symbol">scm_symbol()</a>, <a href="#type-scmi_nip">scmi_nip()</a>}]
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="imag-part-1"></a>
 
 ### 'imag-part'/1 ###
 
-
 <pre><code>
 'imag-part'(Z::<a href="#type-scm_z">scm_z()</a>) -&gt; <a href="#type-scm_x">scm_x()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="make-polar-2"></a>
 
 ### 'make-polar'/2 ###
 
-
 <pre><code>
 'make-polar'(X1::<a href="#type-scm_x">scm_x()</a>, X2::<a href="#type-scm_x">scm_x()</a>) -&gt; <a href="#type-scm_z">scm_z()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="make-rectangular-2"></a>
 
 ### 'make-rectangular'/2 ###
 
-
 <pre><code>
 'make-rectangular'(X1::<a href="#type-scm_x">scm_x()</a>, X2::<a href="#type-scm_x">scm_x()</a>) -&gt; <a href="#type-scm_z">scm_z()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="real-part-1"></a>
 
 ### 'real-part'/1 ###
 
-
 <pre><code>
 'real-part'(Z::<a href="#type-scm_z">scm_z()</a>) -&gt; <a href="#type-scm_x">scm_x()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="angle-1"></a>
 
 ### angle/1 ###
 
-
 <pre><code>
 angle(Z::<a href="#type-scm_z">scm_z()</a>) -&gt; <a href="#type-scm_x">scm_x()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 
 <a name="magnitude-1"></a>
 
 ### magnitude/1 ###
 
-
 <pre><code>
 magnitude(Z::<a href="#type-scm_z">scm_z()</a>) -&gt; <a href="#type-scm_x">scm_x()</a>
 </code></pre>
-
-<br></br>
-
-
+<br />
 

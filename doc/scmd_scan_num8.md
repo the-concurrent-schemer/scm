@@ -4,7 +4,6 @@
 * [Function Index](#index)
 * [Function Details](#functions)
 
-
 <a name="index"></a>
 
 ## Function Index ##
@@ -23,13 +22,11 @@
 
 `format_error(X1) -> any()`
 
-
 <a name="string-1"></a>
 
 ### string/1 ###
 
 `string(String) -> any()`
-
 
 <a name="string-2"></a>
 
@@ -37,13 +34,11 @@
 
 `string(String, Line) -> any()`
 
-
 <a name="token-2"></a>
 
 ### token/2 ###
 
 `token(Cont, Chars) -> any()`
-
 
 <a name="token-3"></a>
 
@@ -51,18 +46,15 @@
 
 `token(X1, Chars, Line) -> any()`
 
-
 <a name="tokens-2"></a>
 
 ### tokens/2 ###
 
 `tokens(Cont, Chars) -> any()`
 
-
 <a name="tokens-3"></a>
 
 ### tokens/3 ###
 
 `tokens(X1, Chars, Line) -> any()`
-
 
