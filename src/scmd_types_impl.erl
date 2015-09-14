@@ -82,6 +82,7 @@
 -type integer_non_zero()         :: neg_integer() | pos_integer().
 
 -type bytes()                    :: <<_:_ * 8>>.                      % 0..255
+-type tuple(T)                   :: {T}.
 -type unichar()                  :: unichar_low() | unichar_high().   % unicode "code point"
 -type unichar_high()             :: 16#E000..16#10FFFF.
 -type unichar_low()              :: 16#0000..16#D7FF.

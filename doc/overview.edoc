@@ -28,7 +28,7 @@ Computer Science Laboratory and is maintained as an open-source
 project and community.
 
 The default language is Scheme R7RS.  The default virtual machine is
-Erlang/OTP 17.0 or higher.
+Erlang/OTP 18.0 or higher.
 
 For further information, see
 https://github.com/the-concurrent-schemer.
