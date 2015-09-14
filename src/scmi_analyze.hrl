@@ -26,9 +26,9 @@
 -include("scmi.hrl").
 
 -record(senv, {
-          env     :: scmi_env:env(),         % Syntactic environment
-          file    :: scmd_parse:filename(),  % Current file
-          path=[] :: [scmd_parse:filename()] % Include-path
+          env     :: scmi_env:env(),                    % Syntactic environment
+          file    :: undefined | scmd_parse:filename(), % Current file
+          path=[] :: [scmd_parse:filename()]            % Include-path
          }).
 
 %% Default imports

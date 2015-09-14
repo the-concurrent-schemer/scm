@@ -287,7 +287,7 @@ flatten_variables1([H|T]) when not is_list(T) ->
 flatten_variables1(L) ->
     [ flatten_variables1(V) || V <- L ].
 
--spec make_tmp_variables(scmi_var() | [scmi_var()]) -> scmi_var() | [scmi_var()].
+-spec make_tmp_variables(scmi_var() | [scmi_var()]) -> scmi_var() | maybe_improper_list(scmi_var(), scmi_var() | []).
 make_tmp_variables(Formal) when not is_list(Formal) ->
     make_variable();
 make_tmp_variables([Formals|Formal]) when not is_list(Formal) ->

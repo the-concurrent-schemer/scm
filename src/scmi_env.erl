@@ -88,7 +88,7 @@ is_resource(_Term) ->
 the_empty() ->
     make_env('$the_empty'()).
 
--spec extend([var()], [val()], env()) -> val().
+-spec extend([var()], [val()], env()) -> env().
 extend(Vars, Vals, {Ref, BaseResource}) when is_reference(Ref) ->
     make_env('$extend'(Vars, Vals, BaseResource)).
 
@@ -141,7 +141,7 @@ make_env(Resource) ->
 '$the_empty'() ->
     erlang:nif_error(badarg, []).
 
--spec '$extend'([var()], [val()], resource()) -> val().
+-spec '$extend'([var()], [val()], resource()) -> resource().
 '$extend'(Vars, Vals, BaseResource) ->
     erlang:nif_error(badarg, [Vars, Vals, BaseResource]).
 
