@@ -2,6 +2,7 @@
 .eunit/
 .qc/
 .rebar/
+c_src/*.d
 c_src/*.o
 deps/
 ebin/
