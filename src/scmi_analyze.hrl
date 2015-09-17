@@ -34,6 +34,7 @@
 %% Default imports
 -compile({nowarn_unused_function,
           [make_and/1
+           , make_append/1
            , make_apply/2
            , make_assoc/2, make_assoc/3
            , make_begin/1
@@ -118,6 +119,9 @@
 
 make_and(Exps) when is_list(Exps) ->
     ['and'|Exps].
+
+make_append(Exps) when is_list(Exps) ->
+    ['append'|Exps].
 
 make_apply(Proc, Args) when is_list(Args) ->
     ['apply'|[Proc|Args]].

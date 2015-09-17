@@ -175,18 +175,15 @@ analyze_guard(Exp, SEnv) ->
 
 -spec analyze_quasiquote(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_quasiquote(Exp, SEnv) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.5.5'}, [Exp, SEnv]).
+    analyze(expand_quasiquotation(Exp), SEnv).
 
 -spec analyze_unquote(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_unquote(Exp, SEnv) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.5.5'}, [Exp, SEnv]).
+    erlang:error(badarg, [Exp, SEnv]).
 
 -spec analyze_unquote_splicing(scmi_exp(), scmi_senv()) -> scmi_dexec().
 analyze_unquote_splicing(Exp, SEnv) ->
-    %% @TODO
-    erlang:error({roadmap,'v0.5.5'}, [Exp, SEnv]).
+    erlang:error(badarg, [Exp, SEnv]).
 
 -spec scan_out_internal_definitions([scmi_exp(),...], scmi_senv()) -> [scmi_exp()].
 scan_out_internal_definitions(Body, #senv{env=Env}) ->
@@ -596,6 +593,34 @@ from_guard_cond(Reraise, [[Test|Exps]|Exp]) ->
 %%%----------------------------------------------------------------------
 %%% Internal functions - quasiquotation
 %%%----------------------------------------------------------------------
+
+%% quasiquotation
+expand_quasiquotation(Form) ->
+    expand_quasiquotation(Form, 1).
+
+expand_quasiquotation(Form, 0) ->
+    Form;
+expand_quasiquotation(['quasiquote'|_]=Form, Level) ->
+    expand_quasiquotation_list(Form, Level + 1);
+expand_quasiquotation(['unquote'|Form], 1) ->
+    Form;
+expand_quasiquotation(['unquote'|_]=Form, Level) ->
+    expand_quasiquotation_list(Form, Level - 1);
+expand_quasiquotation(['unquote-splicing'|_]=Form, 1=Level) ->
+    erlang:error(badarg, [Form, Level]);
+expand_quasiquotation(['unquote-splicing'|_]=Form, Level) ->
+    expand_quasiquotation_list(Form, Level - 1);
+expand_quasiquotation(#vector{val=Exp}=Form, Level) ->
+    Form#vector{val=list_to_tuple(expand_quasiquotation_list(tuple_to_list(Exp), Level))};
+expand_quasiquotation(Form, _Level) ->
+    make_quote(Form).
+
+expand_quasiquotation_list([['unquote-splicing'|Form]|T], 1=Level) ->
+    make_append([Form, expand_quasiquotation(T, Level)]);
+expand_quasiquotation_list([H|T], Level) ->
+    make_cons(expand_quasiquotation(H, Level), expand_quasiquotation(T, Level));
+expand_quasiquotation_list(Form, Level) ->
+    expand_quasiquotation(Form, Level).
 
 %%%----------------------------------------------------------------------
 %%% Internal functions - scan_out_internal_definitions
