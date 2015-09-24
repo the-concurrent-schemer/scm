@@ -63,12 +63,8 @@
 -spec the_default() -> scmi_senv().
 the_default() ->
     BaseEnv = scmi_env:the_empty(),
-    Fun = fun(M) ->
-                  [ scmi_env:define_variable(K, V, BaseEnv) || {K, V} <- M:'$scmi_exports'() ]
-          end,
     Ms = [scmi_analyze_primitive, scmi_analyze_derived, scmi_analyze_macro, scmi_analyze_program],
-    lists:foreach(Fun, Ms),
-    #senv{env=scmi_env:extend([], [], BaseEnv)}.
+    #senv{env=scmi_env:import_identifiers(BaseEnv, Ms)}.
 
 -spec analyze(scmi_exp()) -> scmi_expander() | scmi_dexec().
 analyze(Exp) ->

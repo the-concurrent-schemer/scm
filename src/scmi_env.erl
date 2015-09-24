@@ -37,6 +37,7 @@
          , safe_lookup_variable/2
          , set_variable/3
          , define_variable/3
+        , import_identifiers/2
         ]).
 
 -on_load(init/0).
@@ -120,6 +121,14 @@ set_variable(Var, Val, {Ref, Resource}) when is_reference(Ref) ->
 -spec define_variable(var(), val(), env()) -> true.
 define_variable(Var, Val, {Ref, Resource}) when is_reference(Ref) ->
     '$define_variable'(Var, Val, Resource).
+
+-spec import_identifiers(env(), [module()]) -> env().
+import_identifiers(BaseEnv, Mods) ->
+    Fun = fun(M) ->
+                  [define_variable(K, V, BaseEnv) || {K, V} <- M:'$scmi_exports'() ]
+          end,
+    lists:foreach(Fun, Mods),
+    scmi_env:extend([], [], BaseEnv).
 
 %%%----------------------------------------------------------------------
 %%% Internal functions

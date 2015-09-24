@@ -28,6 +28,7 @@
 
 %% External exports
 -export([libraries/0
+         , import_identifiers/2
          , list_part/2, list_part/3
          , tuple_part/2, tuple_part/3
          , binary_part/2, binary_part/3
@@ -69,6 +70,14 @@ libraries() ->
      %% , 'write'           @TODO v0.6.0
      %% , 'r5rs'            @TODO v0.6.0
     ].
+
+-spec import_identifiers(scmi_denv(), [module()]) -> scmi_denv().
+import_identifiers(BaseEnv, Mods) ->
+    Fun = fun(M) ->
+                  [scmi_env:define_variable(K, V, BaseEnv) || {K, V} <- M:'$scml_exports'() ]
+          end,
+    lists:foreach(Fun, Mods),
+    scmi_env:extend([], [], BaseEnv). % @TODO make sure this is correct!
 
 -spec list_part(scm_list(), scm_start()) -> scm_list().
 list_part(X, Start) when Start >= 0 ->
