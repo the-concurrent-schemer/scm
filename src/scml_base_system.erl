@@ -29,7 +29,7 @@
 -export(['$scml_exports'/0]).
 
 %% API
--export([features/0
+-export(['features'/0
         ]).
 
 -include("scml.hrl").
@@ -44,7 +44,7 @@
 
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
-    [{features, #nip0{val=fun features/0}}
+    [{'features', #nip0{val=fun ?MODULE:'features'/0}}
     ].
 
 %%%===================================================================
