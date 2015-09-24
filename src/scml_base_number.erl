@@ -270,22 +270,54 @@
 -spec '<'([scm_x(),...]) -> scm_boolean().
 '<'(Xs) ->
     %% @TODO
-    erlang:error({roadmap,'v0.7.0'}, [Xs]).
+    %% erlang:error({roadmap,'v0.7.0'}, [Xs]).
+    case lists:foldl(fun(_, ?FALSE) -> ?FALSE;
+                        (X, Acc) when Acc >= X -> ?FALSE;
+                        (X, _) -> X end, hd(Xs), tl(Xs)) of
+        ?FALSE ->
+            ?FALSE;
+        _ ->
+            ?TRUE
+    end.
 
 -spec '>'([scm_x(),...]) -> scm_boolean().
 '>'(Xs) ->
     %% @TODO
-    erlang:error({roadmap,'v0.7.0'}, [Xs]).
+    %% erlang:error({roadmap,'v0.7.0'}, [Xs]).
+    case lists:foldl(fun(_, ?FALSE) -> ?FALSE;
+                        (X, Acc) when Acc =< X -> ?FALSE;
+                        (X, _) -> X end, hd(Xs), tl(Xs)) of
+        ?FALSE ->
+            ?FALSE;
+        _ ->
+            ?TRUE
+    end.
 
 -spec '<='([scm_x(),...]) -> scm_boolean().
 '<='(Xs) ->
     %% @TODO
-    erlang:error({roadmap,'v0.7.0'}, [Xs]).
+    %% erlang:error({roadmap,'v0.7.0'}, [Xs]).
+    case lists:foldl(fun(_, ?FALSE) -> ?FALSE;
+                        (X, Acc) when Acc > X -> ?FALSE;
+                        (X, _) -> X end, hd(Xs), tl(Xs)) of
+        ?FALSE ->
+            ?FALSE;
+        _ ->
+            ?TRUE
+    end.
 
 -spec '>='([scm_x(),...]) -> scm_boolean().
 '>='(Xs) ->
     %% @TODO
-    erlang:error({roadmap,'v0.7.0'}, [Xs]).
+    %% erlang:error({roadmap,'v0.7.0'}, [Xs]).
+    case lists:foldl(fun(_, ?FALSE) -> ?FALSE;
+                        (X, Acc) when Acc < X -> ?FALSE;
+                        (X, _) -> X end, hd(Xs), tl(Xs)) of
+        ?FALSE ->
+            ?FALSE;
+        _ ->
+            ?TRUE
+    end.
 
 -spec 'zero?'(scm_z()) -> scm_boolean().
 'zero?'(Z) ->
@@ -325,22 +357,26 @@
 -spec '+'([scm_z()]) -> scm_z().
 '+'(Zs) ->
     %% @TODO
-    erlang:error({roadmap,'v0.7.0'}, [Zs]).
+    %% erlang:error({roadmap,'v0.7.0'}, [Zs]).
+    lists:foldl(fun(A, B) -> A + B end, 0, Zs).
 
 -spec '*'([scm_z()]) -> scm_z().
 '*'(Zs) ->
     %% @TODO
-    erlang:error({roadmap,'v0.7.0'}, [Zs]).
+    %% erlang:error({roadmap,'v0.7.0'}, [Zs]).
+    lists:foldl(fun(A, B) -> A * B end, 1, Zs).
 
 -spec '-'([scm_z(),...]) -> scm_z().
 '-'(Zs) ->
     %% @TODO
-    erlang:error({roadmap,'v0.7.0'}, [Zs]).
+    %% erlang:error({roadmap,'v0.7.0'}, [Zs]).
+    lists:foldl(fun(A, B) -> A - B end, hd(Zs), tl(Zs)).
 
 -spec '/'([scm_z(),...]) -> scm_z().
 '/'(Zs) ->
     %% @TODO
-    erlang:error({roadmap,'v0.7.0'}, [Zs]).
+    %% erlang:error({roadmap,'v0.7.0'}, [Zs]).
+    lists:foldl(fun(A, B) -> A / B end, hd(Zs), tl(Zs)).
 
 -spec 'abs'(scm_x()) -> scm_x().
 'abs'(X) ->
