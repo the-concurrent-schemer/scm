@@ -312,32 +312,32 @@
     %% @TODO
     erlang:error({roadmap,'v0.7.0'}, [N]).
 
--spec 'max'([scm_x(),...]) -> scm_boolean().
+-spec 'max'([scm_x(),...]) -> scm_x().
 'max'(Xs) ->
     %% @TODO
     erlang:error({roadmap,'v0.7.0'}, [Xs]).
 
--spec 'min'([scm_x(),...]) -> scm_boolean().
+-spec 'min'([scm_x(),...]) -> scm_x().
 'min'(Xs) ->
     %% @TODO
     erlang:error({roadmap,'v0.7.0'}, [Xs]).
 
--spec '+'([scm_z()]) -> scm_boolean().
+-spec '+'([scm_z()]) -> scm_z().
 '+'(Zs) ->
     %% @TODO
     erlang:error({roadmap,'v0.7.0'}, [Zs]).
 
--spec '*'([scm_z()]) -> scm_boolean().
+-spec '*'([scm_z()]) -> scm_z().
 '*'(Zs) ->
     %% @TODO
     erlang:error({roadmap,'v0.7.0'}, [Zs]).
 
--spec '-'([scm_z(),...]) -> scm_boolean().
+-spec '-'([scm_z(),...]) -> scm_z().
 '-'(Zs) ->
     %% @TODO
     erlang:error({roadmap,'v0.7.0'}, [Zs]).
 
--spec '/'([scm_z(),...]) -> scm_boolean().
+-spec '/'([scm_z(),...]) -> scm_z().
 '/'(Zs) ->
     %% @TODO
     erlang:error({roadmap,'v0.7.0'}, [Zs]).
