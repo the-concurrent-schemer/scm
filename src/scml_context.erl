@@ -30,12 +30,12 @@
 
 %% API
 -export(['command-line'/0
-         , 'exit'/0
-         , 'exit'/1
-         , 'emergency-exit'/0
-         , 'emergency-exit'/1
-         , 'get-environment-variable'/1
-         , 'get-environment-variables'/0
+        , 'exit'/0
+        , 'exit'/1
+        , 'emergency-exit'/0
+        , 'emergency-exit'/1
+        , 'get-environment-variable'/1
+        , 'get-environment-variables'/0
         ]).
 
 -include("scml.hrl").
@@ -51,10 +51,10 @@
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
     [{'command-line', #nip0{val=fun ?MODULE:'command-line'/0}}
-     , {'exit', #nipn{val=[fun ?MODULE:'exit'/0, fun ?MODULE:'exit'/1]}}
-     , {'emergency-exit', #nipn{val=[fun ?MODULE:'emergency-exit'/0, fun ?MODULE:'emergency-exit'/1]}}
-     , {'get-environment-variable', #nipn{val=fun ?MODULE:'get-environment-variable'/1}}
-     , {'get-environment-variables', #nip0{val=fun ?MODULE:'get-environment-variables'/0}}
+    , {'exit', #nipn{val=[fun ?MODULE:'exit'/0, fun ?MODULE:'exit'/1]}}
+    , {'emergency-exit', #nipn{val=[fun ?MODULE:'emergency-exit'/0, fun ?MODULE:'emergency-exit'/1]}}
+    , {'get-environment-variable', #nipn{val=fun ?MODULE:'get-environment-variable'/1}}
+    , {'get-environment-variables', #nip0{val=fun ?MODULE:'get-environment-variables'/0}}
     ].
 
 %%%===================================================================

@@ -31,42 +31,42 @@
 -export_type([lineno/0, unichar/0, utf8/0]).
 
 -export_type([s_complex/0
-              , s_rectangular/0
-              , s_polar/0
-              , s_real/0
-              , s_infnan/0
-              , s_finite/0
-              , s_finite_inexact/0
-              , s_negzero/0
-              , s_finite_exact/0
-              , s_rational/0
-              , s_numerator/0
-              , s_denominator/0
-              , s_integer/0
-              , s_integer_inexact/0
-              , s_integer_exact/0
-              , s_integer_exact_neg/0
-              , s_integer_exact_non_neg/0
-              , s_integer_exact_non_zero/0
-              , s_integer_exact_pos/0
+             , s_rectangular/0
+             , s_polar/0
+             , s_real/0
+             , s_infnan/0
+             , s_finite/0
+             , s_finite_inexact/0
+             , s_negzero/0
+             , s_finite_exact/0
+             , s_rational/0
+             , s_numerator/0
+             , s_denominator/0
+             , s_integer/0
+             , s_integer_inexact/0
+             , s_integer_exact/0
+             , s_integer_exact_neg/0
+             , s_integer_exact_non_neg/0
+             , s_integer_exact_non_zero/0
+             , s_integer_exact_pos/0
              ]).
 
 -export_type([s_boolean/0
-              , s_bytevector/0
-              , s_character/0
-              , s_false/0
-              , s_identifier/0
-              , s_label/1
-              , s_labelref/0
-              , s_letter/0
-              , s_list/1
-              , s_list_nonempty/1
-              , s_number/0
-              , s_pair/1
-              , s_string/0
-              , s_symbol/0
-              , s_true/0
-              , s_vector/1
+             , s_bytevector/0
+             , s_character/0
+             , s_false/0
+             , s_identifier/0
+             , s_label/1
+             , s_labelref/0
+             , s_letter/0
+             , s_list/1
+             , s_list_nonempty/1
+             , s_number/0
+             , s_pair/1
+             , s_string/0
+             , s_symbol/0
+             , s_true/0
+             , s_vector/1
              ]).
 
 -export_type([s_datum/0, s_any/1]).

@@ -30,28 +30,28 @@
 
 %% External exports
 -export([analyze_cond/2
-         , analyze_case/2
-         , analyze_and/2
-         , analyze_or/2
-         , analyze_when/2
-         , analyze_unless/2
-         , analyze_cond_expand/2
-         , analyze_let/2
-         , analyze_lets/2
-         , analyze_letrec/2
-         , analyze_letrecs/2
-         , analyze_let_values/2
-         , analyze_lets_values/2
-         , analyze_letrec_values/2
-         , analyze_begin/2
-         , analyze_do/2
-         , analyze_make_parameter/2
-         , analyze_parameterize/2
-         , analyze_guard/2
-         , analyze_quasiquote/2
-         , analyze_unquote/2
-         , analyze_unquote_splicing/2
-         , scan_out_internal_definitions/2
+        , analyze_case/2
+        , analyze_and/2
+        , analyze_or/2
+        , analyze_when/2
+        , analyze_unless/2
+        , analyze_cond_expand/2
+        , analyze_let/2
+        , analyze_lets/2
+        , analyze_letrec/2
+        , analyze_letrecs/2
+        , analyze_let_values/2
+        , analyze_lets_values/2
+        , analyze_letrec_values/2
+        , analyze_begin/2
+        , analyze_do/2
+        , analyze_make_parameter/2
+        , analyze_parameterize/2
+        , analyze_guard/2
+        , analyze_quasiquote/2
+        , analyze_unquote/2
+        , analyze_unquote_splicing/2
+        , scan_out_internal_definitions/2
         ]).
 
 -import(scmi_analyze, [analyze/2, validate_variables/1, flatten_variables/1, make_tmp_variables/1]).
@@ -70,27 +70,27 @@
 -spec '$scmi_exports'() -> [{scm_symbol(), scmi_expander()}].
 '$scmi_exports'() ->
     [{'cond', #expander{val=fun ?MODULE:'analyze_cond'/2}}
-     , {'case', #expander{val=fun ?MODULE:'analyze_case'/2}}
-     , {'and', #expander{val=fun ?MODULE:'analyze_and'/2}}
-     , {'or', #expander{val=fun ?MODULE:'analyze_or'/2}}
-     , {'when', #expander{val=fun ?MODULE:'analyze_when'/2}}
-     , {'unless', #expander{val=fun ?MODULE:'analyze_unless'/2}}
-     , {'cond-expand', #expander{val=fun ?MODULE:'analyze_cond_expand'/2}}
-     , {'let', #expander{val=fun ?MODULE:'analyze_let'/2}}
-     , {'let*', #expander{val=fun ?MODULE:'analyze_lets'/2}}
-     , {'letrec', #expander{val=fun ?MODULE:'analyze_letrec'/2}}
-     , {'letrec*', #expander{val=fun ?MODULE:'analyze_letrecs'/2}}
-     , {'let-values', #expander{val=fun ?MODULE:'analyze_let_values'/2}}
-     , {'let*-values', #expander{val=fun ?MODULE:'analyze_lets_values'/2}}
-     , {'letrec-values', #expander{val=fun ?MODULE:'analyze_letrec_values'/2}}
-     , {'begin', #expander{val=fun ?MODULE:'analyze_begin'/2}}
-     , {'do', #expander{val=fun ?MODULE:'analyze_do'/2}}
-     , {'make-parameter', #expander{val=fun ?MODULE:'analyze_make_parameter'/2}}
-     , {'parameterize', #expander{val=fun ?MODULE:'analyze_parameterize'/2}}
-     , {'guard', #expander{val=fun ?MODULE:'analyze_guard'/2}}
-     , {'quasiquote', #expander{val=fun ?MODULE:'analyze_quasiquote'/2}}
-     , {'unquote', #expander{val=fun ?MODULE:'analyze_unquote'/2}}
-     , {'unquote-splicing', #expander{val=fun ?MODULE:'analyze_unquote_splicing'/2}}
+    , {'case', #expander{val=fun ?MODULE:'analyze_case'/2}}
+    , {'and', #expander{val=fun ?MODULE:'analyze_and'/2}}
+    , {'or', #expander{val=fun ?MODULE:'analyze_or'/2}}
+    , {'when', #expander{val=fun ?MODULE:'analyze_when'/2}}
+    , {'unless', #expander{val=fun ?MODULE:'analyze_unless'/2}}
+    , {'cond-expand', #expander{val=fun ?MODULE:'analyze_cond_expand'/2}}
+    , {'let', #expander{val=fun ?MODULE:'analyze_let'/2}}
+    , {'let*', #expander{val=fun ?MODULE:'analyze_lets'/2}}
+    , {'letrec', #expander{val=fun ?MODULE:'analyze_letrec'/2}}
+    , {'letrec*', #expander{val=fun ?MODULE:'analyze_letrecs'/2}}
+    , {'let-values', #expander{val=fun ?MODULE:'analyze_let_values'/2}}
+    , {'let*-values', #expander{val=fun ?MODULE:'analyze_lets_values'/2}}
+    , {'letrec-values', #expander{val=fun ?MODULE:'analyze_letrec_values'/2}}
+    , {'begin', #expander{val=fun ?MODULE:'analyze_begin'/2}}
+    , {'do', #expander{val=fun ?MODULE:'analyze_do'/2}}
+    , {'make-parameter', #expander{val=fun ?MODULE:'analyze_make_parameter'/2}}
+    , {'parameterize', #expander{val=fun ?MODULE:'analyze_parameterize'/2}}
+    , {'guard', #expander{val=fun ?MODULE:'analyze_guard'/2}}
+    , {'quasiquote', #expander{val=fun ?MODULE:'analyze_quasiquote'/2}}
+    , {'unquote', #expander{val=fun ?MODULE:'analyze_unquote'/2}}
+    , {'unquote-splicing', #expander{val=fun ?MODULE:'analyze_unquote_splicing'/2}}
     ].
 
 %%%----------------------------------------------------------------------

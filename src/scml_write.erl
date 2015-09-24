@@ -30,13 +30,13 @@
 
 %% API
 -export(['write'/1
-         , 'write'/2
-         , 'write-shared'/1
-         , 'write-shared'/2
-         , 'write-simple'/1
-         , 'write-simple'/2
-         , 'display'/1
-         , 'display'/2
+        , 'write'/2
+        , 'write-shared'/1
+        , 'write-shared'/2
+        , 'write-simple'/1
+        , 'write-simple'/2
+        , 'display'/1
+        , 'display'/2
         ]).
 
 -include("scml.hrl").
@@ -52,9 +52,9 @@
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
     [{'write', #nipn{val=[fun ?MODULE:'write'/1, fun ?MODULE:'write'/2]}}
-     , {'write-shared', #nipn{val=[fun ?MODULE:'write-shared'/1, fun ?MODULE:'write-shared'/2]}}
-     , {'write-simple', #nipn{val=[fun ?MODULE:'write-simple'/1, fun ?MODULE:'write-simple'/2]}}
-     , {'display', #nipn{val=[fun ?MODULE:'display'/1, fun ?MODULE:'display'/2]}}
+    , {'write-shared', #nipn{val=[fun ?MODULE:'write-shared'/1, fun ?MODULE:'write-shared'/2]}}
+    , {'write-simple', #nipn{val=[fun ?MODULE:'write-simple'/1, fun ?MODULE:'write-simple'/2]}}
+    , {'display', #nipn{val=[fun ?MODULE:'display'/1, fun ?MODULE:'display'/2]}}
     ].
 
 %%%===================================================================

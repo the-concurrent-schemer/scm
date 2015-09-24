@@ -30,15 +30,15 @@
 
 %% External exports
 -export([analyze_lambda_syntax/2
-         , analyze_assignment_syntax/2
-         , analyze_sequence_syntax/2
-         , analyze_let_syntax/2
-         , analyze_lets_syntax/2
-         , analyze_letrec_syntax/2
-         , analyze_letrecs_syntax/2
-         , analyze_syntax_rules/2
-         , analyze_syntax_error/2
-         , scan_out_internal_definitions/2
+        , analyze_assignment_syntax/2
+        , analyze_sequence_syntax/2
+        , analyze_let_syntax/2
+        , analyze_lets_syntax/2
+        , analyze_letrec_syntax/2
+        , analyze_letrecs_syntax/2
+        , analyze_syntax_rules/2
+        , analyze_syntax_error/2
+        , scan_out_internal_definitions/2
         ]).
 
 -import(scmi_analyze, [analyze/2, validate_variables/1, validate_variable/1, make_tmp_variables/1]).
@@ -59,9 +59,9 @@
 
 -record(state, {
           elp=?UNASSIGNED   % ellipsis
-          , uns=?UNASSIGNED % underscore
-          , ls=[]           % pattern literal identifiers
-          , vs=[]           % pattern variables
+               , uns=?UNASSIGNED % underscore
+               , ls=[]           % pattern literal identifiers
+               , vs=[]           % pattern variables
          }).
 
 
@@ -72,14 +72,14 @@
 -spec '$scmi_exports'() -> [{scm_symbol(), scmi_expander()}].
 '$scmi_exports'() ->
     [{'lambda-syntax', #expander{val=fun ?MODULE:'analyze_lambda_syntax'/2}}
-     , {'set!-syntax', #expander{val=fun ?MODULE:'analyze_assignment_syntax'/2}}
-     , {'begin-syntax', #expander{val=fun ?MODULE:'analyze_sequence_syntax'/2}}
-     , {'let-syntax', #expander{val=fun ?MODULE:'analyze_let_syntax'/2}}
-     , {'let*-syntax', #expander{val=fun ?MODULE:'analyze_lets_syntax'/2}}
-     , {'letrec-syntax', #expander{val=fun ?MODULE:'analyze_letrec_syntax'/2}}
-     , {'letrec*-syntax', #expander{val=fun ?MODULE:'analyze_letrecs_syntax'/2}}
-     , {'syntax-rules', #expander{val=fun ?MODULE:'analyze_syntax_rules'/2}}
-     , {'syntax-error', #expander{val=fun ?MODULE:'analyze_syntax_error'/2}}
+    , {'set!-syntax', #expander{val=fun ?MODULE:'analyze_assignment_syntax'/2}}
+    , {'begin-syntax', #expander{val=fun ?MODULE:'analyze_sequence_syntax'/2}}
+    , {'let-syntax', #expander{val=fun ?MODULE:'analyze_let_syntax'/2}}
+    , {'let*-syntax', #expander{val=fun ?MODULE:'analyze_lets_syntax'/2}}
+    , {'letrec-syntax', #expander{val=fun ?MODULE:'analyze_letrec_syntax'/2}}
+    , {'letrec*-syntax', #expander{val=fun ?MODULE:'analyze_letrecs_syntax'/2}}
+    , {'syntax-rules', #expander{val=fun ?MODULE:'analyze_syntax_rules'/2}}
+    , {'syntax-error', #expander{val=fun ?MODULE:'analyze_syntax_error'/2}}
     ].
 
 %%%----------------------------------------------------------------------

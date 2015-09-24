@@ -30,32 +30,32 @@
 
 %% API
 -export(['vector?'/1
-         , 'make-vector'/1
-         , 'make-vector'/2
-         , 'vector'/1
-         , 'vector-length'/1
-         , 'vector-ref'/2
-         , 'vector-set!'/3
-         , 'vector->list'/1
-         , 'vector->list'/2
-         , 'vector->list'/3
-         , 'list->vector'/1
-         , 'vector->string'/1
-         , 'vector->string'/2
-         , 'vector->string'/3
-         , 'string->vector'/1
-         , 'string->vector'/2
-         , 'string->vector'/3
-         , 'vector-copy'/1
-         , 'vector-copy'/2
-         , 'vector-copy'/3
-         , 'vector-copy!'/3
-         , 'vector-copy!'/4
-         , 'vector-copy!'/5
-         , 'vector-append'/1
-         , 'vector-fill!'/2
-         , 'vector-fill!'/3
-         , 'vector-fill!'/4
+        , 'make-vector'/1
+        , 'make-vector'/2
+        , 'vector'/1
+        , 'vector-length'/1
+        , 'vector-ref'/2
+        , 'vector-set!'/3
+        , 'vector->list'/1
+        , 'vector->list'/2
+        , 'vector->list'/3
+        , 'list->vector'/1
+        , 'vector->string'/1
+        , 'vector->string'/2
+        , 'vector->string'/3
+        , 'string->vector'/1
+        , 'string->vector'/2
+        , 'string->vector'/3
+        , 'vector-copy'/1
+        , 'vector-copy'/2
+        , 'vector-copy'/3
+        , 'vector-copy!'/3
+        , 'vector-copy!'/4
+        , 'vector-copy!'/5
+        , 'vector-append'/1
+        , 'vector-fill!'/2
+        , 'vector-fill!'/3
+        , 'vector-fill!'/4
         ]).
 
 -include("scml.hrl").
@@ -71,19 +71,19 @@
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
     [{'vector?', #nipn{val=fun ?MODULE:'vector?'/1}}
-     , {'make-vector', #nipn{val=[fun ?MODULE:'make-vector'/1, fun ?MODULE:'make-vector'/2]}}
-     , {'vector', #nipv{val=fun ?MODULE:'vector'/1}}
-     , {'vector-length', #nipn{val=fun ?MODULE:'vector-length'/1}}
-     , {'vector-ref', #nipn{val=fun ?MODULE:'vector-ref'/2}}
-     , {'vector-set!', #nipn{val=fun ?MODULE:'vector-set!'/3}}
-     , {'vector->list', #nipn{val=[fun ?MODULE:'vector->list'/1, fun ?MODULE:'vector->list'/2, fun ?MODULE:'vector->list'/3]}}
-     , {'list->vector', #nipn{val=fun ?MODULE:'list->vector'/1}}
-     , {'vector->string', #nipn{val=[fun ?MODULE:'vector->string'/1, fun ?MODULE:'vector->string'/2, fun ?MODULE:'vector->string'/3]}}
-     , {'string->vector', #nipn{val=[fun ?MODULE:'string->vector'/1, fun ?MODULE:'string->vector'/2, fun ?MODULE:'string->vector'/3]}}
-     , {'vector-copy', #nipn{val=[fun ?MODULE:'vector-copy'/1, fun ?MODULE:'vector-copy'/2, fun ?MODULE:'vector-copy'/3]}}
-     , {'vector-copy!', #nipn{val=[fun ?MODULE:'vector-copy!'/3, fun ?MODULE:'vector-copy!'/4, fun ?MODULE:'vector-copy!'/5]}}
-     , {'vector-append', #nipv{val=fun ?MODULE:'vector-append'/1}}
-     , {'vector-fill!', #nipn{val=[fun ?MODULE:'vector-fill!'/2, fun ?MODULE:'vector-fill!'/3, fun ?MODULE:'vector-fill!'/4]}}
+    , {'make-vector', #nipn{val=[fun ?MODULE:'make-vector'/1, fun ?MODULE:'make-vector'/2]}}
+    , {'vector', #nipv{val=fun ?MODULE:'vector'/1}}
+    , {'vector-length', #nipn{val=fun ?MODULE:'vector-length'/1}}
+    , {'vector-ref', #nipn{val=fun ?MODULE:'vector-ref'/2}}
+    , {'vector-set!', #nipn{val=fun ?MODULE:'vector-set!'/3}}
+    , {'vector->list', #nipn{val=[fun ?MODULE:'vector->list'/1, fun ?MODULE:'vector->list'/2, fun ?MODULE:'vector->list'/3]}}
+    , {'list->vector', #nipn{val=fun ?MODULE:'list->vector'/1}}
+    , {'vector->string', #nipn{val=[fun ?MODULE:'vector->string'/1, fun ?MODULE:'vector->string'/2, fun ?MODULE:'vector->string'/3]}}
+    , {'string->vector', #nipn{val=[fun ?MODULE:'string->vector'/1, fun ?MODULE:'string->vector'/2, fun ?MODULE:'string->vector'/3]}}
+    , {'vector-copy', #nipn{val=[fun ?MODULE:'vector-copy'/1, fun ?MODULE:'vector-copy'/2, fun ?MODULE:'vector-copy'/3]}}
+    , {'vector-copy!', #nipn{val=[fun ?MODULE:'vector-copy!'/3, fun ?MODULE:'vector-copy!'/4, fun ?MODULE:'vector-copy!'/5]}}
+    , {'vector-append', #nipv{val=fun ?MODULE:'vector-append'/1}}
+    , {'vector-fill!', #nipn{val=[fun ?MODULE:'vector-fill!'/2, fun ?MODULE:'vector-fill!'/3, fun ?MODULE:'vector-fill!'/4]}}
     ].
 
 %%%===================================================================

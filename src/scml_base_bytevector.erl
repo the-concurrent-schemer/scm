@@ -30,25 +30,25 @@
 
 %% API
 -export(['bytevector?'/1
-         , 'make-bytevector'/1
-         , 'make-bytevector'/2
-         , 'bytevector'/1
-         , 'bytevector-length'/1
-         , 'bytevector-u8-ref'/2
-         , 'bytevector-u8-set!'/3
-         , 'bytevector-copy'/1
-         , 'bytevector-copy'/2
-         , 'bytevector-copy'/3
-         , 'bytevector-copy!'/3
-         , 'bytevector-copy!'/4
-         , 'bytevector-copy!'/5
-         , 'bytevector-append'/1
-         , 'utf8->string'/1
-         , 'utf8->string'/2
-         , 'utf8->string'/3
-         , 'string->utf8'/1
-         , 'string->utf8'/2
-         , 'string->utf8'/3
+        , 'make-bytevector'/1
+        , 'make-bytevector'/2
+        , 'bytevector'/1
+        , 'bytevector-length'/1
+        , 'bytevector-u8-ref'/2
+        , 'bytevector-u8-set!'/3
+        , 'bytevector-copy'/1
+        , 'bytevector-copy'/2
+        , 'bytevector-copy'/3
+        , 'bytevector-copy!'/3
+        , 'bytevector-copy!'/4
+        , 'bytevector-copy!'/5
+        , 'bytevector-append'/1
+        , 'utf8->string'/1
+        , 'utf8->string'/2
+        , 'utf8->string'/3
+        , 'string->utf8'/1
+        , 'string->utf8'/2
+        , 'string->utf8'/3
         ]).
 
 -include("scml.hrl").
@@ -64,16 +64,16 @@
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
     [{'bytevector?', #nipn{val=fun ?MODULE:'bytevector?'/1}}
-     , {'make-bytevector', #nipn{val=[fun ?MODULE:'make-bytevector'/1, fun ?MODULE:'make-bytevector'/2]}}
-     , {'bytevector', #nipn{val=fun ?MODULE:'bytevector'/1}}
-     , {'bytevector-length', #nipn{val=fun ?MODULE:'bytevector-length'/1}}
-     , {'bytevector-u8-ref', #nipn{val=fun ?MODULE:'bytevector-u8-ref'/2}}
-     , {'bytevector-u8-set!', #nipn{val=fun ?MODULE:'bytevector-u8-set!'/3}}
-     , {'bytevector-copy', #nipn{val=[fun ?MODULE:'bytevector-copy'/1, fun ?MODULE:'bytevector-copy'/2, fun ?MODULE:'bytevector-copy'/3]}}
-     , {'bytevector-copy!', #nipn{val=[fun ?MODULE:'bytevector-copy!'/3, fun ?MODULE:'bytevector-copy!'/4, fun ?MODULE:'bytevector-copy!'/5]}}
-     , {'bytevector-append', #nipv{val=fun ?MODULE:'bytevector-append'/1}}
-     , {'utf8->string', #nipn{val=[fun ?MODULE:'utf8->string'/1, fun ?MODULE:'utf8->string'/2, fun ?MODULE:'utf8->string'/3]}}
-     , {'string->utf8', #nipn{val=[fun ?MODULE:'string->utf8'/1, fun ?MODULE:'string->utf8'/2, fun ?MODULE:'string->utf8'/3]}}
+    , {'make-bytevector', #nipn{val=[fun ?MODULE:'make-bytevector'/1, fun ?MODULE:'make-bytevector'/2]}}
+    , {'bytevector', #nipn{val=fun ?MODULE:'bytevector'/1}}
+    , {'bytevector-length', #nipn{val=fun ?MODULE:'bytevector-length'/1}}
+    , {'bytevector-u8-ref', #nipn{val=fun ?MODULE:'bytevector-u8-ref'/2}}
+    , {'bytevector-u8-set!', #nipn{val=fun ?MODULE:'bytevector-u8-set!'/3}}
+    , {'bytevector-copy', #nipn{val=[fun ?MODULE:'bytevector-copy'/1, fun ?MODULE:'bytevector-copy'/2, fun ?MODULE:'bytevector-copy'/3]}}
+    , {'bytevector-copy!', #nipn{val=[fun ?MODULE:'bytevector-copy!'/3, fun ?MODULE:'bytevector-copy!'/4, fun ?MODULE:'bytevector-copy!'/5]}}
+    , {'bytevector-append', #nipv{val=fun ?MODULE:'bytevector-append'/1}}
+    , {'utf8->string', #nipn{val=[fun ?MODULE:'utf8->string'/1, fun ?MODULE:'utf8->string'/2, fun ?MODULE:'utf8->string'/3]}}
+    , {'string->utf8', #nipn{val=[fun ?MODULE:'string->utf8'/1, fun ?MODULE:'string->utf8'/2, fun ?MODULE:'string->utf8'/3]}}
     ].
 
 %%%===================================================================

@@ -30,65 +30,65 @@
 
 %% API
 -export(['call-with-port'/5
-         , 'input-port?'/1
-         , 'output-port?'/1
-         , 'textual-port?'/1
-         , 'binary-port?'/1
-         , 'port?'/1
-         , 'input-port-open?'/1
-         , 'output-port-open?'/1
-         , 'current-input-port'/0, 'current-input-port'/1, 'current-input-port'/2
-         , 'current-output-port'/0, 'current-output-port'/1, 'current-output-port'/2
-         , 'current-error-port'/0, 'current-error-port'/1, 'current-error-port'/2
-         , 'close-port'/1
-         , 'close-input-port'/1
-         , 'close-output-port'/1
-         , 'open-input-string'/1
-         , 'open-output-string'/0
-         , 'get-output-string'/1
-         , 'open-input-bytevector'/1
-         , 'open-output-bytevector'/0
-         , 'get-output-bytevector'/1
-         , 'read-char'/0
-         , 'read-char'/1
-         , 'peek-char'/0
-         , 'peek-char'/1
-         , 'read-line'/0
-         , 'read-line'/1
-         , 'eof-object?'/1
-         , 'eof-object'/0
-         , 'char-ready?'/0
-         , 'char-ready?'/1
-         , 'read-string'/1
-         , 'read-string'/2
-         , 'read-u8'/0
-         , 'read-u8'/1
-         , 'peek-u8'/0
-         , 'peek-u8'/1
-         , 'u8-ready?'/0
-         , 'u8-ready?'/1
-         , 'read-bytevector'/1
-         , 'read-bytevector'/2
-         , 'read-bytevector!'/1
-         , 'read-bytevector!'/2
-         , 'read-bytevector!'/3
-         , 'read-bytevector!'/4
-         , 'newline'/0
-         , 'newline'/1
-         , 'write-char'/1
-         , 'write-char'/2
-         , 'write-string'/1
-         , 'write-string'/2
-         , 'write-string'/3
-         , 'write-string'/4
-         , 'write-u8'/1
-         , 'write-u8'/2
-         , 'write-bytevector'/1
-         , 'write-bytevector'/2
-         , 'write-bytevector'/3
-         , 'write-bytevector'/4
-         , 'flush-output-port'/0
-         , 'flush-output-port'/1
+        , 'input-port?'/1
+        , 'output-port?'/1
+        , 'textual-port?'/1
+        , 'binary-port?'/1
+        , 'port?'/1
+        , 'input-port-open?'/1
+        , 'output-port-open?'/1
+        , 'current-input-port'/0, 'current-input-port'/1, 'current-input-port'/2
+        , 'current-output-port'/0, 'current-output-port'/1, 'current-output-port'/2
+        , 'current-error-port'/0, 'current-error-port'/1, 'current-error-port'/2
+        , 'close-port'/1
+        , 'close-input-port'/1
+        , 'close-output-port'/1
+        , 'open-input-string'/1
+        , 'open-output-string'/0
+        , 'get-output-string'/1
+        , 'open-input-bytevector'/1
+        , 'open-output-bytevector'/0
+        , 'get-output-bytevector'/1
+        , 'read-char'/0
+        , 'read-char'/1
+        , 'peek-char'/0
+        , 'peek-char'/1
+        , 'read-line'/0
+        , 'read-line'/1
+        , 'eof-object?'/1
+        , 'eof-object'/0
+        , 'char-ready?'/0
+        , 'char-ready?'/1
+        , 'read-string'/1
+        , 'read-string'/2
+        , 'read-u8'/0
+        , 'read-u8'/1
+        , 'peek-u8'/0
+        , 'peek-u8'/1
+        , 'u8-ready?'/0
+        , 'u8-ready?'/1
+        , 'read-bytevector'/1
+        , 'read-bytevector'/2
+        , 'read-bytevector!'/1
+        , 'read-bytevector!'/2
+        , 'read-bytevector!'/3
+        , 'read-bytevector!'/4
+        , 'newline'/0
+        , 'newline'/1
+        , 'write-char'/1
+        , 'write-char'/2
+        , 'write-string'/1
+        , 'write-string'/2
+        , 'write-string'/3
+        , 'write-string'/4
+        , 'write-u8'/1
+        , 'write-u8'/2
+        , 'write-bytevector'/1
+        , 'write-bytevector'/2
+        , 'write-bytevector'/3
+        , 'write-bytevector'/4
+        , 'flush-output-port'/0
+        , 'flush-output-port'/1
         ]).
 
 -import(scmi_analyze_primitive, [apply/5]).
@@ -105,45 +105,45 @@
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
     [{'call-with-port', #xnipn{val=fun ?MODULE:'call-with-port'/5}}
-     , {'input-port?', #nipn{val=fun ?MODULE:'input-port?'/1}}
-     , {'output-port?', #nipn{val=fun ?MODULE:'output-port?'/1}}
-     , {'textual-port?', #nipn{val=fun ?MODULE:'textual-port?'/1}}
-     , {'binary-port?', #nipn{val=fun ?MODULE:'binary-port?'/1}}
-     , {'port?', #nipn{val=fun ?MODULE:'port?'/1}}
-     , {'input-port-open?', #nipn{val=fun ?MODULE:'input-port-open?'/1}}
-     , {'output-port-open?', #nipn{val=fun ?MODULE:'output-port-open?'/1}}
-     , {'current-input-port', #nipn{val=[fun ?MODULE:'current-input-port'/0, fun ?MODULE:'current-input-port'/1, fun ?MODULE:'current-input-port'/2]}}
-     , {'current-output-port', #nipn{val=[fun ?MODULE:'current-output-port'/0, fun ?MODULE:'current-output-port'/1, fun ?MODULE:'current-output-port'/2]}}
-     , {'current-error-port', #nipn{val=[fun ?MODULE:'current-error-port'/0, fun ?MODULE:'current-error-port'/1, fun ?MODULE:'current-error-port'/2]}}
-     , {'close-port', #nipn{val=fun ?MODULE:'close-port'/1}}
-     , {'close-input-port', #nipn{val=fun ?MODULE:'close-input-port'/1}}
-     , {'close-output-port', #nipn{val=fun ?MODULE:'close-output-port'/1}}
-     , {'open-input-string', #nipn{val=fun ?MODULE:'open-input-string'/1}}
-     , {'open-output-string', #nip0{val=fun ?MODULE:'open-output-string'/0}}
-     , {'get-output-string', #nipn{val=fun ?MODULE:'get-output-string'/1}}
-     , {'open-input-bytevector', #nipn{val=fun ?MODULE:'open-input-bytevector'/1}}
-     , {'open-output-bytevector', #nip0{val=fun ?MODULE:'open-output-bytevector'/0}}
-     , {'get-output-bytevector', #nipn{val=fun ?MODULE:'get-output-bytevector'/1}}
-     , {'read-char', #nipn{val=[fun ?MODULE:'read-char'/0, fun ?MODULE:'read-char'/1]}}
-     , {'peek-char', #nipn{val=[fun ?MODULE:'peek-char'/0, fun ?MODULE:'peek-char'/1]}}
-     , {'read-line', #nipn{val=[fun ?MODULE:'read-line'/0, fun ?MODULE:'read-line'/1]}}
-     , {'eof-object?', #nipn{val=fun ?MODULE:'eof-object?'/1}}
-     , {'eof-object', #nip0{val=fun ?MODULE:'eof-object'/0}}
-     , {'char-ready?', #nipn{val=[fun ?MODULE:'char-ready?'/0, fun ?MODULE:'char-ready?'/1]}}
-     , {'read-string', #nipn{val=[fun ?MODULE:'read-string'/1, fun ?MODULE:'read-string'/2]}}
-     , {'read-u8', #nipn{val=[fun ?MODULE:'read-u8'/0, fun ?MODULE:'read-u8'/1]}}
-     , {'peek-u8', #nipn{val=[fun ?MODULE:'peek-u8'/0, fun ?MODULE:'peek-u8'/1]}}
-     , {'u8-ready?', #nipn{val=[fun ?MODULE:'u8-ready?'/0, fun ?MODULE:'u8-ready?'/1]}}
-     , {'read-bytevector', #nipn{val=[fun ?MODULE:'read-bytevector'/1, fun ?MODULE:'read-bytevector'/2]}}
-     , {'read-bytevector!', #nipn{val=[fun ?MODULE:'read-bytevector!'/1, fun ?MODULE:'read-bytevector!'/2, fun ?MODULE:'read-bytevector!'/3, fun ?MODULE:'read-bytevector!'/4]}}
-     , {'newline', #nipn{val=[fun ?MODULE:'newline'/0, fun ?MODULE:'newline'/1]}}
+    , {'input-port?', #nipn{val=fun ?MODULE:'input-port?'/1}}
+    , {'output-port?', #nipn{val=fun ?MODULE:'output-port?'/1}}
+    , {'textual-port?', #nipn{val=fun ?MODULE:'textual-port?'/1}}
+    , {'binary-port?', #nipn{val=fun ?MODULE:'binary-port?'/1}}
+    , {'port?', #nipn{val=fun ?MODULE:'port?'/1}}
+    , {'input-port-open?', #nipn{val=fun ?MODULE:'input-port-open?'/1}}
+    , {'output-port-open?', #nipn{val=fun ?MODULE:'output-port-open?'/1}}
+    , {'current-input-port', #nipn{val=[fun ?MODULE:'current-input-port'/0, fun ?MODULE:'current-input-port'/1, fun ?MODULE:'current-input-port'/2]}}
+    , {'current-output-port', #nipn{val=[fun ?MODULE:'current-output-port'/0, fun ?MODULE:'current-output-port'/1, fun ?MODULE:'current-output-port'/2]}}
+    , {'current-error-port', #nipn{val=[fun ?MODULE:'current-error-port'/0, fun ?MODULE:'current-error-port'/1, fun ?MODULE:'current-error-port'/2]}}
+    , {'close-port', #nipn{val=fun ?MODULE:'close-port'/1}}
+    , {'close-input-port', #nipn{val=fun ?MODULE:'close-input-port'/1}}
+    , {'close-output-port', #nipn{val=fun ?MODULE:'close-output-port'/1}}
+    , {'open-input-string', #nipn{val=fun ?MODULE:'open-input-string'/1}}
+    , {'open-output-string', #nip0{val=fun ?MODULE:'open-output-string'/0}}
+    , {'get-output-string', #nipn{val=fun ?MODULE:'get-output-string'/1}}
+    , {'open-input-bytevector', #nipn{val=fun ?MODULE:'open-input-bytevector'/1}}
+    , {'open-output-bytevector', #nip0{val=fun ?MODULE:'open-output-bytevector'/0}}
+    , {'get-output-bytevector', #nipn{val=fun ?MODULE:'get-output-bytevector'/1}}
+    , {'read-char', #nipn{val=[fun ?MODULE:'read-char'/0, fun ?MODULE:'read-char'/1]}}
+    , {'peek-char', #nipn{val=[fun ?MODULE:'peek-char'/0, fun ?MODULE:'peek-char'/1]}}
+    , {'read-line', #nipn{val=[fun ?MODULE:'read-line'/0, fun ?MODULE:'read-line'/1]}}
+    , {'eof-object?', #nipn{val=fun ?MODULE:'eof-object?'/1}}
+    , {'eof-object', #nip0{val=fun ?MODULE:'eof-object'/0}}
+    , {'char-ready?', #nipn{val=[fun ?MODULE:'char-ready?'/0, fun ?MODULE:'char-ready?'/1]}}
+    , {'read-string', #nipn{val=[fun ?MODULE:'read-string'/1, fun ?MODULE:'read-string'/2]}}
+    , {'read-u8', #nipn{val=[fun ?MODULE:'read-u8'/0, fun ?MODULE:'read-u8'/1]}}
+    , {'peek-u8', #nipn{val=[fun ?MODULE:'peek-u8'/0, fun ?MODULE:'peek-u8'/1]}}
+    , {'u8-ready?', #nipn{val=[fun ?MODULE:'u8-ready?'/0, fun ?MODULE:'u8-ready?'/1]}}
+    , {'read-bytevector', #nipn{val=[fun ?MODULE:'read-bytevector'/1, fun ?MODULE:'read-bytevector'/2]}}
+    , {'read-bytevector!', #nipn{val=[fun ?MODULE:'read-bytevector!'/1, fun ?MODULE:'read-bytevector!'/2, fun ?MODULE:'read-bytevector!'/3, fun ?MODULE:'read-bytevector!'/4]}}
+    , {'newline', #nipn{val=[fun ?MODULE:'newline'/0, fun ?MODULE:'newline'/1]}}
 
-     , {'write-char', #nipn{val=[fun ?MODULE:'write-char'/1, fun ?MODULE:'write-char'/2]}}
+    , {'write-char', #nipn{val=[fun ?MODULE:'write-char'/1, fun ?MODULE:'write-char'/2]}}
 
-     , {'write-string', #nipn{val=[fun ?MODULE:'write-string'/1, fun ?MODULE:'write-string'/2, fun ?MODULE:'write-string'/3, fun ?MODULE:'write-string'/4]}}
-     , {'write-u8', #nipn{val=[fun ?MODULE:'write-u8'/1, fun ?MODULE:'write-u8'/2]}}
-     , {'write-bytevector', #nipn{val=[fun ?MODULE:'write-bytevector'/1, fun ?MODULE:'write-bytevector'/2, fun ?MODULE:'write-bytevector'/3, fun ?MODULE:'write-bytevector'/4]}}
-     , {'flush-output-port', #nipn{val=[fun ?MODULE:'flush-output-port'/0, fun ?MODULE:'flush-output-port'/1]}}
+    , {'write-string', #nipn{val=[fun ?MODULE:'write-string'/1, fun ?MODULE:'write-string'/2, fun ?MODULE:'write-string'/3, fun ?MODULE:'write-string'/4]}}
+    , {'write-u8', #nipn{val=[fun ?MODULE:'write-u8'/1, fun ?MODULE:'write-u8'/2]}}
+    , {'write-bytevector', #nipn{val=[fun ?MODULE:'write-bytevector'/1, fun ?MODULE:'write-bytevector'/2, fun ?MODULE:'write-bytevector'/3, fun ?MODULE:'write-bytevector'/4]}}
+    , {'flush-output-port', #nipn{val=[fun ?MODULE:'flush-output-port'/0, fun ?MODULE:'flush-output-port'/1]}}
     ].
 
 %%%===================================================================

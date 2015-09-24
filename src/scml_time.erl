@@ -30,8 +30,8 @@
 
 %% API
 -export(['current-second'/0
-         , 'current-jiffy'/0
-         , 'jiffies-per-second'/0
+        , 'current-jiffy'/0
+        , 'jiffies-per-second'/0
         ]).
 
 -include("scml.hrl").
@@ -47,8 +47,8 @@
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
     [{'current-second', #nip0{val=fun ?MODULE:'current-second'/0}}
-     , {'current-jiffy', #nip0{val=fun ?MODULE:'current-jiffy'/0}}
-     , {'jiffies-per-second', #nip0{val=fun ?MODULE:'jiffies-per-second'/0}}
+    , {'current-jiffy', #nip0{val=fun ?MODULE:'current-jiffy'/0}}
+    , {'jiffies-per-second', #nip0{val=fun ?MODULE:'jiffies-per-second'/0}}
     ].
 
 %%%===================================================================

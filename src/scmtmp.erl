@@ -29,12 +29,12 @@
 
 %% External exports
 -export(['exact'/2
-         , 'inexact'/2
-         , 'make-rational'/2
-         , 'make-rational'/3
-         , 'make-real'/2
-         , 'make-polar'/3
-         , 'make-rectangular'/3
+        , 'inexact'/2
+        , 'make-rational'/2
+        , 'make-rational'/3
+        , 'make-real'/2
+        , 'make-polar'/3
+        , 'make-rectangular'/3
         ]).
 
 -include("scml.hrl").

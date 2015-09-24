@@ -29,22 +29,22 @@
 %% External exports
 -export([%% client
          start/2
-         , getopts/1, getopts/2
-         , close/1, close/2
-         , is_ready/1
-         , read/2
-         , read_all/1
-         , read_line/1
-         , peek/2
-         , write/2
-         , flush/1
+        , getopts/1, getopts/2
+        , close/1, close/2
+        , is_ready/1
+        , read/2
+        , read_all/1
+        , read_line/1
+        , peek/2
+        , write/2
+        , flush/1
          %% server
-         , init/1
-         , handle_call/3
-         , handle_cast/2
-         , handle_info/2
-         , terminate/2
-         , code_change/3
+        , init/1
+        , handle_call/3
+        , handle_cast/2
+        , handle_info/2
+        , terminate/2
+        , code_change/3
         ]).
 
 %% External types

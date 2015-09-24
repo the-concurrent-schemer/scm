@@ -57,7 +57,7 @@ features() ->
      %% , 'exact-closed'  @TODO v0.7.0
      %% , 'exact-complex' @TODO v0.7.0
      %% , 'ieee-float'    @TODO v0.7.0
-     , 'full-unicode'
+    , 'full-unicode'
      %% , 'ratios'        @TODO v0.7.0
     ]
         ++ [ 'posix' || has_posix() ]

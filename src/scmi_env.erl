@@ -27,16 +27,16 @@
 
 %% External exports
 -export([notify_when_destroyed/2
-         , notify_when_destroyed/3
-         , is_resource/1
-         , the_empty/0
-         , extend/3
-         , make_immutable/1
-         , is_immutable/1
-         , lookup_variable/2
-         , safe_lookup_variable/2
-         , set_variable/3
-         , define_variable/3
+        , notify_when_destroyed/3
+        , is_resource/1
+        , the_empty/0
+        , extend/3
+        , make_immutable/1
+        , is_immutable/1
+        , lookup_variable/2
+        , safe_lookup_variable/2
+        , set_variable/3
+        , define_variable/3
         , import_identifiers/2
         ]).
 
@@ -44,8 +44,8 @@
 
 %% External types
 -export_type([var/0
-              , val/0
-              , env/0
+             , val/0
+             , env/0
              ]).
 
 -include("scmi.hrl").

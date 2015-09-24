@@ -30,17 +30,17 @@
 
 %% API
 -export(['finite?'/1
-         , 'infinite?'/1
-         , 'nan?'/1
-         , 'exp'/1
-         , 'log'/1, 'log'/2
-         , 'sin'/1
-         , 'cos'/1
-         , 'tan'/1
-         , 'asin'/1
-         , 'acos'/1
-         , 'atan'/1, 'atan'/2
-         , 'sqrt'/1
+        , 'infinite?'/1
+        , 'nan?'/1
+        , 'exp'/1
+        , 'log'/1, 'log'/2
+        , 'sin'/1
+        , 'cos'/1
+        , 'tan'/1
+        , 'asin'/1
+        , 'acos'/1
+        , 'atan'/1, 'atan'/2
+        , 'sqrt'/1
         ]).
 
 -include("scml.hrl").
@@ -56,17 +56,17 @@
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
     [{'finite?', #nipn{val=fun ?MODULE:'finite?'/1}}
-     , {'infinite?', #nipn{val=fun ?MODULE:'infinite?'/1}}
-     , {'nan?', #nipn{val=fun ?MODULE:'nan?'/1}}
-     , {'exp', #nipn{val=fun ?MODULE:'exp'/1}}
-     , {'log', #nipn{val=[fun ?MODULE:'log'/1, fun ?MODULE:'log'/2]}}
-     , {'sin', #nipn{val=fun ?MODULE:'sin'/1}}
-     , {'cos', #nipn{val=fun ?MODULE:'cos'/1}}
-     , {'tan', #nipn{val=fun ?MODULE:'tan'/1}}
-     , {'asin', #nipn{val=fun ?MODULE:'asin'/1}}
-     , {'acos', #nipn{val=fun ?MODULE:'acos'/1}}
-     , {'atan', #nipn{val=[fun ?MODULE:'atan'/1, fun ?MODULE:'atan'/2]}}
-     , {'sqrt', #nipn{val=fun ?MODULE:'sqrt'/1}}
+    , {'infinite?', #nipn{val=fun ?MODULE:'infinite?'/1}}
+    , {'nan?', #nipn{val=fun ?MODULE:'nan?'/1}}
+    , {'exp', #nipn{val=fun ?MODULE:'exp'/1}}
+    , {'log', #nipn{val=[fun ?MODULE:'log'/1, fun ?MODULE:'log'/2]}}
+    , {'sin', #nipn{val=fun ?MODULE:'sin'/1}}
+    , {'cos', #nipn{val=fun ?MODULE:'cos'/1}}
+    , {'tan', #nipn{val=fun ?MODULE:'tan'/1}}
+    , {'asin', #nipn{val=fun ?MODULE:'asin'/1}}
+    , {'acos', #nipn{val=fun ?MODULE:'acos'/1}}
+    , {'atan', #nipn{val=[fun ?MODULE:'atan'/1, fun ?MODULE:'atan'/2]}}
+    , {'sqrt', #nipn{val=fun ?MODULE:'sqrt'/1}}
     ].
 
 %%%===================================================================

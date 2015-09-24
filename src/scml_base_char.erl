@@ -30,13 +30,13 @@
 
 %% API
 -export(['char?'/1
-         , 'char=?'/1
-         , 'char<?'/1
-         , 'char>?'/1
-         , 'char<=?'/1
-         , 'char>=?'/1
-         , 'char->integer'/1
-         , 'integer->char'/1
+        , 'char=?'/1
+        , 'char<?'/1
+        , 'char>?'/1
+        , 'char<=?'/1
+        , 'char>=?'/1
+        , 'char->integer'/1
+        , 'integer->char'/1
         ]).
 
 -include("scml.hrl").
@@ -52,13 +52,13 @@
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
     [{'char?', #nipn{val=fun ?MODULE:'char?'/1}}
-     , {'char=?', #nipv{val=fun ?MODULE:'char=?'/1}}
-     , {'char<?', #nipv{val=fun ?MODULE:'char<?'/1}}
-     , {'char>?', #nipv{val=fun ?MODULE:'char>?'/1}}
-     , {'char<=?', #nipv{val=fun ?MODULE:'char<=?'/1}}
-     , {'char>=?', #nipv{val=fun ?MODULE:'char>=?'/1}}
-     , {'char->integer', #nipn{val=fun ?MODULE:'char->integer'/1}}
-     , {'integer->char', #nipn{val=fun ?MODULE:'integer->char'/1}}
+    , {'char=?', #nipv{val=fun ?MODULE:'char=?'/1}}
+    , {'char<?', #nipv{val=fun ?MODULE:'char<?'/1}}
+    , {'char>?', #nipv{val=fun ?MODULE:'char>?'/1}}
+    , {'char<=?', #nipv{val=fun ?MODULE:'char<=?'/1}}
+    , {'char>=?', #nipv{val=fun ?MODULE:'char>=?'/1}}
+    , {'char->integer', #nipn{val=fun ?MODULE:'char->integer'/1}}
+    , {'integer->char', #nipn{val=fun ?MODULE:'integer->char'/1}}
     ].
 
 %%%===================================================================

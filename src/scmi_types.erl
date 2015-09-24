@@ -28,47 +28,47 @@
 -export_type([exp/0]).
 
 -export_type([sexec/0
-              , senv/0]).
+             , senv/0]).
 
 -export_type([expander/0]).
 
 -export_type([dexec/0
-              , denv/0
-              , dok/0
-              , dng/0]).
+             , denv/0
+             , dok/0
+             , dng/0]).
 
 -export_type([arg/0
-              , vargs/0
-              , var/0
-              , thunk/0
-              , proc/0
-              , f0/0
-              , f/0
-              , nip0/0
-              , nipn/0
-              , nipv/0
-              , nipnv/0
-              , nip/0
-              , xf0/0
-              , xf/0
-              , xnip0/0
-              , xnipn/0
-              , xnipv/0
-              , xnipnv/0
-              , xnip/0
-              , l0/0
-              , l/0
-              , lip0/0
-              , lipn/0
-              , lipv/0
-              , lipnv/0
-              , lip/0
-              , exception/0
-              , error/0
+             , vargs/0
+             , var/0
+             , thunk/0
+             , proc/0
+             , f0/0
+             , f/0
+             , nip0/0
+             , nipn/0
+             , nipv/0
+             , nipnv/0
+             , nip/0
+             , xf0/0
+             , xf/0
+             , xnip0/0
+             , xnipn/0
+             , xnipv/0
+             , xnipnv/0
+             , xnip/0
+             , l0/0
+             , l/0
+             , lip0/0
+             , lipn/0
+             , lipv/0
+             , lipnv/0
+             , lip/0
+             , exception/0
+             , error/0
              ]).
 
 -export_type([iodev/0
-              , eof/0
+             , eof/0
              ]).
 
 -include("scmi_types.hrl").

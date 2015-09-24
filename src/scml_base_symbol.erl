@@ -30,9 +30,9 @@
 
 %% API
 -export(['symbol?'/1
-         , 'symbol=?'/1
-         , 'symbol->string'/1
-         , 'string->symbol'/1
+        , 'symbol=?'/1
+        , 'symbol->string'/1
+        , 'string->symbol'/1
         ]).
 
 %% Internal API
@@ -51,9 +51,9 @@
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
     [{'symbol?', #nipn{val=fun ?MODULE:'symbol?'/1}}
-     , {'symbol=?', #nipv{val=fun ?MODULE:'symbol=?'/1}}
-     , {'symbol->string', #nipn{val=fun ?MODULE:'symbol->string'/1}}
-     , {'string->symbol', #nipn{val=fun ?MODULE:'string->symbol'/1}}
+    , {'symbol=?', #nipv{val=fun ?MODULE:'symbol=?'/1}}
+    , {'symbol->string', #nipn{val=fun ?MODULE:'symbol->string'/1}}
+    , {'string->symbol', #nipn{val=fun ?MODULE:'string->symbol'/1}}
     ].
 
 %%%===================================================================

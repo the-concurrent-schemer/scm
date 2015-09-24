@@ -30,8 +30,8 @@
 
 %% API
 -export(['not'/1
-         , 'boolean?'/1
-         , 'boolean=?'/1
+        , 'boolean?'/1
+        , 'boolean=?'/1
         ]).
 
 -include("scml.hrl").
@@ -47,8 +47,8 @@
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
     [{'not', #nipn{val=fun ?MODULE:'not'/1}}
-     , {'boolean?', #nipn{val=fun ?MODULE:'boolean?'/1}}
-     , {'boolean=?', #nipv{val=fun ?MODULE:'boolean=?'/1}}
+    , {'boolean?', #nipn{val=fun ?MODULE:'boolean?'/1}}
+    , {'boolean=?', #nipv{val=fun ?MODULE:'boolean=?'/1}}
     ].
 
 %%%===================================================================

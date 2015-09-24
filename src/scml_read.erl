@@ -30,7 +30,7 @@
 
 %% API
 -export(['read'/0
-         , 'read'/1
+        , 'read'/1
         ]).
 
 -include("scml.hrl").

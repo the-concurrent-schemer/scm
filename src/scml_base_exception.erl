@@ -30,14 +30,14 @@
 
 %% API
 -export(['with-exception-handler'/5
-         , 'raise'/4
-         , 'raise-continuable'/4
-         , 'error'/4
-         , 'error-object?'/1
-         , 'error-object-message'/1
-         , 'error-object-irritants'/1
-         , 'read-error?'/1
-         , 'file-error?'/1
+        , 'raise'/4
+        , 'raise-continuable'/4
+        , 'error'/4
+        , 'error-object?'/1
+        , 'error-object-message'/1
+        , 'error-object-irritants'/1
+        , 'read-error?'/1
+        , 'file-error?'/1
         ]).
 
 -import(scmi_analyze_primitive, [apply/5]).
@@ -54,14 +54,14 @@
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
     [{'with-exception-handler', #xnipn{val=fun ?MODULE:'with-exception-handler'/5}}
-     , {'raise', #xnipn{val=fun ?MODULE:'raise'/4}}
-     , {'raise-continuable', #xnipn{val=fun ?MODULE:'raise-continuable'/4}}
-     , {'error', #xnipv{val=fun ?MODULE:'error'/4}}
-     , {'error-object?', #nipn{val=fun ?MODULE:'error-object?'/1}}
-     , {'error-object-message', #nipn{val=fun ?MODULE:'error-object-message'/1}}
-     , {'error-object-irritants', #nipn{val=fun ?MODULE:'error-object-irritants'/1}}
-     , {'read-error?', #nipn{val=fun ?MODULE:'read-error?'/1}}
-     , {'file-error?', #nipn{val=fun ?MODULE:'file-error?'/1}}
+    , {'raise', #xnipn{val=fun ?MODULE:'raise'/4}}
+    , {'raise-continuable', #xnipn{val=fun ?MODULE:'raise-continuable'/4}}
+    , {'error', #xnipv{val=fun ?MODULE:'error'/4}}
+    , {'error-object?', #nipn{val=fun ?MODULE:'error-object?'/1}}
+    , {'error-object-message', #nipn{val=fun ?MODULE:'error-object-message'/1}}
+    , {'error-object-irritants', #nipn{val=fun ?MODULE:'error-object-irritants'/1}}
+    , {'read-error?', #nipn{val=fun ?MODULE:'read-error?'/1}}
+    , {'file-error?', #nipn{val=fun ?MODULE:'file-error?'/1}}
     ].
 
 %%%===================================================================

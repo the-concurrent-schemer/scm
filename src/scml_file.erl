@@ -30,16 +30,16 @@
 
 %% API
 -export(['call-with-input-file'/2
-         , 'call-with-output-file'/2
-         , 'with-input-from-file'/2
-         , 'with-output-to-file'/2
-         , 'open-input-file'/1
-         , 'open-binary-input-file'/1
-         , 'open-output-file'/1
-         , 'open-binary-output-file'/1
+        , 'call-with-output-file'/2
+        , 'with-input-from-file'/2
+        , 'with-output-to-file'/2
+        , 'open-input-file'/1
+        , 'open-binary-input-file'/1
+        , 'open-output-file'/1
+        , 'open-binary-output-file'/1
 
-         , 'file-exists?'/1
-         , 'delete-file'/1
+        , 'file-exists?'/1
+        , 'delete-file'/1
         ]).
 
 -include("scml.hrl").
@@ -55,15 +55,15 @@
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
     [{'call-with-input-file', #nipn{val=fun ?MODULE:'call-with-input-file'/2}}
-     , {'call-with-output-file', #nipn{val=fun ?MODULE:'call-with-output-file'/2}}
-     , {'with-input-from-file', #nipn{val=fun ?MODULE:'with-input-from-file'/2}}
-     , {'with-output-to-file', #nipn{val=fun ?MODULE:'with-output-to-file'/2}}
-     , {'open-input-file', #nipn{val=fun ?MODULE:'open-input-file'/1}}
-     , {'open-binary-input-file', #nipn{val=fun ?MODULE:'open-binary-input-file'/1}}
-     , {'open-output-file', #nipn{val=fun ?MODULE:'open-output-file'/1}}
-     , {'open-binary-output-file', #nipn{val=fun ?MODULE:'open-binary-output-file'/1}}
-     , {'file-exists?', #nipn{val=fun ?MODULE:'file-exists?'/1}}
-     , {'delete-file', #nipn{val=fun ?MODULE:'delete-file'/1}}
+    , {'call-with-output-file', #nipn{val=fun ?MODULE:'call-with-output-file'/2}}
+    , {'with-input-from-file', #nipn{val=fun ?MODULE:'with-input-from-file'/2}}
+    , {'with-output-to-file', #nipn{val=fun ?MODULE:'with-output-to-file'/2}}
+    , {'open-input-file', #nipn{val=fun ?MODULE:'open-input-file'/1}}
+    , {'open-binary-input-file', #nipn{val=fun ?MODULE:'open-binary-input-file'/1}}
+    , {'open-output-file', #nipn{val=fun ?MODULE:'open-output-file'/1}}
+    , {'open-binary-output-file', #nipn{val=fun ?MODULE:'open-binary-output-file'/1}}
+    , {'file-exists?', #nipn{val=fun ?MODULE:'file-exists?'/1}}
+    , {'delete-file', #nipn{val=fun ?MODULE:'delete-file'/1}}
     ].
 
 %%%===================================================================

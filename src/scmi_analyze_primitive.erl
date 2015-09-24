@@ -30,15 +30,15 @@
 
 %% External exports
 -export([analyze_quote/2
-         , analyze_lambda/2
-         , analyze_sequence/2
-         , analyze_application/2, analyze_proc_application/3, apply/5
-         , analyze_if/2
-         , analyze_assignment/2
-         , analyze_include/2
-         , analyze_include_ci/2
-         , analyze_include_lib/2
-         , analyze_include_lib_ci/2
+        , analyze_lambda/2
+        , analyze_sequence/2
+        , analyze_application/2, analyze_proc_application/3, apply/5
+        , analyze_if/2
+        , analyze_assignment/2
+        , analyze_include/2
+        , analyze_include_ci/2
+        , analyze_include_lib/2
+        , analyze_include_lib_ci/2
         ]).
 
 %% Internal imports
@@ -58,13 +58,13 @@
 -spec '$scmi_exports'() -> [{scm_symbol(), scmi_expander()}].
 '$scmi_exports'() ->
     [{'quote', #expander{val=fun ?MODULE:'analyze_quote'/2}}
-     , {'lambda', #expander{val=fun ?MODULE:'analyze_lambda'/2}}
-     , {'if', #expander{val=fun ?MODULE:'analyze_if'/2}}
-     , {'set!', #expander{val=fun ?MODULE:'analyze_assignment'/2}}
-     , {'include', #expander{val=fun ?MODULE:'analyze_include'/2}}
-     , {'include-ci', #expander{val=fun ?MODULE:'analyze_include_ci'/2}}
-     , {'include-lib', #expander{val=fun ?MODULE:'analyze_include_lib'/2}}
-     , {'include-lib-ci', #expander{val=fun ?MODULE:'analyze_include_lib_ci'/2}}
+    , {'lambda', #expander{val=fun ?MODULE:'analyze_lambda'/2}}
+    , {'if', #expander{val=fun ?MODULE:'analyze_if'/2}}
+    , {'set!', #expander{val=fun ?MODULE:'analyze_assignment'/2}}
+    , {'include', #expander{val=fun ?MODULE:'analyze_include'/2}}
+    , {'include-ci', #expander{val=fun ?MODULE:'analyze_include_ci'/2}}
+    , {'include-lib', #expander{val=fun ?MODULE:'analyze_include_lib'/2}}
+    , {'include-lib-ci', #expander{val=fun ?MODULE:'analyze_include_lib_ci'/2}}
     ].
 
 %%%----------------------------------------------------------------------

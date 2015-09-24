@@ -30,7 +30,7 @@
 
 %% API
 -export(['load'/1
-         , 'load'/2
+        , 'load'/2
         ]).
 
 -include("scml.hrl").

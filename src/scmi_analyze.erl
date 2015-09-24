@@ -27,17 +27,17 @@
 
 %% External exports
 -export([the_default/0
-         , analyze/1
-         , analyze/2
-         , classify/1
-         , is_reserved_symbol/1
-         , are_valid_variables/1
-         , is_valid_variable/1
-         , validate_variables/1
-         , validate_variable/1
-         , flatten_variables/1
-         , make_tmp_variables/1
-         , splitnv_arguments/2
+        , analyze/1
+        , analyze/2
+        , classify/1
+        , is_reserved_symbol/1
+        , are_valid_variables/1
+        , is_valid_variable/1
+        , validate_variables/1
+        , validate_variable/1
+        , flatten_variables/1
+        , make_tmp_variables/1
+        , splitnv_arguments/2
         ]).
 
 %% External types

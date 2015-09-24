@@ -27,15 +27,15 @@
 
 %% External exports
 -export([eval/1
-         , eval/2
-         , eval/3
-         , eval/4
-         , exec/1
-         , exec/2
-         , exec/3
-         , exec/4
-         , default_ok/2
-         , default_ng/1
+        , eval/2
+        , eval/3
+        , eval/4
+        , exec/1
+        , exec/2
+        , exec/3
+        , exec/4
+        , default_ok/2
+        , default_ng/1
         ]).
 
 -include("scmi.hrl").

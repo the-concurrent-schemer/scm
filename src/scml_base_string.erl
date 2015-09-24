@@ -30,32 +30,32 @@
 
 %% API
 -export(['string?'/1
-         , 'make-string'/1
-         , 'make-string'/2
-         , 'string'/1
-         , 'string-length'/1
-         , 'string-ref'/2
-         , 'string-set!'/3
-         , 'string=?'/1
-         , 'string<?'/1
-         , 'string>?'/1
-         , 'string<=?'/1
-         , 'string>=?'/1
-         , 'substring'/3
-         , 'string-append'/1
-         , 'string->list'/1
-         , 'string->list'/2
-         , 'string->list'/3
-         , 'list->string'/1
-         , 'string-copy'/1
-         , 'string-copy'/2
-         , 'string-copy'/3
-         , 'string-copy!'/3
-         , 'string-copy!'/4
-         , 'string-copy!'/5
-         , 'string-fill!'/2
-         , 'string-fill!'/3
-         , 'string-fill!'/4
+        , 'make-string'/1
+        , 'make-string'/2
+        , 'string'/1
+        , 'string-length'/1
+        , 'string-ref'/2
+        , 'string-set!'/3
+        , 'string=?'/1
+        , 'string<?'/1
+        , 'string>?'/1
+        , 'string<=?'/1
+        , 'string>=?'/1
+        , 'substring'/3
+        , 'string-append'/1
+        , 'string->list'/1
+        , 'string->list'/2
+        , 'string->list'/3
+        , 'list->string'/1
+        , 'string-copy'/1
+        , 'string-copy'/2
+        , 'string-copy'/3
+        , 'string-copy!'/3
+        , 'string-copy!'/4
+        , 'string-copy!'/5
+        , 'string-fill!'/2
+        , 'string-fill!'/3
+        , 'string-fill!'/4
         ]).
 
 -include("scml.hrl").
@@ -71,23 +71,23 @@
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
     [{'string?', #nipn{val=fun ?MODULE:'string?'/1}}
-     , {'make-string', #nipn{val=[fun ?MODULE:'make-string'/1, fun ?MODULE:'make-string'/2]}}
-     , {'string', #nipn{val=fun ?MODULE:'string'/1}}
-     , {'string-length', #nipn{val=fun ?MODULE:'string-length'/1}}
-     , {'string-ref', #nipn{val=fun ?MODULE:'string-ref'/2}}
-     , {'string-set!', #nipn{val=fun ?MODULE:'string-set!'/3}}
-     , {'string=?', #nipv{val=fun ?MODULE:'string=?'/1}}
-     , {'string<?', #nipv{val=fun ?MODULE:'string<?'/1}}
-     , {'string>?', #nipv{val=fun ?MODULE:'string>?'/1}}
-     , {'string<=?', #nipv{val=fun ?MODULE:'string<=?'/1}}
-     , {'string>=?', #nipv{val=fun ?MODULE:'string>=?'/1}}
-     , {'substring', #nipn{val=fun ?MODULE:'substring'/3}}
-     , {'string-append', #nipv{val=fun ?MODULE:'string-append'/1}}
-     , {'string->list', #nipn{val=[fun ?MODULE:'string->list'/1, fun ?MODULE:'string->list'/2, fun ?MODULE:'string->list'/3]}}
-     , {'list->string', #nipn{val=fun ?MODULE:'list->string'/1}}
-     , {'string-copy', #nipn{val=[fun ?MODULE:'string-copy'/1, fun ?MODULE:'string-copy'/2, fun ?MODULE:'string-copy'/3]}}
-     , {'string-copy!', #nipn{val=[fun ?MODULE:'string-copy!'/3, fun ?MODULE:'string-copy!'/4, fun ?MODULE:'string-copy!'/5]}}
-     , {'string-fill!', #nipn{val=[fun ?MODULE:'string-fill!'/2, fun ?MODULE:'string-fill!'/3, fun ?MODULE:'string-fill!'/4]}}
+    , {'make-string', #nipn{val=[fun ?MODULE:'make-string'/1, fun ?MODULE:'make-string'/2]}}
+    , {'string', #nipn{val=fun ?MODULE:'string'/1}}
+    , {'string-length', #nipn{val=fun ?MODULE:'string-length'/1}}
+    , {'string-ref', #nipn{val=fun ?MODULE:'string-ref'/2}}
+    , {'string-set!', #nipn{val=fun ?MODULE:'string-set!'/3}}
+    , {'string=?', #nipv{val=fun ?MODULE:'string=?'/1}}
+    , {'string<?', #nipv{val=fun ?MODULE:'string<?'/1}}
+    , {'string>?', #nipv{val=fun ?MODULE:'string>?'/1}}
+    , {'string<=?', #nipv{val=fun ?MODULE:'string<=?'/1}}
+    , {'string>=?', #nipv{val=fun ?MODULE:'string>=?'/1}}
+    , {'substring', #nipn{val=fun ?MODULE:'substring'/3}}
+    , {'string-append', #nipv{val=fun ?MODULE:'string-append'/1}}
+    , {'string->list', #nipn{val=[fun ?MODULE:'string->list'/1, fun ?MODULE:'string->list'/2, fun ?MODULE:'string->list'/3]}}
+    , {'list->string', #nipn{val=fun ?MODULE:'list->string'/1}}
+    , {'string-copy', #nipn{val=[fun ?MODULE:'string-copy'/1, fun ?MODULE:'string-copy'/2, fun ?MODULE:'string-copy'/3]}}
+    , {'string-copy!', #nipn{val=[fun ?MODULE:'string-copy!'/3, fun ?MODULE:'string-copy!'/4, fun ?MODULE:'string-copy!'/5]}}
+    , {'string-fill!', #nipn{val=[fun ?MODULE:'string-fill!'/2, fun ?MODULE:'string-fill!'/3, fun ?MODULE:'string-fill!'/4]}}
     ].
 
 %%%===================================================================

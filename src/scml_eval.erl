@@ -30,7 +30,7 @@
 
 %% API
 -export(['environment'/1
-         , 'eval'/2
+        , 'eval'/2
         ]).
 
 -include("scml.hrl").
@@ -46,7 +46,7 @@
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
     [{'environment', #nipv{val=fun ?MODULE:'environment'/1}}
-     , {'eval', #nipn{val=fun ?MODULE:'eval'/2}}
+    , {'eval', #nipn{val=fun ?MODULE:'eval'/2}}
     ].
 
 %%%===================================================================

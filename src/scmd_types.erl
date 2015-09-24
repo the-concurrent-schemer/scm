@@ -26,30 +26,30 @@
 -module(scmd_types).
 
 -export_type([scm_alist/0
-              , scm_boolean/0, scm_true/0, scm_false/0
-              , scm_byte/0
-              , scm_bytevector/0
-              , scm_char/0
-              , scm_end/0
-              , scm_k/0, scm_k_pos/0
-              , scm_letter/0
-              , scm_list/0, scm_list_nonempty/0
-              , scm_n/0, scm_n_nonzero/0, scm_n_pos/0
-              , scm_obj/0
-              , scm_pair/0
-              , scm_port/0, scm_eof/0
-              , scm_proc/0
-              , scm_q/0
-              , scm_start/0
-              , scm_string/0
-              , scm_symbol/0
-              , scm_thunk/0
-              , scm_vector/0
-              , scm_x/0
-              , scm_y/0
-              , scm_z/0
-              , scm_exception/0
-              , scm_error/0
+             , scm_boolean/0, scm_true/0, scm_false/0
+             , scm_byte/0
+             , scm_bytevector/0
+             , scm_char/0
+             , scm_end/0
+             , scm_k/0, scm_k_pos/0
+             , scm_letter/0
+             , scm_list/0, scm_list_nonempty/0
+             , scm_n/0, scm_n_nonzero/0, scm_n_pos/0
+             , scm_obj/0
+             , scm_pair/0
+             , scm_port/0, scm_eof/0
+             , scm_proc/0
+             , scm_q/0
+             , scm_start/0
+             , scm_string/0
+             , scm_symbol/0
+             , scm_thunk/0
+             , scm_vector/0
+             , scm_x/0
+             , scm_y/0
+             , scm_z/0
+             , scm_exception/0
+             , scm_error/0
              ]).
 
 -type scm_alist()           :: [scm_pair()].                               % association list (list of pairs)

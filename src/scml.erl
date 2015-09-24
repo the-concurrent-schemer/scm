@@ -28,13 +28,13 @@
 
 %% External exports
 -export([libraries/0
-         , import_identifiers/2
-         , list_part/2, list_part/3
-         , tuple_part/2, tuple_part/3
-         , binary_part/2, binary_part/3
-         , to_unicode/1, to_utf8/1
-         , unicode_to_utf8/1, unicode_to_utf8/2, unicode_to_utf8/3
-         , utf8_to_unicode/1, utf8_to_unicode/2, utf8_to_unicode/3
+        , import_identifiers/2
+        , list_part/2, list_part/3
+        , tuple_part/2, tuple_part/3
+        , binary_part/2, binary_part/3
+        , to_unicode/1, to_utf8/1
+        , unicode_to_utf8/1, unicode_to_utf8/2, unicode_to_utf8/3
+        , utf8_to_unicode/1, utf8_to_unicode/2, utf8_to_unicode/3
         ]).
 
 -include("scml.hrl").

@@ -30,17 +30,17 @@
 
 %% API
 -export(['procedure?'/1
-         , 'apply'/4
-         , 'map'/4
-         , 'string-map'/4
-         , 'vector-map'/4
-         , 'for-each'/4
-         , 'string-for-each'/4
-         , 'vector-for-each'/4
-         , 'call/cc'/4
-         , 'values'/4
-         , 'call-with-values'/5
-         , 'dynamic-wind'/6
+        , 'apply'/4
+        , 'map'/4
+        , 'string-map'/4
+        , 'vector-map'/4
+        , 'for-each'/4
+        , 'string-for-each'/4
+        , 'vector-for-each'/4
+        , 'call/cc'/4
+        , 'values'/4
+        , 'call-with-values'/5
+        , 'dynamic-wind'/6
         ]).
 
 -import(scmi_analyze, [classify/1]).
@@ -61,18 +61,18 @@
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
     [{'procedure?', #nipn{val=fun ?MODULE:'procedure?'/1}}
-     , {'apply', #xnipv{val=fun ?MODULE:'apply'/4}}
-     , {'map', #xnipv{val=fun ?MODULE:'map'/4}}
-     , {'string-map', #xnipv{val=fun ?MODULE:'string-map'/4}}
-     , {'vector-map', #xnipv{val=fun ?MODULE:'vector-map'/4}}
-     , {'for-each', #xnipv{val=fun ?MODULE:'for-each'/4}}
-     , {'string-for-each', #xnipv{val=fun ?MODULE:'string-for-each'/4}}
-     , {'vector-for-each', #xnipv{val=fun ?MODULE:'vector-for-each'/4}}
-     , {'call/cc', #xnipn{val=fun ?MODULE:'call/cc'/4}}
-     , {'call-with-current-continuation', #xnipn{val=fun ?MODULE:'call/cc'/4}}
-     , {'values', #xnipv{val=fun ?MODULE:'values'/4}}
-     , {'call-with-values', #xnipn{val=fun ?MODULE:'call-with-values'/5}}
-     , {'dynamic-wind', #xnipn{val=fun ?MODULE:'dynamic-wind'/6}}
+    , {'apply', #xnipv{val=fun ?MODULE:'apply'/4}}
+    , {'map', #xnipv{val=fun ?MODULE:'map'/4}}
+    , {'string-map', #xnipv{val=fun ?MODULE:'string-map'/4}}
+    , {'vector-map', #xnipv{val=fun ?MODULE:'vector-map'/4}}
+    , {'for-each', #xnipv{val=fun ?MODULE:'for-each'/4}}
+    , {'string-for-each', #xnipv{val=fun ?MODULE:'string-for-each'/4}}
+    , {'vector-for-each', #xnipv{val=fun ?MODULE:'vector-for-each'/4}}
+    , {'call/cc', #xnipn{val=fun ?MODULE:'call/cc'/4}}
+    , {'call-with-current-continuation', #xnipn{val=fun ?MODULE:'call/cc'/4}}
+    , {'values', #xnipv{val=fun ?MODULE:'values'/4}}
+    , {'call-with-values', #xnipn{val=fun ?MODULE:'call-with-values'/5}}
+    , {'dynamic-wind', #xnipn{val=fun ?MODULE:'dynamic-wind'/6}}
     ].
 
 %%%===================================================================

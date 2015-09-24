@@ -30,11 +30,11 @@
 
 %% API
 -export(['make-rectangular'/2
-         , 'make-polar'/2
-         , 'real-part'/1
-         , 'imag-part'/1
-         , 'magnitude'/1
-         , 'angle'/1
+        , 'make-polar'/2
+        , 'real-part'/1
+        , 'imag-part'/1
+        , 'magnitude'/1
+        , 'angle'/1
         ]).
 
 -include("scml.hrl").
@@ -50,11 +50,11 @@
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
     [{'make-rectangular', #nipn{val=fun ?MODULE:'make-rectangular'/2}}
-     , {'make-polar', #nipn{val=fun ?MODULE:'make-polar'/2}}
-     , {'real-part', #nipn{val=fun ?MODULE:'real-part'/1}}
-     , {'imag-part', #nipn{val=fun ?MODULE:'imag-part'/1}}
-     , {'magnitude', #nipn{val=fun ?MODULE:'magnitude'/1}}
-     , {'angle', #nipn{val=fun ?MODULE:'angle'/1}}
+    , {'make-polar', #nipn{val=fun ?MODULE:'make-polar'/2}}
+    , {'real-part', #nipn{val=fun ?MODULE:'real-part'/1}}
+    , {'imag-part', #nipn{val=fun ?MODULE:'imag-part'/1}}
+    , {'magnitude', #nipn{val=fun ?MODULE:'magnitude'/1}}
+    , {'angle', #nipn{val=fun ?MODULE:'angle'/1}}
     ].
 
 %%%===================================================================

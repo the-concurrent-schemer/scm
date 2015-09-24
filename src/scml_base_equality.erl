@@ -30,8 +30,8 @@
 
 %% API
 -export(['eqv?'/2
-         , 'eq?'/2
-         , 'equal?'/2
+        , 'eq?'/2
+        , 'equal?'/2
         ]).
 
 -include("scml.hrl").
@@ -47,8 +47,8 @@
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
     [{'eqv?', #nipn{val=fun ?MODULE:'eqv?'/2}}
-     , {'eq?', #nipn{val=fun ?MODULE:'eq?'/2}}
-     , {'equal?', #nipn{val=fun ?MODULE:'equal?'/2}}
+    , {'eq?', #nipn{val=fun ?MODULE:'eq?'/2}}
+    , {'equal?', #nipn{val=fun ?MODULE:'equal?'/2}}
     ].
 
 %%%===================================================================

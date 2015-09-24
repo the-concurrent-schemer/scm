@@ -28,20 +28,20 @@
 %% External exports
 -export([%% resource
          notify_when_destroyed/2
-         , notify_when_destroyed/3
-         , is_resource/1
-         , new/2
+        , notify_when_destroyed/3
+        , is_resource/1
+        , new/2
          %% client
-         , is_resource_alive/1, is_resource_alive/2
-         , open/2
-         , close/1, close/2
-         , is_ready/1
-         , read/2
-         , read_all/1
-         , read_line/1
-         , peek/2
-         , write/2
-         , flush/1
+        , is_resource_alive/1, is_resource_alive/2
+        , open/2
+        , close/1, close/2
+        , is_ready/1
+        , read/2
+        , read_all/1
+        , read_line/1
+        , peek/2
+        , write/2
+        , flush/1
         ]).
 
 -on_load(init/0).

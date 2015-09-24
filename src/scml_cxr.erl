@@ -30,29 +30,29 @@
 
 %% API
 -export([caaar/1
-         , caadr/1
-         , cadar/1
-         , caddr/1
-         , cdaar/1
-         , cdadr/1
-         , cddar/1
-         , cdddr/1
-         , caaaar/1
-         , caaadr/1
-         , caadar/1
-         , caaddr/1
-         , cadaar/1
-         , cadadr/1
-         , caddar/1
-         , cadddr/1
-         , cdaaar/1
-         , cdaadr/1
-         , cdadar/1
-         , cdaddr/1
-         , cddaar/1
-         , cddadr/1
-         , cdddar/1
-         , cddddr/1
+        , caadr/1
+        , cadar/1
+        , caddr/1
+        , cdaar/1
+        , cdadr/1
+        , cddar/1
+        , cdddr/1
+        , caaaar/1
+        , caaadr/1
+        , caadar/1
+        , caaddr/1
+        , cadaar/1
+        , cadadr/1
+        , caddar/1
+        , cadddr/1
+        , cdaaar/1
+        , cdaadr/1
+        , cdadar/1
+        , cdaddr/1
+        , cddaar/1
+        , cddadr/1
+        , cdddar/1
+        , cddddr/1
         ]).
 
 -include("scml.hrl").
@@ -68,29 +68,29 @@
 -spec '$scml_exports'() -> [{scm_symbol(), scmi_nip()}].
 '$scml_exports'() ->
     [{caaar, #nipn{val=fun caaar/1}}
-     , {caadr, #nipn{val=fun caadr/1}}
-     , {cadar, #nipn{val=fun cadar/1}}
-     , {caddr, #nipn{val=fun caddr/1}}
-     , {cdaar, #nipn{val=fun cdaar/1}}
-     , {cdadr, #nipn{val=fun cdadr/1}}
-     , {cddar, #nipn{val=fun cddar/1}}
-     , {cdddr, #nipn{val=fun cdddr/1}}
-     , {caaaar, #nipn{val=fun caaaar/1}}
-     , {caaadr, #nipn{val=fun caaadr/1}}
-     , {caadar, #nipn{val=fun caadar/1}}
-     , {caaddr, #nipn{val=fun caaddr/1}}
-     , {cadaar, #nipn{val=fun cadaar/1}}
-     , {cadadr, #nipn{val=fun cadadr/1}}
-     , {caddar, #nipn{val=fun caddar/1}}
-     , {cadddr, #nipn{val=fun cadddr/1}}
-     , {cdaaar, #nipn{val=fun cdaaar/1}}
-     , {cdaadr, #nipn{val=fun cdaadr/1}}
-     , {cdadar, #nipn{val=fun cdadar/1}}
-     , {cdaddr, #nipn{val=fun cdaddr/1}}
-     , {cddaar, #nipn{val=fun cddaar/1}}
-     , {cddadr, #nipn{val=fun cddadr/1}}
-     , {cdddar, #nipn{val=fun cdddar/1}}
-     , {cddddr, #nipn{val=fun cddddr/1}}
+    , {caadr, #nipn{val=fun caadr/1}}
+    , {cadar, #nipn{val=fun cadar/1}}
+    , {caddr, #nipn{val=fun caddr/1}}
+    , {cdaar, #nipn{val=fun cdaar/1}}
+    , {cdadr, #nipn{val=fun cdadr/1}}
+    , {cddar, #nipn{val=fun cddar/1}}
+    , {cdddr, #nipn{val=fun cdddr/1}}
+    , {caaaar, #nipn{val=fun caaaar/1}}
+    , {caaadr, #nipn{val=fun caaadr/1}}
+    , {caadar, #nipn{val=fun caadar/1}}
+    , {caaddr, #nipn{val=fun caaddr/1}}
+    , {cadaar, #nipn{val=fun cadaar/1}}
+    , {cadadr, #nipn{val=fun cadadr/1}}
+    , {caddar, #nipn{val=fun caddar/1}}
+    , {cadddr, #nipn{val=fun cadddr/1}}
+    , {cdaaar, #nipn{val=fun cdaaar/1}}
+    , {cdaadr, #nipn{val=fun cdaadr/1}}
+    , {cdadar, #nipn{val=fun cdadar/1}}
+    , {cdaddr, #nipn{val=fun cdaddr/1}}
+    , {cddaar, #nipn{val=fun cddaar/1}}
+    , {cddadr, #nipn{val=fun cddadr/1}}
+    , {cdddar, #nipn{val=fun cdddar/1}}
+    , {cddddr, #nipn{val=fun cddddr/1}}
     ].
 
 %%%===================================================================

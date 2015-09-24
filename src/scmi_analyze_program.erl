@@ -30,11 +30,11 @@
 
 %% External exports
 -export([analyze_import/2
-         , analyze_define/2
-         , analyze_define_values/2
-         , analyze_define_syntax/2
-         , analyze_define_record_type/2
-         , analyze_define_library/2
+        , analyze_define/2
+        , analyze_define_values/2
+        , analyze_define_syntax/2
+        , analyze_define_record_type/2
+        , analyze_define_library/2
         ]).
 
 %% Internal imports
@@ -53,11 +53,11 @@
 -spec '$scmi_exports'() -> [{scm_symbol(), scmi_expander()}].
 '$scmi_exports'() ->
     [{'import', #expander{val=fun ?MODULE:'analyze_import'/2}}
-     , {'define', #expander{val=fun ?MODULE:'analyze_define'/2}}
-     , {'define-values', #expander{val=fun ?MODULE:'analyze_define_values'/2}}
-     , {'define-syntax', #expander{val=fun ?MODULE:'analyze_define_syntax'/2}}
-     , {'define-record-type', #expander{val=fun ?MODULE:'analyze_define_record_type'/2}}
-     , {'define-library', #expander{val=fun ?MODULE:'analyze_define_library'/2}}
+    , {'define', #expander{val=fun ?MODULE:'analyze_define'/2}}
+    , {'define-values', #expander{val=fun ?MODULE:'analyze_define_values'/2}}
+    , {'define-syntax', #expander{val=fun ?MODULE:'analyze_define_syntax'/2}}
+    , {'define-record-type', #expander{val=fun ?MODULE:'analyze_define_record_type'/2}}
+    , {'define-library', #expander{val=fun ?MODULE:'analyze_define_library'/2}}
     ].
 
 %%%----------------------------------------------------------------------
