@@ -121,11 +121,11 @@ basic_tests() ->
     , {ok, "(lyst 1 2 3 (+ 2 2))", "(1 2 3 4)"}
     , {ok, "(if 1 2)", "2"}
     , {ok, "(if (= 3 4) 2)", "#f"}
-    , {ng, "(define ((account bal) amt) (set! bal (+ bal amt)) bal)", "#f"}
-    , {ng, "(define a1 (account 100))", "#f"}
-    , {ng, "(a1 0)", "100"}
-    , {ng, "(a1 10)", "110"}
-    , {ng, "(a1 10)", "120"}
+    , {ok, "(define (account bal) (lambda (amt) (set! bal (+ bal amt)) bal))", "#f"}
+    , {ok, "(define a1 (account 100))", "#f"}
+    , {ok, "(a1 0)", "100"}
+    , {ok, "(a1 10)", "110"}
+    , {ok, "(a1 10)", "120"}
     , {ok, "(define (newton guess function derivative epsilon)"
        "    (define guess2 (- guess (/ (function guess) (derivative guess))))"
        "    (if (< (abs (- guess guess2)) epsilon) guess2"
