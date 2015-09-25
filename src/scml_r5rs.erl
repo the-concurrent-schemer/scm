@@ -448,7 +448,7 @@
      %% derived - let-syntax
      %% derived - letrec
      %% derived - letrec-syntax
-    , {'list', #nipn{val=fun ?MODULE:'list'/1}}
+    , {'list', #nipv{val=fun ?MODULE:'list'/1}}
     , {'list->string', #nipn{val=fun ?MODULE:'list->string'/1}}
     , {'list->vector', #nipn{val=fun ?MODULE:'list->vector'/1}}
     , {'list-ref', #nipn{val=fun ?MODULE:'list-ref'/2}}

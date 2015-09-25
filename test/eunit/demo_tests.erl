@@ -81,7 +81,7 @@ basic_tests() ->
     , {ok, "(define twice (lambda (x) (* 2 x)))", "#f"}
     , {ok, "(twice 5)", "10"}
     , {ok, "(define compose (lambda (f g) (lambda (x) (f (g x)))))", "#f"}
-    , {ng, "((compose list twice) 5)", "(10)"}
+    , {ok, "((compose list twice) 5)", "(10)"}
     , {ok, "(define repeat (lambda (f) (compose f f)))", "#f"}
     , {ok, "((repeat twice) 5)", "20"}
     , {ok, "((repeat (repeat twice)) 5)", "80"}
@@ -89,22 +89,22 @@ basic_tests() ->
     , {ng, "(fact 3)", "6"}
     , {ng, "(fact 50)", "30414093201713378043612608166064768844377641568960512000000000000"}
     , {ok, "(define abs (lambda (n) ((if (> n 0) + -) 0 n)))", "#f"}
-    , {ng, "(list (abs -3) (abs 0) (abs 3))", "(3 0 3)"}
+    , {ok, "(list (abs -3) (abs 0) (abs 3))", "(3 0 3)"}
     , {ok, "(define combine (lambda (f)"
        "    (lambda (x y)"
        "      (if (null? x) (quote ())"
        "          (f (list (car x) (car y))"
        "             ((combine f) (cdr x) (cdr y)))))))", "#f"}
     , {ok, "(define zip (combine cons))", "#f"}
-    , {ng, "(zip (list 1 2 3 4) (list 5 6 7 8))", "((1 5) (2 6) (3 7) (4 8))"}
+    , {ok, "(zip (list 1 2 3 4) (list 5 6 7 8))", "((1 5) (2 6) (3 7) (4 8))"}
     , {ok, "(define riff-shuffle (lambda (deck) (begin"
        "    (define take (lambda (n seq) (if (<= n 0) (quote ()) (cons (car seq) (take (- n 1) (cdr seq))))))"
        "    (define drop (lambda (n seq) (if (<= n 0) seq (drop (- n 1) (cdr seq)))))"
        "    (define mid (lambda (seq) (/ (length seq) 2)))"
        "    ((combine append) (take (mid deck) deck) (drop (mid deck) deck)))))", "#f"}
-    , {ng, "(riff-shuffle (list 1 2 3 4 5 6 7 8))", "(1 5 2 6 3 7 4 8)"}
-    , {ng, "((repeat riff-shuffle) (list 1 2 3 4 5 6 7 8))", "(1 3 5 7 2 4 6 8)"}
-    , {ng, "(riff-shuffle (riff-shuffle (riff-shuffle (list 1 2 3 4 5 6 7 8))))", "(1 2 3 4 5 6 7 8)"}
+    , {ok, "(riff-shuffle (list 1 2 3 4 5 6 7 8))", "(1 5 2 6 3 7 4 8)"}
+    , {ok, "((repeat riff-shuffle) (list 1 2 3 4 5 6 7 8))", "(1 3 5 7 2 4 6 8)"}
+    , {ok, "(riff-shuffle (riff-shuffle (riff-shuffle (list 1 2 3 4 5 6 7 8))))", "(1 2 3 4 5 6 7 8)"}
     , {ok, "()", error}
     , {ok, "(set! x)", error}
     , {ok, "(define 3 4)", error}
