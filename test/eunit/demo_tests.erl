@@ -134,11 +134,11 @@ basic_tests() ->
     , {ok, "(call/cc (lambda (throw) (+ 5 (* 10 (throw 1))))) ;; throw", "1"}
     , {ok, "(call/cc (lambda (throw) (+ 5 (* 10 1)))) ;; do not throw", "15"}
     , {ok, "(call/cc (lambda (throw)"
-       "         (+ 5 (* 10 (call/cc (lambda (escape) (* 100 (escape 3)))))))) ; 1 level", "35"}
+       "       (+ 5 (* 10 (call/cc (lambda (escape) (* 100 (escape 3)))))))) ; 1 level", "35"}
     , {ok, "(call/cc (lambda (throw)"
-       "         (+ 5 (* 10 (call/cc (lambda (escape) (* 100 (throw 3)))))))) ; 2 levels", "3"}
+       "       (+ 5 (* 10 (call/cc (lambda (escape) (* 100 (throw 3)))))))) ; 2 levels", "3"}
     , {ok, "(call/cc (lambda (throw)"
-       "         (+ 5 (* 10 (call/cc (lambda (escape) (* 100 1))))))) ; 0 levels", "1005"}
+       "       (+ 5 (* 10 (call/cc (lambda (escape) (* 100 1))))))) ; 0 levels", "1005"}
     , {ng, "(* 1i 1i)", "(-1+0i)"}
     , {ng, "(sqrt -1)", "1i"}
     , {ok, "(let ((a 1) (b 2)) (+ a b))", "3"}
