@@ -358,25 +358,25 @@
 '+'(Zs) ->
     %% @TODO
     %% erlang:error({roadmap,'v0.7.0'}, [Zs]).
-    lists:foldl(fun(A, B) -> A + B end, 0, Zs).
+    lists:foldl(fun(Z, Acc) -> Acc + Z end, 0, Zs).
 
 -spec '*'([scm_z()]) -> scm_z().
 '*'(Zs) ->
     %% @TODO
     %% erlang:error({roadmap,'v0.7.0'}, [Zs]).
-    lists:foldl(fun(A, B) -> A * B end, 1, Zs).
+    lists:foldl(fun(Z, Acc) -> Acc * Z end, 1, Zs).
 
 -spec '-'([scm_z(),...]) -> scm_z().
 '-'(Zs) ->
     %% @TODO
     %% erlang:error({roadmap,'v0.7.0'}, [Zs]).
-    lists:foldl(fun(A, B) -> A - B end, hd(Zs), tl(Zs)).
+    lists:foldl(fun(Z, Acc) -> Acc - Z end, hd(Zs), tl(Zs)).
 
 -spec '/'([scm_z(),...]) -> scm_z().
 '/'(Zs) ->
     %% @TODO
     %% erlang:error({roadmap,'v0.7.0'}, [Zs]).
-    lists:foldl(fun(A, B) -> A / B end, hd(Zs), tl(Zs)).
+    lists:foldl(fun(Z, Acc) -> Acc / Z end, hd(Zs), tl(Zs)).
 
 -spec 'abs'(scm_x()) -> scm_x().
 'abs'(X) ->

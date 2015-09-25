@@ -86,8 +86,8 @@ basic_tests() ->
     , {ok, "((repeat twice) 5)", "20"}
     , {ok, "((repeat (repeat twice)) 5)", "80"}
     , {ok, "(define fact (lambda (n) (if (<= n 1) 1 (* n (fact (- n 1))))))", "#f"}
-    , {ng, "(fact 3)", "6"}
-    , {ng, "(fact 50)", "30414093201713378043612608166064768844377641568960512000000000000"}
+    , {ok, "(fact 3)", "6"}
+    , {ok, "(fact 50)", "30414093201713378043612608166064768844377641568960512000000000000"}
     , {ok, "(define abs (lambda (n) ((if (> n 0) + -) 0 n)))", "#f"}
     , {ok, "(list (abs -3) (abs 0) (abs 3))", "(3 0 3)"}
     , {ok, "(define combine (lambda (f)"
