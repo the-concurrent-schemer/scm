@@ -126,19 +126,10 @@ basic_tests() ->
     , {ok, "(a1 0)", "100"}
     , {ok, "(a1 10)", "110"}
     , {ok, "(a1 10)", "120"}
-    , {ok, "(define (newton guess function derivative epsilon)"
-       "    (define guess2 (- guess (/ (function guess) (derivative guess))))"
-       "    (if (< (abs (- guess guess2)) epsilon) guess2"
-       "        (newton guess2 function derivative epsilon)))", "#f"}
-    , {ok, "(define (square-root a)"
-       "    (newton 1 (lambda (x) (- (* x x) a)) (lambda (x) (* 2 x)) 1e-8))", "#f"}
-    , {ng, "(> (square-root 200.) 14.14213)", "#t"}
-    , {ok, "(< (square-root 200.) 14.14215)", "#t"}
-    , {ng, "(= (square-root 200.) (sqrt 200.))", "#t"}
     , {ok, "(define (sum-squares-range start end)"
-       "         (define (sumsq-acc start end acc)"
-       "            (if (> start end) acc (sumsq-acc (+ start 1) end (+ (* start start) acc))))"
-       "         (sumsq-acc start end 0))", "#f"}
+       "       (define (sumsq-acc start end acc)"
+       "          (if (> start end) acc (sumsq-acc (+ start 1) end (+ (* start start) acc))))"
+       "       (sumsq-acc start end 0))", "#f"}
     , {ok, "(sum-squares-range 1 3000)", "9004500500"}
     , {ok, "(call/cc (lambda (throw) (+ 5 (* 10 (throw 1))))) ;; throw", "1"}
     , {ok, "(call/cc (lambda (throw) (+ 5 (* 10 1)))) ;; do not throw", "15"}
