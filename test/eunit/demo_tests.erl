@@ -64,8 +64,6 @@ exec_basic_tests(Env) ->
 %% @TODO
 %%   - fix each No Good (ng) case
 %%   - double check each Error (error) case
-%%   - replace the atom error for each Error case with it's explicit
-%%     exit or error reason
 
 basic_tests() ->
     [ {ok, "'(testing 1 (2.0) -3.14e159)", "(testing 1 (2.0) -3.14e+159)"}
@@ -105,18 +103,18 @@ basic_tests() ->
     , {ok, "(riff-shuffle (list 1 2 3 4 5 6 7 8))", "(1 5 2 6 3 7 4 8)"}
     , {ok, "((repeat riff-shuffle) (list 1 2 3 4 5 6 7 8))", "(1 3 5 7 2 4 6 8)"}
     , {ok, "(riff-shuffle (riff-shuffle (riff-shuffle (list 1 2 3 4 5 6 7 8))))", "(1 2 3 4 5 6 7 8)"}
-    , {ok, "()", error}
-    , {ok, "(set! x)", error}
-    , {ok, "(define 3 4)", error}
-    , {ok, "(quote 1 2)", error}
-    , {ok, "(if 1 2 3 4)", error}
-    , {ok, "(lambda 3 3)", error}
-    , {ok, "(lambda (x))", error}
+    , {ok, "()", {error, function_clause}}
+    , {ok, "(set! x)", {error, function_clause}}
+    , {ok, "(define 3 4)", {error, function_clause}}
+    , {ok, "(quote 1 2)", {error, function_clause}}
+    , {ok, "(if 1 2 3 4)", {error, function_clause}}
+    , {ok, "(lambda 3 3)", {error, function_clause}}
+    , {ok, "(lambda (x))", {error, function_clause}}
     , {ok, "(if (= 1 2) (define-macro a 'a)"
-       "    (define-macro a 'b))", error}
+       "    (define-macro a 'b))", {error, function_clause}}
     , {ok, "(define (twice-again x) (* 2 x))", "#f"}
     , {ok, "(twice-again 2)", "4"}
-    , {ok, "(twice-again 2 2)", error}
+    , {ok, "(twice-again 2 2)", {error, function_clause}}
     , {ok, "(define lyst (lambda items items))", "#f"}
     , {ok, "(lyst 1 2 3 (+ 2 2))", "(1 2 3 4)"}
     , {ok, "(if 1 2)", "2"}
@@ -139,10 +137,10 @@ basic_tests() ->
        "       (+ 5 (* 10 (call/cc (lambda (escape) (* 100 (throw 3)))))))) ; 2 levels", "3"}
     , {ok, "(call/cc (lambda (throw)"
        "       (+ 5 (* 10 (call/cc (lambda (escape) (* 100 1))))))) ; 0 levels", "1005"}
-    , {ng, "(* 1i 1i)", "(-1+0i)"}
-    , {ng, "(sqrt -1)", "1i"}
+    , {ng, "(* 1i 1i)", "(-1+0i)"} % @TODO {roadmap,'v0.7.0'}
+    , {ng, "(sqrt -1)", "1i"}      % @TODO {roadmap,'v0.7.0'}
     , {ok, "(let ((a 1) (b 2)) (+ a b))", "3"}
-    , {ok, "(let ((a 1) (b 2 3)) (+ a b))", error}
+    , {ok, "(let ((a 1) (b 2 3)) (+ a b))", {error, function_clause}}
     , {ok, "(and 1 2 3)", "3"}
     , {ok, "(and (> 2 1) 2 3)", "3"}
     , {ok, "(and)", "#t"}
@@ -157,7 +155,7 @@ basic_tests() ->
     , {ng, "(define L (list 1 2 3))", "#f"}
     , {ng, "`(testing ,@L testing)", "(testing 1 2 3 testing)"}
     , {ng, "`(testing ,L testing)", "(testing (1 2 3) testing)"}
-    , {ok, "`,@L", error}
+    , {ok, "`,@L", {error, function_clause}}
     , {ng, "'(1 ;test comments '"
        "     ;skip this line"
        "     2 ; more ; comments ; ) )"
@@ -177,25 +175,25 @@ basic_tests() ->
                         Exec = scmi_eval:eval(ExpA, Env),
                         case scml_base_equality:'equal?'(Exec, ExpB) of
                             ?FALSE when Status == ok ->
-                                ?assertEqual({"A", A, Exec}, {"B", B, ExpB});
+                                ?assertEqual({"A=", A, ExpA, Exec, "B=", B, ExpB}, false);
                             _ ->
                                 ?assert(true)
                         end;
                     Err when Status == ok ->
-                        ?assertEqual({"B", B, parse}, Err);
+                        ?assertEqual({"B=", B, parse}, Err);
                     _ ->
                         ?assert(true)
                 end;
             Err when Status == ok ->
-                ?assertEqual({"A", A, parse}, Err);
+                ?assertEqual({"A=", A, parse}, Err);
             _ ->
                 ?assert(true)
         end
     catch
-        _:_ when Status == ok, B == error ->
+        X:Y when Status == ok, {X,Y} == B ->
             ?assert(true);
-        _:_ when Status == ng, B /= error ->
+        X:Y when Status == ng, {X,Y} /= B ->
             ?assert(true);
         X:Y ->
-            ?assertEqual({"A", A, "B", B}, {X, Y})
+            ?assertEqual({"A=", A, "B=", B, "catch=", X, Y}, false)
     end.
